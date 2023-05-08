@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../utils/context/AppContext";
-import Logo from "../components/atoms/Logo";
+import Logo from "../components/atoms/assets/Logo";
 import Navlink from "../components/molecules/navigation/Navlink";
 import BurgerButton from "../components/molecules/navigation/BugerButton/";
 

@@ -1,5 +1,5 @@
 import defaultAvatar from "../assets/logo.svg";
-import Hero from "./atoms/Hero";
+import Hero from "./atoms/assets/Hero";
 
 const PlayerCard = ({ data }) => {
   return (
