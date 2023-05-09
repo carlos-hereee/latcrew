@@ -48,11 +48,9 @@ const Checkout = () => {
   }, [user, cart]);
 
   return (
-    <section className="secondary-container">
+    <section className="section-container">
       <CardHeader data={checkout} />
-      {/* <ChechoutNav /> */}
       <ButtonLinks links={["services", "accessories"]} />
-
       {isUserInfoReq && <UserContact />}
       {cart.length > 0 ? <BagSummary /> : <CartEmpty />}
       {total > 0 && <Total total={total} />}

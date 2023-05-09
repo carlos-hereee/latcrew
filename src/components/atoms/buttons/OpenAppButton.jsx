@@ -1,15 +1,15 @@
 import { useContext } from "react";
 import { CalendarContext } from "../../../utils/context/CalendarContext";
 import { ServicesContext } from "../../../utils/context/ServicesContext";
-import { UserContext } from "../../../utils/context/UserContext";
-import { scrollToCartItem } from "../../../utils/functions/calendar";
-import { minDate, getMeetingList, minTime } from "../../../utils/functions/moment";
+import { minDate, getMeetingList, minTime } from "../../../utils/fns/moment";
+import { AuthContext } from "../../../utils/context/AuthContext";
+import { scrollToCartItem } from "../../../utils/fns/calendar";
 
 const OpenAppButton = ({ service }) => {
   const { events, setDay, selectedDay, setMeeting, bookNow } =
     useContext(CalendarContext);
   const { setActive, setIsUserReq } = useContext(ServicesContext);
-  const { user } = useContext(UserContext);
+  const { user } = useContext(AuthContext);
   const handleClick = () => {
     if (service.uid) {
       setActive(service);

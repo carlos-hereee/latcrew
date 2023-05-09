@@ -7,6 +7,7 @@ import { AppState } from "./utils/context/AppContext";
 import { ServicesState } from "./utils/context/ServicesContext";
 import { LogState } from "./utils/context/LogContext";
 import { AuthState } from "./utils/context/AuthContext";
+import { CalendarState } from "./utils/context/CalendarContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -15,7 +16,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <AuthState>
           <AppState>
             <ServicesState>
-              <App />
+              <CalendarState>
+                <App />
+              </CalendarState>
             </ServicesState>
           </AppState>
         </AuthState>
