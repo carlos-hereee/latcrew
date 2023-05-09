@@ -1,8 +1,8 @@
 import { createContext, useReducer, useContext, useEffect } from "react";
 import shortid from "shortid";
 import { LogContext } from "./LogContext";
-import { UserContext } from "./UserContext";
 import { reducer } from "../reducer/ServicesReducer";
+import { AuthContext } from "./AuthContext";
 
 export const ServicesContext = createContext();
 export const ServicesState = ({ children }) => {
@@ -51,7 +51,7 @@ export const ServicesState = ({ children }) => {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const { addMessageToLog } = useContext(LogContext);
-  const { updateUserData, user } = useContext(UserContext);
+  const { updateUserData, user } = useContext(AuthContext);
 
   useEffect(() => {
     if (user.uid) {
