@@ -43,7 +43,7 @@ export const AppState = ({ children }) => {
     console.log("accesstoken", accessToken);
   };
   const toggleMenu = (menu, m) => {
-    let data = menu.map((i) => {
+    const data = menu.map((i) => {
       if (i.uid === m.uid) {
         return { ...i, isAlt: !i.isAlt };
       } else return i;
@@ -74,15 +74,17 @@ export const AppState = ({ children }) => {
     dispatch({ type: "UPDATE_BURGER", payload: payload });
   };
   const updateMenu = (menu, payload) => {
-    let data = menu.map((m) => {
-      if (m.name === "services") {
-        return { ...m, notification: payload.services };
-      } else if (m.name === "checkout") {
-        return { ...m, notification: payload.accessory + payload.services };
-      }
-      return m;
-    });
-    dispatch({ type: "UPDATE_MENU", payload: data });
+    if (payload) {
+      let data = menu.map((m) => {
+        if (m.name === "services") {
+          return { ...m, notification: payload.services };
+        } else if (m.name === "checkout") {
+          return { ...m, notification: payload.accessory + payload.services };
+        }
+        return m;
+      });
+      dispatch({ type: "UPDATE_MENU", payload: data });
+    } else dispatch({ type: "UPDATE_MENU", payload: menu });
   };
   const newsletter = async (values) => {
     dispatch({ type: "IS_LOADING", payload: true });

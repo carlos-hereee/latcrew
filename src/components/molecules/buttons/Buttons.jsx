@@ -1,13 +1,12 @@
-// import Icons from "../../icons/Icons";
-// import NotificationCount from "../SetNotificationCount";
+import NotificationCount from "../SetNotificationCount";
+import Icons from "../icons/Icons";
 
-// eslint-disable-next-line no-unused-vars
 const Buttons = ({ name, handleClick, notification, size }) => {
   return (
     <button type="button" onClick={handleClick} className={`btn-${name} btn-icons`}>
-      {/* <Icons name={n} size={size} /> */}
+      <Icons name={name} size={size} />
       <span className="icon-label">{name[0].toUpperCase() + name.substring(1)}</span>
-      {/* <NotificationCount count={notification} /> */}
+      <NotificationCount count={notification} />
     </button>
   );
 };
