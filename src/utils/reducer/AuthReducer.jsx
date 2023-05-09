@@ -27,7 +27,6 @@ export const reducer = (state, action) => {
       return setError(state, action);
     case "SET_ACCESS_TOKEN":
       return setAccessToken(state, action);
-
     case "SET_USER_DATA":
       return setUserData(state, action);
     default:

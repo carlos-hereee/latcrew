@@ -74,4 +74,11 @@
 .section-container {
   background-color: #{$secondary-color2};
   padding: 1rem;
+  div {
+    &:nth-child(even) {
+      background-color: #{$secondary-color};
+      color: #{$secondary-text};
+      border-radius: 0.5rem;
+    }
+  }
 }
