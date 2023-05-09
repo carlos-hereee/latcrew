@@ -2,6 +2,13 @@ import shortid from "shortid";
 import { lorem20, lorem10 } from "./variables";
 
 export const app = {
+  services: {
+    title: "Services",
+    subtitle: "",
+    hasHero: false,
+    hasIcon: false,
+    hero: { link: "", name: "main-hero" },
+  },
   socials: [
     {
       isEmpty: true,
@@ -74,7 +81,7 @@ export const app = {
       notification: 0,
       alt: "english",
     },
-    { name: "service", uid: shortid.generate(), notification: 0 },
+    { name: "services", uid: shortid.generate(), notification: 0 },
     {
       name: "dashboard",
       uid: shortid.generate(),

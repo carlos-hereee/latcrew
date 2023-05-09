@@ -10,6 +10,7 @@ import { AuthContext } from "./utils/context/AuthContext";
 import Loading from "./components/molecules/Loading";
 import PrivateRoute from "./utils/fns/PrivateRoute";
 import { AppContext } from "./utils/context/AppContext";
+import Services from "./pages/Services";
 
 function App() {
   const { isLoading } = useContext(AuthContext);
@@ -30,6 +31,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Landing />} />
           <Route path="/login" element={<Auth />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/signup" element={<Register />} />
           <Route path="/dashboard" element={<PrivateRoute />}>
             {/* <Route path */}

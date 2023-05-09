@@ -20,6 +20,7 @@ export const AppState = ({ children }) => {
     checkout: app.checkout,
     contact: app.contact,
     footerNewsletter: app.footerNewsletter,
+    services: app.services,
     burger: { notification: 0 },
     paymentType: {},
     selected: {},
@@ -27,7 +28,6 @@ export const AppState = ({ children }) => {
     appliedFilters: [],
     filtered: [],
     filterToggle: false,
-    games: app.games,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const { accessToken } = useContext(AuthContext);
@@ -186,7 +186,6 @@ export const AppState = ({ children }) => {
         appliedFilters: state.appliedFilters,
         isFiltered: state.isFiltered,
         filterToggle: state.filterToggle,
-        games: state.games,
         updateBurger,
         updateMenu,
         newsletter,
