@@ -1,3 +1,5 @@
+import shortid from "shortid";
+
 export const lorem10 =
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, neque?";
 export const lorem20 =
@@ -18,3 +20,21 @@ export let minPrice = (count, increment) => {
 
 export const color = ["red", "blue", "black", "white", "yellow", "brown"];
 export const getRandomArr = (arr) => arr[Math.floor(Math.random() * arr.length)];
+export const serviceSection = (n) => {
+  return {
+    hasHero: false,
+    hasIcon: false,
+    uid: shortid.generate(),
+    subtitle: "Dolor sit",
+    hero: { link: "/lorem", name: "lorem ipsum" },
+    hasLink: false,
+    isForSale: true,
+    isBookable: true,
+    isAccessory: false,
+    count: 1,
+    hyperlink: [{ word: "Maiores", link: "/lorem" }],
+    title: "Lorem Ipsum",
+    cost: random100(n),
+    response: lorem20,
+  };
+};

@@ -53,11 +53,11 @@ export const ServicesState = ({ children }) => {
   const { addMessageToLog } = useContext(LogContext);
   const { updateUserData, user } = useContext(AuthContext);
 
-  useEffect(() => {
-    if (user.uid) {
-      setIsUserReq(false);
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user.uid) {
+  //     setIsUserReq(false);
+  //   }
+  // }, [user]);
 
   const addToCart = (service) => {
     dispatch({ type: "ADD_TO_CART", payload: service });

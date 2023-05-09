@@ -1,5 +1,5 @@
 import shortid from "shortid";
-import { lorem20, lorem10 } from "./variables";
+import { lorem20, lorem10, serviceSection } from "./variables";
 
 export const app = {
   services: {
@@ -8,6 +8,7 @@ export const app = {
     hasHero: false,
     hasIcon: false,
     hero: { link: "", name: "main-hero" },
+    sections: [150, 200, 250].map((n) => serviceSection(n)),
   },
   socials: [
     {

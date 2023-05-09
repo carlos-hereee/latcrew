@@ -2,6 +2,7 @@ import ButtonLink from "../atoms/buttons/ButtonLink";
 import Buttons from "../molecules/buttons/Buttons";
 import CardHeader from "../molecules/card/CardHeader";
 import Card from "../organisms/Card";
+// import Card from "../organisms/Card";
 
 const Container = ({ filter, filtered, isFiltered, data, cart, link }) => {
   const handleClick = (e) => {
