@@ -1,10 +1,10 @@
 import { getIn, useFormik } from "formik";
 import { useContext } from "react";
-import { UserContext } from "../../../utils/context/UserContext";
-import Icons from "../../icons/Icons";
+import { AuthContext } from "../../../utils/context/AuthContext";
+import Icons from "../icons/Icons";
 
 const FormShippingDetails = () => {
-  const { shippingValues, shippingSchema, setShipping } = useContext(UserContext);
+  const { shippingValues, shippingSchema, setShipping } = useContext(AuthContext);
   const label = {
     firstName: "First name...",
     lastName: "Last name...",

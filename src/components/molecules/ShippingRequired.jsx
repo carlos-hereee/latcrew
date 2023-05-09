@@ -1,12 +1,11 @@
-import { useState } from "react";
-import { useContext } from "react";
-import { UserContext } from "../../utils/context/UserContext";
+import { useState, useContext } from "react";
 import ToggleOpen from "./buttons/ToggleOpen";
 import ShippingDetails from "./details/ShippingDetails";
 import FormShippingDetails from "./forms/ShippingDetailsForm";
+import { AuthContext } from "../../utils/context/AuthContext";
 
 const ShippingRequired = () => {
-  const { shippingDetails } = useContext(UserContext);
+  const { shippingDetails } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => setIsOpen(!isOpen);

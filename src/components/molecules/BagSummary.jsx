@@ -6,8 +6,8 @@ import MeetingDetails from "../atoms/MeetingDetails";
 import CardHeader from "./card/CardHeader";
 import * as yup from "yup";
 import FieldQuantity from "./forms/FieldQuantity";
-import BookingLink from "../organisms/navigation/BookingLink";
 import BookingRequired from "./required/BookingRequired";
+import BookingLink from "../organisms/BookingLink";
 
 const schema = yup.object().shape({ quantity: yup.number() });
 const values = { quantity: 1 };

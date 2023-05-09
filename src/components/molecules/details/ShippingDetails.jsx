@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { UserContext } from "../../../utils/context/UserContext";
+import { AuthContext } from "../../../utils/context/AuthContext";
 
 const ShippingDetails = () => {
-  const { shippingDetails } = useContext(UserContext);
+  const { shippingDetails } = useContext(AuthContext);
   return (
     <div className="shipping-details">
       <div className="shipping-content">

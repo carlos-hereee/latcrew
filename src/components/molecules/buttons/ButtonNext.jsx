@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ServicesContext } from "../../../utils/context/ServicesContext";
-import { scrollToCartItem } from "../../../utils/functions/calendar";
+import { scrollToCartItem } from "../../../utils/fns/calendar";
 
 const ButtonNext = ({ click }) => {
   const { cart, bookingRequired } = useContext(ServicesContext);

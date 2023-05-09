@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { UserContext } from "../../../utils/context/UserContext";
+import { AuthContext } from "../../../utils/context/AuthContext";
 
 const UserCard = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useContext(AuthContext);
   return (
     <div className="card-body">
       <p>
