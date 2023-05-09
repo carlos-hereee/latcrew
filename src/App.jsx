@@ -1,5 +1,5 @@
 // import React from "react";
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./pages/Header";
 import Footer from "./pages/Footer";
@@ -10,9 +10,17 @@ import Auth from "./pages/Auth";
 import { AuthContext } from "./utils/context/AuthContext";
 import Loading from "./components/Loading";
 import PrivateRoute from "./utils/fns/PrivateRoute";
+import { AppContext } from "./utils/context/AppContext";
 
 function App() {
   const { isLoading } = useContext(AuthContext);
+  const { app } = useContext(AppContext);
+
+  useEffect(() => {
+    if (app.name) {
+      document.title = app.name;
+    }
+  }, [app.name]);
   if (isLoading) {
     return <Loading />;
   }

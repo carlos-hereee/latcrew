@@ -40,7 +40,7 @@ export const app = {
     hero: { link: "", name: "main-hero" },
   },
   about: {
-    title: "Welcome to TF Games",
+    title: "Welcome to Lat Crew",
     subtitle: "",
     hasHero: false,
     hasIcon: false,
@@ -74,34 +74,6 @@ export const app = {
       isPrivate: true,
       alt: "account",
     },
-    // { name: "about", uid: shortid.generate(), notification: 0 },
   ],
-  games: {
-    title: "Feature Games",
-    list: [
-      {
-        name: "tictactoe",
-        key: shortid.generate(),
-        defaultOptions: {
-          size: { length: 3, width: 3 },
-          gridSize: 9,
-        },
-      },
-      {
-        name: "snakeGame",
-        key: shortid.generate(),
-        defaultOptions: {
-          size: { length: 7, width: 7 },
-          gridSize: 49,
-          renderSpeed: 1,
-          lastRenderTime: 0,
-          expansionRate: 1,
-          newSegment: 0,
-          inputDirection: { x: 0, y: 0 },
-          lastInputDirection: { x: 0, y: 0 },
-        },
-      },
-    ],
-  },
-  name: "TF Games",
+  name: "Lat Crew",
 };
