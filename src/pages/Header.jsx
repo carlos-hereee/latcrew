@@ -3,6 +3,7 @@ import { AppContext } from "../utils/context/AppContext";
 import Logo from "../components/atoms/assets/Logo";
 import Navlink from "../components/molecules/navigation/Navlink";
 import BurgerButton from "../components/molecules/navigation/BugerButton/";
+import NavButton from "../components/molecules/navigation/NavButton";
 
 const Header = () => {
   const [isActive, setActive] = useState(false);
@@ -38,10 +39,7 @@ const Header = () => {
   //   updateMenu(menuPayload);
   // }, [cart, isActive]);
 
-  const click = (m) => {
-    if (m.isToggle) {
-      toggleMenu(menu, m);
-    }
+  const click = () => {
     setActive(!isActive);
   };
   return (
@@ -49,9 +47,13 @@ const Header = () => {
       <Logo />
       <nav className="primary-navigation">
         <ul className="navigation">
-          {menu.map((m) => (
-            <Navlink data={m} key={m.uid} click={() => click(m)} />
-          ))}
+          {menu.map((m) =>
+            m.isToggle ? (
+              <NavButton data={m} key={m.uid} click={() => toggleMenu(menu, m)} />
+            ) : (
+              <Navlink data={m} key={m.uid} click={() => click(m)} />
+            )
+          )}
         </ul>
       </nav>
       <nav className="mobile-navigation">

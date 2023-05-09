@@ -1,6 +1,7 @@
 // import Icons from "../../icons/Icons";
 // import NotificationCount from "../SetNotificationCount";
 
+// eslint-disable-next-line no-unused-vars
 const Buttons = ({ name, handleClick, notification, size }) => {
   return (
     <button type="button" onClick={handleClick} className={`btn-${name} btn-icons`}>
