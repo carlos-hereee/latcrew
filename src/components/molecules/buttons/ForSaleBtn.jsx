@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { ServicesContext } from "../../../utils/context/ServicesContext";
 import AddToCart from "../../atoms/buttons/AddToCart";
 import RemoveFromCart from "../../atoms/buttons/RemoveFromCart";
+import { ServicesContext } from "../../../utils/context/ServicesContext";
 
 const ForSaleBtn = ({ data }) => {
   const { cart } = useContext(ServicesContext);

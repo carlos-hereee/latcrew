@@ -1,4 +1,4 @@
-import HyperlinkText from "../../atoms/HyperlinkText";
+import HyperlinkText from "../../atoms/Text/HyperlinkText";
 
 const CardBody = ({ data }) => {
   const { hyperlink, response, hasLink, uid } = data;
