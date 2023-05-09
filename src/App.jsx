@@ -7,7 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import Register from "./pages/Register";
 import Auth from "./pages/Auth";
 import { AuthContext } from "./utils/context/AuthContext";
-import Loading from "./components/Loading";
+import Loading from "./components/molecules/Loading";
 import PrivateRoute from "./utils/fns/PrivateRoute";
 import { AppContext } from "./utils/context/AppContext";
 

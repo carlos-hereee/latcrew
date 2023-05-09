@@ -5,11 +5,11 @@ import Notification from "../../components/Notification";
 import { AuthContext } from "../../utils/context/AuthContext";
 
 const Shop = () => {
-  const { player, purchaseAvatar, ownedAvatars, setError } = useContext(AuthContext);
+  const { user, purchaseAvatar, setError } = useContext(AuthContext);
   // check if client can buy the item
   const addToCart = (avatar) => {
-    if (player?.coins >= avatar.cost) {
-      purchaseAvatar(player, avatar);
+    if (user?.coins >= avatar.cost) {
+      purchaseAvatar(user, avatar);
     } else {
       setError("not enough coins play some games");
     }
