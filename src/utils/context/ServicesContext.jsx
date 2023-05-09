@@ -45,7 +45,7 @@ export const ServicesState = ({ children }) => {
       //   },
       // },
     ],
-    filteredServices: [],
+    filtered: [],
     active: {},
     total: 0,
   };
@@ -72,7 +72,7 @@ export const ServicesState = ({ children }) => {
       addMessageToLog(data);
     }
   };
-  const filterServices = async (services, filter) => {
+  const filter = async (services, filter) => {
     dispatch({ type: "IS_LOADING", payload: true });
     if (filter === "all") {
       return dispatch({ type: "LOAD_SERVICES", payload: services });
@@ -135,13 +135,13 @@ export const ServicesState = ({ children }) => {
       value={{
         isLoading: state.isLoading,
         isFiltered: state.isFiltered,
-        filteredServices: state.filteredServices,
+        filtered: state.filtered,
         cart: state.cart,
         active: state.active,
         isUserReq: state.isUserReq,
         total: state.total,
         bookEvent,
-        filterServices,
+        filter,
         addToCart,
         removeFromCart,
         setActive,
