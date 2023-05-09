@@ -4,12 +4,14 @@ import Logo from "../components/atoms/assets/Logo";
 import Navlink from "../components/molecules/navigation/Navlink";
 import BurgerButton from "../components/molecules/navigation/BugerButton/";
 import NavButton from "../components/molecules/navigation/NavButton";
+import { ServicesContext } from "../utils/context/ServicesContext";
 
 const Header = () => {
   const [isActive, setActive] = useState(false);
   const [isClose, setClose] = useState(false);
-  // const { cart } = useContext(ServicesContext);
-  const { menu, burger, toggleMenu } = useContext(AppContext);
+  const { cart } = useContext(ServicesContext);
+  const { menu, burger, toggleMenu, updateBurger, updateMenu } =
+    useContext(AppContext);
 
   // eslint-disable-next-line no-unused-vars
   useEffect(() => {
@@ -26,18 +28,23 @@ const Header = () => {
     return () => document.removeEventListener("animationend", endAnimation, true);
     // document.removeEventListener("mousedown", onClick, true);
   }, []);
-  // useEffect(() => {
-  //   const menuPayload = {
-  //     accessoryCount: cart.filter((c) => c.isAccessory).length,
-  //     servicesCount: cart.filter((c) => c.isBookable).length,
-  //   };
-  //   const burgerPayload = {
-  //     name: isActive ? "x" : "burger",
-  //     notification: cart.length,
-  //   };
-  //   updateBurger(burgerPayload);
-  //   updateMenu(menuPayload);
-  // }, [cart, isActive]);
+  useEffect(() => {
+    if (cart.length > 0) {
+      const menuPayload = {
+        accessory: cart.filter((c) => c.isAccessory).length,
+        services: cart.filter((c) => c.isBookable).length,
+      };
+      const burgerPayload = {
+        name: isActive ? "x" : "burger",
+        notification: cart.length,
+      };
+      updateBurger(burger, burgerPayload);
+      updateMenu(menu, menuPayload);
+    } else {
+      updateBurger(burger, { accessory: 0, services: 0 });
+      updateMenu(menu, { accessory: 0, services: 0 });
+    }
+  }, [cart, isActive]);
 
   const click = () => {
     setActive(!isActive);

@@ -73,8 +73,16 @@ export const AppState = ({ children }) => {
   const updateBurger = (payload) => {
     dispatch({ type: "UPDATE_BURGER", payload: payload });
   };
-  const updateMenu = (payload) => {
-    dispatch({ type: "UPDATE_MENU", payload: payload });
+  const updateMenu = (menu, payload) => {
+    let data = menu.map((m) => {
+      if (m.name === "services") {
+        return { ...m, notification: payload.services };
+      } else if (m.name === "checkout") {
+        return { ...m, notification: payload.accessory + payload.services };
+      }
+      return m;
+    });
+    dispatch({ type: "UPDATE_MENU", payload: data });
   };
   const newsletter = async (values) => {
     dispatch({ type: "IS_LOADING", payload: true });
