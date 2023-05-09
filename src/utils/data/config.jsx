@@ -81,7 +81,7 @@ export const app = {
       notification: 0,
       isAlt: true,
       isPrivate: true,
-      alt: "account",
+      alt: "login",
     },
   ],
   name: "Lat Crew",

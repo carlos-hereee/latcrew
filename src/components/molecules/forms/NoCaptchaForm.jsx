@@ -1,5 +1,5 @@
 import { getIn, useFormik } from "formik";
-import Icons from "../../icons/Icons";
+import Icons from "../icons/Icons";
 
 const NoCaptchaForm = ({ data, submit, isHorizontal, type }) => {
   const label = {
@@ -33,7 +33,7 @@ const NoCaptchaForm = ({ data, submit, isHorizontal, type }) => {
     search: "Search..",
   };
   const { handleSubmit, handleBlur, handleChange, values, errors } = useFormik({
-    initialValues: data.values,
+    initialValues: data,
     onSubmit: (e) => submit(e, true),
     validationSchema: data.schema,
   });
@@ -42,9 +42,9 @@ const NoCaptchaForm = ({ data, submit, isHorizontal, type }) => {
     submit(data.target.value);
   };
   return (
-    <form className="form filter-form" onSubmit={handleSubmit}>
+    <form className="form no-capcha-form" onSubmit={handleSubmit}>
       <div className={`form-fields ${isHorizontal && "horizontal-fields"}`}>
-        {Object.keys(data.values).map((v) => (
+        {Object.keys(data).map((v) => (
           <div key={v} className="input-wrapper">
             <label htmlFor={v} className="label">
               <strong>
@@ -68,15 +68,15 @@ const NoCaptchaForm = ({ data, submit, isHorizontal, type }) => {
       </div>
       <button type="submit" className="btn-main">
         {type === "search" ? (
-          <>
+          <span>
             <Icons name="save" />
             Save
-          </>
+          </span>
         ) : (
-          <>
+          <span>
             <Icons name="submit" />
             Confirm
-          </>
+          </span>
         )}
       </button>
     </form>
