@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { createContext, useReducer, useEffect } from "react";
-import { axiosWithAuth, axiosWithOutAuth } from "../fns/axios";
+import { axiosWithAuth } from "../fns/axios";
 import generate from "project-name-generator";
 import { reducer } from "../reducer/AuthReducer";
 import { v4 } from "uuid";
@@ -20,74 +20,61 @@ export const AuthState = ({ children }) => {
     try {
       const { data } = await axiosWithAuth.post("/users/refresh-token");
       dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
-      dispatch({ type: "SET_PLAYER_DATA", payload: data.user });
+      dispatch({ type: "SET_USER_DATA", payload: data.user });
     } catch {
-      loadPlayer();
+      loadUser();
     }
   };
-  const loadPlayer = () => {
+  const loadUser = () => {
     dispatch({ type: "IS_LOADING", payload: true });
     let user = { nickname: generate({ words: 2 }), uid: v4() };
     dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
-    dispatch({ type: "SET_PLAYER_DATA", payload: user });
+    dispatch({ type: "SET_USER_DATA", payload: user });
   };
 
   const signIn = async (username, password) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const { data } = await axiosWithOutAuth.post("/users/login", {
+      const { data } = await axiosWithAuth.post("/users/login", {
         username,
         password,
       });
       dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
-      dispatch({ type: "SET_PLAYER_DATA", payload: data.user });
+      dispatch({ type: "SET_USER_DATA", payload: data.user });
     } catch (e) {
-      dispatch({
-        type: "SET_ERROR",
-        payload: JSON.parse(e.request.response).message,
-      });
+      let payload = JSON.parse(e.request.response).message;
+      dispatch({ type: "SET_ERROR", payload });
     }
-    dispatch({ type: "IS_LOADING", payload: false });
   };
   const register = async (username, password) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const { data } = await axiosWithOutAuth.post("/users/register", {
+      const { data } = await axiosWithAuth.post("/users/register", {
         username,
         password,
       });
       dispatch({ type: "SET_LOGIN", payload: data.user });
     } catch (e) {
-      dispatch({
-        type: "SET_SIGNUP_ERROR",
-        payload: JSON.parse(e.request.response).message,
-      });
+      let payload = JSON.parse(e.request.response).message;
+      dispatch({ type: "SET_SIGNUP_ERROR", payload });
     }
   };
-  const logOut = async (user, history) => {
+  const logOut = async (user) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const { data } = await axiosWithAuth.delete("/users/logout", user);
-      if (data.message) {
-        localStorage.removeItem("tf-games-nickname");
-        localStorage.removeItem("tf-games-id");
-        localStorage.removeItem("access-token");
-        history.push("/");
-      }
+      const { data } = await axiosWithAuth.post("/users/logout", user);
+      dispatch({ type: "SET_USER_DATA", payload: data });
     } catch (e) {
-      dispatch({
-        type: "SET_ERROR",
-        payload: JSON.parse(e.request.response).message,
-      });
+      let payload = JSON.parse(e.request.response).message;
+      dispatch({ type: "SET_ERROR", payload });
     }
-    dispatch({ type: "IS_LOADING", payload: false });
   };
   return (
     <AuthContext.Provider
       value={{
         isLoading: state.isLoading,
         error: state.error,
-        player: state.player,
+        user: state.user,
         accessToken: state.accessToken,
         getAccessToken,
         signIn,

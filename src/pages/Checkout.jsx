@@ -52,7 +52,7 @@ const Checkout = () => {
       {isUserInfoReq && <UserContact />}
       {cart.length > 0 ? <BagSummary /> : <CartEmpty />}
       {total > 0 && <Total total={total} />}
-      {isUserInfoReq && user.uid && !proceedWithCheckout && (
+      {isUserInfoReq && user?.uid && !proceedWithCheckout && (
         <ButtonNext click={setNext} />
       )}
       {proceedWithCheckout && (
