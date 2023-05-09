@@ -8,7 +8,7 @@ const Header = () => {
   const [isActive, setActive] = useState(false);
   const [isClose, setClose] = useState(false);
   // const { cart } = useContext(ServicesContext);
-  const { menu, burger } = useContext(AppContext);
+  const { menu, burger, toggleMenu } = useContext(AppContext);
 
   // eslint-disable-next-line no-unused-vars
   useEffect(() => {
@@ -38,7 +38,10 @@ const Header = () => {
   //   updateMenu(menuPayload);
   // }, [cart, isActive]);
 
-  const click = () => {
+  const click = (m) => {
+    if (m.isToggle) {
+      toggleMenu(menu, m);
+    }
     setActive(!isActive);
   };
   return (
@@ -47,7 +50,7 @@ const Header = () => {
       <nav className="primary-navigation">
         <ul className="navigation">
           {menu.map((m) => (
-            <Navlink data={m} key={m.uid} click={click} />
+            <Navlink data={m} key={m.uid} click={() => click(m)} />
           ))}
         </ul>
       </nav>

@@ -42,6 +42,14 @@ export const AppState = ({ children }) => {
   const getAllAssets = async (accessToken) => {
     console.log("accesstoken", accessToken);
   };
+  const toggleMenu = (menu, m) => {
+    let data = menu.map((i) => {
+      if (i.uid === m.uid) {
+        return { ...i, isAlt: !i.isAlt };
+      } else return i;
+    });
+    updateMenu(data);
+  };
   // const loadFilters = (arr) => {
   //   let filters = {};
   //   arr.forEach((a) => {
@@ -189,6 +197,7 @@ export const AppState = ({ children }) => {
         updateFilter,
         updateAppliedFilter,
         resetFilter,
+        toggleMenu,
       }}>
       {children}
     </AppContext.Provider>

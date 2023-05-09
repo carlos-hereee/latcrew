@@ -9,9 +9,9 @@ import Buttons from "../buttons/Buttons";
 const Navlink = ({ data, click }) => {
   return (
     <li>
-      <Link className="nav-link" to={data.name}>
+      <Link className="nav-link" to={data.isAlt ? data.alt : data.name}>
         <Buttons
-          name={data.isPrivate ? data.alt : data.name}
+          name={data.isAlt ? data.alt : data.name}
           notification={data.notification}
           handleClick={click}
         />

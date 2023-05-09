@@ -66,11 +66,20 @@ export const app = {
     ],
   },
   menu: [
-    { name: "games", uid: shortid.generate(), notification: 0 },
+    {
+      name: "spanish",
+      isToggle: true,
+      isAlt: true,
+      uid: shortid.generate(),
+      notification: 0,
+      alt: "english",
+    },
+    { name: "service", uid: shortid.generate(), notification: 0 },
     {
       name: "dashboard",
       uid: shortid.generate(),
       notification: 0,
+      isAlt: true,
       isPrivate: true,
       alt: "account",
     },

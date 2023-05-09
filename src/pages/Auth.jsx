@@ -24,7 +24,7 @@ const Auth = () => {
         <div className="card-body">
           <Formik
             initialValues={{ username: "", password: "" }}
-            onSubmit={({ username, password }, _) => signIn(username, password)}>
+            onSubmit={({ username, password }) => signIn(username, password)}>
             <Form>
               <div className="form-group">
                 <p>{error}</p>
