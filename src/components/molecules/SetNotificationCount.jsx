@@ -12,7 +12,7 @@ const NotificationCount = ({ count }) => {
             .toString()
             .split("")
             .map((n) => (
-              <Icons name={n} />
+              <Icons name={n} key={n} />
             ))}
         </span>
       )}

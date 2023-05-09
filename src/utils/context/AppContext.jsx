@@ -76,9 +76,7 @@ export const AppState = ({ children }) => {
   const updateMenu = (menu, payload) => {
     if (payload) {
       let data = menu.map((m) => {
-        if (m.name === "services") {
-          return { ...m, notification: payload.services };
-        } else if (m.name === "checkout") {
+        if (m.name === "checkout") {
           return { ...m, notification: payload.accessory + payload.services };
         }
         return m;

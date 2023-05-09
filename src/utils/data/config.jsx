@@ -83,6 +83,7 @@ export const app = {
       alt: "english",
     },
     { name: "services", uid: shortid.generate(), notification: 0 },
+    { name: "checkout", uid: shortid.generate(), notification: 0 },
     {
       name: "dashboard",
       uid: shortid.generate(),
