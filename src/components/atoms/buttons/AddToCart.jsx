@@ -6,10 +6,7 @@ const AddToCart = ({ data }) => {
   return (
     <>
       <strong className="ribbon">${data.cost}</strong>
-      <button
-        type="button"
-        className="btn btn-green"
-        onClick={() => addToCart(data)}>
+      <button type="button" className="btn btn-main" onClick={() => addToCart(data)}>
         Add to cart
       </button>
     </>

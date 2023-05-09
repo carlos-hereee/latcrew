@@ -1,17 +1,15 @@
-import ButtonLink from "../atoms/buttons/ButtonLink";
+import SectionHeader from "../molecules/SectionHeader";
 import Buttons from "../molecules/buttons/Buttons";
-import CardHeader from "../molecules/card/CardHeader";
 import Card from "../organisms/Card";
-// import Card from "../organisms/Card";
 
-const Container = ({ filter, filtered, isFiltered, data, cart, link }) => {
+const Container = ({ filter, filtered, isFiltered, data }) => {
   const handleClick = (e) => {
     let content = e.currentTarget.textContent.split(" ").join("").toLowerCase();
     filter(data.sections, content);
   };
   return (
-    <section className="secondary-container">
-      <CardHeader data={data} />
+    <section className="container">
+      <SectionHeader data={data} />
       {data.isNav && (
         <nav className="navbar">
           {data.nav.map((g) => (
@@ -19,7 +17,6 @@ const Container = ({ filter, filtered, isFiltered, data, cart, link }) => {
           ))}
         </nav>
       )}
-      {cart.length > 0 && <ButtonLink link={link} />}
       <div className="card-container">
         {isFiltered
           ? filtered.map((fg) => <Card data={fg} key={fg.uid} />)

@@ -77,11 +77,9 @@ button {
 }
 .btn-main {
   display: flex;
-  // flex-wrap: wrap;
   gap: 0.5rem;
-  // text-decoration: none;
-  color: white;
-  // box-shadow: 1px 0 3px 0 #{$primary-color};
+  width: 100%;
+  color: #{$secondary-text};
   background-color: #{$primary-color};
 }
 .btn-cancel {
@@ -101,15 +99,6 @@ button {
   }
   &:disabled {
     background-color: #{$primary-color3};
-    color: #{$primary-text};
-  }
-}
-.btn-green {
-  background-color: #{$success};
-  color: #{$primary-text};
-  width: 100%;
-  &:hover {
-    // background-color: #{$success-hover};
     color: #{$primary-text};
   }
 }

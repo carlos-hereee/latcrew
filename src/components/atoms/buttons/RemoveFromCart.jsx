@@ -8,7 +8,7 @@ const RemoveFromCart = ({ data }) => {
       <strong className="ribbon">${data.cost}</strong>
       <button
         type="button"
-        className="btn btn-danger"
+        className="btn btn-main"
         onClick={() => removeFromCart(data, active)}>
         Remove from cart
       </button>

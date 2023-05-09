@@ -52,11 +52,12 @@
 }
 .card-footer {
   display: flex;
-  gap: 1rem;
   justify-content: center;
   flex-direction: column;
-  padding-top: 0;
   text-align: center;
+  align-items: center;
+  padding-top: 0;
+  gap: 1rem;
   .card-header {
     padding: 0;
   }
