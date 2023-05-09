@@ -9,7 +9,7 @@ export const ServicesState = ({ children }) => {
   const initialState = {
     isLoading: false,
     isFiltered: false,
-    isUserReq: false,
+    isUserReq: true,
     cart: [
       // {
       //   cost: 15,

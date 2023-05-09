@@ -15,12 +15,10 @@ const UserContact = () => {
     return isOpen ? <p>Close contact details</p> : <p>Enter contact details</p>;
   };
   return (
-    <div>
-      <div className="card-header" id="contact-user-form">
+    <div className="container">
+      <div id="contact-user-form">
         <h3>Contact information</h3>
-        {isUserReq && (
-          <p className="required">Please enter contact details before proceeding</p>
-        )}
+        {isUserReq && <p>Please enter contact details before proceeding</p>}
       </div>
       {user && user.uid ? (
         <UserCard />

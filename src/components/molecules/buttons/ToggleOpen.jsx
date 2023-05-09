@@ -1,6 +1,6 @@
 const ToggleOpen = ({ data, click }) => {
   return (
-    <button type="button" className="btn btn-step" onClick={click}>
+    <button type="button" className="btn btn-main" onClick={click}>
       {data}
     </button>
   );
