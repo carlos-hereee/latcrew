@@ -57,7 +57,7 @@
 .sub-total {
   padding: 1rem;
   text-align: right;
-  * {
-    border-bottom: 2px dotted #{$primary-color};
+  p {
+    border-bottom: 1px dotted #{$secondary-color2};
   }
 }

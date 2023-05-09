@@ -72,8 +72,11 @@
   text-align: center;
 }
 .section-container {
+  display: flex;
+  flex-direction: column;
   background-color: #{$secondary-color2};
   padding: 1rem;
+  gap: 0.5rem;
   div {
     &:nth-child(even) {
       background-color: #{$secondary-color};

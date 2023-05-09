@@ -1,6 +1,6 @@
 const BookingRequired = ({ data }) => {
   return (
-    <p className="required">
+    <p>
       Booking required for{" "}
       <strong>
         {data.title} {data.subtitle}
