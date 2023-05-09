@@ -56,10 +56,12 @@
   flex-direction: column;
   text-align: center;
   background-color: #{$secondary-color};
+  color: #{$secondary-text};
   flex: 1;
   min-width: 200px;
   padding: 1rem;
   gap: 1rem;
+  border-radius: 0.5rem;
   .fa-left-long {
     @include devices(mobile) {
       transform: rotate(90deg);

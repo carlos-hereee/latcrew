@@ -9,7 +9,6 @@ import UserContact from "../components/organisms/UserContact";
 import ButtonNext from "../components/molecules/buttons/ButtonNext";
 import CartEmpty from "../components/molecules/empty/CartEmpty";
 import Total from "../components/molecules/Total";
-import ButtonLinks from "../components/molecules/buttons/ButtonLinks";
 
 const Checkout = () => {
   const { checkout } = useContext(AppContext);
@@ -50,7 +49,6 @@ const Checkout = () => {
   return (
     <section className="section-container">
       <CardHeader data={checkout} />
-      <ButtonLinks links={["services", "accessories"]} />
       {isUserInfoReq && <UserContact />}
       {cart.length > 0 ? <BagSummary /> : <CartEmpty />}
       {total > 0 && <Total total={total} />}
