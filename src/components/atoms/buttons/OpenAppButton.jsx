@@ -11,7 +11,7 @@ const OpenAppButton = ({ service }) => {
   const { setActive, setIsUserReq } = useContext(ServicesContext);
   const { user } = useContext(AuthContext);
   const handleClick = () => {
-    console.log("service", service);
+    // console.log("service", service);
     if (service.uid) {
       setActive(service);
     }

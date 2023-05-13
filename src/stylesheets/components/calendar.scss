@@ -22,9 +22,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #{$secondary-color};
   flex: 1;
+  background-color: #{$secondary-color2};
+  border-radius: 0.5rem;
   gap: 1rem;
+  .list {
+    // color: #{$secondary-text};
+    // background-color: #{$secondary-color};
+  }
 }
 .react-calendar__navigation {
   display: flex;
@@ -54,6 +59,7 @@
   color: #{$secondary-text};
   .match {
     position: absolute;
+    background-color: #{$danger};
     top: 1px;
     right: 0;
     border-radius: 100%;

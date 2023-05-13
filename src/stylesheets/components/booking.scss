@@ -46,6 +46,10 @@
   gap: 1rem;
   .list-item {
     background-color: #{$secondary-color2};
+    &:hover {
+      color: #{$secondary-text};
+      background-color: #{$secondary-color};
+    }
   }
   [data-state="check"] {
     color: #{$primary-text};
