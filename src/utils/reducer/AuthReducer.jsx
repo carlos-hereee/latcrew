@@ -18,6 +18,21 @@ const setUserData = (state, action) => {
     user: action.payload,
   };
 };
+const updateUserData = (state, action) => {
+  return {
+    ...state,
+    user: action.payload,
+    isAdmin: action.payload.isAdmin,
+    isLoading: false,
+  };
+};
+const updateShippingDetails = (state, action) => {
+  return {
+    ...state,
+    shippingDetails: action.payload,
+    isLoading: false,
+  };
+};
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -29,6 +44,10 @@ export const reducer = (state, action) => {
       return setAccessToken(state, action);
     case "SET_USER_DATA":
       return setUserData(state, action);
+    case "UPDATE_USER_DATA":
+      return updateUserData(state, action);
+    case "UPDATE_SHIPPING_DETAILS":
+      return updateShippingDetails(state, action);
     default:
       return state;
   }

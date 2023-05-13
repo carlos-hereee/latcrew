@@ -5,6 +5,7 @@ import generate from "project-name-generator";
 import { reducer } from "../reducer/AuthReducer";
 import { v4 } from "uuid";
 import * as yup from "yup";
+import shortid from "shortid";
 
 export const AuthContext = createContext();
 
@@ -94,6 +95,27 @@ export const AuthState = ({ children }) => {
       dispatch({ type: "SET_ERROR", payload });
     }
   };
+  const getUserData = async () => {
+    dispatch({ type: "IS_LOADING", payload: true });
+    try {
+      const { data } = await axiosWithAuth.get("/users");
+      // console.log("data", data);
+      dispatch({ type: "SET_USER_DATA", payload: data });
+    } catch (e) {
+      const { data, status } = e.response;
+      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
+    }
+  };
+  const updateUserData = (data) => {
+    if (!data.uid) {
+      data.uid = shortid.generate();
+    }
+    dispatch({ type: "SET_USER_DATA", payload: data });
+  };
+  const setShipping = (data) => {
+    // if (isDev) data.uid = shortid.generate();
+    dispatch({ type: "UPDATE_SHIPPING_DETAILS", payload: data });
+  };
   return (
     <AuthContext.Provider
       value={{
@@ -106,6 +128,9 @@ export const AuthState = ({ children }) => {
         signIn,
         register,
         logOut,
+        updateUserData,
+        setShipping,
+        getUserData,
       }}>
       {children}
     </AuthContext.Provider>
