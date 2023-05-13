@@ -4,11 +4,36 @@ import { axiosWithAuth } from "../fns/axios";
 import generate from "project-name-generator";
 import { reducer } from "../reducer/AuthReducer";
 import { v4 } from "uuid";
+import * as yup from "yup";
 
 export const AuthContext = createContext();
 
 export const AuthState = ({ children }) => {
-  const initialState = { isLoading: false, accessToken: "", player: {} };
+  const initialState = {
+    isLoading: false,
+    accessToken: "",
+    user: {},
+    userValues: { name: "", email: "", phone: "" },
+    userSchema: {
+      name: yup.string().required("*Required field"),
+      email: yup.string().required("*Required field"),
+      phone: yup.number().required("*Required field"),
+    },
+    signUpValues: { username: "", password: "", confirmPassword: "" },
+    signUpSchema: yup.object().shape({
+      username: yup.string().required("*Required field"),
+      password: yup.string().required("*Required field"),
+      confirmPassword: yup
+        .string()
+        .oneOf([yup.ref("password"), null], "Passwords must match")
+        .required("*Required field"),
+    }),
+    loginValues: { username: "", password: "" },
+    loginSchema: yup.object().shape({
+      username: yup.string().required("*Required field"),
+      password: yup.string().required("*Required field"),
+    }),
+  };
   const [state, dispatch] = useReducer(reducer, initialState);
 
   // useEffect(() => {
@@ -75,6 +100,7 @@ export const AuthState = ({ children }) => {
         isLoading: state.isLoading,
         error: state.error,
         user: state.user,
+        userValues: state.userValues,
         accessToken: state.accessToken,
         getAccessToken,
         signIn,

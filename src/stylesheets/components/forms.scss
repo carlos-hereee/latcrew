@@ -22,6 +22,11 @@
   align-items: center;
   gap: 1rem;
 }
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 .shipping-form {
   label {
     text-decoration: underline;
@@ -67,4 +72,6 @@
 }
 #contact-user-form {
   width: 100%;
+  // display: flex;
+  // flex-direction: column;
 }

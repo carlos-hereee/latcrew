@@ -15,24 +15,23 @@ const UserContact = () => {
     return isOpen ? <p>Close contact details</p> : <p>Enter contact details</p>;
   };
   return (
-    <div className="container">
+    <div className="section-container">
       <div id="contact-user-form">
         <h3>Contact information</h3>
         {isUserReq && <p>Please enter contact details before proceeding</p>}
       </div>
-      {user && user.uid ? (
-        <UserCard />
-      ) : isOpen ? (
-        <>
+      <div className="secondary-section-container">
+        {user && user.uid ? (
+          <UserCard />
+        ) : isOpen ? (
+          <>
+            <ToggleOpen data={setData()} click={handleClick} />
+            <NoCaptchaForm data={userValues} shema={userSchema} submit={submit} />
+          </>
+        ) : (
           <ToggleOpen data={setData()} click={handleClick} />
-          <NoCaptchaForm
-            data={{ values: userValues, schema: userSchema }}
-            submit={submit}
-          />
-        </>
-      ) : (
-        <ToggleOpen data={setData()} click={handleClick} />
-      )}
+        )}
+      </div>
     </div>
   );
 };
