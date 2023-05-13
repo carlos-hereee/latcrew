@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { UserContext } from "../../../utils/context/UserContext";
+import { AuthContext } from "../../../utils/context/AuthContext";
 
 const DayNotFound = () => {
-  const { isAdmin } = useContext(UserContext);
-  return isAdmin ? (
+  const { accessToken } = useContext(AuthContext);
+  return accessToken ? (
     <div className="container-empty">
       <h4>No meeting this day</h4>
       <button type="button">Add a meeting</button>

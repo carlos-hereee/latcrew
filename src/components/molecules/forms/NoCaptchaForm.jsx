@@ -43,7 +43,6 @@ const NoCaptchaForm = ({ data, submit, isHorizontal, type }) => {
     handleChange(data);
     submit(data.target.value);
   };
-  console.log("data", data);
   return (
     <form className="form no-capcha-form" onSubmit={handleSubmit}>
       <div className={`form-fields ${isHorizontal && "horizontal-fields"}`}>

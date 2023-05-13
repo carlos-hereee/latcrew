@@ -11,7 +11,7 @@ export const CalendarState = ({ children }) => {
   const initialState = {
     isLoading: false,
     calendar: [],
-    events: app.events,
+    events: app.events || [],
     selectedDay: {},
     meeting: {},
     booked: [],

@@ -1,4 +1,4 @@
-import Icons from "./Icons";
+import Icons from "../molecules/icons/Icons";
 
 const ListItem = ({ data, click, icon }) => {
   return (
