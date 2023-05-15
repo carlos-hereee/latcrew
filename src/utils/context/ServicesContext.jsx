@@ -53,15 +53,14 @@ export const ServicesState = ({ children }) => {
     dispatch({ type: "UPDATE_CART", payload: cart });
   };
 
-  const removeFromCart = (service, active) => {
-    try {
-      // reset active if it matches item
-      service.uid === active.uid && setActive({});
-      dispatch({ type: "REMOVE_FROM_CART", payload: service });
-    } catch (err) {
-      const data = err.response.data;
-      addMessageToLog(data);
+  const removeFromCart = (cart, item) => {
+    const payload = cart.filter((c) => c.uid !== item.uid);
+    if (item.isBookable) {
+      const bookable = cart.filter((c) => c.isBookable);
+      const removable = bookable.filter((b) => b.uid !== item.uid);
+      dispatch({ type: "UPDATE_BOOKABLE", payload: removable });
     }
+    dispatch({ type: "UPDATE_CART", payload });
   };
   const filter = async (services, filter) => {
     dispatch({ type: "IS_LOADING", payload: true });
