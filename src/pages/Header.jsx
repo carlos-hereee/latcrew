@@ -44,7 +44,7 @@ const Header = () => {
       updateBurger(burger, { accessory: 0, services: 0 });
       updateMenu(menu, { accessory: 0, services: 0 });
     }
-  }, [cart, isActive]);
+  }, [JSON.stringify(cart), isActive]);
 
   const click = () => {
     setActive(!isActive);
