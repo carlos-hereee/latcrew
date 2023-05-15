@@ -6,7 +6,7 @@ import NoCaptchaForm from "../molecules/forms/NoCaptchaForm";
 import { AuthContext } from "../../utils/context/AuthContext";
 
 const UserContact = () => {
-  const { user, userValues, userSchema, updateUserData } = useContext(AuthContext);
+  const { user, userValues, updateUserData } = useContext(AuthContext);
   const { isUserReq } = useContext(ServicesContext);
   const [isOpen, setIsOpen] = useState(false);
   const submit = (e) => updateUserData(e);
@@ -30,7 +30,7 @@ const UserContact = () => {
         ) : isOpen ? (
           <>
             <ToggleOpen data={setData()} click={handleClick} />
-            <NoCaptchaForm data={userValues} shema={userSchema} submit={submit} />
+            <NoCaptchaForm data={userValues} submit={submit} />
           </>
         ) : (
           <ToggleOpen data={setData()} click={handleClick} />

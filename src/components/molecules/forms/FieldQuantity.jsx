@@ -1,10 +1,10 @@
 import { getIn, useFormik } from "formik";
 import { labels } from "./labels";
 
-const FieldQuantity = ({ data, max, change }) => {
+const FieldQuantity = ({ data, schema, max, change }) => {
   const { handleSubmit, handleBlur, handleChange, values, errors } = useFormik({
-    initialValues: data.values,
-    validationSchema: data.schema,
+    initialValues: data,
+    validationSchema: schema,
   });
   const handleOnChange = (e) => {
     handleChange(e);
@@ -13,7 +13,7 @@ const FieldQuantity = ({ data, max, change }) => {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      {Object.keys(data.values).map((v) => (
+      {Object.keys(data).map((v) => (
         <div key={v} className="field">
           <label htmlFor={v}>
             {labels[v].charAt(0).toUpperCase() + labels[v].slice(1)}{" "}

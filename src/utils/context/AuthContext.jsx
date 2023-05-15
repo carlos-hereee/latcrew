@@ -15,25 +15,8 @@ export const AuthState = ({ children }) => {
     accessToken: "",
     user: {},
     userValues: { name: "", email: "", phone: "" },
-    userSchema: {
-      name: yup.string().required("*Required field"),
-      email: yup.string().required("*Required field"),
-      phone: yup.number().required("*Required field"),
-    },
     signUpValues: { username: "", password: "", confirmPassword: "" },
-    signUpSchema: yup.object().shape({
-      username: yup.string().required("*Required field"),
-      password: yup.string().required("*Required field"),
-      confirmPassword: yup
-        .string()
-        .oneOf([yup.ref("password"), null], "Passwords must match")
-        .required("*Required field"),
-    }),
     loginValues: { username: "", password: "" },
-    loginSchema: yup.object().shape({
-      username: yup.string().required("*Required field"),
-      password: yup.string().required("*Required field"),
-    }),
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 

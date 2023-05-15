@@ -2,12 +2,13 @@ import { getIn, useFormik } from "formik";
 import Icons from "../icons/Icons";
 import { labels } from "./labels";
 import { placeholders } from "./placeholders";
+import { schema } from "./schema";
 
-const NoCaptchaForm = ({ data, schema, submit, isHorizontal, type }) => {
+const NoCaptchaForm = ({ data, submit, isHorizontal, type }) => {
   const { handleSubmit, handleBlur, handleChange, values, errors } = useFormik({
     initialValues: data,
     onSubmit: (e) => submit(e, true),
-    validationSchema: schema,
+    validationSchema: schema(data),
   });
   const change = (data) => {
     handleChange(data);
