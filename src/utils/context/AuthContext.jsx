@@ -5,6 +5,7 @@ import generate from "project-name-generator";
 import { reducer } from "../reducer/AuthReducer";
 import { v4 } from "uuid";
 import shortid from "shortid";
+import { app } from "../data/config";
 
 export const AuthContext = createContext();
 
@@ -12,12 +13,7 @@ export const AuthState = ({ children }) => {
   const initialState = {
     isLoading: false,
     accessToken: "",
-    user: {
-      email: "email@example.com",
-      name: "first lastname",
-      phone: "987-654-3210",
-      uid: shortid.generate(),
-    },
+    user: app.user,
     userValues: { name: "", email: "", phone: "" },
     signUpValues: { username: "", password: "", confirmPassword: "" },
     loginValues: { username: "", password: "" },

@@ -1,11 +1,7 @@
 .booking {
   display: flex;
-  align-items: flex-start;
-  max-width: 1200px;
-  gap: 1rem;
-  @include devices(mobile) {
-    flex-wrap: wrap;
-  }
+  gap: 0.5rem;
+  padding: 0 1rem;
 }
 .booking-events {
   display: flex;

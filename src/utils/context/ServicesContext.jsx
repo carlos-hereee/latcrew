@@ -10,7 +10,25 @@ export const ServicesState = ({ children }) => {
     isLoading: false,
     isFiltered: false,
     isUserReq: true,
-    cart: [],
+    cart: [
+      {
+        cost: 53,
+        count: 1,
+        hasHero: false,
+        hasIcon: false,
+        hasLink: false,
+        hero: { link: "/lorem", name: "lorem ipsum" },
+        hyperlink: [{ word: "Maiores", link: "/lorem" }],
+        isAccessory: false,
+        isBookable: true,
+        isForSale: true,
+        response:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias reprehenderit. Voluptates fugit tenetur itaque minus sed, assumenda delectus accusantium!",
+        subtitle: "Dolor sit",
+        title: "Lorem Ipsum",
+        uid: "24pJ0yCJo31",
+      },
+    ],
     bookable: [
       {
         cost: 53,
@@ -40,7 +58,6 @@ export const ServicesState = ({ children }) => {
 
   useEffect(() => {
     if (user.uid) {
-      console.log("user", user);
       setIsUserReq(false);
     }
   }, [user]);

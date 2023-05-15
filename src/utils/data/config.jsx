@@ -3,6 +3,13 @@ import { lorem20, lorem10, serviceSection } from "./variables";
 import { formatDate, formatTime } from "../fns/moment";
 
 export const app = {
+  user: {
+    email: "email@example.com",
+    name: "first lastname",
+    phone: "987-654-3210",
+    uid: "test123",
+    isDev: true,
+  },
   events: {
     title: "Book Appointments",
     subtitle: "",

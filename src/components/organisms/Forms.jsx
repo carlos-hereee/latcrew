@@ -1,6 +1,7 @@
 import { getIn, useFormik } from "formik";
 import ReCAPTCHA from "react-google-recaptcha";
 import Icons from "../molecules/icons/Icons";
+import { schema } from "../molecules/forms/schema";
 
 const Forms = ({ data, submit }) => {
   const textarea = ["message"];
@@ -16,7 +17,7 @@ const Forms = ({ data, submit }) => {
     useFormik({
       initialValues: data.values,
       onSubmit: (e) => submit(e),
-      validationSchema: data.schema,
+      validationSchema: schema(data.values),
     });
 
   return (
