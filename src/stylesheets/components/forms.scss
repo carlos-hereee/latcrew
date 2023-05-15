@@ -60,7 +60,6 @@
   }
 }
 .no-capcha-form {
-  // min-width: #{$mini};
   max-width: #{$tablet};
   width: 100%;
   .label {
@@ -71,9 +70,6 @@
       flex-shrink: 1;
       margin-left: auto;
     }
-    // flex: 2;
-    //
-    // justify-content: /;
   }
 }
 #contact-user-form {

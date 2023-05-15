@@ -4,6 +4,7 @@ import ToggleOpen from "../molecules/buttons/ToggleOpen";
 import UserCard from "../molecules/card/UserCard";
 import NoCaptchaForm from "../molecules/forms/NoCaptchaForm";
 import { AuthContext } from "../../utils/context/AuthContext";
+import Icons from "../molecules/icons/Icons";
 
 const UserContact = () => {
   const { user, userValues, updateUserData } = useContext(AuthContext);
@@ -13,7 +14,9 @@ const UserContact = () => {
   const handleClick = () => setIsOpen(!isOpen);
   const setData = () => {
     return isOpen ? (
-      <span>Close contact details</span>
+      <span>
+        Close <Icons name="x" />
+      </span>
     ) : (
       <span>Enter contact details</span>
     );

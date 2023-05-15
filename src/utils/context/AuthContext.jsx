@@ -12,7 +12,12 @@ export const AuthState = ({ children }) => {
   const initialState = {
     isLoading: false,
     accessToken: "",
-    user: {},
+    user: {
+      email: "email@example.com",
+      name: "first lastname",
+      phone: "987-654-3210",
+      uid: shortid.generate(),
+    },
     userValues: { name: "", email: "", phone: "" },
     signUpValues: { username: "", password: "", confirmPassword: "" },
     loginValues: { username: "", password: "" },
