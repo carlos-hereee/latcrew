@@ -2,19 +2,13 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  // background-color: #{$primary-color};
   gap: 1rem;
-  // padding: 1rem;
   input,
   textarea {
     border: 1px solid #{$primary-color};
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
   }
-}
-.required {
-  color: #{$danger};
-  border: #{$danger};
 }
 .form-submit {
   display: flex;
@@ -50,12 +44,7 @@
     }
   }
 }
-.btn-submit {
-  background-color: #{$secondary-color};
-  color: #{$primary-text};
-  margin: 1rem auto;
-  max-width: 300px;
-}
+
 .form-link-wrapper {
   padding: 1rem;
   text-align: center;
@@ -70,8 +59,27 @@
     max-width: 500px;
   }
 }
+.no-capcha-form {
+  // min-width: #{$mini};
+  max-width: #{$tablet};
+  width: 100%;
+  .label {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    .required {
+      flex-shrink: 1;
+      margin-left: auto;
+    }
+    // flex: 2;
+    //
+    // justify-content: /;
+  }
+}
 #contact-user-form {
   width: 100%;
-  // display: flex;
-  // flex-direction: column;
+}
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
 }
