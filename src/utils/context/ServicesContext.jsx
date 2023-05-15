@@ -10,7 +10,8 @@ export const ServicesState = ({ children }) => {
     isLoading: false,
     isFiltered: false,
     isUserReq: true,
-    cart: [
+    cart: [],
+    bookable: [
       {
         cost: 53,
         count: 1,
@@ -44,9 +45,14 @@ export const ServicesState = ({ children }) => {
     }
   }, [user]);
 
-  const addToCart = (service) => {
-    dispatch({ type: "ADD_TO_CART", payload: service });
+  const addToCart = (cart, item) => {
+    cart.push(item);
+    if (item.isBookable) {
+      dispatch({ type: "UPDATE_BOOKABLE", payload: cart });
+    }
+    dispatch({ type: "UPDATE_CART", payload: cart });
   };
+
   const removeFromCart = (service, active) => {
     try {
       // reset active if it matches item
@@ -125,6 +131,7 @@ export const ServicesState = ({ children }) => {
         active: state.active,
         isUserReq: state.isUserReq,
         total: state.total,
+        bookable: state.bookable,
         bookEvent,
         filter,
         addToCart,

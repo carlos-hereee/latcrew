@@ -25,7 +25,7 @@ const CartItem = ({ data, link }) => {
   const submit = (e) => bookNow(e, meeting);
 
   return (
-    <div className="cart-container">
+    <div className="card-section-wrapper">
       {data.map((c) =>
         cancel.uid === c.uid ? (
           <CancelRow data={c} key={c.uid} click={cancelReq} />

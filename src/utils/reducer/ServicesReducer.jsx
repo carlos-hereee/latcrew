@@ -1,16 +1,5 @@
-const isLoading = (state, action) => {
-  return {
-    ...state,
-    isLoading: action.payload,
-  };
-};
 const loadServices = (state, action) => {
-  return {
-    ...state,
-    isLoading: false,
-    isFiltered: false,
-    services: action.payload,
-  };
+  return { ...state, isLoading: false, isFiltered: false, services: action.payload };
 };
 const updateAssets = (state, action) => {
   return {
@@ -21,33 +10,18 @@ const updateAssets = (state, action) => {
   };
 };
 const updateActive = (state, action) => {
-  return {
-    ...state,
-    isLoading: false,
-    active: action.payload,
-  };
+  return { ...state, isLoading: false, active: action.payload };
 };
-const addToCart = (state, action) => {
-  return {
-    ...state,
-    isLoading: false,
-    cart: [...state.cart, action.payload],
-  };
-};
+
 const removeFromCart = (state, action) => {
   return {
     ...state,
     isLoading: false,
-    // cart: [...state.cart, action.payload],
     cart: state.cart.filter((c) => c.uid !== action.payload.uid),
   };
 };
 const bookEvent = (state, action) => {
-  return {
-    ...state,
-    isLoading: false,
-    cart: action.payload,
-  };
+  return { ...state, isLoading: false, cart: action.payload };
 };
 const bookRequired = (state, action) => {
   return {
@@ -66,27 +40,19 @@ const updateItemQuantity = (state, action) => {
   };
 };
 const setIsUserReq = (state, action) => {
-  return {
-    ...state,
-    isLoading: false,
-    isUserReq: action.payload,
-  };
+  return { ...state, isLoading: false, isUserReq: action.payload };
 };
-const setTotal = (state, action) => {
-  return {
-    ...state,
-    isLoading: false,
-    total: action.payload,
-  };
-};
+
 export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
-      return isLoading(state, action);
+      return { ...state, isLoading: action.payload };
     case "LOAD_SERVICES":
       return loadServices(state, action);
-    case "ADD_TO_CART":
-      return addToCart(state, action);
+    case "UPDATE_CART":
+      return { ...state, isLoading: false, cart: action.payload };
+    case "UPDATE_BOOKABLE":
+      return { ...state, isLoading: false, bookable: action.payload };
     case "REMOVE_FROM_CART":
       return removeFromCart(state, action);
     case "UPDATE_ACTIVE":
@@ -102,7 +68,7 @@ export const reducer = (state, action) => {
     case "SET_IS_USER_REQ":
       return setIsUserReq(state, action);
     case "SET_TOTAL":
-      return setTotal(state, action);
+      return { ...state, isLoading: false, total: action.payload };
     default:
       return state;
   }
