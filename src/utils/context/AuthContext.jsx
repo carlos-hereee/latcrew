@@ -4,7 +4,6 @@ import { axiosWithAuth } from "../fns/axios";
 import generate from "project-name-generator";
 import { reducer } from "../reducer/AuthReducer";
 import { v4 } from "uuid";
-import * as yup from "yup";
 import shortid from "shortid";
 
 export const AuthContext = createContext();
