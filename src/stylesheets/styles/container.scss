@@ -85,6 +85,8 @@
 }
 .cart-container {
   display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
   flex: 1;
   border-radius: 0.5rem;
   background-color: #{$secondary-color2};

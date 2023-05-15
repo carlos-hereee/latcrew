@@ -60,20 +60,3 @@
   padding: 0.5rem;
   margin: auto;
 }
-.column {
-  display: flex;
-  flex-direction: column;
-  &:has(> .secondary-container) {
-    width: 100%;
-    .secondary-container {
-      border-radius: 0.5rem;
-      label {
-        display: flex;
-        gap: 1rem;
-      }
-    }
-  }
-}
-.row {
-  display: flex;
-}

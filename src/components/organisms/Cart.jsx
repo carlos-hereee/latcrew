@@ -13,6 +13,7 @@ const Cart = ({ data }) => {
 
   return (
     <div className="cart-container">
+      <h2>Select a service</h2>
       {data.map((c) =>
         cancel.uid === c.uid ? (
           <CancelRow data={c} key={c.uid} click={cancelReq} />
