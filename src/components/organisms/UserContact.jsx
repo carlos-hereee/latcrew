@@ -12,7 +12,11 @@ const UserContact = () => {
   const submit = (e) => updateUserData(e);
   const handleClick = () => setIsOpen(!isOpen);
   const setData = () => {
-    return isOpen ? <p>Close contact details</p> : <p>Enter contact details</p>;
+    return isOpen ? (
+      <span>Close contact details</span>
+    ) : (
+      <span>Enter contact details</span>
+    );
   };
   return (
     <div className="section-container">

@@ -1,43 +1,13 @@
 import { getIn, useFormik } from "formik";
 import Icons from "../icons/Icons";
+import { labels } from "./labels";
+import { placeholders } from "./placeholders";
 
-const NoCaptchaForm = ({ data, submit, isHorizontal, type }) => {
-  const label = {
-    firstName: "First name",
-    lastName: "Last name",
-    name: "Enter name",
-    streetAddress: "Street Address",
-    email: "Email",
-    phone: "Phone number",
-    apt: "Apt/Suite",
-    city: "City",
-    state: "State",
-    postalCode: "Postal code",
-    username: "Username",
-    password: "Password",
-    confirmPassword: "Confirm Password",
-    search: "Search",
-  };
-  const placeholder = {
-    firstName: "Peter..",
-    lastName: "Griffin..",
-    name: "Enter name",
-    streetAddress: "123 Street..",
-    email: "email@example.com",
-    apt: "1234",
-    city: "Narnia ..",
-    state: "State..",
-    postalCode: "56789",
-    phone: "987-654-3210",
-    username: "",
-    password: "",
-    confirmPassword: "",
-    search: "Search..",
-  };
+const NoCaptchaForm = ({ data, schema, submit, isHorizontal, type }) => {
   const { handleSubmit, handleBlur, handleChange, values, errors } = useFormik({
     initialValues: data,
     onSubmit: (e) => submit(e, true),
-    validationSchema: data.schema,
+    validationSchema: schema,
   });
   const change = (data) => {
     handleChange(data);
@@ -51,16 +21,16 @@ const NoCaptchaForm = ({ data, submit, isHorizontal, type }) => {
             <label htmlFor={v} className="label">
               <strong>
                 {" "}
-                {label[v]}: <br />
+                {labels[v]}: <br />
               </strong>
               {errors[v] && <span className="required">{errors[v]}</span>}
             </label>
             <input
-              type={label[v]}
+              type={labels[v]}
               autoComplete="on"
               name={v}
               value={getIn(values, v)}
-              placeholder={placeholder[v]}
+              placeholder={placeholders[v]}
               onChange={type === "search" ? change : handleChange}
               onBlur={handleBlur}
               className="input"

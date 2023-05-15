@@ -1,7 +1,7 @@
 import { getIn, useFormik } from "formik";
+import { labels } from "./labels";
 
 const FieldQuantity = ({ data, max, change }) => {
-  const labels = { max: "Max Price:", min: "Min Price:" };
   const { handleSubmit, handleBlur, handleChange, values, errors } = useFormik({
     initialValues: data.values,
     validationSchema: data.schema,

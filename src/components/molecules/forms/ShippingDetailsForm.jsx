@@ -2,27 +2,11 @@ import { getIn, useFormik } from "formik";
 import { useContext } from "react";
 import { AuthContext } from "../../../utils/context/AuthContext";
 import Icons from "../icons/Icons";
+import { labels } from "./labels";
+import { placeholders } from "./placeholders";
 
 const FormShippingDetails = () => {
   const { shippingValues, shippingSchema, setShipping } = useContext(AuthContext);
-  const label = {
-    firstName: "First name...",
-    lastName: "Last name...",
-    streetAddress: "Street Address...",
-    apt: "Ap/Suite...",
-    city: "City...",
-    state: "State...",
-    postalCode: "Postal code...",
-  };
-  const placeholder = {
-    firstName: "Peter..",
-    lastName: "Griffin..",
-    streetAddress: "123 Street..",
-    apt: "1234",
-    city: "Narnia ..",
-    state: "State..",
-    postalCode: "56789",
-  };
   const { handleSubmit, handleBlur, handleChange, values, errors } = useFormik({
     initialValues: { shippingValues },
     onSubmit: (e) => setShipping(e),
@@ -36,16 +20,16 @@ const FormShippingDetails = () => {
           <div key={v} className="input-wrapper">
             <div className="label">
               <label htmlFor={v}>
-                {label[v]} <br />
+                {labels[v]} <br />
                 {errors[v] && <span className="required">{errors[v]}</span>}
               </label>
             </div>
             <input
-              type={label[v]}
+              type={labels[v]}
               autoComplete="on"
               name={v}
               value={getIn(values, v)}
-              placeholder={placeholder[v]}
+              placeholder={placeholders[v]}
               onChange={handleChange}
               onBlur={handleBlur}
               className="input"

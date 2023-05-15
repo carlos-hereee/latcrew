@@ -45,7 +45,7 @@ const Checkout = () => {
       setTotal(0);
     }
   }, [user, cart]);
-
+  console.log("cart", cart);
   return (
     <section className="section-container">
       <CardHeader data={checkout} />
