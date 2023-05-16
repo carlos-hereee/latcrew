@@ -47,9 +47,7 @@ button {
     color: #{$primary-text};
   }
 }
-.icon {
-  min-width: 1rem;
-}
+
 .custom-btn-link {
   display: flex;
   justify-content: center;
@@ -109,8 +107,7 @@ button {
 }
 .btn-danger {
   background-color: #{$danger};
-  color: #{$primary-text};
-  width: 100%;
+  color: #{$secondary-text};
 }
 .btn {
   display: flex;

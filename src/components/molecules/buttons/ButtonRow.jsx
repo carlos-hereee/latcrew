@@ -4,7 +4,7 @@ import CardHeader from "../card/CardHeader";
 
 const ButtonRow = ({ data, click }) => {
   return (
-    <button type="button" className="card-row" onClick={() => click(data)}>
+    <button type="button" className="card-row" onClick={click}>
       <div className="card-row-heading">
         <CardHeader data={data} />
         {data.response && <ReadMore data={data.response} />}

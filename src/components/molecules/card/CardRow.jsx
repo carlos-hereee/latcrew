@@ -3,13 +3,13 @@ import { ServicesContext } from "../../../utils/context/ServicesContext";
 import ButtonCancel from "../../atoms/buttons/ButtonCancel";
 import ButtonRow from "../buttons/ButtonRow";
 
-const CardRow = ({ data, click }) => {
-  const { active } = useContext(ServicesContext);
+const CardRow = ({ data, setCancel }) => {
+  const { active, setActive } = useContext(ServicesContext);
 
   return (
     <div className={`card-row-wrapper ${data.uid === active?.uid ? "active" : ""}`}>
-      <ButtonCancel data={data} click={click} />
-      <ButtonRow data={data} click={click} />
+      <ButtonCancel data={data} click={() => setCancel(data)} />
+      <ButtonRow data={data} click={() => setActive(data)} />
     </div>
   );
 };

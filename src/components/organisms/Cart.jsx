@@ -4,11 +4,11 @@ import CancelRow from "../molecules/card/CancelRow";
 import CartRow from "../molecules/cart/CartRow";
 
 const Cart = ({ data }) => {
-  const { removeFromCart, active } = useContext(ServicesContext);
+  const { removeFromCart, cart } = useContext(ServicesContext);
   const [cancel, setCancel] = useState({});
 
   const cancelReq = (e, isConfirm) => {
-    isConfirm ? removeFromCart(e, active) : setCancel({});
+    isConfirm ? removeFromCart(cart, e) : setCancel({});
   };
 
   return (
