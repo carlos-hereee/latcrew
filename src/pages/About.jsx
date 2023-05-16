@@ -1,14 +1,12 @@
 import { useContext } from "react";
 import { AppContext } from "../utils/context/AppContext";
-// import SectionHeader from "../components/molecules/SectionHeader";
-import Title from "../components/atoms/texts/Title";
+import Heading from "../components/atoms/texts/Heading";
 
 const About = () => {
   const { about } = useContext(AppContext);
   return (
     <div className="container">
-      {/* <SectionHeader data={about} /> */}
-      <Title />
+      <Heading data={about} />
       <div className="section-body">
         <p>{about.description}</p>
         {about.details.length > 0 && about.details.map((d) => <p key={d}>{d}</p>)}
