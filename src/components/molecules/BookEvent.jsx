@@ -9,13 +9,13 @@ import Title from "../atoms/text/Title";
 
 const BookEvent = () => {
   const { bookNow, meeting, selectedDay } = useContext(CalendarContext);
-  const { active } = useContext(ServicesContext);
+  const { active, addToBooked, cart } = useContext(ServicesContext);
   const { user, userValues } = useContext(AuthContext);
 
   const submit = (e) => bookNow(e, meeting);
   return (
     <div className="book-event">
-      <Title data={`Booking: ${active.title} ${active.subtitle}`} />
+      <Title data={`Booking service: ${active.title} ${active.subtitle}`} />
       {selectedDay.hasList &&
         selectedDay.list.filter((l) => l.uid !== meeting.uid).length > 0 && (
           <p className="warning">
@@ -25,6 +25,14 @@ const BookEvent = () => {
         )}
       <MeetingDetails meeting={meeting} />
       {user.uid ? <UserCard /> : <Forms data={userValues} submit={submit} />}
+      {meeting.uid && user.uid && active.uid && (
+        <button
+          type="button"
+          className="btn btn-main"
+          onClick={() => addToBooked(cart, user, meeting, active)}>
+          BOOK NOW!
+        </button>
+      )}
     </div>
   );
 };

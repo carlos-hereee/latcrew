@@ -58,7 +58,7 @@ const Forms = ({ data, submit }) => {
           size={window.screen.width < 481 ? "compact" : "normal"}
         />
       </div>
-      <button type="submit" className="btn btn-classic">
+      <button type="submit" className="btn btn-main">
         <Icons name="submit" /> Submit
       </button>
     </form>

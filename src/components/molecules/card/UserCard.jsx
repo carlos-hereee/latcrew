@@ -5,15 +5,22 @@ const UserCard = () => {
   const { user } = useContext(AuthContext);
   return (
     <div className="card-body">
-      {user.name ? (
-        <p>Name: {user.name}</p>
-      ) : (
-        <p>
-          Name: {user.firstName} {user.lastName}
-        </p>
-      )}
-      <p>Email: {user.email}</p>
-      <p>Phone: {user.phone}</p>
+      <p>
+        <strong>Contact Details: </strong>
+      </p>
+      <p>
+        {user.name ? (
+          <span>Name: {user.name}</span>
+        ) : (
+          <span>
+            Name: {user.firstName} {user.lastName}
+          </span>
+        )}
+        <br />
+        <span>Email: {user.email}</span>
+        <br />
+        <span>Phone: {user.phone}</span>
+      </p>
     </div>
   );
 };

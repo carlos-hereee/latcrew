@@ -79,6 +79,10 @@ export const ServicesState = ({ children }) => {
     }
     dispatch({ type: "UPDATE_CART", payload });
   };
+  const addToBooked = (cart, user, meeting, active) => {
+    // console.log("meeting, user", meeting, user, active);
+  };
+
   const filter = async (services, filter) => {
     dispatch({ type: "IS_LOADING", payload: true });
     if (filter === "all") {
@@ -151,6 +155,7 @@ export const ServicesState = ({ children }) => {
         bookEvent,
         filter,
         addToCart,
+        addToBooked,
         removeFromCart,
         setActive,
         bookingRequired,
