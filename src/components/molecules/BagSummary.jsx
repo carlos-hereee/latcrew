@@ -4,19 +4,18 @@ import AccessoryDetails from "../atoms/AccessoryDetails";
 import Cost from "../atoms/Cost";
 import MeetingDetails from "../atoms/MeetingDetails";
 import CardHeader from "./card/CardHeader";
-import * as yup from "yup";
 import FieldQuantity from "./forms/FieldQuantity";
 import BookingRequired from "./required/BookingRequired";
 import ButtonLink from "../atoms/buttons/ButtonLink";
+import Heading from "../atoms/Text/Heading";
 // import BookingLink from "../organisms/BookingLink";
 
-const schema = yup.object().shape({ quantity: yup.number() });
 const values = { quantity: 1 };
 const BagSummary = ({ inReview }) => {
   const { cart, onQuantityChange } = useContext(ServicesContext);
   return (
     <div className="card-section-wrapper">
-      <h3>Bag Summary</h3>
+      <Heading data={{ title: "Bag Summary" }} />
       {cart.map((c) => (
         <div className="card-section-row" key={c.uid}>
           {c.isAccessory ? (
@@ -42,7 +41,7 @@ const BagSummary = ({ inReview }) => {
             ) : (
               c.isAccessory && (
                 <FieldQuantity
-                  data={{ values, schema }}
+                  data={values}
                   max={c.inStock}
                   change={({ target }) => onQuantityChange(target.value, c)}
                 />

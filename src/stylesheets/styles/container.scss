@@ -86,8 +86,11 @@
 .cart-container {
   display: flex;
   flex-direction: column;
+  background-color: #{$secondary-color2};
   padding: 0 1rem;
   flex: 1;
   border-radius: 0.5rem;
-  background-color: #{$secondary-color2};
+  gap: 0.5rem;
+  max-height: 30rem;
+  overflow-y: auto;
 }
