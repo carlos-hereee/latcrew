@@ -5,6 +5,7 @@ import MeetingDetails from "../atoms/MeetingDetails";
 import UserCard from "../molecules/card/UserCard";
 import { AuthContext } from "../../utils/context/AuthContext";
 import Forms from "../organisms/Forms";
+import Title from "../atoms/Text/Title";
 
 const BookEvent = () => {
   const { bookNow, meeting, selectedDay } = useContext(CalendarContext);
@@ -14,12 +15,7 @@ const BookEvent = () => {
   const submit = (e) => bookNow(e, meeting);
   return (
     <div className="book-event">
-      <h3>
-        Booking:{" "}
-        <strong>
-          {active.title} {active.subtitle}
-        </strong>
-      </h3>
+      <Title data={`Booking: ${active.title} ${active.subtitle}`} />
       {selectedDay.hasList &&
         selectedDay.list.filter((l) => l.uid !== meeting.uid).length > 0 && (
           <p className="warning">

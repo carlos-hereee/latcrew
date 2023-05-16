@@ -4,6 +4,7 @@ import Icons from "../molecules/icons/Icons";
 import { schema } from "../molecules/forms/schema";
 import { types } from "../molecules/forms/types";
 import { placeholders } from "../molecules/forms/placeholders";
+import { labels } from "../molecules/forms/labels";
 
 const Forms = ({ data, submit }) => {
   const textarea = ["message"];
@@ -21,7 +22,7 @@ const Forms = ({ data, submit }) => {
         {Object.keys(data.values).map((v) => (
           <div key={v} className="input-wrapper">
             <label htmlFor={v} className="label">
-              <strong>{v.charAt(0).toUpperCase() + v.slice(1)} </strong>
+              <strong>{labels[v]}: </strong>
               {errors[v] && <span className="required">{errors[v]}</span>}
             </label>
             {textarea.includes(v) ? (
