@@ -4,7 +4,8 @@
   text-align: center;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed #{$primary-text};
 }
 .card-row-wrapper {
   position: relative;
@@ -20,14 +21,7 @@
   flex-direction: column;
   gap: 1rem;
   border-radius: 0.5rem;
-  .card-row-heading {
-    display: flex;
-    // flex-wrap: wrap;
-    gap: 1rem;
-    .card-header {
-      padding: 0;
-    }
-  }
+  padding: 0;
   @include devices(mobile) {
     .card-header {
       flex-direction: row;
