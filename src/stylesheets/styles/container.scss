@@ -109,6 +109,7 @@
   }
 }
 .bag-item {
+  border-radius: #{$b-radi};
   &:nth-child(even) {
     .card-row-wrapper,
     .read-more-wrapper {
