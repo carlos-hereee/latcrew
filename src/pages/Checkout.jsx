@@ -12,7 +12,7 @@ import Total from "../components/molecules/Total";
 
 const Checkout = () => {
   const { checkout } = useContext(AppContext);
-  const { cart, setTotal, total, isUserReq } = useContext(ServicesContext);
+  const { cart, setTotal, total, isUserReq, booked } = useContext(ServicesContext);
   const { user } = useContext(AuthContext);
   const [proceedWithCheckout, setNext] = useState(false);
   const [isShippingReq, setShippingInfoReq] = useState(false);
@@ -36,12 +36,19 @@ const Checkout = () => {
       setShippingInfoReq(false);
       setTotal(0);
     }
-  }, [user, cart]);
+  }, [JSON.stringify(cart)]);
   return (
     <section className="section-container">
       <CardHeader data={checkout} />
       {isUserReq && <UserContact />}
-      {cart.length > 0 ? <BagSummary /> : <CartEmpty />}
+      <div>
+        {cart.length > 0 ? (
+          <BagSummary />
+        ) : (
+          <div>{booked.length > 0 ? <>booked arr</> : <CartEmpty />}</div>
+        )}
+      </div>
+
       {total > 0 && <Total total={total} />}
       {isUserReq && user?.uid && !proceedWithCheckout && (
         <ButtonNext click={setNext} />
