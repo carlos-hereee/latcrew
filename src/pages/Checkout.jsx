@@ -4,7 +4,7 @@ import { ServicesContext } from "../utils/context/ServicesContext";
 import { AuthContext } from "../utils/context/AuthContext";
 import PaymentMethods from "../components/organisms/PaymentMethods";
 import CardHeader from "../components/molecules/card/CardHeader";
-import BagSummary from "../components/molecules/BagSummary";
+import BagSummary from "../components/molecules/cart/BagSummary";
 import UserContact from "../components/organisms/UserContact";
 import ButtonNext from "../components/molecules/buttons/ButtonNext";
 import CartEmpty from "../components/molecules/empty/CartEmpty";

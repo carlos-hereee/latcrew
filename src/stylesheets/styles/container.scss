@@ -94,3 +94,32 @@
   max-height: 30rem;
   overflow-y: auto;
 }
+.bag-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  .bag-item {
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+    .read-more {
+      &:has(+ .read-more-toggle:not(:checked))::before {
+        background: linear-gradient(to bottom, transparent, #{$secondary-color});
+      }
+    }
+    // visualize end of item on the list
+    &:nth-child(odd) {
+      background: #{$secondary-color2};
+      color: #{$primary-text};
+      border-radius: 0.5rem;
+      .read-more-wrapper {
+        background: #{$secondary-color2};
+        color: #{$primary-text};
+      }
+      .read-more {
+        &:has(+ .read-more-toggle:not(:checked))::before {
+          background: linear-gradient(to bottom, transparent, #{$secondary-color2});
+        }
+      }
+    }
+  }
+}
