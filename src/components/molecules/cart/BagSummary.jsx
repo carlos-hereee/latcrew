@@ -29,7 +29,6 @@ const BagSummary = () => {
           cancel.uid === c.uid ? (
             <CancelRow data={c} key={c.uid} click={cancelReq} />
           ) : (
-            // <BagItem key={c.uid} data={c} setCancel={setCancel} />
             <BagItem key={c.uid} data={c} setCancel={setCancel} />
           )
         )}
