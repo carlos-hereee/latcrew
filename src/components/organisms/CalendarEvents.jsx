@@ -10,6 +10,7 @@ import EventList from "../molecules/EventList";
 const CalendarEvents = () => {
   const { selectedDay, meeting } = useContext(CalendarContext);
   const { active } = useContext(ServicesContext);
+  console.log("meeting", meeting);
   return (
     <div id="calendar-events">
       <CardHeader data={selectedDay} />

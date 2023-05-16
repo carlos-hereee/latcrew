@@ -9,7 +9,7 @@ import Forms from "../organisms/Forms";
 const BookEvent = () => {
   const { bookNow, meeting, selectedDay } = useContext(CalendarContext);
   const { active } = useContext(ServicesContext);
-  const { user, userSchema, userValues } = useContext(AuthContext);
+  const { user, userValues } = useContext(AuthContext);
 
   const submit = (e) => bookNow(e, meeting);
   return (
@@ -28,11 +28,7 @@ const BookEvent = () => {
           </p>
         )}
       <MeetingDetails meeting={meeting} />
-      {user.uid ? (
-        <UserCard />
-      ) : (
-        <Forms data={{ values: userValues, schema: userSchema }} submit={submit} />
-      )}
+      {user.uid ? <UserCard /> : <Forms data={userValues} submit={submit} />}
     </div>
   );
 };
