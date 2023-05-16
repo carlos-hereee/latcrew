@@ -16,6 +16,7 @@ $secondary-color2: #f1f7ed;
 $primary-text: #333;
 $secondary-text: #eee;
 $text-color3: rgb(0, 0, 0);
+// popular icons
 $instagram: #ea4c52;
 $twitter: #1da1f2;
 // shadow blends
@@ -25,11 +26,11 @@ $shadow-color3: #ddd;
 /* readmore lines */
 $max-lines: 2;
 $line-height: 1.4;
+
 /*  media queries */
 $media-desktop: "only screen and (max-width : 1024px)";
 $media-tablet: "only screen and (max-width : 768px)";
 $media-mobile: "only screen and (max-width : 480px)";
-
 $tablet: 680px;
 $mobile: 500px;
 $mini: 375px;

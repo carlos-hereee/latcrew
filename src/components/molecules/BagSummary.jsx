@@ -7,7 +7,8 @@ import CardHeader from "./card/CardHeader";
 import * as yup from "yup";
 import FieldQuantity from "./forms/FieldQuantity";
 import BookingRequired from "./required/BookingRequired";
-import BookingLink from "../organisms/BookingLink";
+import ButtonLink from "../atoms/buttons/ButtonLink";
+// import BookingLink from "../organisms/BookingLink";
 
 const schema = yup.object().shape({ quantity: yup.number() });
 const values = { quantity: 1 };
@@ -32,7 +33,7 @@ const BagSummary = ({ inReview }) => {
                   )}
                 </div>
               </div>
-              {!c.meeting?.uid && <BookingLink data={c} />}
+              {!c.meeting?.uid && <ButtonLink link="booking" />}
             </>
           )}
           <div className="card-section-cost">

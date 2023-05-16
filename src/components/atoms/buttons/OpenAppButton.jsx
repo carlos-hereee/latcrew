@@ -35,7 +35,7 @@ const OpenAppButton = ({ service }) => {
   return (
     <button
       type="button"
-      className="btn btn-link"
+      className="btn btn-main"
       onClick={() => handleClick(service)}>
       Find Open Appointment
     </button>
