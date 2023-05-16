@@ -52,7 +52,7 @@
   min-width: 200px;
   padding: 1rem;
   gap: 1rem;
-  border-radius: 0.5rem;
+  border-radius: #{$b-radi};
   .btn-link {
     background-color: #{$primary-color};
     color: #{$secondary-text};
@@ -73,7 +73,7 @@
     &:nth-child(even) {
       background-color: #{$secondary-color};
       color: #{$secondary-text};
-      border-radius: 0.5rem;
+      border-radius: #{$b-radi};
     }
   }
 }
@@ -89,7 +89,7 @@
   background-color: #{$secondary-color2};
   padding: 0 1rem;
   flex: 1;
-  border-radius: 0.5rem;
+  border-radius: #{$b-radi};
   gap: 0.5rem;
   max-height: 30rem;
   overflow-y: auto;
@@ -100,7 +100,7 @@
   gap: 1rem;
   .bag-item {
     padding: 0 1rem;
-    border-radius: 0.5rem;
+    border-radius: #{$b-radi};
     .bag-btns {
       display: flex;
       justify-content: center;
@@ -120,7 +120,7 @@
     &:nth-child(odd) {
       background: #{$secondary-color2};
       color: #{$primary-text};
-      border-radius: 0.5rem;
+      border-radius: #{$b-radi};
       .bag-btns {
         background-color: #{$secondary-color2};
       }

@@ -6,7 +6,7 @@ button {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 0.5rem;
+  border-radius: #{$b-radi};
   &:disabled {
     cursor: not-allowed;
   }
@@ -54,7 +54,7 @@ button {
   padding: 0.5rem;
   background-color: #{$secondary-color};
   color: white;
-  border-radius: 4px;
+  border-radius: #{$b-radi};
 }
 .btn-icons {
   display: flex;
@@ -88,7 +88,7 @@ button {
   top: -0.5rem;
   right: -0.5rem;
   z-index: 99;
-  border-radius: 100%;
+  border-radius: #{$b-full};
 }
 .btn-search {
   padding: 0.5rem;
@@ -112,7 +112,7 @@ button {
 }
 .btn {
   display: flex;
-  border-radius: 0.5rem;
+  border-radius: #{$b-radi};
   gap: 1rem;
 }
 .btn-link {
@@ -125,7 +125,7 @@ button {
   // top: 25%;
   // margin: 0 1rem;
   // flex: 1;
-  // border-radius: 0.5rem;
+  // border-radius: #{$b-radi};
 }
 .btn-step {
   background-color: #{$secondary-color2};

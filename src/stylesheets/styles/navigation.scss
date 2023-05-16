@@ -18,7 +18,7 @@
     position: absolute;
     list-style: none;
     background-color: #{$primary-color2};
-    border-radius: 4px;
+    border-radius: #{$b-radi};
     gap: 1rem;
     top: 100%;
     right: 0%;
@@ -45,7 +45,7 @@
   display: flex;
   justify-content: space-around;
   list-style: none;
-  border-radius: 4px;
+  border-radius: #{$b-radi};
   padding: 0;
 }
 .navbar {
@@ -79,7 +79,7 @@
   justify-content: center;
   background-color: #{$danger};
   color: #{$secondary-text};
-  border-radius: 50%;
+  border-radius: #{$b-full};
   padding: 0.35rem;
 }
 .checkout-navigation {

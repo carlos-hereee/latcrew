@@ -40,7 +40,7 @@
   }
 }
 .message-success {
-  border-radius: 4px;
+  border-radius: #{$b-radi};
   padding: 1rem;
   color: #{$primary-text};
   background-color: #{$primary-color2};

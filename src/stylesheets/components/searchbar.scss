@@ -24,13 +24,13 @@
   cursor: pointer;
   // max-width: 150px;
   flex: 1;
-  border-radius: 0.5rem;
+  border-radius: #{$b-radi};
   padding: 0.5rem;
 }
 
 .dropdown-item {
   cursor: pointer;
-  border-radius: 0.5rem;
+  border-radius: #{$b-radi};
   padding: 5px;
   cursor: pointer;
 }
@@ -53,7 +53,7 @@
 .dropdown-tag-item {
   background-color: #ddd;
   padding: 2px 4px;
-  border-radius: 0.5rem;
+  border-radius: #{$b-radi};
   display: flex;
   align-items: center;
 }
@@ -73,7 +73,7 @@
   box-sizing: border-box;
   padding: 5px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: #{$b-radi};
 }
 .applied-filter-container {
   display: flex;

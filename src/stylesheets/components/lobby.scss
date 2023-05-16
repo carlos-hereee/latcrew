@@ -7,7 +7,7 @@
 .lobby-options {
   background-color: #{$secondary-color2};
   padding: 1rem;
-  border-radius: 4px;
+  border-radius: #{$b-radi};
   color: #{$primary-text};
 }
 .lobby-buttons {

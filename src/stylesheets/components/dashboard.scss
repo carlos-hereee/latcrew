@@ -1,13 +1,13 @@
 .dashboard {
   background-color: #{$primary-color};
   padding: 1rem;
-  border-radius: 4px;
+  border-radius: #{$b-radi};
 }
 
 .avatar-frame {
   margin: auto;
 }
 .avatar {
-  border-radius: 50%;
+  border-radius: #{$b-full};
   margin: auto;
 }
