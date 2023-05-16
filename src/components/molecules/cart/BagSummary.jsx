@@ -7,7 +7,7 @@ import CardHeader from "../card/CardHeader";
 import FieldQuantity from "../forms/FieldQuantity";
 import BookingRequired from "../required/BookingRequired";
 import ButtonLink from "../../atoms/buttons/ButtonLink";
-import Heading from "../../atoms/Text/Heading";
+import Heading from "../../atoms/text/Heading";
 import CartRow from "./CartRow";
 import CancelRow from "../card/CancelRow";
 import BagItem from "./BagItem";

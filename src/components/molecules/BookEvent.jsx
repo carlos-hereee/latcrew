@@ -5,7 +5,7 @@ import MeetingDetails from "../atoms/MeetingDetails";
 import UserCard from "../molecules/card/UserCard";
 import { AuthContext } from "../../utils/context/AuthContext";
 import Forms from "../organisms/Forms";
-import Title from "../atoms/Text/Title";
+import Title from "../atoms/text/Title";
 
 const BookEvent = () => {
   const { bookNow, meeting, selectedDay } = useContext(CalendarContext);
