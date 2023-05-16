@@ -3,6 +3,7 @@ import shortid from "shortid";
 import { LogContext } from "./LogContext";
 import { reducer } from "../reducer/ServicesReducer";
 import { AuthContext } from "./AuthContext";
+import { CalendarContext } from "./CalendarContext";
 
 export const ServicesContext = createContext();
 export const ServicesState = ({ children }) => {
@@ -86,6 +87,9 @@ export const ServicesState = ({ children }) => {
     dispatch({ type: "UPDATE_BOOKED", payload: booked });
     // remove from cart
     removeFromCart(cart, active);
+    // reset variable details
+    setActive({});
+    // setMeeting({});
   };
 
   const filter = async (services, filter) => {
