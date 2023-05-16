@@ -10,13 +10,9 @@
 .card-row-wrapper {
   position: relative;
   display: flex;
+  padding: 1rem;
 }
-.card-row-wrapper,
-.active {
-  background-color: #{$secondary-color};
-  color: #{$secondary-text};
-  border-radius: #{$b-radi};
-}
+
 .card-row {
   display: flex;
   align-items: flex-start;

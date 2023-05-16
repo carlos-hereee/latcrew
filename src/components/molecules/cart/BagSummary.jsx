@@ -21,7 +21,6 @@ const BagSummary = () => {
     isConfirm ? removeFromCart(cart, e) : setCancel({});
   };
   return (
-    // <div className="card-section-wrapper">
     <div>
       <Heading data={{ title: "Bag Summary" }} />
       <div className="bag-container">
