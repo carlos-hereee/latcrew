@@ -21,12 +21,3 @@
 .event-body {
   margin: 1rem 0;
 }
-.social {
-  display: flex;
-  flex-direction: column;
-  color: #{$secondary-text};
-  gap: 1rem;
-  .title {
-    text-align: center;
-  }
-}

@@ -1,3 +1,23 @@
 .icon {
   min-width: 1rem;
 }
+.social {
+  display: flex;
+  flex-direction: column;
+  color: #{$secondary-text};
+  gap: 1rem;
+  .title {
+    text-align: center;
+  }
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.instagram {
+  color: #{$instagram};
+}
+.twitter {
+  color: #{$twitter};
+}

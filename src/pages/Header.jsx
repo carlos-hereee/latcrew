@@ -9,7 +9,7 @@ import { ServicesContext } from "../utils/context/ServicesContext";
 const Header = () => {
   const [isActive, setActive] = useState(false);
   const [isClose, setClose] = useState(false);
-  const { cart } = useContext(ServicesContext);
+  const { cart, booked } = useContext(ServicesContext);
   const { menu, burger, toggleMenu, updateBurger, updateMenu } =
     useContext(AppContext);
 
@@ -32,7 +32,8 @@ const Header = () => {
     if (cart.length > 0) {
       const menuPayload = {
         accessory: cart.filter((c) => c.isAccessory).length,
-        services: cart.filter((c) => c.isBookable).length,
+        booking: cart.filter((c) => c.isBookable).length,
+        checkout: booked.length,
       };
       const burgerPayload = {
         name: isActive ? "x" : "burger",
