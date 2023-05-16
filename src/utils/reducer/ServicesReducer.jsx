@@ -37,6 +37,8 @@ export const reducer = (state, action) => {
       return { ...state, isLoading: false, cart: action.payload };
     case "UPDATE_BOOKABLE":
       return { ...state, isLoading: false, bookable: action.payload };
+    case "UPDATE_BOOKED":
+      return { ...state, isLoading: false, booked: action.payload };
     case "UPDATE_ACTIVE":
       return { ...state, isLoading: false, active: action.payload };
     case "UPDATE_SERVICES":

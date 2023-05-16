@@ -48,6 +48,7 @@ export const ServicesState = ({ children }) => {
         uid: "24pJ0yCJo31",
       },
     ],
+    booked: [],
     filtered: [],
     active: {},
     total: 0,
@@ -79,8 +80,12 @@ export const ServicesState = ({ children }) => {
     }
     dispatch({ type: "UPDATE_CART", payload });
   };
-  const addToBooked = (cart, user, meeting, active) => {
-    // console.log("meeting, user", meeting, user, active);
+  const addToBooked = (cart, booked, user, meeting, active) => {
+    // add to booked
+    booked.push({ user, meeting, service: active });
+    dispatch({ type: "UPDATE_BOOKED", payload: booked });
+    // remove from cart
+    removeFromCart(cart, active);
   };
 
   const filter = async (services, filter) => {
@@ -152,6 +157,7 @@ export const ServicesState = ({ children }) => {
         isUserReq: state.isUserReq,
         total: state.total,
         bookable: state.bookable,
+        booked: state.booked,
         bookEvent,
         filter,
         addToCart,

@@ -9,7 +9,7 @@ import Title from "../atoms/text/Title";
 
 const BookEvent = () => {
   const { bookNow, meeting, selectedDay } = useContext(CalendarContext);
-  const { active, addToBooked, cart } = useContext(ServicesContext);
+  const { active, addToBooked, cart, booked } = useContext(ServicesContext);
   const { user, userValues } = useContext(AuthContext);
 
   const submit = (e) => bookNow(e, meeting);
@@ -29,7 +29,7 @@ const BookEvent = () => {
         <button
           type="button"
           className="btn btn-main"
-          onClick={() => addToBooked(cart, user, meeting, active)}>
+          onClick={() => addToBooked(cart, booked, user, meeting, active)}>
           BOOK NOW!
         </button>
       )}
