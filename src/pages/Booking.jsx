@@ -15,7 +15,9 @@ const Booking = () => {
       <div className="calendar">{<AppCalendar data={events.sections || []} />}</div>
       <div className="booking">
         {bookable?.length > 0 ? (
-          <Cart data={bookable} heading={{ title: "Select a package" }} />
+          <div className="alt-container">
+            <Cart data={bookable} heading={{ title: "Select a package" }} />
+          </div>
         ) : (
           <CartEmpty />
         )}

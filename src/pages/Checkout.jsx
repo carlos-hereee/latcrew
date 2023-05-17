@@ -44,9 +44,9 @@ const Checkout = () => {
       <UserContact />
       <div>
         {cart.length > 0 ? (
-          <BagSummary />
-        ) : booked.length > 0 ? (
           <Cart data={booked} heading={checkout.booked} />
+        ) : booked.length > 0 ? (
+          <BagSummary />
         ) : (
           <CartEmpty />
         )}

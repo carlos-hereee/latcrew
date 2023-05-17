@@ -76,17 +76,7 @@
   align-items: center;
   gap: 0.5rem;
 }
-.cart-container {
-  display: flex;
-  flex-direction: column;
-  background-color: #{$secondary-color2};
-  padding: 0 1rem;
-  flex: 1;
-  border-radius: #{$b-radi};
-  gap: 0.5rem;
-  max-height: 30rem;
-  overflow-y: auto;
-}
+
 .bag-container {
   display: flex;
   flex-direction: column;
@@ -100,4 +90,12 @@
   .btn-link {
     border: 1px solid #{$secondary-color};
   }
+}
+.alt-container {
+  background-color: #{$secondary-color2};
+  border-radius: #{$b-radi};
+  padding: 1rem;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
 }

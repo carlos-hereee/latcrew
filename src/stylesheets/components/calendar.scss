@@ -29,7 +29,7 @@
 }
 .react-calendar__navigation {
   display: flex;
-  border: none;
+  border-top: 1px solid #{$secondary-color};
   button {
     background-color: #{$secondary-color2};
     color: #{$primary-text};
@@ -41,6 +41,10 @@
       background-color: #{$secondary-color2};
     }
   }
+}
+.react-calendar__navigation__arrow {
+  border-right: 1px solid #{$secondary-color};
+  border-left: 1px solid #{$secondary-color};
 }
 .react-calendar__viewContainer {
   color: #{$primary-color};

@@ -13,7 +13,7 @@ const Cart = ({ data, heading }) => {
   };
 
   return (
-    <div className="cart-container">
+    <div className="d-column">
       <Heading data={heading} />
       {data.map((c) =>
         cancel.uid === c.uid ? (
