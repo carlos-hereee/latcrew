@@ -14,7 +14,11 @@ const Booking = () => {
     <section className="primary-container">
       <div className="calendar">{<AppCalendar data={events.sections || []} />}</div>
       <div className="booking">
-        {bookable?.length > 0 ? <Cart data={bookable} /> : <CartEmpty />}
+        {bookable?.length > 0 ? (
+          <Cart data={bookable} heading={{ title: "Select a package" }} />
+        ) : (
+          <CartEmpty />
+        )}
         <CalendarEvents />
       </div>
     </section>

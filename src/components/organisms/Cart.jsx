@@ -9,7 +9,6 @@ const Cart = ({ data, heading }) => {
   const [cancel, setCancel] = useState({});
 
   const cancelReq = (e, isConfirm) => {
-    console.log("e, isConfirm", e, isConfirm);
     isConfirm ? removeFromCart(cart, e) : setCancel({});
   };
 

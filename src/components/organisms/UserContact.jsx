@@ -16,7 +16,11 @@ const UserContact = () => {
 
   return (
     <div className="bag-container">
-      <div id="contact-user-form">{isUserReq && <ContactDetailsReq />}</div>
+      {isUserReq && (
+        <div id="contact-user-form">
+          <ContactDetailsReq />
+        </div>
+      )}
       <div className="secondary-section-container">
         {isUserReq ? (
           <>
