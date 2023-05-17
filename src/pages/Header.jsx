@@ -8,7 +8,7 @@ import NavBar from "../components/organisms/navigation/NavBar";
 const Header = () => {
   const [isActive, setActive] = useState(false);
   const [isClose, setClose] = useState(false);
-  const { cart, booked } = useContext(ServicesContext);
+  const { cart, booked, bookable } = useContext(ServicesContext);
   const { menu, toggleMenu, updateBurger, updateMenu } = useContext(AppContext);
 
   // eslint-disable-next-line no-unused-vars
@@ -29,12 +29,12 @@ const Header = () => {
   useEffect(() => {
     const menuPayload = {
       accessory: cart.filter((c) => c.isAccessory).length || 0,
-      booking: cart.filter((c) => c.isBookable).length || 0,
+      booking: bookable.length || 0,
       checkout: booked.length || 0,
     };
     const burgerPayload = {
       name: isActive ? "x" : "burger",
-      notification: cart.length || booked.length,
+      notification: menuPayload.booking + menuPayload.checkout,
     };
     updateBurger(burgerPayload);
     updateMenu(menu, menuPayload);

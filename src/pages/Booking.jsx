@@ -12,9 +12,7 @@ const Booking = () => {
 
   return (
     <section className="primary-container">
-      <div className="calendar">
-        {<AppCalendar data={events.sections?.length > 0 ? events.sections : []} />}
-      </div>
+      <div className="calendar">{<AppCalendar data={events.sections || []} />}</div>
       <div className="booking">
         {bookable?.length > 0 ? <Cart data={bookable} /> : <CartEmpty />}
         <CalendarEvents />

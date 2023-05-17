@@ -81,15 +81,9 @@ export const ServicesState = ({ children }) => {
     }
     dispatch({ type: "UPDATE_CART", payload });
   };
-  const addToBooked = (cart, booked, user, meeting, active) => {
-    // add to booked
+  const addToBooked = (booked, user, meeting, active) => {
     booked.push({ user, meeting, service: active });
     dispatch({ type: "UPDATE_BOOKED", payload: booked });
-    // remove from cart
-    removeFromCart(cart, active);
-    // reset variable details
-    setActive({});
-    // setMeeting({});
   };
 
   const filter = async (services, filter) => {

@@ -55,15 +55,10 @@ export const AppState = ({ children }) => {
     dispatch({ type: "UPDATE_BURGER", payload });
   };
   const updateMenu = (menu, payload) => {
-    if (payload) {
-      let data = menu.map((m) => {
-        if (payload[m.name]) {
-          return { ...m, notification: payload[m.name] };
-        }
-        return m;
-      });
-      dispatch({ type: "UPDATE_MENU", payload: data });
-    } else dispatch({ type: "UPDATE_MENU", payload: menu });
+    const menuPayload = menu.map((m) => {
+      return { ...m, notification: payload[m.name] || 0 };
+    });
+    dispatch({ type: "UPDATE_MENU", payload: menuPayload });
   };
   const newsletter = async (values) => {
     dispatch({ type: "IS_LOADING", payload: true });

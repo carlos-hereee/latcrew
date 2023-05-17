@@ -5,18 +5,26 @@ import MeetingDetails from "../atoms/MeetingDetails";
 import UserCard from "../molecules/card/UserCard";
 import { AuthContext } from "../../utils/context/AuthContext";
 import Forms from "../organisms/Forms";
-import Title from "../atoms/text/Title";
+import Title from "../atoms/texts/Title";
 
 const BookEvent = () => {
   const { bookNow, meeting, selectedDay, setMeeting } = useContext(CalendarContext);
-  const { active, addToBooked, cart, booked } = useContext(ServicesContext);
+  const { active, addToBooked, cart, booked, removeFromCart, bookable, setActive } =
+    useContext(ServicesContext);
   const { user, userValues } = useContext(AuthContext);
 
   const submit = (e) => bookNow(e, meeting);
   const handleClick = () => {
-    addToBooked(cart, booked, user, meeting, active);
+    addToBooked(booked, user, meeting, active);
+    // remove from cart
+    removeFromCart(cart, active);
+    // reset variable details
+    setActive({});
     setMeeting({});
   };
+  console.log("cart", cart);
+  console.log("bookable", bookable);
+
   return (
     <div className="book-event">
       <Title data={`Booking service: ${active.title} ${active.subtitle}`} />
