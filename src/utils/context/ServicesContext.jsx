@@ -82,7 +82,7 @@ export const ServicesState = ({ children }) => {
     dispatch({ type: "UPDATE_CART", payload });
   };
   const addToBooked = (booked, user, meeting, active) => {
-    booked.push({ user, meeting, service: active });
+    booked.push({ user, meeting, service: active, uid: shortid.generate() });
     dispatch({ type: "UPDATE_BOOKED", payload: booked });
   };
 

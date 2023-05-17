@@ -3,8 +3,9 @@ import { ServicesContext } from "../../../utils/context/ServicesContext";
 import Heading from "../../atoms/texts/Heading";
 import CancelRow from "../card/CancelRow";
 import BagItem from "./BagItem";
+import MeetingDetails from "../../atoms/MeetingDetails";
 
-const BagSummary = () => {
+const BagSummary = ({ data }) => {
   const { cart, onQuantityChange, removeFromCart } = useContext(ServicesContext);
   const [cancel, setCancel] = useState({});
   const cancelReq = (e, isConfirm) => {
@@ -13,12 +14,16 @@ const BagSummary = () => {
   return (
     <div>
       <Heading data={{ title: "Bag Summary" }} />
-      <div className="bag-container">
-        {cart.map((c) =>
-          cancel.uid === c.uid ? (
-            <CancelRow data={c} key={c.uid} click={cancelReq} />
+      <div className="d-column">
+        {data.map((d) =>
+          cancel.uid === d.uid ? (
+            <CancelRow data={d} key={d.uid} click={cancelReq} />
           ) : (
-            <BagItem key={c.uid} data={c} setCancel={setCancel} />
+            <BagItem key={d.uid} data={d} setCancel={setCancel}>
+              <div className="card-row-wrapper">
+                {d.meeting.uid && <MeetingDetails data={d.meeting} />}
+              </div>
+            </BagItem>
           )
         )}
       </div>

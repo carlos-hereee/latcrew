@@ -1,11 +1,11 @@
-const MeetingDetails = ({ meeting }) => (
+const MeetingDetails = ({ data }) => (
   <div>
     <p>
       <strong>Meeting Details: </strong>
       <span>
         Appointment set for{" "}
         <strong>
-          {meeting.date} @ {meeting.time.startTime} - {meeting.time.endTime}
+          {data.date} @ {data.time.startTime} - {data.time.endTime}
         </strong>
       </span>
     </p>

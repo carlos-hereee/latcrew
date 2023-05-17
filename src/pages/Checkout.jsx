@@ -38,15 +38,16 @@ const Checkout = () => {
       setTotal(0);
     }
   }, [JSON.stringify(cart)]);
+  console.log("booked", booked);
   return (
     <section className="section-container">
       <CardHeader data={checkout} />
       <UserContact />
       <div>
         {cart.length > 0 ? (
-          <Cart data={booked} heading={checkout.booked} />
+          <Cart data={cart} heading={checkout.booked} />
         ) : booked.length > 0 ? (
-          <BagSummary />
+          <BagSummary data={booked} />
         ) : (
           <CartEmpty />
         )}
