@@ -34,7 +34,7 @@ const Header = () => {
     };
     const burgerPayload = {
       name: isActive ? "x" : "burger",
-      notification: cart.length,
+      notification: cart.length || booked.length,
     };
     updateBurger(burgerPayload);
     updateMenu(menu, menuPayload);

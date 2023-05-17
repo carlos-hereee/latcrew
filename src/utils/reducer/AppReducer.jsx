@@ -1,29 +1,8 @@
-const loadContent = (state, action) => {
-  return {
-    ...state,
-    isLoading: false,
-    socials: action.payload.socials,
-    about: action.payload.about,
-    services: action.payload.services,
-    schedule: action.payload.schedule,
-  };
-};
-
 const loadFilters = (state, action) => {
-  return {
-    ...state,
-    isLoading: false,
-    filters: action.payload,
-    isFiltered: false,
-  };
+  return { ...state, isLoading: false, filters: action.payload, isFiltered: false };
 };
 const updateFilter = (state, action) => {
-  return {
-    ...state,
-    isLoading: false,
-    isFiltered: true,
-    filtered: action.payload,
-  };
+  return { ...state, isLoading: false, isFiltered: true, filtered: action.payload };
 };
 const updateAppliedFilter = (state, action) => {
   return {
@@ -35,12 +14,7 @@ const updateAppliedFilter = (state, action) => {
   };
 };
 const resetFilter = (state, action) => {
-  return {
-    ...state,
-    isLoading: false,
-    isFiltered: false,
-    filtered: action.payload,
-  };
+  return { ...state, isLoading: false, isFiltered: false, filtered: action.payload };
 };
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -49,10 +23,9 @@ export const reducer = (state, action) => {
     case "UPDATE_MENU":
       return { ...state, isLoading: false, menu: action.payload };
     case "UPDATE_BURGER":
-      console.log("action.payload", action.payload);
       return { ...state, isLoading: false, burger: action.payload };
     case "LOAD_CONTENT":
-      return loadContent(state, action);
+      return { ...state, isLoading: false, ...action.payload };
     case "LOAD_FILTERS":
       return loadFilters(state, action);
     case "SELECT_PAYMENT_TYPE":
