@@ -1,5 +1,5 @@
-import CardRow from "../card/CardRow";
-import OpenAppButton from "../../atoms/buttons/OpenAppButton";
+import CardRow from "../../../../../../personal-bizz/latcrew/src/components/molecules/card/CardRow";
+import OpenAppButton from "../../../../../../personal-bizz/latcrew/src/components/atoms/buttons/OpenAppButton";
 
 const CartRow = ({ data, setCancel }) => {
   return (
