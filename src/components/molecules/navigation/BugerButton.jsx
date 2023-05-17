@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import Icons from "../icons/Icons";
 import SetNotificationCount from "../SetNotificationCount";
+import { AppContext } from "../../../utils/context/AppContext";
 
-const BurgerButton = ({ isBurger, burger, click }) => {
+const BurgerButton = ({ isBurger, click }) => {
+  const { burger } = useContext(AppContext);
+  console.log("burger", burger);
+
   return (
     <button
       type="button"

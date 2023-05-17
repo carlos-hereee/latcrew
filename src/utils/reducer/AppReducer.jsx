@@ -1,9 +1,3 @@
-const isLoading = (state, action) => {
-  return {
-    ...state,
-    isLoading: action.payload,
-  };
-};
 const loadContent = (state, action) => {
   return {
     ...state,
@@ -14,51 +8,7 @@ const loadContent = (state, action) => {
     schedule: action.payload.schedule,
   };
 };
-const updateMenu = (state, action) => {
-  return {
-    ...state,
-    isLoading: false,
-    // menu: state.menu.map((m) => {
-    //   if (m.name === "booking") {
-    //     return { ...m, notification: action.payload.servicesCount };
-    //   } else if (m.name === "checkout") {
-    //     return {
-    //       ...m,
-    //       notification: action.payload.accessoryCount + action.payload.servicesCount,
-    //     };
-    //   } else return m;
-    // }),
-    menu: action.payload,
-  };
-};
-const updateBurger = (state, action) => {
-  return {
-    ...state,
-    isLoading: false,
-    burger: action.payload,
-  };
-};
-const selectPaymentType = (state, action) => {
-  return {
-    ...state,
-    isLoading: false,
-    paymentType: action.payload,
-  };
-};
-const updateSelected = (state, action) => {
-  return {
-    ...state,
-    isLoading: false,
-    selected: action.payload,
-  };
-};
-const resetSelect = (state, action) => {
-  return {
-    ...state,
-    isLoading: false,
-    selected: action.payload || {},
-  };
-};
+
 const loadFilters = (state, action) => {
   return {
     ...state,
@@ -95,23 +45,21 @@ const resetFilter = (state, action) => {
 export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
-      return isLoading(state, action);
+      return { ...state, isLoading: action.payload };
     case "UPDATE_MENU":
-      return updateMenu(state, action);
+      return { ...state, isLoading: false, menu: action.payload };
+    case "UPDATE_BURGER":
+      return { ...state, isLoading: false, burger: action.payload };
     case "LOAD_CONTENT":
       return loadContent(state, action);
     case "LOAD_FILTERS":
       return loadFilters(state, action);
-    case "UPDATE_BURGER":
-      return updateBurger(state, action);
     case "SELECT_PAYMENT_TYPE":
-      return selectPaymentType(state, action);
+      return { ...state, isLoading: false, paymentType: action.payload };
     case "UPDATE_SELECTED":
-      return updateSelected(state, action);
+      return { ...state, isLoading: false, selected: action.payload };
     case "UPDATE_APPLIED_FILTER":
       return updateAppliedFilter(state, action);
-    case "RESET_SELECTED":
-      return resetSelect(state, action);
     case "UPDATE_FILTER":
       return updateFilter(state, action);
     case "RESET_FILTER":

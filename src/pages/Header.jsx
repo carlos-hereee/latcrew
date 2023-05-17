@@ -1,10 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../utils/context/AppContext";
-import Logo from "../components/atoms/assets/Logo";
-import Navlink from "../components/molecules/navigation/Navlink";
-import BurgerButton from "../components/molecules/navigation/BugerButton/";
-import NavButton from "../components/molecules/navigation/NavButton";
 import { ServicesContext } from "../utils/context/ServicesContext";
+import Logo from "../components/atoms/assets/Logo";
+import BurgerButton from "../components/molecules/navigation/BugerButton";
 import NavBar from "../components/organisms/navigation/NavBar";
 
 const Header = () => {
@@ -64,7 +62,7 @@ const Header = () => {
         <NavBar show={{ isActive, isClose }} toggle={toggleMenu} click={click} />
       </nav>
       <nav className="mobile-navigation">
-        <BurgerButton isBurger={isActive} burger={burger} click={click} />
+        <BurgerButton isBurger={isActive} click={click} />
         <NavBar show={{ isActive, isClose }} toggle={toggleMenu} click={click} />
       </nav>
     </header>

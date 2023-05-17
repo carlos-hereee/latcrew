@@ -71,7 +71,7 @@ export const AppState = ({ children }) => {
   //   dispatch({ type: "LOAD_FILTERS", payload: filters });
   // };
   const updateBurger = (payload) => {
-    dispatch({ type: "UPDATE_BURGER", payload: payload });
+    dispatch({ type: "UPDATE_BURGER", payload });
   };
   const updateMenu = (menu, payload) => {
     if (payload) {
@@ -105,10 +105,10 @@ export const AppState = ({ children }) => {
     navigate("/vehicle");
   };
   const resetSelect = () => {
-    dispatch({ type: "RESET_SELECTED", payload: {} });
+    dispatch({ type: "UPDATE_SELECTED", payload: {} });
   };
-  const resetFilter = (lot) => {
-    dispatch({ type: "RESET_FILTER", payload: lot });
+  const resetFilter = (payload) => {
+    dispatch({ type: "RESET_FILTER", payload });
   };
 
   const filterInRange = (arr, min, max, category) => {

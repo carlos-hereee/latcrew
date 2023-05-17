@@ -1,7 +1,7 @@
 import { useContext } from "react";
+import { AppContext } from "../../../utils/context/AppContext";
 import NavButton from "../../molecules/navigation/NavButton";
 import Navlink from "../../molecules/navigation/Navlink";
-import { AppContext } from "../../../utils/context/AppContext";
 
 const NavBar = ({ show, toggle, click }) => {
   const { menu } = useContext(AppContext);
