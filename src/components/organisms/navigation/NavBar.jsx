@@ -5,7 +5,6 @@ import Navlink from "../../molecules/navigation/Navlink";
 
 const NavBar = ({ show, toggle, click }) => {
   const { menu } = useContext(AppContext);
-  console.log("menu", menu);
   return (
     <ul
       className="navigation"

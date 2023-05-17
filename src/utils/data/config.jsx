@@ -391,6 +391,7 @@ export const app = {
     hasHero: false,
     hasIcon: false,
     hero: { link: "", name: "main-hero" },
+    booked: { title: "Bag Summary" },
   },
   footerNewsletter: {
     title: "Join the newsletter",

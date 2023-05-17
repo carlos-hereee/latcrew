@@ -9,7 +9,7 @@ import Title from "../atoms/texts/Title";
 
 const BookEvent = () => {
   const { bookNow, meeting, selectedDay, setMeeting } = useContext(CalendarContext);
-  const { active, addToBooked, cart, booked, removeFromCart, bookable, setActive } =
+  const { active, addToBooked, cart, booked, removeFromCart, setActive } =
     useContext(ServicesContext);
   const { user, userValues } = useContext(AuthContext);
 
@@ -22,8 +22,6 @@ const BookEvent = () => {
     setActive({});
     setMeeting({});
   };
-  console.log("cart", cart);
-  console.log("bookable", bookable);
 
   return (
     <div className="book-event">

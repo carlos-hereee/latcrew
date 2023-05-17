@@ -16,3 +16,34 @@
 .shipping-card-header {
   width: 100%;
 }
+.bag-item {
+  border-radius: #{$b-radi};
+  &:nth-child(even) {
+    .card-row-wrapper,
+    .read-more-wrapper {
+      background-color: #{$secondary-color2};
+      color: #{$primary-text};
+    }
+    .bag-btns {
+      background-color: #{$secondary-color2};
+    }
+    .read-more {
+      &:has(+ .read-more-toggle:not(:checked))::before {
+        background: linear-gradient(to bottom, transparent, #{$secondary-color2});
+      }
+    }
+  }
+  // visualize end of item on the list
+  &:nth-child(odd) {
+    background-color: #{$secondary-color};
+    color: #{$secondary-text};
+    .bag-btns {
+      background-color: #{$secondary-color};
+    }
+    .read-more {
+      &:has(+ .read-more-toggle:not(:checked))::before {
+        background: linear-gradient(to bottom, transparent, #{$secondary-color});
+      }
+    }
+  }
+}

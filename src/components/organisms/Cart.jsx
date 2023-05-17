@@ -2,18 +2,20 @@ import { useContext, useState } from "react";
 import { ServicesContext } from "../../utils/context/ServicesContext";
 import CancelRow from "../molecules/card/CancelRow";
 import CartRow from "../molecules/cart/CartRow";
+import Heading from "../atoms/texts/Heading";
 
-const Cart = ({ data }) => {
+const Cart = ({ data, heading }) => {
   const { removeFromCart, cart } = useContext(ServicesContext);
   const [cancel, setCancel] = useState({});
 
   const cancelReq = (e, isConfirm) => {
+    console.log("e, isConfirm", e, isConfirm);
     isConfirm ? removeFromCart(cart, e) : setCancel({});
   };
 
   return (
     <div className="cart-container">
-      <h2>Select a service</h2>
+      <Heading data={heading} />
       {data.map((c) =>
         cancel.uid === c.uid ? (
           <CancelRow data={c} key={c.uid} click={cancelReq} />

@@ -21,7 +21,7 @@ export const AppState = ({ children }) => {
     contact: app.contact,
     footerNewsletter: app.footerNewsletter,
     services: app.services,
-    burger: { notification: 0 },
+    burger: {},
     paymentType: {},
     selected: {},
     isFiltered: false,

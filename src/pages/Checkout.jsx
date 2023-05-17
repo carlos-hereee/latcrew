@@ -9,6 +9,7 @@ import UserContact from "../components/organisms/UserContact";
 import ButtonNext from "../components/molecules/buttons/ButtonNext";
 import CartEmpty from "../components/molecules/empty/CartEmpty";
 import Total from "../components/molecules/Total";
+import Cart from "../components/organisms/Cart";
 
 const Checkout = () => {
   const { checkout } = useContext(AppContext);
@@ -40,12 +41,14 @@ const Checkout = () => {
   return (
     <section className="section-container">
       <CardHeader data={checkout} />
-      {isUserReq && <UserContact />}
+      <UserContact />
       <div>
         {cart.length > 0 ? (
           <BagSummary />
+        ) : booked.length > 0 ? (
+          <Cart data={booked} heading={checkout.booked} />
         ) : (
-          <div>{booked.length > 0 ? <>booked arr</> : <CartEmpty />}</div>
+          <CartEmpty />
         )}
       </div>
 

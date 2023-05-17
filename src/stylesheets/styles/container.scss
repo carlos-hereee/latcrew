@@ -69,13 +69,6 @@
   background-color: #{$secondary-color2};
   padding: 1rem;
   gap: 0.5rem;
-  // div {
-  //   &:nth-child(even) {
-  //     background-color: #{$secondary-color};
-  //     color: #{$secondary-text};
-  //     border-radius: #{$b-radi};
-  //   }
-  // }
 }
 .secondary-section-container {
   display: flex;
@@ -106,36 +99,5 @@
   gap: 0.5rem;
   .btn-link {
     border: 1px solid #{$secondary-color};
-  }
-}
-.bag-item {
-  border-radius: #{$b-radi};
-  &:nth-child(even) {
-    .card-row-wrapper,
-    .read-more-wrapper {
-      background-color: #{$secondary-color2};
-      color: #{$primary-text};
-    }
-    .bag-btns {
-      background-color: #{$secondary-color2};
-    }
-    .read-more {
-      &:has(+ .read-more-toggle:not(:checked))::before {
-        background: linear-gradient(to bottom, transparent, #{$secondary-color2});
-      }
-    }
-  }
-  // visualize end of item on the list
-  &:nth-child(odd) {
-    background-color: #{$secondary-color};
-    color: #{$secondary-text};
-    .bag-btns {
-      background-color: #{$secondary-color};
-    }
-    .read-more {
-      &:has(+ .read-more-toggle:not(:checked))::before {
-        background: linear-gradient(to bottom, transparent, #{$secondary-color});
-      }
-    }
   }
 }

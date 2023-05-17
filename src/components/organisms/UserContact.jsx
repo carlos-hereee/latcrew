@@ -4,39 +4,30 @@ import ToggleOpen from "../molecules/buttons/ToggleOpen";
 import UserCard from "../molecules/card/UserCard";
 import NoCaptchaForm from "../molecules/forms/NoCaptchaForm";
 import { AuthContext } from "../../utils/context/AuthContext";
-import Icons from "../molecules/icons/Icons";
+import ContactDetailsReq from "../atoms/texts/ContactDetailsReq";
+import ToggleData from "../atoms/texts/ToggleData";
 
 const UserContact = () => {
-  const { user, userValues, updateUserData } = useContext(AuthContext);
+  const { userValues, updateUserData } = useContext(AuthContext);
   const { isUserReq } = useContext(ServicesContext);
   const [isOpen, setIsOpen] = useState(false);
   const submit = (e) => updateUserData(e);
   const handleClick = () => setIsOpen(!isOpen);
-  const setData = () => {
-    return isOpen ? (
-      <span>
-        Close <Icons name="x" />
-      </span>
-    ) : (
-      <span>Enter contact details</span>
-    );
-  };
+
   return (
-    <div className="section-container">
-      <div id="contact-user-form">
-        <h3>Contact information</h3>
-        {isUserReq && <p>Please enter contact details before proceeding</p>}
-      </div>
+    <div className="bag-container">
+      <div id="contact-user-form">{isUserReq && <ContactDetailsReq />}</div>
       <div className="secondary-section-container">
-        {user && user.uid ? (
-          <UserCard />
-        ) : isOpen ? (
+        {isUserReq ? (
           <>
-            <ToggleOpen data={setData()} click={handleClick} />
-            <NoCaptchaForm data={userValues} submit={submit} />
+            <ToggleOpen
+              data={<ToggleData isOpen={isOpen} open="Enter contact details" />}
+              click={handleClick}
+            />
+            {isOpen && <NoCaptchaForm data={userValues} submit={submit} />}
           </>
         ) : (
-          <ToggleOpen data={setData()} click={handleClick} />
+          <UserCard />
         )}
       </div>
     </div>
