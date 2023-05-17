@@ -1,6 +1,5 @@
 .primary-navigation {
-  overflow-x: auto;
-  @include devices(mobile) {
+  @include devices(tablet) {
     display: none;
   }
 }
@@ -20,9 +19,11 @@
     background-color: #{$primary-color2};
     border-radius: #{$b-radi};
     gap: 1rem;
-    top: 100%;
-    right: 0%;
-    min-width: 150px;
+    top: 15%;
+    right: 0;
+    z-index: 99;
+    min-width: 250px;
+    min-height: 70vh;
     padding: 1rem 0.5rem;
     transition: clip-path ease-in-out 700ms;
   }
@@ -37,7 +38,7 @@
   .navigation[data-state="close"] {
     display: none;
   }
-  @include devices(mobile) {
+  @include devices(tablet) {
     display: flex;
   }
 }
@@ -45,6 +46,7 @@
   display: flex;
   justify-content: space-around;
   list-style: none;
+  list-style-type: none;
   border-radius: #{$b-radi};
   padding: 0;
 }

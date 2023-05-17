@@ -5,6 +5,7 @@ import Navlink from "../components/molecules/navigation/Navlink";
 import BurgerButton from "../components/molecules/navigation/BugerButton/";
 import NavButton from "../components/molecules/navigation/NavButton";
 import { ServicesContext } from "../utils/context/ServicesContext";
+import NavBar from "../components/organisms/navigation/NavBar";
 
 const Header = () => {
   const [isActive, setActive] = useState(false);
@@ -42,8 +43,14 @@ const Header = () => {
       updateBurger(burger, burgerPayload);
       updateMenu(menu, menuPayload);
     } else {
-      updateBurger(burger, { accessory: 0, services: 0 });
-      updateMenu(menu, { accessory: 0, services: 0 });
+      const payload = {
+        accessory: 0,
+        services: 0,
+        booking: 0,
+        checkout: booked.length,
+      };
+      updateBurger(burger, payload);
+      updateMenu(menu, payload);
     }
   }, [JSON.stringify(cart), isActive]);
 
@@ -54,25 +61,11 @@ const Header = () => {
     <header>
       <Logo />
       <nav className="primary-navigation">
-        <ul className="navigation">
-          {menu.map((m) =>
-            m.isToggle ? (
-              <NavButton data={m} key={m.uid} click={() => toggleMenu(menu, m)} />
-            ) : (
-              <Navlink data={m} key={m.uid} click={() => click(m)} />
-            )
-          )}
-        </ul>
+        <NavBar show={{ isActive, isClose }} toggle={toggleMenu} click={click} />
       </nav>
       <nav className="mobile-navigation">
         <BurgerButton isBurger={isActive} burger={burger} click={click} />
-        <ul
-          className="navigation"
-          data-state={isActive ? "open" : isClose ? "closing" : "close"}>
-          {menu.map((m) => (
-            <Navlink data={m} key={m.uid} onClick={click} />
-          ))}
-        </ul>
+        <NavBar show={{ isActive, isClose }} toggle={toggleMenu} click={click} />
       </nav>
     </header>
   );
