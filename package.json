@@ -16,7 +16,6 @@
     "axios": "^1.4.0",
     "formik": "^2.2.9",
     "moment": "^2.29.4",
-    "project-name-generator": "^2.1.9",
     "react": "^18.2.0",
     "react-calendar": "^4.2.1",
     "react-dom": "^18.2.0",
