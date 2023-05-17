@@ -50,26 +50,7 @@ export const AppState = ({ children }) => {
     });
     updateMenu(data);
   };
-  // const loadFilters = (arr) => {
-  //   let filters = {};
-  //   arr.forEach((a) => {
-  //     // if f == brand then a[f] == acura
-  //     Object.keys(a).filter((f) => {
-  //       // if filter option exist
-  //       if (filters[f]) {
-  //         if (!filters[f].some((s) => s === a[f])) {
-  //           filters[f].push(a[f]);
-  //         }
-  //       }
-  //       // if filter option does not exist add it to the filter arr
-  //       if (!filters[f]) {
-  //         filters[f] = [a[f]];
-  //       }
-  //     });
-  //   });
 
-  //   dispatch({ type: "LOAD_FILTERS", payload: filters });
-  // };
   const updateBurger = (payload) => {
     dispatch({ type: "UPDATE_BURGER", payload });
   };

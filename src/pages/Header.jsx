@@ -9,8 +9,7 @@ const Header = () => {
   const [isActive, setActive] = useState(false);
   const [isClose, setClose] = useState(false);
   const { cart, booked } = useContext(ServicesContext);
-  const { menu, burger, toggleMenu, updateBurger, updateMenu } =
-    useContext(AppContext);
+  const { menu, toggleMenu, updateBurger, updateMenu } = useContext(AppContext);
 
   // eslint-disable-next-line no-unused-vars
   useEffect(() => {
@@ -28,28 +27,17 @@ const Header = () => {
     // document.removeEventListener("mousedown", onClick, true);
   }, []);
   useEffect(() => {
-    if (cart.length > 0) {
-      const menuPayload = {
-        accessory: cart.filter((c) => c.isAccessory).length,
-        booking: cart.filter((c) => c.isBookable).length,
-        checkout: booked.length,
-      };
-      const burgerPayload = {
-        name: isActive ? "x" : "burger",
-        notification: cart.length,
-      };
-      updateBurger(burger, burgerPayload);
-      updateMenu(menu, menuPayload);
-    } else {
-      const payload = {
-        accessory: 0,
-        services: 0,
-        booking: 0,
-        checkout: booked.length,
-      };
-      updateBurger(burger, payload);
-      updateMenu(menu, payload);
-    }
+    const menuPayload = {
+      accessory: cart.filter((c) => c.isAccessory).length || 0,
+      booking: cart.filter((c) => c.isBookable).length || 0,
+      checkout: booked.length || 0,
+    };
+    const burgerPayload = {
+      name: isActive ? "x" : "burger",
+      notification: cart.length,
+    };
+    updateBurger(burgerPayload);
+    updateMenu(menu, menuPayload);
   }, [JSON.stringify(cart), isActive]);
 
   const click = () => {

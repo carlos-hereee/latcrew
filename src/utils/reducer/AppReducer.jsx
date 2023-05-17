@@ -49,6 +49,7 @@ export const reducer = (state, action) => {
     case "UPDATE_MENU":
       return { ...state, isLoading: false, menu: action.payload };
     case "UPDATE_BURGER":
+      console.log("action.payload", action.payload);
       return { ...state, isLoading: false, burger: action.payload };
     case "LOAD_CONTENT":
       return loadContent(state, action);
