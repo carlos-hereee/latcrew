@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../utils/context/AppContext";
 import { ServicesContext } from "../utils/context/ServicesContext";
-import Logo from "../components/atoms/assets/Logo";
+import logo from "../assets/logo.svg";
 import BurgerButton from "../components/molecules/navigation/BurgerButton";
 import NavBar from "../components/organisms/navigation/NavBar";
+import { Hero } from "nexious-library/atoms";
 
 const Header = () => {
   const [isActive, setActive] = useState(false);
@@ -44,8 +45,10 @@ const Header = () => {
     setActive(!isActive);
   };
   return (
-    <header>
-      <Logo />
+    <header className="flex-g">
+      <div>
+        <Hero data={{ name: "industry-brand", link: logo }} />
+      </div>
       <nav className="primary-navigation">
         <NavBar show={{ isActive, isClose }} toggle={toggleMenu} click={click} />
       </nav>
