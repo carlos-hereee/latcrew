@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../utils/context/AppContext";
 import { ServicesContext } from "../utils/context/ServicesContext";
 import Logo from "../components/atoms/assets/Logo";
-import BurgerButton from "../components/molecules/navigation/BugerButton";
+import BurgerButton from "../components/molecules/navigation/BurgerButton";
 import NavBar from "../components/organisms/navigation/NavBar";
 
 const Header = () => {

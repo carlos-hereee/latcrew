@@ -5,7 +5,6 @@ import { AppContext } from "../../../utils/context/AppContext";
 
 const BurgerButton = ({ isBurger, click }) => {
   const { burger } = useContext(AppContext);
-  // console.log("burger", burger);
 
   return (
     <button

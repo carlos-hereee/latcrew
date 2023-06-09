@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { createContext, useReducer, useEffect } from "react";
 import { axiosWithAuth } from "../fns/axios";
-import generate from "project-name-generator";
 import { reducer } from "../reducer/AuthReducer";
 import { v4 } from "uuid";
 import shortid from "shortid";
@@ -36,9 +35,9 @@ export const AuthState = ({ children }) => {
   };
   const loadUser = () => {
     dispatch({ type: "IS_LOADING", payload: true });
-    let user = { nickname: generate({ words: 2 }), uid: v4() };
+    // let user = { nickname: generate({ words: 2 }), uid: v4() };
     dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
-    dispatch({ type: "SET_USER_DATA", payload: user });
+    // dispatch({ type: "SET_USER_DATA", payload: user });
   };
 
   const signIn = async (username, password) => {
