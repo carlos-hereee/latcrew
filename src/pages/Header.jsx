@@ -4,8 +4,7 @@ import { ServicesContext } from "../utils/context/ServicesContext";
 import logo from "../assets/logo.svg";
 import BurgerButton from "../components/molecules/navigation/BurgerButton";
 import NavBar from "../components/organisms/navigation/NavBar";
-import { Hero } from "nexious-library/atoms";
-
+import { Logo } from "nexious-library/atoms";
 const Header = () => {
   const [isActive, setActive] = useState(false);
   const [isClose, setClose] = useState(false);
@@ -22,8 +21,8 @@ const Header = () => {
     //     setClose(true);
     //   }
     // };
-    document.addEventListener("animationend", endAnimation, true);
     // document.addEventListener("mousedown", onClick, true);
+    document.addEventListener("animationend", endAnimation, true);
     return () => document.removeEventListener("animationend", endAnimation, true);
     // document.removeEventListener("mousedown", onClick, true);
   }, []);
@@ -45,9 +44,9 @@ const Header = () => {
     setActive(!isActive);
   };
   return (
-    <header className="flex-g">
-      <div>
-        <Hero data={{ name: "industry-brand", link: logo }} />
+    <header>
+      <div className="logo">
+        <Logo data={{ name: "industry-brand", link: logo }} />
       </div>
       <nav className="primary-navigation">
         <NavBar show={{ isActive, isClose }} toggle={toggleMenu} click={click} />

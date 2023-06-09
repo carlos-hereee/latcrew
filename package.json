@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
+    "dev": "npm install nexious-library@latest && vite",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -16,7 +17,7 @@
     "axios": "^1.4.0",
     "formik": "^2.2.9",
     "moment": "^2.29.4",
-    "nexious-library": "^1.1.5",
+    "nexious-library": "^1.1.9",
     "react": "^18.2.0",
     "react-calendar": "^4.2.1",
     "react-dom": "^18.2.0",
