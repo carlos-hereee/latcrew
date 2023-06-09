@@ -5,11 +5,12 @@ import logo from "../assets/logo.svg";
 import BurgerButton from "../components/molecules/navigation/BurgerButton";
 import NavBar from "../components/organisms/navigation/NavBar";
 import { Logo } from "nexious-library/atoms";
+import { Link } from "react-router-dom";
 const Header = () => {
   const [isActive, setActive] = useState(false);
   const [isClose, setClose] = useState(false);
   const { cart, booked, bookable } = useContext(ServicesContext);
-  const { menu, toggleMenu, updateBurger, updateMenu } = useContext(AppContext);
+  const { menu, toggleMenu, updateBurger, updateMenu, app } = useContext(AppContext);
 
   // eslint-disable-next-line no-unused-vars
   useEffect(() => {
@@ -45,9 +46,10 @@ const Header = () => {
   };
   return (
     <header>
-      <div className="logo">
+      <Link className="link flex-g" to="/">
         <Logo data={{ name: "industry-brand", link: logo }} />
-      </div>
+        <h3>{app.name}</h3>
+      </Link>
       <nav className="primary-navigation">
         <NavBar show={{ isActive, isClose }} toggle={toggleMenu} click={click} />
       </nav>

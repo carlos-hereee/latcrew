@@ -29,21 +29,23 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <Fragment>
-        <Routes>
-          <Route exact path="/" element={<Landing />} />
-          <Route path="/login" element={<Auth />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/booking" element={<Booking />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/signup" element={<Register />} />
-          <Route path="/dashboard" element={<PrivateRoute />}>
-            {/* <Route path */}
-            <Route path="/dashboard" element={<Dashboard />} />
-          </Route>
-          {/* <PrivateRoute path="/shop" element={<Shop />} /> */}
-        </Routes>
-      </Fragment>
+      <div className="app-body p-sm">
+        <Fragment>
+          <Routes>
+            <Route exact path="/" element={<Landing />} />
+            <Route path="/login" element={<Auth />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/booking" element={<Booking />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/signup" element={<Register />} />
+            <Route path="/dashboard" element={<PrivateRoute />}>
+              {/* <Route path */}
+              <Route path="/dashboard" element={<Dashboard />} />
+            </Route>
+            {/* <PrivateRoute path="/shop" element={<Shop />} /> */}
+          </Routes>
+        </Fragment>
+      </div>
       <Footer />
     </div>
   );

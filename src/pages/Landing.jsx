@@ -3,10 +3,10 @@ import About from "./About";
 
 const Landing = () => {
   return (
-    <main className="primary-container">
+    <>
       <About />
       <Socials />
-    </main>
+    </>
   );
 };
 export default Landing;
