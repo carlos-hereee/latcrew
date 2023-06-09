@@ -27,7 +27,7 @@ function App() {
     return <Loading />;
   }
   return (
-    <div className="app p-sm">
+    <div className="flex-d-column p-sm">
       <Header />
       <Fragment>
         <Routes>

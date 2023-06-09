@@ -12,26 +12,25 @@ html {
   height: 100%;
 }
 button {
-  border-radius: 0.5rem;
   border: 1px solid var(--border-color);
   box-shadow: 1px 0px 2px 0px var(--primary-shadow-color);
 }
-.link {
+/* .link {
   text-decoration: none;
   color: var(--primary-dark-color);
-}
-.app {
+} */
+/* .app {
   max-width: auto;
   gap: 0.5rem;
   padding: 0.5rem;
-}
-.text-center {
+} */
+/* .text-center {
   text-align: center;
-}
-.social {
+} */
+/* .social {
   gap: 0.5rem;
-}
-.card {
+} */
+/* .card {
   padding: 0.5rem;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radi);
@@ -39,15 +38,15 @@ button {
 }
 .ribbon {
   border: 1px solid var(--border-color);
-}
-.react-calendar__tile {
+} */
+/* .react-calendar__tile {
   border: none;
 }
 .react-calendar__viewContainer {
   border: 1px solid var(--border-color);
   border-radius: var(--border-radi);
-}
-.react-calendar__tile .match {
+} */
+/* .react-calendar__tile .match {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,8 +57,8 @@ button {
   width: 25px;
   height: 25px;
   right: 5px;
-}
-.react-calendar__navigation__label {
+} */
+/* .react-calendar__navigation__label {
   color: var(--primary-dark-color);
   border-right: none;
   border-left: none;
@@ -73,30 +72,33 @@ button {
   border-top-right-radius: 0.5rem;
   border-left: none;
   border-bottom-right-radius: 0.5rem;
-}
-.booking {
+} */
+/* .booking {
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
   padding: 0 1rem;
-}
-.scroll-y {
+} */
+/* .flex-1 {
+  flex: 1;
+} */
+/* .scroll-y {
   overflow-y: auto;
   overflow-x: hidden;
 }
 .flex-1 {
   flex: 1;
-}
-.btn-cancel {
+} */
+/* .btn-cancel {
   border: none;
   background-color: var(--ping);
   color: var(--primary-light-color);
-}
+} */
 /* .row-wrapper {
   gap: ;
 } */
 
-.ping {
+/* .ping {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,12 +111,12 @@ button {
   height: 25px;
   right: -0.5rem;
   top: -0.5rem;
-}
-.input {
+} */
+/* .input {
   min-width: 250px;
   padding: 0.5rem 1rem;
 }
 .input-wrapper {
   display: flex;
   gap: 0.5rem;
-}
+} */
