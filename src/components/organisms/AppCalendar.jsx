@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { CalendarContext } from "../../utils/context/CalendarContext";
 import { scrollToMeetings } from "../../utils/fns/calendar";
 import { dateEqual, formatDate } from "../../utils/fns/moment";
-import Icons from "../molecules/icons/Icons";
+// import Icons from "../molecules/icons/Icons";
+import { Icon } from "nexious-library/atoms";
 
 const AppCalendar = ({ data }) => {
   const [value, onChange] = useState(null);
@@ -32,7 +33,7 @@ const AppCalendar = ({ data }) => {
       if (open.length > 0) {
         return (
           <div className="match">
-            <Icons name={open.length} />
+            <Icon name={open.length} />
           </div>
         );
       }

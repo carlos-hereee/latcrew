@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { ServicesContext } from "../../utils/context/ServicesContext";
 import ToggleOpen from "../molecules/buttons/ToggleOpen";
-import UserCard from "../molecules/card/UserCard";
+// import UserCard from "../molecules/card/UserCard";
 import NoCaptchaForm from "../molecules/forms/NoCaptchaForm";
 import { AuthContext } from "../../utils/context/AuthContext";
 import ContactDetailsReq from "../atoms/texts/ContactDetailsReq";
@@ -31,7 +31,8 @@ const UserContact = () => {
             {isOpen && <NoCaptchaForm data={userValues} submit={submit} />}
           </>
         ) : (
-          <UserCard />
+          "todo user contact card"
+          // <UserCard />
         )}
       </div>
     </div>

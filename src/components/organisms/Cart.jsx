@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { ServicesContext } from "../../utils/context/ServicesContext";
-import CancelRow from "../molecules/card/CancelRow";
-import CartRow from "../molecules/cart/CartRow";
+// import CancelRow from "../molecules/card/CancelRow";
+// import CartRow from "../molecules/cart/CartRow";
 import Heading from "../atoms/texts/Heading";
 
 const Cart = ({ data, heading }) => {
@@ -15,12 +15,13 @@ const Cart = ({ data, heading }) => {
   return (
     <div className="flex-d-column scroll-y p-sm flex-1">
       <Heading data={heading} />
-      {data.map((c) =>
-        cancel.uid === c.uid ? (
-          <CancelRow data={c} key={c.uid} click={cancelReq} />
-        ) : (
-          <CartRow key={c.uid} data={c} setCancel={setCancel} />
-        )
+      {data.map(
+        (c) =>
+          cancel.uid === c.uid
+            ? // <CancelRow data={c} key={c.uid} click={cancelReq} />
+              "to do cancel row"
+            : "todo cart row"
+        // <CartRow key={c.uid} data={c} setCancel={setCancel} />
       )}
     </div>
   );

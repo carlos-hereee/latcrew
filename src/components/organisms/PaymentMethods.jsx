@@ -33,9 +33,9 @@ const PaymentMethods = ({ isShippingReq }) => {
       )}
       <nav className="navbar payment-options">
         <h3>Payment methods</h3>
-        {paymentMethods.map((p) => (
+        {/* {paymentMethods.map((p) => (
           <PaymentOptions key={p.uid} data={p} />
-        ))}
+        ))} */}
       </nav>
       {paymentType.uid && (
         <>

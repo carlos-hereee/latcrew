@@ -3,7 +3,7 @@ import { CalendarContext } from "../utils/context/CalendarContext";
 import { ServicesContext } from "../utils/context/ServicesContext";
 import CalendarEvents from "../components/organisms/CalendarEvents.jsx";
 import AppCalendar from "../components/organisms/AppCalendar";
-import CartEmpty from "../components/molecules/empty/CartEmpty";
+// import CartEmpty from "../components/molecules/empty/CartEmpty";
 import Cart from "../components/organisms/Cart";
 
 const Booking = () => {
@@ -17,7 +17,8 @@ const Booking = () => {
         {bookable?.length > 0 ? (
           <Cart data={bookable} heading={{ title: "Select a package" }} />
         ) : (
-          <CartEmpty />
+          "todo empty cart"
+          // <CartEmpty />
         )}
         <CalendarEvents />
       </div>

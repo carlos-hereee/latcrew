@@ -1,6 +1,5 @@
 import { getIn, useFormik } from "formik";
 import ReCAPTCHA from "react-google-recaptcha";
-import Icons from "../molecules/icons/Icons";
 import { schema } from "../molecules/forms/schema";
 import { types } from "../molecules/forms/types";
 import { placeholders } from "../molecules/forms/placeholders";
@@ -58,9 +57,10 @@ const Forms = ({ data, submit }) => {
           size={window.screen.width < 481 ? "compact" : "normal"}
         />
       </div>
-      <button type="submit" className="btn btn-main">
-        <Icons name="submit" /> Submit
-      </button>
+      {/* <SubmitButton /> */}
+      {/* <button type="submit" className="btn btn-main">
+        <Icon name="submit" /> Submit
+      </button> */}
     </form>
   );
 };
