@@ -38,21 +38,18 @@ const Checkout = () => {
       setTotal(0);
     }
   }, [JSON.stringify(cart)]);
-  console.log("booked", booked);
+  // console.log("booked", booked);
   return (
-    <section className="section-container">
+    <section className="flex-d-column">
       <CardHeader data={checkout} />
       <UserContact />
-      <div>
-        {cart.length > 0 ? (
-          <Cart data={cart} heading={checkout.booked} />
-        ) : booked.length > 0 ? (
-          <BagSummary data={booked} />
-        ) : (
-          <CartEmpty />
-        )}
-      </div>
-
+      {cart.length > 0 ? (
+        <Cart data={cart} heading={checkout.booked} />
+      ) : booked.length > 0 ? (
+        <BagSummary data={booked} />
+      ) : (
+        <CartEmpty />
+      )}
       {total > 0 && <Total total={total} />}
       {isUserReq && user?.uid && !proceedWithCheckout && (
         <ButtonNext click={setNext} />

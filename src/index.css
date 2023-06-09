@@ -110,3 +110,11 @@ button {
   right: -0.5rem;
   top: -0.5rem;
 }
+.input {
+  min-width: 250px;
+  padding: 0.5rem 1rem;
+}
+.input-wrapper {
+  display: flex;
+  gap: 0.5rem;
+}

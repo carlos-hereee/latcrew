@@ -27,8 +27,8 @@ const Auth = () => {
     signIn(values);
   };
   return (
-    <section className="container">
-      <div className="card">
+    <section className="flex-c">
+      <div className="card flex-g">
         <h3 className="card-title">Login</h3>
         <div className="card-body">
           <NoCaptchaForm
@@ -37,7 +37,9 @@ const Auth = () => {
           />
         </div>
         <div className="card-footer">
-          <Link to="signup">Create an account</Link>
+          <Link to="signup" className="link">
+            Create an account
+          </Link>
         </div>
       </div>
     </section>
