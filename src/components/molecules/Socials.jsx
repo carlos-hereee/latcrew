@@ -24,7 +24,7 @@ import SocialLink from "../atoms/SocialLink";
 const Socials = () => {
   const { socials } = useContext(AppContext);
   return (
-    <div className="social">
+    <div className="social text-center">
       <h4>Dont miss a thing, Follow us on our socials</h4>
       <div className="social-icons">
         {socials.map(({ name, isEmpty, uid }) => (

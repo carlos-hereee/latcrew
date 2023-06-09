@@ -1,7 +1,39 @@
+:root {
+  --border-color: #555;
+  --border-radi: 0.5rem;
+  --primary-shadow-color: #c5c5c5;
+}
+html {
+  background-color: #eee;
+  height: 100%;
+}
+button {
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 1px 0px 2px 0px var(--primary-shadow-color);
+}
 .link {
   text-decoration: none;
-  color: #eee;
+  color: #111;
 }
-.heading-container {
-  width: 100%;
+.app {
+  max-width: auto;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  /* margin: ; */
+}
+.text-center {
+  text-align: center;
+}
+.social {
+  gap: 0.5rem;
+}
+.card {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radi);
+  box-shadow: 2px 1px 4px 1px var(--primary-shadow-color);
+}
+.ribbon {
+  border: 1px solid var(--border-color);
 }
