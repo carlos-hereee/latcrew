@@ -4,10 +4,10 @@ const NotificationCount = ({ count }) => {
   return (
     <>
       {count <= 9 && count > 0 && (
-        <span className="notification-count">{<Icons name={count} />}</span>
+        <span className="ping">{<Icons name={count} />}</span>
       )}
       {count > 9 && (
-        <span className="notification-count">
+        <span className="ping">
           {count
             .toString()
             .split("")

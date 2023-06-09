@@ -1,6 +1,7 @@
 :root {
   --border-color: #555;
   --border-radi: 0.5rem;
+  --border-radi-full: 100%;
   --primary-shadow-color: #c5c5c5;
   --primary-light-color: white;
   --primary-dark-color: #464646;
@@ -94,3 +95,18 @@ button {
 /* .row-wrapper {
   gap: ;
 } */
+
+.ping {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--ping);
+  color: var(--primary-light-color);
+  position: absolute;
+  aspect-ratio: 1/1;
+  border-radius: var(--border-radi-full);
+  width: 25px;
+  height: 25px;
+  right: -0.5rem;
+  top: -0.5rem;
+}

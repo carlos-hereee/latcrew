@@ -11,7 +11,7 @@ const CalendarEvents = () => {
   const { selectedDay, meeting } = useContext(CalendarContext);
   const { active } = useContext(ServicesContext);
   return (
-    <div id="calendar-events">
+    <div className="p-sm" id="calendar-events">
       <CardHeader data={selectedDay} />
       {selectedDay.list?.length > 0 ? <EventList /> : <DayNotFound />}
       {active.uid && meeting.uid ? <BookEvent /> : <NotFound />}
