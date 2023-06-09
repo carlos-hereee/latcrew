@@ -13,7 +13,7 @@ const Cart = ({ data, heading }) => {
   };
 
   return (
-    <div className="d-column">
+    <div className="flex-d-column scroll-y p-sm flex-1">
       <Heading data={heading} />
       {data.map((c) =>
         cancel.uid === c.uid ? (

@@ -3,7 +3,7 @@ import OpenAppButton from "../../../../../../personal-bizz/latcrew/src/component
 
 const CartRow = ({ data, setCancel }) => {
   return (
-    <div className="row-wrapper" id={data.uid}>
+    <div className="row-wrapper flex-d-column" id={data.uid}>
       <CardRow data={data} setCancel={setCancel} />
       {data.isBookable && <OpenAppButton service={data} />}
     </div>

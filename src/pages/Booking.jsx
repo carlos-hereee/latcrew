@@ -13,11 +13,9 @@ const Booking = () => {
   return (
     <section className="primary-container">
       <div className="calendar">{<AppCalendar data={events.sections || []} />}</div>
-      <div className="booking">
+      <div className="flex-start">
         {bookable?.length > 0 ? (
-          <div className="alt-container">
-            <Cart data={bookable} heading={{ title: "Select a package" }} />
-          </div>
+          <Cart data={bookable} heading={{ title: "Select a package" }} />
         ) : (
           <CartEmpty />
         )}

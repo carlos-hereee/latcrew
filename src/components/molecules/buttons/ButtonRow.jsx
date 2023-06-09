@@ -3,7 +3,7 @@ import CardHeader from "../card/CardHeader";
 
 const ButtonRow = ({ data, click }) => {
   return (
-    <button type="button" className="card-row d-row" onClick={click}>
+    <button type="button" onClick={click}>
       <CardHeader data={data} />
       {data.response && <ReadMore data={data.response} />}
     </button>

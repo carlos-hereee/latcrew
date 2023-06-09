@@ -2,9 +2,12 @@
   --border-color: #555;
   --border-radi: 0.5rem;
   --primary-shadow-color: #c5c5c5;
+  --primary-light-color: white;
+  --primary-dark-color: #464646;
+  --ping: rgb(245, 105, 105);
 }
 html {
-  background-color: #eee;
+  background-color: var(--primary-light-color);
   height: 100%;
 }
 button {
@@ -14,13 +17,12 @@ button {
 }
 .link {
   text-decoration: none;
-  color: #111;
+  color: var(--primary-dark-color);
 }
 .app {
   max-width: auto;
   gap: 0.5rem;
   padding: 0.5rem;
-  /* margin: ; */
 }
 .text-center {
   text-align: center;
@@ -37,3 +39,58 @@ button {
 .ribbon {
   border: 1px solid var(--border-color);
 }
+.react-calendar__tile {
+  border: none;
+}
+.react-calendar__viewContainer {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radi);
+}
+.react-calendar__tile .match {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--ping);
+  color: var(--primary-light-color);
+  position: absolute;
+  aspect-ratio: 1/1;
+  width: 25px;
+  height: 25px;
+  right: 5px;
+}
+.react-calendar__navigation__label {
+  color: var(--primary-dark-color);
+  border-right: none;
+  border-left: none;
+}
+.react-calendar__navigation .react-calendar__navigation__prev-button {
+  border-top-left-radius: 0.5rem;
+  border-right: none;
+  border-bottom-left-radius: 0.5rem;
+}
+.react-calendar__navigation .react-calendar__navigation__next-button {
+  border-top-right-radius: 0.5rem;
+  border-left: none;
+  border-bottom-right-radius: 0.5rem;
+}
+.booking {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0 1rem;
+}
+.scroll-y {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.flex-1 {
+  flex: 1;
+}
+.btn-cancel {
+  border: none;
+  background-color: var(--ping);
+  color: var(--primary-light-color);
+}
+/* .row-wrapper {
+  gap: ;
+} */
