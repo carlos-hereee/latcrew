@@ -2,14 +2,14 @@ import { useContext, useState, useEffect } from "react";
 import { AppContext } from "../utils/context/AppContext";
 import { ServicesContext } from "../utils/context/ServicesContext";
 import { AuthContext } from "../utils/context/AuthContext";
-import PaymentMethods from "../components/organisms/PaymentMethods";
-import CardHeader from "../components/molecules/card/CardHeader";
-import BagSummary from "../components/molecules/cart/BagSummary";
-import UserContact from "../components/organisms/UserContact";
-import ButtonNext from "../components/molecules/buttons/ButtonNext";
-import CartEmpty from "../components/molecules/empty/CartEmpty";
-import Total from "../components/molecules/Total";
-import Cart from "../components/organisms/Cart";
+// import PaymentMethods from "../components/organisms/PaymentMethods";
+// import CardHeader from "../components/molecules/card/CardHeader";
+// import BagSummary from "../components/molecules/cart/BagSummary";
+// import UserContact from "../components/organisms/UserContact";
+// import ButtonNext from "../components/molecules/buttons/ButtonNext";
+// import CartEmpty from "../components/molecules/empty/CartEmpty";
+// import Total from "../components/molecules/Total";
+// import Cart from "../components/organisms/Cart";
 
 const Checkout = () => {
   const { checkout } = useContext(AppContext);
@@ -41,8 +41,8 @@ const Checkout = () => {
   // console.log("booked", booked);
   return (
     <section className="flex-d-column">
-      <CardHeader data={checkout} />
-      <UserContact />
+      {/* <CardHeader data={checkout} /> */}
+      {/* <UserContact />
       {cart.length > 0 ? (
         <Cart data={cart} heading={checkout.booked} />
       ) : booked.length > 0 ? (
@@ -56,7 +56,7 @@ const Checkout = () => {
       )}
       {proceedWithCheckout && (
         <PaymentMethods click={setNext} isShippingReq={isShippingReq} />
-      )}
+      )} */}
     </section>
   );
 };

@@ -7,7 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import Register from "./pages/Register";
 import Auth from "./pages/Auth";
 import { AuthContext } from "./utils/context/AuthContext";
-import Loading from "./components/molecules/Loading";
+// import Loading from "./components/molecules/Loading";
 import PrivateRoute from "./utils/fns/PrivateRoute";
 import { AppContext } from "./utils/context/AppContext";
 import Services from "./pages/Services";
@@ -24,7 +24,7 @@ function App() {
     }
   }, [app.name]);
   if (isLoading) {
-    return <Loading />;
+    // return <Loading />;
   }
   return (
     <div className="flex-d-column p-sm">

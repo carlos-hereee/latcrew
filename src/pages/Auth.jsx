@@ -7,7 +7,6 @@ import { AuthContext } from "../utils/context/AuthContext";
 
 import { Link, useNavigate } from "react-router-dom";
 // import Icons from "../components/molecules/icons/Icons";
-import NoCaptchaForm from "../components/molecules/forms/NoCaptchaForm";
 
 const Auth = () => {
   const {
@@ -31,10 +30,10 @@ const Auth = () => {
       <div className="card flex-g">
         <h3 className="card-title">Login</h3>
         <div className="card-body">
-          <NoCaptchaForm
+          {/* <NoCaptchaForm 
             data={{ username: "", password: "" }}
             submit={handleSubmit}
-          />
+          /> */}
         </div>
         <div className="card-footer">
           <Link to="signup" className="link">

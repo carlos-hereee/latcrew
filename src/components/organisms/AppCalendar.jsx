@@ -6,7 +6,7 @@ import { CalendarContext } from "../../utils/context/CalendarContext";
 import { scrollToMeetings } from "../../utils/fns/calendar";
 import { dateEqual, formatDate } from "../../utils/fns/moment";
 // import Icons from "../molecules/icons/Icons";
-import { Icon } from "nexious-library/atoms";
+// import { Icon } from "nexious-library/atoms";
 
 const AppCalendar = ({ data }) => {
   const [value, onChange] = useState(null);
@@ -31,11 +31,7 @@ const AppCalendar = ({ data }) => {
     if (match && current >= today) {
       const open = match.list.filter((m) => m.isOpen);
       if (open.length > 0) {
-        return (
-          <div className="match">
-            <Icon name={open.length} />
-          </div>
-        );
+        return <div className="match">{/* <Icon name={open.length} /> */}</div>;
       }
     }
   };

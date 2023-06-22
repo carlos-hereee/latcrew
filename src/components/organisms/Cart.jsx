@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import { ServicesContext } from "../../utils/context/ServicesContext";
+import { Heading } from "nexious-library";
 // import CancelRow from "../molecules/card/CancelRow";
 // import CartRow from "../molecules/cart/CartRow";
-import Heading from "../atoms/texts/Heading";
+// import Heading from "../atoms/texts/Heading";
 
 const Cart = ({ data, heading }) => {
   const { removeFromCart, cart } = useContext(ServicesContext);
