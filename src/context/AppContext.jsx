@@ -1,11 +1,11 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { axiosWithAuth } from "../fns/axios";
-import { reducer } from "../reducer/AppReducer";
-import { app } from "../data/config";
 import { useNavigate } from "react-router-dom";
 
 import shortid from "shortid";
 import { AuthContext } from "./AuthContext";
+import { app } from "../data/config";
+import { axiosWithAuth } from "../utils/axios";
+import { reducer } from "./reducer/LogReducer";
 // import shortid from "shortid";
 
 export const AppContext = createContext();

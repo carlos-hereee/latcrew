@@ -1,9 +1,9 @@
 import { createContext, useReducer, useContext, useEffect } from "react";
 import shortid from "shortid";
 import { LogContext } from "./LogContext";
-import { reducer } from "../reducer/ServicesReducer";
 import { AuthContext } from "./AuthContext";
 import { CalendarContext } from "./CalendarContext";
+import { reducer } from "./reducer/LogReducer";
 
 export const ServicesContext = createContext();
 export const ServicesState = ({ children }) => {

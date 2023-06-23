@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { Calendar } from "react-calendar";
 import { useNavigate } from "react-router-dom";
-import { CalendarContext } from "../../utils/context/CalendarContext";
-import { scrollToMeetings } from "../../utils/fns/calendar";
-import { dateEqual, formatDate } from "../../utils/fns/moment";
+import { CalendarContext } from "../../context/CalendarContext";
+import { scrollToMeetings } from "../../utils/calendar";
+import { dateEqual, formatDate } from "../../utils/moment";
 // import Icons from "../molecules/icons/Icons";
 // import { Icon } from "nexious-library/atoms";
 

@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { CalendarContext } from "../../utils/context/CalendarContext";
 // import NotFound from "../molecules/notFound/MeetingNotFound";
-import { ServicesContext } from "../../utils/context/ServicesContext";
 // import DayNotFound from "../molecules/notFound/DayNotFound";
 // import BookEvent from "../molecules/BookEvent";
 // import EventList from "../molecules/EventList";
 import { CardHeader } from "nexious-library";
+import { CalendarContext } from "../../context/CalendarContext";
+import { ServicesContext } from "../../context/ServicesContext";
 
 const CalendarEvents = () => {
   const { selectedDay, meeting } = useContext(CalendarContext);

@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import { createContext, useReducer, useEffect } from "react";
-import { axiosWithAuth } from "../fns/axios";
-import { reducer } from "../reducer/AuthReducer";
 import { v4 } from "uuid";
 import shortid from "shortid";
+import { axiosWithAuth } from "../utils/axios";
 import { app } from "../data/config";
+import { reducer } from "./reducer/LogReducer";
 
 export const AuthContext = createContext();
 

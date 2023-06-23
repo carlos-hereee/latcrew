@@ -2,14 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { AppState } from "./utils/context/AppContext";
-import { ServicesState } from "./utils/context/ServicesContext";
-import { LogState } from "./utils/context/LogContext";
-import { AuthState } from "./utils/context/AuthContext";
-import { CalendarState } from "./utils/context/CalendarContext";
+import { AppState } from "./context/AppContext";
+import { ServicesState } from "./context/ServicesContext";
+import { LogState } from "./context/LogContext";
+import { AuthState } from "./context/AuthContext";
+import { CalendarState } from "./context/CalendarContext";
 import "nexious-library/@index.css";
-// import "./index.css";
-// import "./normal.css";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>

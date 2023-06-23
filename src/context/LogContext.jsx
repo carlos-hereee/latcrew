@@ -1,5 +1,5 @@
 import { createContext, useReducer } from "react";
-import { reducer } from "../reducer/LogReducer";
+import { reducer } from "./reducer/LogReducer";
 export const LogContext = createContext();
 
 export const LogState = ({ children }) => {

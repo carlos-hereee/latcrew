@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import { AppContext } from "../utils/context/AppContext";
-import { ServicesContext } from "../utils/context/ServicesContext";
+import { AppContext } from "../context/AppContext";
+import { ServicesContext } from "../context/ServicesContext";
 import logo from "../assets/logo.svg";
 // import BurgerButton from "../components/molecules/navigation/BurgerButton";
 // import NavBar from "../components/organisms/navigation/NavBar";
 // import { Logo } from "nexious-library/atoms";
 import { Link } from "react-router-dom";
+import { Logo, Navbar } from "nexious-library";
 const Header = () => {
   const [isActive, setActive] = useState(false);
   const [isClose, setClose] = useState(false);
@@ -47,11 +48,16 @@ const Header = () => {
   return (
     <header>
       <Link className="link flex-g" to="/">
-        {/* <Logo data={{ name: "industry-brand", link: logo }} /> */}
+        <Logo data={{ name: "industry-brand", link: logo }} />
         <h3>{app.name}</h3>
       </Link>
       <nav className="primary-navigation">
-        {/* <NavBar show={{ isActive, isClose }} toggle={toggleMenu} click={click} /> */}
+        <Navbar
+          show={{ isActive, isClose }}
+          toggle={toggleMenu}
+          click={click}
+          menu={menu}
+        />
       </nav>
       <nav className="mobile-navigation">
         {/* <BurgerButton isBurger={isActive} click={click} />

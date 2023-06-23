@@ -1,7 +1,7 @@
 // import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
-import { AuthContext } from "../utils/context/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 
 const Dashboard = ({ history }) => {
   const { user, logOut } = useContext(AuthContext);

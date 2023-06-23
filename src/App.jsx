@@ -6,13 +6,13 @@ import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
 import Register from "./pages/Register";
 import Auth from "./pages/Auth";
-import { AuthContext } from "./utils/context/AuthContext";
+import { AuthContext } from "./context/AuthContext";
 // import Loading from "./components/molecules/Loading";
-import PrivateRoute from "./utils/fns/PrivateRoute";
-import { AppContext } from "./utils/context/AppContext";
+import { AppContext } from "./context/AppContext";
 import Services from "./pages/Services";
 import Checkout from "./pages/Checkout";
 import Booking from "./pages/Booking";
+import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
   const { isLoading } = useContext(AuthContext);

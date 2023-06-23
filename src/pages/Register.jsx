@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../utils/context/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 
 const Schema = Yup.object().shape({
   password: Yup.string().required("This field is required"),

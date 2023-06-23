@@ -1,6 +1,6 @@
 import shortid from "shortid";
 import { lorem20, lorem10, serviceSection } from "./variables";
-import { formatDate, formatTime } from "../fns/moment";
+import { formatDate, formatTime } from "../utils/moment";
 
 export const app = {
   user: {

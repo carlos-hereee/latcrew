@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react";
-import { AppContext } from "../utils/context/AppContext";
-import { ServicesContext } from "../utils/context/ServicesContext";
-import { AuthContext } from "../utils/context/AuthContext";
+import { AppContext } from "../context/AppContext";
+import { ServicesContext } from "../context/ServicesContext";
+import { AuthContext } from "../context/AuthContext";
 // import PaymentMethods from "../components/organisms/PaymentMethods";
 // import CardHeader from "../components/molecules/card/CardHeader";
 // import BagSummary from "../components/molecules/cart/BagSummary";
