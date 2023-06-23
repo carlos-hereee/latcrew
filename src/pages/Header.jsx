@@ -2,16 +2,15 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import { ServicesContext } from "../context/ServicesContext";
 import logo from "../assets/logo.svg";
-// import BurgerButton from "../components/molecules/navigation/BurgerButton";
-// import NavBar from "../components/organisms/navigation/NavBar";
-// import { Logo } from "nexious-library/atoms";
-import { Link } from "react-router-dom";
-import { Logo, Navbar } from "nexious-library";
+import { Link, useNavigate } from "react-router-dom";
+import { BurgerButton, Logo, Navbar } from "nexious-library";
+
 const Header = () => {
   const [isActive, setActive] = useState(false);
   const [isClose, setClose] = useState(false);
   const { cart, booked, bookable } = useContext(ServicesContext);
   const { menu, toggleMenu, updateBurger, updateMenu, app } = useContext(AppContext);
+  const navigate = useNavigate();
 
   // eslint-disable-next-line no-unused-vars
   useEffect(() => {
@@ -45,6 +44,9 @@ const Header = () => {
   const click = () => {
     setActive(!isActive);
   };
+  const clickMenu = (e) => {
+    navigate(`/${e.name}`);
+  };
   return (
     <header>
       <Link className="link flex-g" to="/">
@@ -55,13 +57,18 @@ const Header = () => {
         <Navbar
           show={{ isActive, isClose }}
           toggle={toggleMenu}
-          click={click}
+          click={clickMenu}
           menu={menu}
         />
       </nav>
       <nav className="mobile-navigation">
-        {/* <BurgerButton isBurger={isActive} click={click} />
-        <NavBar show={{ isActive, isClose }} toggle={toggleMenu} click={click} /> */}
+        <BurgerButton isBurger={isActive} click={click} />
+        <Navbar
+          show={{ isActive, isClose }}
+          toggle={toggleMenu}
+          click={clickMenu}
+          menu={menu}
+        />
       </nav>
     </header>
   );

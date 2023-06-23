@@ -8,6 +8,7 @@ import { LogState } from "./context/LogContext";
 import { AuthState } from "./context/AuthContext";
 import { CalendarState } from "./context/CalendarContext";
 import "nexious-library/@index.css";
+import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
