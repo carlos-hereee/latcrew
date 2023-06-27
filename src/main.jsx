@@ -7,6 +7,7 @@ import { ServicesState } from "./context/ServicesContext";
 import { LogState } from "./context/LogContext";
 import { AuthState } from "./context/AuthContext";
 import { CalendarState } from "./context/CalendarContext";
+import AppRouter from "./AppRouter";
 import "nexious-library/@index.css";
 import "./index.css";
 
@@ -18,7 +19,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <AppState>
             <ServicesState>
               <CalendarState>
-                <App />
+                <App>
+                  <AppRouter />
+                </App>
               </CalendarState>
             </ServicesState>
           </AppState>
