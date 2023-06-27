@@ -1,22 +1,20 @@
 import { Fragment, useContext, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import Header from "./pages/Header";
-import Footer from "./pages/Footer";
 import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
 import Register from "./pages/Register";
 import Auth from "./pages/Auth";
 import { AuthContext } from "./context/AuthContext";
-// import Loading from "./components/molecules/Loading";
 import { AppContext } from "./context/AppContext";
 import Services from "./pages/Services";
 import Checkout from "./pages/Checkout";
 import Booking from "./pages/Booking";
 import PrivateRoute from "./utils/PrivateRoute";
-
+import { Footer, Header } from "nexious-library";
+import logo from "./assets/logo.svg";
 function App() {
   const { isLoading } = useContext(AuthContext);
-  const { app } = useContext(AppContext);
+  const { app, menu } = useContext(AppContext);
 
   useEffect(() => {
     if (app.name) {
@@ -28,7 +26,11 @@ function App() {
   }
   return (
     <div className="flex-d-column p-sm">
-      <Header />
+      <Header
+        menu={menu}
+        data={{ url: logo, name: app.name, alt: "industry-brand" }}
+        title={app.name}
+      />
       <Fragment>
         <Routes>
           <Route exact path="/" element={<Landing />} />
@@ -44,7 +46,7 @@ function App() {
           {/* <PrivateRoute path="/shop" element={<Shop />} /> */}
         </Routes>
       </Fragment>
-      <Footer />
+      <Footer title={app.name} />
     </div>
   );
 }
