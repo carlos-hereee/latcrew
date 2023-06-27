@@ -36,5 +36,9 @@ export const serviceSection = (n) => {
     title: "Lorem Ipsum",
     cost: random100(n),
     response: lorem20,
+    buttons: [
+      { icon: "checkout", uid: "button-check-123", label: "Add to cart" },
+      { icon: "checkout", uid: "123", label: "Remove from cart" },
+    ],
   };
 };

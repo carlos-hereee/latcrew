@@ -1,4 +1,4 @@
-import { Heading, NavButton } from "nexious-library";
+import { Card, Heading, NavButton } from "nexious-library";
 
 const Container = ({ filter, filtered, isFiltered, data }) => {
   const handleClick = (e) => {
@@ -7,7 +7,6 @@ const Container = ({ filter, filtered, isFiltered, data }) => {
   };
   return (
     <section className="container">
-      {/* <SectionHeader data={data} /> */}
       <Heading data={data.title} />
       {data.isNav && (
         <nav className="navbar">
@@ -18,14 +17,15 @@ const Container = ({ filter, filtered, isFiltered, data }) => {
       )}
       <div className="card-container">
         {isFiltered
-          ? filtered.map((fg) => <Card data={fg} key={fg.uid} />)
-          : data.sections.map((g) => <Card data={g} key={g.uid} />)}
+          ? filtered.map((fg) => (
+              <Card header={fg} body={fg} footer={fg} key={fg.uid} />
+            ))
+          : data.sections.map((g) => (
+              <Card header={g} body={g} footer={g} key={g.uid} />
+            ))}
       </div>
     </section>
   );
 };
 
 export default Container;
-const Card = () => {
-  return <div className="card"></div>;
-};
