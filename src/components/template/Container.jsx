@@ -1,4 +1,6 @@
-import { Card, Heading, NavButton } from "nexious-library";
+import { Card } from "nexious-library/@nxs-organism";
+import { Heading } from "nexious-library/@nxs-atoms";
+import { NavButton } from "nexious-library/@nxs-molecules";
 
 const Container = ({ filter, filtered, isFiltered, data }) => {
   const handleClick = (e) => {

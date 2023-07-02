@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Heading } from "nexious-library";
+import { Heading } from "nexious-library/@nxs-atoms";
 import { ServicesContext } from "../../context/ServicesContext";
 // import CancelRow from "../molecules/card/CancelRow";
 // import CartRow from "../molecules/cart/CartRow";

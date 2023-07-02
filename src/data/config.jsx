@@ -28,15 +28,11 @@ export const app = {
             uid: shortid.generate(),
             response: "9am - 10am",
             isOpen: false,
-            hasHero: false,
-            hasLink: false,
             date: formatDate(new Date()),
             time: {
               startTime: formatTime(new Date().setHours(9, 0, 0)).toString(),
-
               endTime: formatTime(new Date().setHours(10, 0, 0)).toString(),
             },
-            attendees: {},
           },
           {
             uid: shortid.generate(),

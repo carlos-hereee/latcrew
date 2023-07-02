@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Heading } from "nexious-library";
+import { Heading } from "nexious-library/@nxs-atoms";
 import { AppContext } from "../context/AppContext";
 
 const About = () => {

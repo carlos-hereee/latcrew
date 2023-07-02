@@ -3,7 +3,7 @@ import { useContext } from "react";
 // import DayNotFound from "../molecules/notFound/DayNotFound";
 // import BookEvent from "../molecules/BookEvent";
 // import EventList from "../molecules/EventList";
-import { CardHeader } from "nexious-library";
+import { CardHeader } from "nexious-library/@nxs-molecules";
 import { CalendarContext } from "../../context/CalendarContext";
 import { ServicesContext } from "../../context/ServicesContext";
 

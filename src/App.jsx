@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { AuthContext } from "./context/AuthContext";
 import { AppContext } from "./context/AppContext";
-import { Footer, Header } from "nexious-library";
+import { Footer, Header } from "nexious-library/@nxs-template";
 import logo from "./assets/logo.svg";
 
 function App({ children }) {
@@ -20,8 +20,8 @@ function App({ children }) {
     <div className="flex-d-column p-sm">
       <Header
         menu={menu}
-        data={{ url: logo, name: app.name, alt: "industry-brand" }}
-        title={app.name}
+        logo={{ url: logo, name: app.name, alt: "industry-brand" }}
+        // title={app.name}
       />
       {children}
       <Footer title={app.name} />
