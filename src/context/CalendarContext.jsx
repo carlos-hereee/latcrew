@@ -1,5 +1,4 @@
 import { createContext, useReducer, useContext } from "react";
-// import { dateEqual, today } from "../functions/moment";
 import { LogContext } from "./LogContext";
 import { ServicesContext } from "./ServicesContext";
 import { axiosWithAuth } from "../utils/axios";
@@ -33,10 +32,10 @@ export const CalendarState = ({ children }) => {
   //   }
   // };
 
-  const updateEvents = async (events) => {
-    dispatch({ type: "IS_LOADING", payload: true });
-    dispatch({ type: "UPDATE_EVENTS", payload: events });
-  };
+  // const updateEvents = async (events) => {
+  //   dispatch({ type: "IS_LOADING", payload: true });
+  //   dispatch({ type: "UPDATE_EVENTS", payload: events });
+  // };
   const resetDay = async (events) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "RESET_EVENTS", payload: events });
@@ -66,7 +65,7 @@ export const CalendarState = ({ children }) => {
   };
   const setMeeting = async (event) => {
     dispatch({ type: "IS_LOADING", payload: true });
-    dispatch({ type: "UPDATE_APPOINTMENT", payload: event });
+    dispatch({ type: "UPDATE_MEETING", payload: event });
   };
   const bookNow = async (values, meeting) => {
     dispatch({ type: "IS_LOADING", payload: true });

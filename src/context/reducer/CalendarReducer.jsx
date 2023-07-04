@@ -1,9 +1,6 @@
 const bookNow = (state, action) => {
   return { state, meeting: action.payload };
 };
-const updateAppointment = (state, action) => {
-  return { ...state, meeting: action.payload };
-};
 const bookEvent = (state, action) => {
   return { ...state, booked: [...state.booked, action.payload] };
 };
@@ -15,8 +12,8 @@ export const reducer = (state, action) => {
       return { ...state, booked: action.payload };
     case "UPDATE_SELECTED_DAY":
       return { ...state, selectedDay: action.payload };
-    case "UPDATE_APPOINTMENT":
-      return updateAppointment(state, action);
+    case "UPDATE_MEETING":
+      return { ...state, meeting: action.payload };
     case "UPDATE_CALENDAR":
       return { ...state, calendar: action.payload };
     case "BOOK_NOW":
