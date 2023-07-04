@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useEffect, useState } from "react";
-import { Calendar } from "react-calendar";
+import { Calendar } from "nexious-library/@nxs-organism";
 import { useNavigate } from "react-router-dom";
 import { CalendarContext } from "../../context/CalendarContext";
 import { scrollToMeetings } from "../../utils/calendar";
@@ -23,40 +23,24 @@ const AppCalendar = ({ data }) => {
       } else setDay({ title: day, uid: day, hasList: false });
     } else onChange(new Date());
   }, [value]);
-  const tileContent = (date) => {
-    const current = new Date(date).getDate();
-    const today = new Date().getDate();
-    const match = dateEqual(formatDate(date), data);
-
-    if (match && current >= today) {
-      const open = match.list.filter((m) => m.isOpen);
-      if (open.length > 0) {
-        return <div className="match">{/* <Icon name={open.length} /> */}</div>;
-      }
-    }
-  };
-  const handleDayClick = () => {
-    if (window.location.pathname === "/booking") {
-      scrollToMeetings();
-    }
-    if (window.location.pathname === "/") {
-      navigate("/booking");
-    }
+  const handleDayClick = (e) => {
+    setDay(e);
+    // if (window.location.pathname === "/booking") {
+    //   scrollToMeetings();
+    // }
+    // if (window.location.pathname === "/") {
+    //   navigate("/booking");
+    // }
   };
   return (
     <Calendar
-      onChange={onChange}
-      value={value}
+      value={new Date()}
+      onDayClick={handleDayClick}
       minDate={new Date()}
       minDetail="month"
       prev2Label={null}
       next2Label={null}
-      navigationLabel={({ label }) => (
-        <h3>{label.charAt(0).toUpperCase() + label.slice(1)}</h3>
-      )}
-      showNeighboringMonth={false}
-      tileContent={({ date }) => tileContent(date)}
-      onClickDay={() => handleDayClick()}
+      events={data}
     />
   );
 };

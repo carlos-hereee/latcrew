@@ -3,7 +3,7 @@ import { createContext, useReducer, useContext } from "react";
 import { LogContext } from "./LogContext";
 import { ServicesContext } from "./ServicesContext";
 import { axiosWithAuth } from "../utils/axios";
-import { reducer } from "./reducer/LogReducer";
+import { reducer } from "./reducer/CalendarReducer";
 import { app } from "../data/config";
 
 export const CalendarContext = createContext();
@@ -41,10 +41,7 @@ export const CalendarState = ({ children }) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "RESET_EVENTS", payload: events });
   };
-  // const updateCalendar = async (calendar) => {
-  //   dispatch({ type: "IS_LOADING", payload: true });
-  //   dispatch({ type: "UPDATE_CALENDAR", payload: calendar });
-  // };
+
   const contactUs = async (values) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
@@ -64,8 +61,9 @@ export const CalendarState = ({ children }) => {
     }
   };
   const setDay = async (event) => {
+    console.log("event", event);
     dispatch({ type: "IS_LOADING", payload: true });
-    dispatch({ type: "UPDATE_CALENDAR_EVENT", payload: event });
+    dispatch({ type: "UPDATE_SELECTED_DAY", payload: event });
   };
   const setMeeting = async (event) => {
     dispatch({ type: "IS_LOADING", payload: true });

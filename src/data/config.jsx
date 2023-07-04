@@ -18,7 +18,7 @@ export const app = {
     hasIcon: false,
     sections: [
       {
-        title: formatDate(new Date()),
+        date: formatDate(new Date()),
         uid: shortid.generate(),
         hasHero: false,
         hasLink: false,
@@ -73,7 +73,7 @@ export const app = {
         ],
       },
       {
-        title: formatDate(new Date().setDate(new Date().getDate() + 1)),
+        date: formatDate(new Date().setDate(new Date().getDate() + 1)),
         uid: shortid.generate(),
         hasHero: false,
         hasLink: false,
@@ -130,7 +130,7 @@ export const app = {
         ],
       },
       {
-        title: formatDate(new Date().setDate(new Date().getDate() + 2)),
+        date: formatDate(new Date().setDate(new Date().getDate() + 2)),
         uid: shortid.generate(),
         hasHero: false,
         hasLink: false,
@@ -187,7 +187,7 @@ export const app = {
         ],
       },
       {
-        title: formatDate(new Date().setDate(new Date().getDate() + 3)),
+        date: formatDate(new Date().setDate(new Date().getDate() + 3)),
         uid: shortid.generate(),
         hasHero: false,
         hasLink: false,
@@ -244,7 +244,7 @@ export const app = {
         ],
       },
       {
-        title: formatDate(new Date().setDate(new Date().getDate() + 4)),
+        date: formatDate(new Date().setDate(new Date().getDate() + 4)),
         uid: shortid.generate(),
         hasHero: false,
         hasLink: false,
@@ -301,7 +301,7 @@ export const app = {
         ],
       },
       {
-        title: formatDate(new Date().setDate(new Date().getDate() + 5)),
+        date: formatDate(new Date().setDate(new Date().getDate() + 5)),
         uid: shortid.generate(),
         hasHero: false,
         hasLink: false,

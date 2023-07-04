@@ -6,9 +6,9 @@ import AppCalendar from "../components/organisms/AppCalendar";
 import Cart from "../components/organisms/Cart";
 
 const Booking = () => {
-  const { events } = useContext(CalendarContext);
+  const { events, selectedDay } = useContext(CalendarContext);
   const { bookable } = useContext(ServicesContext);
-
+  console.log("selectedDay", selectedDay);
   return (
     <section className="primary-container">
       <div className="calendar">{<AppCalendar data={events.sections || []} />}</div>
