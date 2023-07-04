@@ -61,7 +61,6 @@ export const CalendarState = ({ children }) => {
     }
   };
   const setDay = async (event) => {
-    console.log("event", event);
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_SELECTED_DAY", payload: event });
   };

@@ -3,7 +3,7 @@ import shortid from "shortid";
 import { LogContext } from "./LogContext";
 import { AuthContext } from "./AuthContext";
 import { CalendarContext } from "./CalendarContext";
-import { reducer } from "./reducer/LogReducer";
+import { reducer } from "./reducer/ServicesReducer";
 
 export const ServicesContext = createContext();
 export const ServicesState = ({ children }) => {
