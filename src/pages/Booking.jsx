@@ -7,15 +7,14 @@ import { EmptySection } from "nexious-library/@nxs-molecules";
 
 const Booking = () => {
   const { events, selectedDay, meeting, setMeeting } = useContext(CalendarContext);
-  const { bookable, removeFromCart, cart } = useContext(ServicesContext);
+  const { bookable, removeFromCart, cart, active } = useContext(ServicesContext);
   const handleRemoveFromCart = (e) => {
     removeFromCart(cart, e);
   };
-
   return (
     <section className="primary-container">
-      <div className="calendar">{<AppCalendar data={events.sections || []} />}</div>
-      <div>
+      <AppCalendar data={events.sections || []} />
+      {/* <div>
         {bookable?.length > 0 ? (
           <Cart
             data={bookable}
@@ -25,10 +24,12 @@ const Booking = () => {
         ) : (
           <EmptySection message="Your cart is empty! Go to store" />
         )}
-      </div>
+      </div> */}
       <CalendarEvents
         selectedDay={selectedDay}
-        active={meeting}
+        events={bookable}
+        active={active}
+        meeting={meeting}
         click={(e) => setMeeting(e)}
       />
     </section>

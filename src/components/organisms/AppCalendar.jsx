@@ -1,23 +1,24 @@
-import { useContext } from "react";
-import { Calendar } from "nexious-library/@nxs-organism";
+import { useContext, useEffect } from "react";
+import { Calendar } from "nexious-library/@nxs-template";
 import { CalendarContext } from "../../context/CalendarContext";
 
 const AppCalendar = ({ data }) => {
   const { setDay } = useContext(CalendarContext);
 
-  const handleDayClick = (e) => {
-    setDay(e);
-    // if (window.location.pathname === "/booking") {
-    //   scrollToMeetings();
-    // }
-    // if (window.location.pathname === "/") {
-    //   navigate("/booking");
-    // }
-  };
+  useEffect(() => {
+    if (data) {
+      const today = new Date();
+      const filtered = data.filter((d) => {
+        return new Date(d.date).getDate() === today.getDate();
+      })[0];
+      filtered ? setDay(filtered) : setDay({ date: today.toDateString(), list: [] });
+    }
+  }, []);
+
   return (
     <Calendar
       value={new Date()}
-      onDayClick={handleDayClick}
+      onDayClick={setDay}
       minDate={new Date()}
       // minDetail="month"
       events={data}
