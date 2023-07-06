@@ -19,10 +19,10 @@ function App({ children }) {
   }
   return (
     <div className="flex-d-column p-sm">
-      {/* <Header
+      <Header
         menu={menu}
         logo={{ url: logo, name: app.name, alt: "industry-brand" }}
-      /> */}
+      />
       {children}
       <Footer appName={app.name} />
     </div>
