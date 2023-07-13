@@ -10,17 +10,35 @@
   "description": "Welcome to Sparkle and Shine, your go-to solution for top-quality house cleaning services. We believe that a clean home is a happy home, and our dedicated team is here  help you achieve just that. With our exceptional cleaning experstise and attention to detail, we are committed to providing a prestine living evironment that you can truly relax in",
   "features": [
     {
-      "hero": { "url": "", "name": "trusted-brand", "alt": "trusted-brand" },
+      "hero": {
+        "url": "icons/secure-icon.svg",
+        "name": "trusted-brand",
+        "icon": "",
+        "alt": "trusted-brand",
+        "isIcon": false
+      },
       "heading": "Trusted Professionals",
       "description": "Our cleaning staff consists of experienced and trained professionals who are dedicated to providing exceptional service and attention to detail."
     },
     {
-      "hero": { "url": "", "name": "eco-friendly", "alt": "eco-friendly" },
+      "hero": {
+        "url": "",
+        "name": "eco-friendly",
+        "alt": "eco-friendly",
+        "icon": "eco",
+        "isIcon": true
+      },
       "heading": "Eco-Friendly Approach",
       "description": "We use environmentally friendly cleaning products that are effective in removing dirt and grime without compromising the health of your family or the planet."
     },
     {
-      "hero": { "url": "", "name": "custom-plans", "alt": "custom-plans" },
+      "hero": {
+        "url": "",
+        "icon": "custom",
+        "name": "custom-plans",
+        "alt": "custom-plans",
+        "isIcon": true
+      },
       "heading": "Customizable Cleaning Plans",
       "description": "We understand that every home is unique. That's why we offer customizable cleaning plans that allow you to tailor our services to meet your specific requirements."
     }
