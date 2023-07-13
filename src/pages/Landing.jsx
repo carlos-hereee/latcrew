@@ -19,7 +19,10 @@ const Landing = () => {
       </div>
       <div className="flex-j-between">
         {app.features.map((af) => (
-          <FeatureCard feature={af} />
+          <FeatureCard
+            feature={af}
+            hero={{ ...af.hero, url: loadAsset(af.hero.url) }}
+          />
         ))}
       </div>
     </main>

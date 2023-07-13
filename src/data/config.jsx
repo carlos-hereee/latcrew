@@ -380,6 +380,12 @@ export const app = {
       link: "https://www.twitter.com//",
       uid: shortid.generate(),
     },
+    {
+      isEmpty: true,
+      name: "facebook",
+      link: "https://www.twitter.com//",
+      uid: shortid.generate(),
+    },
   ],
   checkout: {
     title: "Check out",
@@ -434,6 +440,7 @@ export const app = {
   menu: [
     {
       name: "spanish",
+      icon: "flag",
       isToggle: true,
       isAlt: true,
       uid: shortid.generate(),

@@ -12,32 +12,26 @@
     {
       "hero": {
         "url": "icons/secure-icon.svg",
-        "name": "trusted-brand",
-        "icon": "",
-        "alt": "trusted-brand",
-        "isIcon": false
+        "name": "icon-hero",
+        "alt": "trusted-brand"
       },
       "heading": "Trusted Professionals",
       "description": "Our cleaning staff consists of experienced and trained professionals who are dedicated to providing exceptional service and attention to detail."
     },
     {
       "hero": {
-        "url": "",
-        "name": "eco-friendly",
-        "alt": "eco-friendly",
-        "icon": "eco",
-        "isIcon": true
+        "url": "icons/recycle.svg",
+        "name": "icon-hero",
+        "alt": "eco-friendly"
       },
       "heading": "Eco-Friendly Approach",
       "description": "We use environmentally friendly cleaning products that are effective in removing dirt and grime without compromising the health of your family or the planet."
     },
     {
       "hero": {
-        "url": "",
+        "url": "icons/custom.svg",
         "icon": "custom",
-        "name": "custom-plans",
-        "alt": "custom-plans",
-        "isIcon": true
+        "name": "icon-hero"
       },
       "heading": "Customizable Cleaning Plans",
       "description": "We understand that every home is unique. That's why we offer customizable cleaning plans that allow you to tailor our services to meet your specific requirements."

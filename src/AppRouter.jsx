@@ -13,14 +13,3 @@ const AppRouter = () => {
   );
 };
 export default AppRouter;
-// <Routes>
-//   <Route path="/login" element={<Auth />} />
-
-//   <Route path="/checkout" element={<Checkout />} />
-//   <Route path="/signup" element={<Register />} />
-//   <Route path="/dashboard" element={<PrivateRoute />}>
-//     {/* <Route path */}
-//     <Route path="/dashboard" element={<Dashboard />} />
-//   </Route>
-//   {/* <PrivateRoute path="/shop" element={<Shop />} /> */}
-// </Routes>
