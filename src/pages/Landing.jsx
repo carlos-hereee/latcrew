@@ -1,12 +1,13 @@
-// import Socials from "../components/molecules/Socials";
-import About from "./About";
-// import { Socials } from "nexious-library";
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
+
+// import About from "./About";
 const Landing = () => {
+  const { app } = useContext(AppContext);
   return (
-    <>
-      <About />
-      {/* <Socials /> */}
-    </>
+    <main>
+      <h2 className="heading">{app.name}</h2>
+    </main>
   );
 };
 export default Landing;

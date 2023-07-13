@@ -4,6 +4,7 @@ import { ServicesContext } from "../context/ServicesContext";
 import { CalendarEvents } from "nexious-library/@nxs-organism";
 import { useNavigate } from "react-router-dom";
 import { Calendar } from "nexious-library/@nxs-template";
+
 const Booking = () => {
   const { events, selectedDay, meeting, setMeeting, setDay } =
     useContext(CalendarContext);
@@ -12,15 +13,14 @@ const Booking = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (events.section) {
+    if (events.sections) {
       const today = new Date();
-      const filtered = events.section.filter((d) => {
+      const filtered = events.sections.filter((d) => {
         return new Date(d.date).getDate() === today.getDate();
       })[0];
       filtered ? setDay(filtered) : setDay({ date: today.toDateString(), list: [] });
     }
   }, []);
-
   return (
     <section className="primary-container">
       <Calendar
