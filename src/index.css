@@ -5,3 +5,7 @@
 .reviews-container {
   display: flex;
 }
+.testimonial-form {
+  display: flex;
+  flex-direction: row;
+}
