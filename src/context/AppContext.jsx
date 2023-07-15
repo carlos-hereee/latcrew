@@ -7,6 +7,7 @@ import { app } from "../data/config";
 import landing from "../data/pages.landing.json";
 import services from "../data/pages.services.json";
 import testimonials from "../data/pages.testimonials.json";
+import about from "../data/pages.about.json";
 import { axiosWithAuth } from "../utils/axios";
 import { reducer } from "./reducer/LogReducer";
 
@@ -18,7 +19,7 @@ export const AppState = ({ children }) => {
     menu: app.menu,
     app: landing,
     socials: app.socials,
-    about: app.about,
+    about: about,
     checkout: app.checkout,
     contact: app.contact,
     footerNewsletter: app.footerNewsletter,

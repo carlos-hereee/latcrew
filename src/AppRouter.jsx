@@ -3,6 +3,7 @@ import Landing from "./pages/Landing";
 import Services from "./pages/Services";
 import Booking from "./pages/Booking";
 import Testimonials from "./pages/Testimonials";
+import About from "./pages/About";
 
 const AppRouter = () => {
   return (
@@ -11,6 +12,7 @@ const AppRouter = () => {
       <Route path="/services" element={<Services />} />
       <Route path="/testimonials" element={<Testimonials />} />
       <Route path="/booking" element={<Booking />} />
+      <Route path="/about" element={<About />} />
     </Routes>
   );
 };

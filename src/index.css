@@ -21,3 +21,8 @@
 .testimonial-ratings {
   width: 100%;
 } */
+.meet-the-team .card-hero-header {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}

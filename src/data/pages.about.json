@@ -1,0 +1,51 @@
+{
+  "hero": {
+    "url": "unsplash/sidekix-media-_AK42TQRyCw-unsplash.jpg",
+    "name": "hero-main",
+    "alt": "clean kitchen"
+  },
+  "heading": "Committed to professionalism, reliability, and creating a clean and healthy environment for our clients.",
+  "cta": "Book Now!",
+  "body": "At Sparkle & Shine, we take pride in being a trusted provider of top-notch house cleaning services. With years of experience in the industry, our team is dedicated to delivering exceptional results and exceeding customer expectations.",
+  "team": [
+    {
+      "uid": "review-1",
+      "name": "John Doe",
+      "user": {
+        "name": "John Doe",
+        "hero": {
+          "url": "unsplash/johan-godinez-dDYRYivNzbI-unsplash.jpg",
+          "name": "user-hero",
+          "alt": "user-hero"
+        }
+      },
+      "body": "The epitome of Zen in a world of chaos. With a knack for finding inner peace in the most unexpected places, leaving a trail of tranquility in my wake. "
+    },
+    {
+      "uid": "review-2",
+      "name": "Samantha J.",
+      "user": {
+        "name": "Samantha J.",
+        "hero": {
+          "url": "unsplash/ivana-cajina-dnL6ZIpht2s-unsplash.jpg",
+          "name": "user-hero",
+          "alt": "user-hero"
+        }
+      },
+      "body": "With an effortless swagger and a perpetual smirk. A master of good vibes and great company, the ultimate guru of living life my own pace."
+    },
+    {
+      "uid": "review-3",
+      "name": "Lucy S.",
+      "user": {
+        "name": "Lucy S.",
+        "hero": {
+          "url": "unsplash/lidya-nada-_0aKQa9gr4s-unsplash.jpg",
+          "name": "user-hero",
+          "alt": "user-hero"
+        }
+      },
+      "body": "Daydreamer with a heart full of wanderlust. With a perpetually tousled mane and a smile that radiates warmth, she effortlessly floats through life's adventures."
+    }
+  ]
+}
