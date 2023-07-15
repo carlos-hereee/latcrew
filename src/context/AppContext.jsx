@@ -5,6 +5,7 @@ import shortid from "shortid";
 import { AuthContext } from "./AuthContext";
 import { app } from "../data/config";
 import landing from "../data/pages.landing.json";
+import services from "../data/pages.services.json";
 import { axiosWithAuth } from "../utils/axios";
 import { reducer } from "./reducer/LogReducer";
 
@@ -20,7 +21,7 @@ export const AppState = ({ children }) => {
     checkout: app.checkout,
     contact: app.contact,
     footerNewsletter: app.footerNewsletter,
-    services: app.services,
+    services: services,
     burger: {},
     paymentType: {},
     selected: {},

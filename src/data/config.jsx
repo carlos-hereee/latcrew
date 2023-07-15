@@ -360,11 +360,6 @@ export const app = {
     ],
   },
   services: {
-    title: "Services",
-    subtitle: "",
-    hasHero: false,
-    hasIcon: false,
-    hero: { link: "", name: "main-hero" },
     sections: [150, 200, 250].map((n) => serviceSection(n)),
   },
   socials: [
