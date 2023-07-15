@@ -9,3 +9,15 @@
   display: flex;
   flex-direction: row;
 }
+.testimonial-form-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+/* min-width: 500px; */
+/* .testimonial-form .form-fields .input-wrapper .input {
+  width: 100%;
+}
+.testimonial-ratings {
+  width: 100%;
+} */

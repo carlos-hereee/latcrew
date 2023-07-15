@@ -17,15 +17,21 @@ const Testimonials = () => {
     <div className="container">
       <h1 className="heading">{testimonials.title}</h1>
       <p className="p-stretch">{testimonials.body}</p>
-      <UserCard user={user} />
-      <div>
-        <Rating star={inputRating} />
-        <Form
-          values={{ message: "" }}
-          submit={handleSubmit}
-          hideLabels={true}
-          name="testimonial-form"
+      <div className="testimonial-form-wrapper w-100">
+        <UserCard
+          user={{ ...user, hero: { url: loadAsset(user.hero.url) } }}
+          hideLabels
         />
+        <div className="w-100">
+          <Rating star={inputRating} click={(e) => setInputRating(e)} />
+          <Form
+            values={{ message: "" }}
+            submit={handleSubmit}
+            name="testimonial-form"
+            hideLabels
+            stretchInput
+          />
+        </div>
       </div>
       {testimonials.reviews.length > 0 &&
         testimonials.reviews.map((t) => (
