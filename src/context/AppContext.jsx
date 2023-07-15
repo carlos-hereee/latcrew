@@ -8,6 +8,7 @@ import landing from "../data/pages.landing.json";
 import services from "../data/pages.services.json";
 import testimonials from "../data/pages.testimonials.json";
 import about from "../data/pages.about.json";
+import contact from "../data/pages.contact.json";
 import { axiosWithAuth } from "../utils/axios";
 import { reducer } from "./reducer/LogReducer";
 
@@ -21,7 +22,7 @@ export const AppState = ({ children }) => {
     socials: app.socials,
     about: about,
     checkout: app.checkout,
-    contact: app.contact,
+    contact: contact,
     footerNewsletter: app.footerNewsletter,
     services: services,
     testimonials: testimonials,

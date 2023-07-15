@@ -10,7 +10,7 @@ const About = () => {
       <div className="flex-d-column">
         <HeroCard
           heading={about.heading}
-          hero={{ ...about.hero, url: loadAsset(`${about.hero.url}`) }}
+          hero={{ ...about.hero, url: loadAsset(about.hero.url) }}
         />
         <p className="p-stretch">{about.body}</p>
       </div>

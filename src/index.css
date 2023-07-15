@@ -2,9 +2,7 @@
   max-width: 1200px;
   margin: auto;
 }
-.reviews-container {
-  display: flex;
-}
+
 .testimonial-form {
   display: flex;
   flex-direction: row;
@@ -14,13 +12,6 @@
   align-items: flex-end;
   gap: 1rem;
 }
-/* min-width: 500px; */
-/* .testimonial-form .form-fields .input-wrapper .input {
-  width: 100%;
-}
-.testimonial-ratings {
-  width: 100%;
-} */
 .meet-the-team .card-hero-header {
   display: flex;
   flex-direction: column-reverse;

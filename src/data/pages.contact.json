@@ -1,0 +1,41 @@
+{
+  "hero": {
+    "url": "unsplash/francesca-tosolini-KJFKCed0YKo-unsplash.jpg",
+    "name": "hero-main",
+    "alt": "clean kitchen"
+  },
+  "heading": "We’d love to hear from you",
+  "body": "Ready to experience the joy of a clean and pristine home? Contact Sparkle & Shine today to schedule your appointment or request a free quote. Our dedicated team is ready to assist you and answer any questions you may have. You can reach us by:",
+  "contact": [
+    {
+      "uid": "review-1",
+      "name": "phone",
+      "hero": {
+        "url": "icons/phone.svg",
+        "name": "contact-hero",
+        "alt": "contact-hero"
+      },
+      "body": "+1 (123) 456 - 7890"
+    },
+    {
+      "uid": "review-2",
+      "name": "Address",
+      "hero": {
+        "url": "unsplash/address.svg",
+        "name": "contact-hero",
+        "alt": "contact-hero"
+      },
+      "body": "Greater Houston Houston, TX 12345"
+    },
+    {
+      "uid": "review-3",
+      "name": "email",
+      "hero": {
+        "url": "icons/email.svg",
+        "name": "contact-hero",
+        "alt": "contact-hero"
+      },
+      "body": "example@email.com"
+    }
+  ]
+}
