@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
-import { HeroCardAlt, CardSection } from "nexious-library/@nxs-organism";
+import { HeroCardAlt, CardSection, Form } from "nexious-library/@nxs-organism";
 import { loadAsset } from "../assets/getUrl";
 const Contact = () => {
   const { contact } = useContext(AppContext);
-  console.log("contact", contact.contact);
+  const handleSubmit = (e) => {
+    console.log("e", e);
+  };
   return (
     <div className="container">
       <HeroCardAlt
@@ -24,6 +26,17 @@ const Contact = () => {
             body={c.body}
           />
         ))}
+      </div>
+      <p className="p-stretch text-center">
+        For immediate assistance, use our convenient contact form below. We look
+        forward to hearing from you!
+      </p>
+      <div className="w-100">
+        <Form
+          values={{ name: "", email: "", message: "" }}
+          submit={handleSubmit}
+          stretchInput
+        />
       </div>
     </div>
   );
