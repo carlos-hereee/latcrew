@@ -5,6 +5,7 @@ import Booking from "./pages/Booking";
 import Testimonials from "./pages/Testimonials";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import FAQ from "./pages/FAQ";
 
 const AppRouter = () => {
   return (
@@ -15,6 +16,7 @@ const AppRouter = () => {
       <Route path="/booking" element={<Booking />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/FAQ" element={<FAQ />} />
     </Routes>
   );
 };

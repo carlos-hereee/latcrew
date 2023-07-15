@@ -9,6 +9,7 @@ import services from "../data/pages.services.json";
 import testimonials from "../data/pages.testimonials.json";
 import about from "../data/pages.about.json";
 import contact from "../data/pages.contact.json";
+import faq from "../data/pages.faq.json";
 import { axiosWithAuth } from "../utils/axios";
 import { reducer } from "./reducer/LogReducer";
 
@@ -26,6 +27,7 @@ export const AppState = ({ children }) => {
     footerNewsletter: app.footerNewsletter,
     services: services,
     testimonials: testimonials,
+    faq: faq,
     burger: {},
     paymentType: {},
     selected: {},
@@ -162,6 +164,7 @@ export const AppState = ({ children }) => {
         schedule: state.schedule,
         burger: state.burger,
         gallery: state.gallery,
+        faq: state.faq,
         checkout: state.checkout,
         contact: state.contact,
         footerNewsletter: state.footerNewsletter,
