@@ -1,0 +1,20 @@
+{
+  "title": "Testimonials",
+  "body": "Don't just take our word for it! Hear what our satisfied customers have to say about our services:",
+  "reviews": [
+    {
+      "uid": "review-1",
+      "title": "Blown Away",
+      "rating": 2,
+      "user": {
+        "name": "John Doe",
+        "hero": {
+          "url": "unsplash/johan-godinez-dDYRYivNzbI-unsplash.jpg",
+          "name": "user-hero",
+          "alt": "user-hero"
+        }
+      },
+      "body": "I am blown away by the level of detail and professionalism demonstrated by Sparkle & Shine. My home has never looked better!"
+    }
+  ]
+}

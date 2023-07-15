@@ -6,6 +6,7 @@ import { AuthContext } from "./AuthContext";
 import { app } from "../data/config";
 import landing from "../data/pages.landing.json";
 import services from "../data/pages.services.json";
+import testimonials from "../data/pages.testimonials.json";
 import { axiosWithAuth } from "../utils/axios";
 import { reducer } from "./reducer/LogReducer";
 
@@ -22,6 +23,7 @@ export const AppState = ({ children }) => {
     contact: app.contact,
     footerNewsletter: app.footerNewsletter,
     services: services,
+    testimonials: testimonials,
     burger: {},
     paymentType: {},
     selected: {},
@@ -162,6 +164,7 @@ export const AppState = ({ children }) => {
         contact: state.contact,
         footerNewsletter: state.footerNewsletter,
         app: state.app,
+        testimonials: state.testimonials,
         paymentMethods: state.paymentMethods,
         selected: state.selected,
         paymentType: state.paymentType,
