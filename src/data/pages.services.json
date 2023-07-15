@@ -56,7 +56,7 @@
     {
       "hasHero": true,
       "hasIcon": false,
-      "uid": "services-1",
+      "uid": "services-2",
       "title": "Deep Cleaning",
       "subtitle": "",
       "hero": {
@@ -103,7 +103,7 @@
     {
       "hasHero": true,
       "hasIcon": false,
-      "uid": "services-1",
+      "uid": "services-3",
       "title": "Specialized Services",
       "subtitle": "Move-In/Out Cleaning",
       "hero": {
