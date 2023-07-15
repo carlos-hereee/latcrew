@@ -21,7 +21,7 @@
       "uid": "review-2",
       "name": "Address",
       "hero": {
-        "url": "unsplash/address.svg",
+        "url": "icons/gps.svg",
         "name": "contact-hero",
         "alt": "contact-hero"
       },
@@ -31,7 +31,7 @@
       "uid": "review-3",
       "name": "email",
       "hero": {
-        "url": "icons/email.svg",
+        "url": "icons/mail.svg",
         "name": "contact-hero",
         "alt": "contact-hero"
       },
