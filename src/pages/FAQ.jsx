@@ -5,7 +5,6 @@ import { loadAsset } from "../assets/getUrl";
 
 const FAQ = () => {
   const { faq } = useContext(AppContext);
-  console.log("faq", faq);
   return (
     <div>
       <HeroCardAlt

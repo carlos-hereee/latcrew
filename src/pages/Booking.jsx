@@ -11,8 +11,10 @@ const Booking = () => {
   const { bookable, removeFromCart, cart, active, setActive } =
     useContext(ServicesContext);
   const navigate = useNavigate();
-
   useEffect(() => {
+    if (!active.uid) {
+      navigate("/services");
+    }
     if (events.sections) {
       const today = new Date();
       const filtered = events.sections.filter((d) => {

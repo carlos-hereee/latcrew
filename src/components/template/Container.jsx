@@ -2,14 +2,20 @@ import { Card } from "nexious-library/@nxs-organism";
 import { Heading } from "nexious-library/@nxs-atoms";
 import { NavButton } from "nexious-library/@nxs-molecules";
 import { loadAsset } from "../../assets/getUrl";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { ServicesContext } from "../../context/ServicesContext";
 
 const Container = ({ filter, filtered, isFiltered, data }) => {
+  const { setActive } = useContext(ServicesContext);
+  const navigate = useNavigate();
   const handleClick = (e) => {
     let content = e.currentTarget.textContent.split(" ").join("").toLowerCase();
     filter(data.services, content);
   };
   const onCardClick = (e) => {
-    console.log("e", e);
+    setActive(e);
+    navigate("/booking");
   };
   return (
     <section className="container">
