@@ -1,0 +1,15 @@
+{
+  "heading": "Order details",
+  "paymentMethods": [
+    {
+      "type": "visa/credit",
+      "name": "Debit/Credit card",
+      "hero": {}
+    },
+    {
+      "type": "paypal",
+      "name": "paypal",
+      "hero": {}
+    }
+  ]
+}

@@ -10,6 +10,7 @@ import testimonials from "../data/pages.testimonials.json";
 import about from "../data/pages.about.json";
 import contact from "../data/pages.contact.json";
 import faq from "../data/pages.faq.json";
+import checkout from "../data/pages.checkout.json";
 import { axiosWithAuth } from "../utils/axios";
 import { reducer } from "./reducer/LogReducer";
 
@@ -22,7 +23,7 @@ export const AppState = ({ children }) => {
     app: landing,
     socials: app.socials,
     about: about,
-    checkout: app.checkout,
+    checkout: checkout,
     contact: contact,
     footerNewsletter: app.footerNewsletter,
     services: services,

@@ -6,6 +6,7 @@ import Testimonials from "./pages/Testimonials";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
+import Checkout from "./pages/Checkout";
 
 const AppRouter = () => {
   return (
@@ -17,6 +18,7 @@ const AppRouter = () => {
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/FAQ" element={<FAQ />} />
+      <Route path="/checkout" element={<Checkout />} />
     </Routes>
   );
 };

@@ -18,6 +18,7 @@ const Checkout = () => {
   const [proceedWithCheckout, setNext] = useState(false);
   const [isShippingReq, setShippingInfoReq] = useState(false);
 
+  console.log("cart", cart);
   useEffect(() => {
     if (cart.length > 0) {
       let cost = 0;
@@ -41,7 +42,7 @@ const Checkout = () => {
   // console.log("booked", booked);
   return (
     <section className="flex-d-column">
-      {/* <CardHeader data={checkout} /> */}
+      <h2 className="heading">{checkout.heading}</h2>
       {/* <UserContact />
       {cart.length > 0 ? (
         <Cart data={cart} heading={checkout.booked} />
