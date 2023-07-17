@@ -2,8 +2,8 @@ import { createContext, useReducer, useContext, useEffect } from "react";
 import shortid from "shortid";
 import { LogContext } from "./LogContext";
 import { AuthContext } from "./AuthContext";
-import { CalendarContext } from "./CalendarContext";
 import { reducer } from "./reducer/ServicesReducer";
+import services from "../data/pages.services.json";
 
 export const ServicesContext = createContext();
 export const ServicesState = ({ children }) => {
@@ -11,47 +11,11 @@ export const ServicesState = ({ children }) => {
     isLoading: false,
     isFiltered: false,
     isUserReq: true,
-    cart: [
-      {
-        cost: 53,
-        count: 1,
-        hasHero: false,
-        hasIcon: false,
-        hasLink: false,
-        hero: { link: "/lorem", name: "lorem ipsum" },
-        hyperlink: [{ word: "Maiores", link: "/lorem" }],
-        isAccessory: false,
-        isBookable: true,
-        isForSale: true,
-        response:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias reprehenderit. Voluptates fugit tenetur itaque minus sed, assumenda delectus accusantium!",
-        subtitle: "Dolor sit",
-        title: "Lorem Ipsum",
-        uid: "24pJ0yCJo31",
-      },
-    ],
-    bookable: [
-      {
-        cost: 53,
-        count: 1,
-        hasHero: false,
-        hasIcon: false,
-        hasLink: false,
-        hero: { link: "/lorem", name: "lorem ipsum" },
-        hyperlink: [{ word: "Maiores", link: "/lorem" }],
-        isAccessory: false,
-        isBookable: true,
-        isForSale: true,
-        response:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias reprehenderit. Voluptates fugit tenetur itaque minus sed, assumenda delectus accusantium!",
-        subtitle: "Dolor sit",
-        title: "Lorem Ipsum",
-        uid: "24pJ0yCJo31",
-      },
-    ],
+    cart: [],
+    bookable: [],
     booked: [],
     filtered: [],
-    active: {},
+    active: services.services[0],
     total: 0,
   };
   const [state, dispatch] = useReducer(reducer, initialState);

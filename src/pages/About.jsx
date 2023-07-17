@@ -19,6 +19,7 @@ const About = () => {
         {about.team &&
           about.team.map((a) => (
             <FeatureCard
+              key={a.uid}
               name="meet-the-team"
               feature={{ heading: a.name, body: a.body }}
               hero={{ ...a.user.hero, url: loadAsset(a.user.hero.url) }}
