@@ -18,24 +18,15 @@ const Booking = () => {
     if (!active.uid) {
       navigate("/services");
     }
-    // if (events.sections) {
-    //   const today = new Date();
-    //   const filtered = events.sections.filter((d) => {
-    //     return new Date(d.date).getDate() === today.getDate();
-    //   })[0];
-    //   filtered ? setDay(filtered) : setDay({ date: today.toDateString(), list: [] });
-    // }
   }, []);
   const onCheckout = () => {
     addToCart(cart, { service: active, meeting, user });
     navigate("/checkout");
   };
   const handleDayClick = (e) => {
-    // active.uid
     meeting.uid !== e.uid && setMeeting({});
     setDay(e);
   };
-  console.log("selectedDay", selectedDay);
   return (
     <section className="primary-container">
       <Calendar
@@ -50,7 +41,7 @@ const Booking = () => {
       <CalendarEvents
         selectedDay={selectedDay}
         events={bookable}
-        active={active}
+        active={{ ...active, hero: { url: loadAsset(active.hero.url) } }}
         meeting={meeting}
         user={{ ...user, hero: { url: loadAsset(user.hero.url) } }}
         setMeeting={(e) => setMeeting(e)}

@@ -2,23 +2,18 @@ import { useContext, useState, useEffect } from "react";
 import { AppContext } from "../context/AppContext";
 import { ServicesContext } from "../context/ServicesContext";
 import { AuthContext } from "../context/AuthContext";
-// import PaymentMethods from "../components/organisms/PaymentMethods";
-// import CardHeader from "../components/molecules/card/CardHeader";
-// import BagSummary from "../components/molecules/cart/BagSummary";
-// import UserContact from "../components/organisms/UserContact";
-// import ButtonNext from "../components/molecules/buttons/ButtonNext";
-// import CartEmpty from "../components/molecules/empty/CartEmpty";
-// import Total from "../components/molecules/Total";
-// import Cart from "../components/organisms/Cart";
+import { Cart } from "nexious-library/@nxs-organism";
+import { Link, useNavigate } from "react-router-dom";
+import { EmptySection } from "nexious-library/@nxs-molecules";
 
 const Checkout = () => {
   const { checkout } = useContext(AppContext);
-  const { cart, setTotal, total, isUserReq, booked } = useContext(ServicesContext);
+  const { cart, setTotal, total, isUserReq } = useContext(ServicesContext);
   const { user } = useContext(AuthContext);
   const [proceedWithCheckout, setNext] = useState(false);
   const [isShippingReq, setShippingInfoReq] = useState(false);
+  const navigate = useNavigate();
 
-  console.log("cart", cart);
   useEffect(() => {
     if (cart.length > 0) {
       let cost = 0;
@@ -42,7 +37,16 @@ const Checkout = () => {
   // console.log("booked", booked);
   return (
     <section className="flex-d-column">
-      <h2 className="heading">{checkout.heading}</h2>
+      {/* <h2 className="heading">{checkout.heading}</h2> */}
+      {cart.length > 0 ? (
+        <Cart data={cart} heading={checkout.heading} />
+      ) : (
+        <EmptySection
+          heading="Your cart is empty"
+          message="Head to services"
+          click={() => navigate("/services")}
+        />
+      )}
       {/* <UserContact />
       {cart.length > 0 ? (
         <Cart data={cart} heading={checkout.booked} />
