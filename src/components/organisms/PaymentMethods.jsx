@@ -1,7 +1,5 @@
 import { useContext } from "react";
-import PaymentOptions from "../molecules/PaymentOptions";
 import { AppContext } from "../../utils/context/AppContext";
-import { scrollToCartItem } from "../../utils/fns/calendar";
 import CardHeader from "../molecules/card/CardHeader";
 import InStore from "../molecules/buttons/InStore";
 import { useNavigate } from "react-router-dom";
@@ -21,7 +19,7 @@ const PaymentMethods = ({ isShippingReq }) => {
         // payment type is in-store; enter all data about checkout
         navigate("/checkout-review");
       }
-    } else scrollToCartItem({ uid: "required" });
+    }
   };
 
   return (

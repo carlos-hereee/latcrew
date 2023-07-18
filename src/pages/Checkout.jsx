@@ -2,9 +2,10 @@ import { useContext, useState, useEffect } from "react";
 import { AppContext } from "../context/AppContext";
 import { ServicesContext } from "../context/ServicesContext";
 import { AuthContext } from "../context/AuthContext";
-import { Cart } from "nexious-library/@nxs-organism";
+import { Cart, UserCard } from "nexious-library/@nxs-organism";
 import { Link, useNavigate } from "react-router-dom";
-import { EmptySection } from "nexious-library/@nxs-molecules";
+import { EmptySection, Total } from "nexious-library/@nxs-molecules";
+import { loadAsset } from "../assets/getUrl";
 
 const Checkout = () => {
   const { checkout } = useContext(AppContext);
@@ -16,28 +17,16 @@ const Checkout = () => {
 
   useEffect(() => {
     if (cart.length > 0) {
-      let cost = 0;
-      let isAccessory = false;
-      cart.filter((c) => {
-        if (c.isAccessory) {
-          isAccessory = true;
-        }
-        cost += c.cost * c.count;
-        return c;
-      });
-
-      setShippingInfoReq(isAccessory);
+      let cost = cart.reduce((accumulator, currentValue) => {
+        return accumulator + currentValue.service.cost;
+      }, 0);
       setTotal(cost);
     } else {
-      // cart is empty
-      setShippingInfoReq(false);
       setTotal(0);
     }
   }, [JSON.stringify(cart)]);
-  // console.log("booked", booked);
   return (
     <section className="flex-d-column">
-      {/* <h2 className="heading">{checkout.heading}</h2> */}
       {cart.length > 0 ? (
         <Cart data={cart} heading={checkout.heading} />
       ) : (
@@ -47,18 +36,21 @@ const Checkout = () => {
           click={() => navigate("/services")}
         />
       )}
-      {/* <UserContact />
-      {cart.length > 0 ? (
-        <Cart data={cart} heading={checkout.booked} />
-      ) : booked.length > 0 ? (
-        <BagSummary data={booked} />
-      ) : (
-        <CartEmpty />
-      )}
       {total > 0 && <Total total={total} />}
-      {isUserReq && user?.uid && !proceedWithCheckout && (
-        <ButtonNext click={setNext} />
+      {user.uid ? (
+        <>
+          <h2 className="heading">Your details</h2>
+          <UserCard
+            user={{ ...user, hero: { url: loadAsset(user.hero.url) } }}
+            hideHero
+            isRow
+          />
+        </>
+      ) : (
+        <p>Enter user information</p>
       )}
+      {/* 
+
       {proceedWithCheckout && (
         <PaymentMethods click={setNext} isShippingReq={isShippingReq} />
       )} */}
