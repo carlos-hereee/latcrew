@@ -1,9 +1,11 @@
-import { createContext, useReducer, useContext } from "react";
+import { createContext, useReducer, useContext, useEffect } from "react";
 import { LogContext } from "./LogContext";
 import { ServicesContext } from "./ServicesContext";
 import { axiosWithAuth } from "../utils/axios";
 import { reducer } from "./reducer/CalendarReducer";
 import { app } from "../data/config";
+import { AuthContext } from "./AuthContext";
+import { loadAsset } from "../assets/getUrl";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
@@ -17,7 +19,19 @@ export const CalendarState = ({ children }) => {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const { addMessageToLog } = useContext(LogContext);
-  const { bookEvent, cart, active } = useContext(ServicesContext);
+  const { bookEvent, cart, active, addToCart } = useContext(ServicesContext);
+  const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (user.uid) {
+      addToCart([], {
+        service: { ...active, hero: { url: loadAsset(active.hero.url) } },
+        meeting: app.events.sections[0].list[0],
+        user,
+      });
+    }
+  }, []);
+
   // const getCalendar = async () => {
   //   try {
   //     const { data } = await axiosCalendar.get("/calendar/events");

@@ -12,7 +12,7 @@ export const ServicesState = ({ children }) => {
     isLoading: false,
     isFiltered: false,
     isUserReq: true,
-    cart: [{ user, services: services.services[0] }],
+    cart: [],
     bookable: [],
     booked: [],
     filtered: [],
@@ -21,19 +21,21 @@ export const ServicesState = ({ children }) => {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const { addMessageToLog } = useContext(LogContext);
-  const { updateUserData, user } = useContext(AuthContext);
+  const { updateUserData } = useContext(AuthContext);
 
-  useEffect(() => {
-    if (user.uid) {
-      setIsUserReq(false);
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user.uid) {
+  //     addToCart([], {
+  //       service: services.services[0],
+  //       meeting: app.events.sections[0].list[0],
+  //       user,
+  //     });
+  //     // setIsUserReq(false);
+  //   }
+  // }, [user]);
 
   const addToCart = (cart, item) => {
     cart.push(item);
-    if (item.isBookable) {
-      dispatch({ type: "UPDATE_BOOKABLE", payload: cart });
-    }
     dispatch({ type: "UPDATE_CART", payload: cart });
   };
 
