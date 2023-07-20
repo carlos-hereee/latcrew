@@ -6,10 +6,11 @@
   },
   "heading": "Lat crew: Professional House Cleaning Services",
   "tagline": "Transforming your home into a clean haven",
-  "cta": "Book Now!",
+  "cta": "Book Now",
   "body": "Welcome to Sparkle and Shine, your go-to solution for top-quality house cleaning services. We believe that a clean home is a happy home, and our dedicated team is here  help you achieve just that. With our exceptional cleaning experstise and attention to detail, we are committed to providing a prestine living evironment that you can truly relax in",
   "features": [
     {
+      "uid": "feature-1",
       "hero": {
         "url": "icons/secure-icon.svg",
         "name": "icon-hero",
@@ -19,6 +20,7 @@
       "body": "Our cleaning staff consists of experienced and trained professionals who are dedicated to providing exceptional service and attention to detail."
     },
     {
+      "uid": "feature-2",
       "hero": {
         "url": "icons/recycle.svg",
         "name": "icon-hero",
@@ -28,6 +30,7 @@
       "body": "We use environmentally friendly cleaning products that are effective in removing dirt and grime without compromising the health of your family or the planet."
     },
     {
+      "uid": "feature-3",
       "hero": {
         "url": "icons/custom.svg",
         "icon": "custom",
