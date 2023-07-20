@@ -23,6 +23,7 @@ const Landing = () => {
       <div className="feature-card-container">
         {app.features.map((af) => (
           <FeatureCard
+            key={af.uid}
             feature={af}
             hero={{ ...af.hero, url: loadAsset(af.hero.url) }}
           />

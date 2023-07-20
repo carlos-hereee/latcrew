@@ -4,11 +4,17 @@
     {
       "type": "visa/credit",
       "name": "Debit/Credit card",
-      "hero": {}
+      "icon": "visa",
+      "hero": {
+        "url": "icons/bebit-credit.svg",
+        "name": "mastercard",
+        "alt": "mastercard"
+      }
     },
     {
       "type": "paypal",
-      "name": "paypal",
+      "name": "Paypal",
+      "icon": "paypal",
       "hero": {}
     }
   ]
