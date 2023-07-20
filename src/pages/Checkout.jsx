@@ -6,6 +6,7 @@ import { Cart, UserCard, PaymentMethods } from "nexious-library/@nxs-organism";
 import { useNavigate } from "react-router-dom";
 import { EmptySection, Total } from "nexious-library/@nxs-molecules";
 import { loadAsset } from "../assets/getUrl";
+// import {}
 
 const Checkout = () => {
   const { checkout } = useContext(AppContext);
@@ -45,7 +46,11 @@ const Checkout = () => {
             hideHero
             isRow
           />
-          <PaymentMethods data={checkout.paymentMethods} />
+          <PaymentMethods
+            data={checkout.paymentMethods.map((p) => {
+              return { ...p, hero: { ...p.hero, url: loadAsset(p.hero.url) } };
+            })}
+          />
         </div>
       ) : (
         <p>Enter user information</p>

@@ -2,6 +2,7 @@
   "heading": "Order details",
   "paymentMethods": [
     {
+      "uid": "payment-1",
       "type": "visa/credit",
       "name": "Debit/Credit card",
       "icon": "visa",
@@ -12,10 +13,15 @@
       }
     },
     {
+      "uid": "payment-2",
       "type": "paypal",
       "name": "Paypal",
       "icon": "paypal",
-      "hero": {}
+      "hero": {
+        "url": "/icons/paypal.svg",
+        "name": "paypal",
+        "alt": "paypal"
+      }
     }
   ]
 }
