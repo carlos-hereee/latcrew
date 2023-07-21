@@ -1,6 +1,6 @@
 {
   "hero": {
-    "url": "public/unsplash/francesca-tosolini-KJFKCed0YKo-unsplash.jpg",
+    "url": "unsplash/francesca-tosolini-KJFKCed0YKo-unsplash.jpg",
     "name": "hero-main",
     "alt": "clean kitchen"
   },
@@ -11,7 +11,7 @@
       "uid": "review-1",
       "name": "phone",
       "hero": {
-        "url": "public/icons/phone.svg",
+        "url": "icons/phone.svg",
         "name": "contact-hero",
         "alt": "contact-hero"
       },
@@ -21,7 +21,7 @@
       "uid": "review-2",
       "name": "Address",
       "hero": {
-        "url": "public/icons/gps.svg",
+        "url": "icons/gps.svg",
         "name": "contact-hero",
         "alt": "contact-hero"
       },
@@ -31,7 +31,7 @@
       "uid": "review-3",
       "name": "email",
       "hero": {
-        "url": "public/icons/mail.svg",
+        "url": "icons/mail.svg",
         "name": "contact-hero",
         "alt": "contact-hero"
       },

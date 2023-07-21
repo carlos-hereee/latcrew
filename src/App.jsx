@@ -3,7 +3,7 @@ import { AuthContext } from "./context/AuthContext";
 import { AppContext } from "./context/AppContext";
 import { Footer, Header } from "nexious-library/@nxs-template";
 import { Loading } from "nexious-library/@nxs-organism";
-import logo from "/public/icons/logo.svg";
+import logo from "/icons/logo.svg";
 
 function App({ children }) {
   const { isLoading } = useContext(AuthContext);

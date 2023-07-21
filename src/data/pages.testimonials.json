@@ -9,7 +9,7 @@
       "user": {
         "name": "John Doe",
         "hero": {
-          "url": "public/unsplash/johan-godinez-dDYRYivNzbI-unsplash.jpg",
+          "url": "unsplash/johan-godinez-dDYRYivNzbI-unsplash.jpg",
           "name": "user-hero",
           "alt": "user-hero"
         }
@@ -23,7 +23,7 @@
       "user": {
         "name": "Jessica G.",
         "hero": {
-          "url": "public/unsplash/ivana-cajina-dnL6ZIpht2s-unsplash.jpg",
+          "url": "unsplash/ivana-cajina-dnL6ZIpht2s-unsplash.jpg",
           "name": "user-hero",
           "alt": "user-hero"
         }
@@ -37,7 +37,7 @@
       "user": {
         "name": "Samantha J.",
         "hero": {
-          "url": "public/unsplash/lidya-nada-_0aKQa9gr4s-unsplash.jpg",
+          "url": "unsplash/lidya-nada-_0aKQa9gr4s-unsplash.jpg",
           "name": "user-hero",
           "alt": "user-hero"
         }

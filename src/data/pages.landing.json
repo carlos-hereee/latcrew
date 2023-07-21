@@ -1,6 +1,6 @@
 {
   "hero": {
-    "url": "public/unsplash/naomi-hebert-MP0bgaS_d1c-unsplash.jpg",
+    "url": "unsplash/naomi-hebert-MP0bgaS_d1c-unsplash.jpg",
     "name": "hero-main",
     "alt": "clean kitchen",
     "credit": {}
@@ -13,7 +13,7 @@
     {
       "uid": "feature-1",
       "hero": {
-        "url": "public/icons/secure-icon.svg",
+        "url": "icons/secure-icon.svg",
         "name": "icon-hero",
         "alt": "trusted-brand"
       },
@@ -23,7 +23,7 @@
     {
       "uid": "feature-2",
       "hero": {
-        "url": "public/icons/recycle.svg",
+        "url": "icons/recycle.svg",
         "name": "icon-hero",
         "alt": "eco-friendly"
       },
@@ -33,7 +33,7 @@
     {
       "uid": "feature-3",
       "hero": {
-        "url": "public/icons/custom.svg",
+        "url": "icons/custom.svg",
         "icon": "custom",
         "name": "icon-hero"
       },

@@ -13,7 +13,7 @@
       "title": "Regular Cleaning",
       "subtitle": "",
       "hero": {
-        "url": "public/unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
+        "url": "unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
         "name": "hero",
         "alt": "regular cleaning"
       },
@@ -60,7 +60,7 @@
       "title": "Deep Cleaning",
       "subtitle": "",
       "hero": {
-        "url": "public/unsplash/no-revisions-cpIgNaazQ6w-unsplash.jpg",
+        "url": "unsplash/no-revisions-cpIgNaazQ6w-unsplash.jpg",
         "name": "hero",
         "alt": "Deep cleaning"
       },
@@ -107,7 +107,7 @@
       "title": "Specialized Services",
       "subtitle": "Move-In/Out Cleaning",
       "hero": {
-        "url": "public/unsplash/volha-flaxeco-BCNjBsK37XA-unsplash.jpg",
+        "url": "unsplash/volha-flaxeco-BCNjBsK37XA-unsplash.jpg",
         "name": "hero",
         "alt": "Deep cleaning"
       },
