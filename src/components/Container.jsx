@@ -1,10 +1,10 @@
 import { Card } from "nexious-library/@nxs-organism";
 import { Heading } from "nexious-library/@nxs-atoms";
 import { NavButton } from "nexious-library/@nxs-molecules";
-import { loadAsset } from "../../assets/getUrl";
+import { loadAsset } from "../assets/getUrl";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { ServicesContext } from "../../context/ServicesContext";
+import { ServicesContext } from "../context/ServicesContext";
 
 const Container = ({ filter, filtered, isFiltered, data }) => {
   const { setActive } = useContext(ServicesContext);
@@ -27,8 +27,8 @@ const Container = ({ filter, filtered, isFiltered, data }) => {
           ))}
         </nav>
       )}
+      {data.body && <p className="p-stretch">{data.body}</p>}
       <div className="card-container">
-        {data.body && <p className="p-stretch">{data.body}</p>}
         {isFiltered
           ? filtered.map((fg) => (
               <Card

@@ -23,17 +23,6 @@ export const ServicesState = ({ children }) => {
   const { addMessageToLog } = useContext(LogContext);
   const { updateUserData } = useContext(AuthContext);
 
-  // useEffect(() => {
-  //   if (user.uid) {
-  //     addToCart([], {
-  //       service: services.services[0],
-  //       meeting: app.events.sections[0].list[0],
-  //       user,
-  //     });
-  //     // setIsUserReq(false);
-  //   }
-  // }, [user]);
-
   const addToCart = (cart, item) => {
     cart.push(item);
     dispatch({ type: "UPDATE_CART", payload: cart });
