@@ -2,7 +2,12 @@
   "hero": {
     "url": "unsplash/jeff-sheldon-6MT4_Ut8a3Y-unsplash.jpg",
     "name": "hero-main",
-    "alt": "clean kitchen"
+    "alt": "clean kitchen",
+    "credit": {
+      "artistName": "jeff-sheldon",
+      "artistUrl": "https://unsplash.com/@ugmonk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+      "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+    }
   },
   "heading": "Frequently asked questions",
   "body": "Got questions? We have answers. Here are some frequently asked questions about our cleaning services:",

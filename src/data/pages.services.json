@@ -15,7 +15,12 @@
       "hero": {
         "url": "unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
         "name": "hero",
-        "alt": "regular cleaning"
+        "alt": "regular cleaning",
+        "credit": {
+          "artistName": "pille-r-priske",
+          "artistUrl": "https://unsplash.com/@pillepriske?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+          "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        }
       },
       "hasLink": false,
       "isForSale": true,
@@ -62,7 +67,12 @@
       "hero": {
         "url": "unsplash/no-revisions-cpIgNaazQ6w-unsplash.jpg",
         "name": "hero",
-        "alt": "Deep cleaning"
+        "alt": "Deep cleaning",
+        "credit": {
+          "artistName": "no-revisions",
+          "artistUrl": "https://unsplash.com/@norevisions?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+          "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        }
       },
       "hasLink": false,
       "isForSale": true,
@@ -109,7 +119,12 @@
       "hero": {
         "url": "unsplash/volha-flaxeco-BCNjBsK37XA-unsplash.jpg",
         "name": "hero",
-        "alt": "Deep cleaning"
+        "alt": "Deep cleaning",
+        "credit": {
+          "artistName": "volha-flaxeco",
+          "artistUrl": "https://unsplash.com/@flaxeco?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+          "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        }
       },
       "hasLink": false,
       "isForSale": true,
