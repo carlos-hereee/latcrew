@@ -18,6 +18,7 @@ const Contact = () => {
         {contact.contact.map((c) => (
           <CardSection
             key={c.uid}
+            hideReadMore
             header={{
               title: c.name,
               hasHero: true,

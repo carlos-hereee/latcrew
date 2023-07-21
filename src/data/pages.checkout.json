@@ -18,10 +18,16 @@
       "name": "Paypal",
       "icon": "paypal",
       "hero": {
-        "url": "/icons/paypal.svg",
+        "url": "icons/paypal.svg",
         "name": "paypal",
         "alt": "paypal"
       }
+    },
+    {
+      "uid": "payment-3",
+      "type": "in-store",
+      "name": "Store",
+      "icon": "store"
     }
   ]
 }

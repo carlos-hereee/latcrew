@@ -14,7 +14,7 @@ const FAQ = () => {
       />
       <div className="flex-d-column">
         {faq.faq.map((f) => (
-          <div className="faq">
+          <div className="faq" key={f.uid}>
             <h2 className="heading">{f.name}</h2>
             <p className="p-stretch">{f.body}</p>
           </div>

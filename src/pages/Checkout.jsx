@@ -6,14 +6,11 @@ import { Cart, UserCard, PaymentMethods } from "nexious-library/@nxs-organism";
 import { useNavigate } from "react-router-dom";
 import { EmptySection, Total } from "nexious-library/@nxs-molecules";
 import { loadAsset } from "../assets/getUrl";
-// import {}
 
 const Checkout = () => {
   const { checkout } = useContext(AppContext);
-  const { cart, setTotal, total, isUserReq } = useContext(ServicesContext);
+  const { cart, setTotal, total } = useContext(ServicesContext);
   const { user } = useContext(AuthContext);
-  // const [proceedWithCheckout, setNext] = useState(false);
-  // const [isShippingReq, setShippingInfoReq] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,6 +23,9 @@ const Checkout = () => {
       setTotal(0);
     }
   }, [JSON.stringify(cart)]);
+  const handleSubmit = (e) => console.log("submit", e, "success");
+  const handlePaypal = (e) => console.log("e", e);
+  const handleInStorePayment = (e) => console.log("e", e);
   return (
     <section className="flex-d-column">
       {cart.length > 0 ? (
@@ -48,12 +48,17 @@ const Checkout = () => {
           />
           <PaymentMethods
             data={checkout.paymentMethods.map((p) => {
-              return { ...p, hero: { ...p.hero, url: loadAsset(p.hero.url) } };
+              return p.hero
+                ? { ...p, hero: { ...p.hero, url: loadAsset(p.hero.url) } }
+                : p;
             })}
+            visaPayment={handleSubmit}
+            paypalPayment={handlePaypal}
+            inStorePayment={handleInStorePayment}
           />
         </div>
       ) : (
-        <p>Enter user information</p>
+        <h2 className="heading">Enter user information</h2>
       )}
     </section>
   );
