@@ -2,7 +2,8 @@
   "hero": {
     "url": "unsplash/naomi-hebert-MP0bgaS_d1c-unsplash.jpg",
     "name": "hero-main",
-    "alt": "clean kitchen"
+    "alt": "clean kitchen",
+    "credit": {}
   },
   "heading": "Lat crew: Professional House Cleaning Services",
   "tagline": "Transforming your home into a clean haven",
