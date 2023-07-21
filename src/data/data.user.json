@@ -5,7 +5,7 @@
   "uid": "test123",
   "isDev": true,
   "hero": {
-    "url": "icons/user-default.svg",
+    "url": "public/icons/user-default.svg",
     "name": "user-hero",
     "alt": "user-hero"
   }

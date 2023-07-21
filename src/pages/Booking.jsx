@@ -5,7 +5,6 @@ import { CalendarEvents } from "nexious-library/@nxs-organism";
 import { useNavigate } from "react-router-dom";
 import { Calendar } from "nexious-library/@nxs-template";
 import { AuthContext } from "../context/AuthContext";
-import { loadAsset } from "../assets/getUrl";
 
 const Booking = () => {
   const { events, selectedDay, meeting, setMeeting, setDay } =
@@ -41,9 +40,9 @@ const Booking = () => {
       <CalendarEvents
         selectedDay={selectedDay}
         events={bookable}
-        active={{ ...active, hero: { url: loadAsset(active.hero.url) } }}
+        active={active}
         meeting={meeting}
-        user={{ ...user, hero: { url: loadAsset(user.hero.url) } }}
+        user={user}
         setMeeting={(e) => setMeeting(e)}
         setActive={(e) => setActive(e)}
         removeFromCart={(e) => removeFromCart(cart, e)}

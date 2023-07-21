@@ -1,7 +1,6 @@
 import { Card } from "nexious-library/@nxs-organism";
 import { Heading } from "nexious-library/@nxs-atoms";
 import { NavButton } from "nexious-library/@nxs-molecules";
-import { loadAsset } from "../assets/getUrl";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { ServicesContext } from "../context/ServicesContext";
@@ -32,7 +31,7 @@ const Container = ({ filter, filtered, isFiltered, data }) => {
         {isFiltered
           ? filtered.map((fg) => (
               <Card
-                header={{ ...fg, hero: { ...fg.hero, url: loadAsset(fg.hero.url) } }}
+                header={fg}
                 body={fg}
                 footer={{ cta: fg.cta }}
                 click={onCardClick}
@@ -41,7 +40,7 @@ const Container = ({ filter, filtered, isFiltered, data }) => {
             ))
           : data.services.map((g) => (
               <Card
-                header={{ ...g, hero: { ...g.hero, url: loadAsset(g.hero.url) } }}
+                header={g}
                 body={g}
                 footer={{ cta: g.cta }}
                 click={onCardClick}

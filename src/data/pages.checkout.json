@@ -7,7 +7,7 @@
       "name": "Debit/Credit card",
       "icon": "visa",
       "hero": {
-        "url": "icons/bebit-credit.svg",
+        "url": "public/icons/bebit-credit.svg",
         "name": "mastercard",
         "alt": "mastercard"
       }
@@ -18,7 +18,7 @@
       "name": "Paypal",
       "icon": "paypal",
       "hero": {
-        "url": "icons/paypal.svg",
+        "url": "public/icons/paypal.svg",
         "name": "paypal",
         "alt": "paypal"
       }

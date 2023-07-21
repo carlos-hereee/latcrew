@@ -5,7 +5,6 @@ import { AuthContext } from "../context/AuthContext";
 import { Cart, UserCard, PaymentMethods } from "nexious-library/@nxs-organism";
 import { useNavigate } from "react-router-dom";
 import { EmptySection, Total } from "nexious-library/@nxs-molecules";
-import { loadAsset } from "../assets/getUrl";
 
 const Checkout = () => {
   const { checkout } = useContext(AppContext);
@@ -41,17 +40,9 @@ const Checkout = () => {
       {user.uid ? (
         <div className="flex-d-column">
           <h2 className="heading">Your details</h2>
-          <UserCard
-            user={{ ...user, hero: { url: loadAsset(user.hero.url) } }}
-            hideHero
-            isRow
-          />
+          <UserCard user={user.hero} hideHero isRow />
           <PaymentMethods
-            data={checkout.paymentMethods.map((p) => {
-              return p.hero
-                ? { ...p, hero: { ...p.hero, url: loadAsset(p.hero.url) } }
-                : p;
-            })}
+            data={checkout.paymentMethods}
             visaPayment={handleSubmit}
             paypalPayment={handlePaypal}
             inStorePayment={handleInStorePayment}

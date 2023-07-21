@@ -1,6 +1,6 @@
 {
   "hero": {
-    "url": "unsplash/jeff-sheldon-6MT4_Ut8a3Y-unsplash.jpg",
+    "url": "public/unsplash/jeff-sheldon-6MT4_Ut8a3Y-unsplash.jpg",
     "name": "hero-main",
     "alt": "clean kitchen"
   },
@@ -11,7 +11,7 @@
       "uid": "review-1",
       "name": "How often should I schedule a regular cleaning?",
       "hero": {
-        "url": "icons/phone.svg",
+        "url": "public/icons/phone.svg",
         "name": "contact-hero",
         "alt": "contact-hero"
       },
@@ -21,7 +21,7 @@
       "uid": "review-2",
       "name": "Are you cleaning products safe for children and pets?",
       "hero": {
-        "url": "icons/gps.svg",
+        "url": "public/icons/gps.svg",
         "name": "contact-hero",
         "alt": "contact-hero"
       },
@@ -31,7 +31,7 @@
       "uid": "review-3",
       "name": "Can I request additional services not included in the packages?",
       "hero": {
-        "url": "icons/mail.svg",
+        "url": "public/icons/mail.svg",
         "name": "contact-hero",
         "alt": "contact-hero"
       },
@@ -41,7 +41,7 @@
       "uid": "review-4",
       "name": "Do you provide cleaning equipment and supplies?",
       "hero": {
-        "url": "icons/mail.svg",
+        "url": "public/icons/mail.svg",
         "name": "contact-hero",
         "alt": "contact-hero"
       },
@@ -51,7 +51,7 @@
       "uid": "review-5",
       "name": "What is your cancellation policy?",
       "hero": {
-        "url": "icons/mail.svg",
+        "url": "public/icons/mail.svg",
         "name": "contact-hero",
         "alt": "contact-hero"
       },
@@ -61,7 +61,7 @@
       "uid": "review-6",
       "name": "Want to talk to a human?",
       "hero": {
-        "url": "icons/mail.svg",
+        "url": "public/icons/mail.svg",
         "name": "contact-hero",
         "alt": "contact-hero"
       },

@@ -5,7 +5,6 @@ import { axiosWithAuth } from "../utils/axios";
 import { reducer } from "./reducer/CalendarReducer";
 import { app } from "../data/config";
 import { AuthContext } from "./AuthContext";
-import { loadAsset } from "../assets/getUrl";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
@@ -25,7 +24,7 @@ export const CalendarState = ({ children }) => {
   useEffect(() => {
     if (user.uid) {
       addToCart([], {
-        service: { ...active, hero: { url: loadAsset(active.hero.url) } },
+        service: active,
         meeting: app.events.sections[0].list[0],
         user,
       });

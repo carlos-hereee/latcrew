@@ -1,6 +1,6 @@
 {
   "hero": {
-    "url": "unsplash/sidekix-media-_AK42TQRyCw-unsplash.jpg",
+    "url": "public/unsplash/sidekix-media-_AK42TQRyCw-unsplash.jpg",
     "name": "hero-main",
     "alt": "clean kitchen"
   },
@@ -14,7 +14,7 @@
       "user": {
         "name": "John Doe",
         "hero": {
-          "url": "unsplash/johan-godinez-dDYRYivNzbI-unsplash.jpg",
+          "url": "public/unsplash/johan-godinez-dDYRYivNzbI-unsplash.jpg",
           "name": "user-hero",
           "alt": "user-hero"
         }
@@ -27,7 +27,7 @@
       "user": {
         "name": "Samantha J.",
         "hero": {
-          "url": "unsplash/ivana-cajina-dnL6ZIpht2s-unsplash.jpg",
+          "url": "public/unsplash/ivana-cajina-dnL6ZIpht2s-unsplash.jpg",
           "name": "user-hero",
           "alt": "user-hero"
         }
@@ -40,7 +40,7 @@
       "user": {
         "name": "Lucy S.",
         "hero": {
-          "url": "unsplash/lidya-nada-_0aKQa9gr4s-unsplash.jpg",
+          "url": "public/unsplash/lidya-nada-_0aKQa9gr4s-unsplash.jpg",
           "name": "user-hero",
           "alt": "user-hero"
         }
