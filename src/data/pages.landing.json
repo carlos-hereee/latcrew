@@ -4,7 +4,9 @@
     "name": "hero-main",
     "alt": "clean kitchen",
     "credit": {
-      "artistName": "naomi-hebert"
+      "artistName": "naomi-hebert",
+      "artistUrl": "https://unsplash.com/de/@naomish?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+      "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
     }
   },
   "heading": "Lat crew: Professional House Cleaning Services",
