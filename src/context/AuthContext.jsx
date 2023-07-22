@@ -3,14 +3,13 @@ import { createContext, useReducer, useEffect } from "react";
 import shortid from "shortid";
 import { axiosWithAuth } from "../utils/axios";
 import { reducer } from "./reducer/AuthReducer";
-import user from "../data/data.user.json";
 export const AuthContext = createContext();
 
 export const AuthState = ({ children }) => {
   const initialState = {
     isLoading: false,
     accessToken: "",
-    user: user,
+    user: {},
     userValues: { name: "", email: "", phone: "" },
     signUpValues: { username: "", password: "", confirmPassword: "" },
     loginValues: { username: "", password: "" },
