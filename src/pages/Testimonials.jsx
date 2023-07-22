@@ -16,7 +16,7 @@ const Testimonials = () => {
     <div className="container">
       <h1 className="heading">{testimonials.title}</h1>
       <p className="p-stretch">{testimonials.body}</p>
-      <div className="testimonial-form-wrapper w-100">
+      <div className="m-tb flex-g w-100">
         <UserCard user={user} hideLabels />
         <div className="w-100">
           <Rating star={inputRating} click={(e) => setInputRating(e)} />
@@ -31,9 +31,9 @@ const Testimonials = () => {
       </div>
       {testimonials.reviews.length > 0 &&
         testimonials.reviews.map((t) => (
-          <div className="flex-g" key={t.uid}>
-            <UserCard user={t.user} />
-            <div>
+          <div className="flex-g w-100 m-tb" key={t.uid}>
+            <UserCard user={t.user} hideLabels />
+            <div className="w-100 review-container">
               <Rating star={t.rating} />
               <TextBubble data={t} />
             </div>

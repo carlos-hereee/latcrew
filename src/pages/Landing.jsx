@@ -19,7 +19,7 @@ const Landing = () => {
         data={socials}
         heading="Dont miss a thing! Follow us on our socials"
       />
-      <div className="feature-card-container">
+      <div className="feature-card-container m-tb">
         {app.features.map((af) => (
           <FeatureCard key={af.uid} feature={af} hero={af.hero} />
         ))}

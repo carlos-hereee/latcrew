@@ -23,3 +23,9 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.m-tb {
+  margin: 1rem 0;
+}
+.hero-user {
+  aspect-ratio: 1/1;
+}
