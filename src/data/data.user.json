@@ -6,6 +6,7 @@
   "isDev": true,
   "hero": {
     "url": "icons/user-default.svg",
+    "small": "small/icons/user-default.jpg",
     "name": "user-hero",
     "alt": "user-hero"
   }

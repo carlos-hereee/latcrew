@@ -8,6 +8,7 @@
       "icon": "visa",
       "hero": {
         "url": "icons/bebit-credit.svg",
+        "small": "small/icons/bebit-credit.jpg",
         "name": "mastercard",
         "alt": "mastercard"
       }
@@ -19,6 +20,7 @@
       "icon": "paypal",
       "hero": {
         "url": "icons/paypal.svg",
+        "small": "small/icons/paypal.jpg",
         "name": "paypal",
         "alt": "paypal"
       }

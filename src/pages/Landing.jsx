@@ -5,7 +5,7 @@ import { Socials } from "nexious-library/@nxs-molecules";
 const Landing = () => {
   const { app, socials } = useContext(AppContext);
   return (
-    <main className="flex-d-column">
+    <div className="container">
       <div className="flex-d-column">
         <HeroCard
           heading={app.heading}
@@ -24,7 +24,7 @@ const Landing = () => {
           <FeatureCard key={af.uid} feature={af} hero={af.hero} />
         ))}
       </div>
-    </main>
+    </div>
   );
 };
 export default Landing;

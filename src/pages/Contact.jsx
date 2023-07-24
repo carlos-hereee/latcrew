@@ -4,7 +4,7 @@ import { HeroCardAlt, CardSection, Form } from "nexious-library/@nxs-organism";
 const Contact = () => {
   const { contact } = useContext(AppContext);
   const handleSubmit = (e) => {
-    console.log("e", e);
+    // console.log("e", e);
   };
   return (
     <div className="container">
@@ -23,7 +23,7 @@ const Contact = () => {
           />
         ))}
       </div>
-      <p className="p-stretch text-center">
+      <p className="p-stretch">
         For immediate assistance, use our convenient contact form below. We look
         forward to hearing from you!
       </p>

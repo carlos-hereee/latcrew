@@ -1,6 +1,7 @@
 {
   "hero": {
     "url": "unsplash/sidekix-media-_AK42TQRyCw-unsplash.jpg",
+    "small": "small/unsplash/sidekix-media-_AK42TQRyCw-unsplash.jpg",
     "name": "hero-main",
     "alt": "clean kitchen",
     "credit": {
@@ -20,7 +21,8 @@
         "name": "John Doe",
         "hero": {
           "url": "unsplash/johan-godinez-dDYRYivNzbI-unsplash.jpg",
-          "name": "user-hero",
+          "small": "small/unsplash/johan-godinez-dDYRYivNzbI-unsplash.jpg",
+          "name": "feature-hero",
           "alt": "user-hero",
           "credit": {
             "artistName": "sidekix-media",
@@ -38,7 +40,8 @@
         "name": "Samantha J.",
         "hero": {
           "url": "unsplash/ivana-cajina-dnL6ZIpht2s-unsplash.jpg",
-          "name": "user-hero",
+          "small": "small/unsplash/ivana-cajina-dnL6ZIpht2s-unsplash.jpg",
+          "name": "feature-hero",
           "alt": "user-hero",
           "credit": {
             "artistName": "ivana-cajina",
@@ -56,7 +59,8 @@
         "name": "Lucy S.",
         "hero": {
           "url": "unsplash/lidya-nada-_0aKQa9gr4s-unsplash.jpg",
-          "name": "user-hero",
+          "small": "small/unsplash/lidya-nada-_0aKQa9gr4s-unsplash.jpg",
+          "name": "feature-hero",
           "alt": "user-hero",
           "credit": {
             "artistName": "lidya-nada",

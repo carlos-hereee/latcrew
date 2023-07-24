@@ -18,7 +18,7 @@ function App({ children }) {
     return <Loading />;
   }
   return (
-    <div className="flex-d-column p-sm">
+    <div className="container p-sm">
       <Header
         menu={menu}
         logo={{ url: logo, name: app.name, alt: "industry-brand" }}

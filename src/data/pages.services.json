@@ -14,6 +14,7 @@
       "subtitle": "",
       "hero": {
         "url": "unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
+        "small": "small/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
         "name": "hero",
         "alt": "regular cleaning",
         "credit": {
@@ -66,6 +67,7 @@
       "subtitle": "",
       "hero": {
         "url": "unsplash/no-revisions-cpIgNaazQ6w-unsplash.jpg",
+        "small": "small/no-revisions-cpIgNaazQ6w-unsplash.jpg",
         "name": "hero",
         "alt": "Deep cleaning",
         "credit": {
@@ -118,6 +120,7 @@
       "subtitle": "Move-In/Out Cleaning",
       "hero": {
         "url": "unsplash/volha-flaxeco-BCNjBsK37XA-unsplash.jpg",
+        "small": "small/unsplash/volha-flaxeco-BCNjBsK37XA-unsplash.jpg",
         "name": "hero",
         "alt": "Deep cleaning",
         "credit": {
