@@ -11,7 +11,7 @@ const About = () => {
         <p className="p-stretch">{about.body}</p>
       </div>
       <h2 className="heading">Meet our team</h2>
-      <div className="flex-w">
+      <div className="flex-w flex-center">
         {about.team &&
           about.team.map((a) => (
             <FeatureCard

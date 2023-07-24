@@ -3,6 +3,7 @@ import { createContext, useReducer, useEffect } from "react";
 import shortid from "shortid";
 import { axiosWithAuth } from "../utils/axios";
 import { reducer } from "./reducer/AuthReducer";
+import user from "../data/data.user.json";
 export const AuthContext = createContext();
 
 export const AuthState = ({ children }) => {
@@ -10,6 +11,7 @@ export const AuthState = ({ children }) => {
     isLoading: false,
     accessToken: "",
     user: {},
+    dummyUser: user,
     userValues: { name: "", email: "", phone: "" },
     signUpValues: { username: "", password: "", confirmPassword: "" },
     loginValues: { username: "", password: "" },
@@ -21,7 +23,6 @@ export const AuthState = ({ children }) => {
   // }, []);
 
   const getAccessToken = async () => {
-    dispatch({ type: "IS_LOADING", payload: true });
     try {
       const { data } = await axiosWithAuth.post("/users/refresh-token");
       dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
@@ -32,9 +33,7 @@ export const AuthState = ({ children }) => {
   };
   const loadUser = () => {
     dispatch({ type: "IS_LOADING", payload: true });
-    // let user = { nickname: generate({ words: 2 }), uid: v4() };
     dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
-    // dispatch({ type: "SET_USER_DATA", payload: user });
   };
 
   const signIn = async (username, password) => {
@@ -101,6 +100,7 @@ export const AuthState = ({ children }) => {
         isLoading: state.isLoading,
         error: state.error,
         user: state.user,
+        dummyUser: state.dummyUser,
         userValues: state.userValues,
         accessToken: state.accessToken,
         getAccessToken,
