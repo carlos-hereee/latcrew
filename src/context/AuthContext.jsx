@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { createContext, useReducer, useEffect } from "react";
-import shortid from "shortid";
-import { axiosWithAuth } from "../utils/axios";
+import { axiosAuth } from "../utils/axios";
 import { reducer } from "./reducer/AuthReducer";
 import user from "../data/data.user.json";
 export const AuthContext = createContext();
@@ -17,32 +16,21 @@ export const AuthState = ({ children }) => {
     loginValues: { username: "", password: "" },
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  // useEffect(() => {
-  //   getAccessToken();
-  // }, []);
+  useEffect(() => {
+    getAccessToken();
+  }, []);
 
   const getAccessToken = async () => {
-    try {
-      const { data } = await axiosWithAuth.post("/users/refresh-token");
-      dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
-      dispatch({ type: "SET_USER_DATA", payload: data.user });
-    } catch {
-      loadUser();
-    }
-  };
-  const loadUser = () => {
-    dispatch({ type: "IS_LOADING", payload: true });
-    dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
+    const { data } = await axiosAuth.post("/users/refresh-token");
+    dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
+    dispatch({ type: "SET_USER_DATA", payload: data.user });
   };
 
   const signIn = async (username, password) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const { data } = await axiosWithAuth.post("/users/login", {
-        username,
-        password,
-      });
+      const creds = { username, password };
+      const { data } = await axiosAuth.post("/users/login", creds);
       dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
       dispatch({ type: "SET_USER_DATA", payload: data.user });
     } catch (e) {
@@ -53,10 +41,8 @@ export const AuthState = ({ children }) => {
   const register = async (username, password) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const { data } = await axiosWithAuth.post("/users/register", {
-        username,
-        password,
-      });
+      const creds = { username, password };
+      const { data } = await axiosAuth.post("/users/register", creds);
       dispatch({ type: "SET_LOGIN", payload: data.user });
     } catch (e) {
       let payload = JSON.parse(e.request.response).message;
@@ -66,7 +52,7 @@ export const AuthState = ({ children }) => {
   const logOut = async (user) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const { data } = await axiosWithAuth.post("/users/logout", user);
+      const { data } = await axiosAuth.post("/users/logout", user);
       dispatch({ type: "SET_USER_DATA", payload: data });
     } catch (e) {
       let payload = JSON.parse(e.request.response).message;
@@ -76,7 +62,7 @@ export const AuthState = ({ children }) => {
   const getUserData = async () => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const { data } = await axiosWithAuth.get("/users");
+      const { data } = await axiosAuth.get("/users");
       // console.log("data", data);
       dispatch({ type: "SET_USER_DATA", payload: data });
     } catch (e) {
@@ -85,13 +71,11 @@ export const AuthState = ({ children }) => {
     }
   };
   const updateUserData = (data) => {
-    if (!data.uid) {
-      data.uid = shortid.generate();
-    }
+    dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "SET_USER_DATA", payload: data });
   };
   const setShipping = (data) => {
-    // if (isDev) data.uid = shortid.generate();
+    dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_SHIPPING_DETAILS", payload: data });
   };
   return (

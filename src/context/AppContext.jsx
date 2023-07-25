@@ -11,7 +11,7 @@ import about from "../data/pages.about.json";
 import contact from "../data/pages.contact.json";
 import faq from "../data/pages.faq.json";
 import checkout from "../data/pages.checkout.json";
-import { axiosWithAuth } from "../utils/axios";
+import { axiosAuth } from "../utils/axios";
 import { reducer } from "./reducer/LogReducer";
 
 export const AppContext = createContext();
@@ -71,7 +71,7 @@ export const AppState = ({ children }) => {
   const newsletter = async (values) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const data = await axiosWithAuth.post("/newsletter", values);
+      const data = await axiosAuth.post("/newsletter", values);
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
     } catch (e) {
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: true });

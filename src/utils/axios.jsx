@@ -2,13 +2,13 @@ import axios from "axios";
 
 export let accessToken = localStorage.getItem("access-token");
 
-export const axiosWithAuth = axios.create({
+export const axiosAuth = axios.create({
   baseURL: import.meta.env.VITE_DB_BASE_URL,
   withCredentials: true,
   headers: {
     "Access-Control-Allow-Origin": import.meta.env.VITE_CLIENT_BASE_URL,
     "Content-Type": "application/json; charset=utf-8",
-    Accept: "application/json",
+    "Accept": "application/json",
   },
 });
 export const axiosWithOutAuth = axios.create({
@@ -17,7 +17,7 @@ export const axiosWithOutAuth = axios.create({
   headers: {
     "Access-Control-Allow-Origin": import.meta.env.VITE_CLIENT_BASE_URL,
     "Content-Type": "application/json;charset=UTF-8",
-    Accept: "application/json",
+    "Accept": "application/json",
   },
 });
 
@@ -32,7 +32,7 @@ function onRrefreshed(accessToken) {
   refreshSubscribers.map((cb) => cb(accessToken));
 }
 
-axiosWithAuth.interceptors.request.use(
+axiosAuth.interceptors.request.use(
   async (config) => {
     config.headers.Authorization = `Bearer ${accessToken}`;
     return config;
@@ -44,7 +44,7 @@ axiosWithAuth.interceptors.request.use(
     if (response.status === 401) {
       if (!isRefreshing) {
         isRefreshing = true;
-        const { data } = await axiosWithAuth.post("/users/refresh-token");
+        const { data } = await axiosAuth.post("/users/refresh-token");
         onRrefreshed(data.accessToken);
         isRefreshing = false;
       }

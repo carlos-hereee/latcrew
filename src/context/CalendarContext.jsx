@@ -1,10 +1,9 @@
-import { createContext, useReducer, useContext, useEffect } from "react";
+import { createContext, useReducer, useContext } from "react";
 import { LogContext } from "./LogContext";
 import { ServicesContext } from "./ServicesContext";
-import { axiosWithAuth } from "../utils/axios";
+import { axiosAuth } from "../utils/axios";
 import { reducer } from "./reducer/CalendarReducer";
 import { app } from "../data/config";
-import { AuthContext } from "./AuthContext";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
@@ -18,18 +17,7 @@ export const CalendarState = ({ children }) => {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const { addMessageToLog } = useContext(LogContext);
-  const { bookEvent, cart, active, addToCart } = useContext(ServicesContext);
-  const { user } = useContext(AuthContext);
-
-  useEffect(() => {
-    if (user.uid) {
-      addToCart([], {
-        service: active,
-        meeting: app.events.sections[0].list[0],
-        user,
-      });
-    }
-  }, []);
+  const { bookEvent, cart, active } = useContext(ServicesContext);
 
   // const getCalendar = async () => {
   //   try {
@@ -57,7 +45,7 @@ export const CalendarState = ({ children }) => {
   const contactUs = async (values) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const data = await axiosWithAuth.post("/contact-me", values);
+      const data = await axiosAuth.post("/contact-me", values);
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
     } catch (e) {
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: true });
@@ -66,7 +54,7 @@ export const CalendarState = ({ children }) => {
   const getCalendarDay = async (day) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const data = await axiosWithAuth.get(`/calendar/${day}`);
+      const data = await axiosAuth.get(`/calendar/${day}`);
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
     } catch (e) {
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: true });
@@ -83,7 +71,7 @@ export const CalendarState = ({ children }) => {
   const bookNow = async (values, meeting) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      // const { data } = await axiosWithAuth.post("calendar/book", { values, event });
+      // const { data } = await axiosAuth.post("calendar/book", { values, event });
       // console.log("data", data);
       const isFilter = cart.filter((c) => c.uid === active.uid);
       if (isFilter.length > 0) {
