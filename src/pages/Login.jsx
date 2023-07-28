@@ -31,7 +31,7 @@ const Login = () => {
     <div className="container">
       <h2 className="heading">Login</h2>
       <Form values={{ username: "", password: "" }} submit={handleSubmit} />
-      <div className="card-footer">
+      <div className="text-center m-tb">
         <Link to="/signup" className="link">
           Create an account
         </Link>

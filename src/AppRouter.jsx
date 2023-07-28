@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 const AppRouter = () => {
   return (
@@ -21,6 +22,7 @@ const AppRouter = () => {
       <Route path="/FAQ" element={<FAQ />} />
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
     </Routes>
   );
 };
