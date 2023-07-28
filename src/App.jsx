@@ -10,10 +10,10 @@ function App({ children }) {
   const { app, menu } = useContext(AppContext);
 
   useEffect(() => {
-    if (app.name) {
-      document.title = app.name;
+    if (app.appName) {
+      document.title = app.appName;
     }
-  }, [app.name]);
+  }, [app.appName]);
   if (isLoading) {
     return <Loading />;
   }
@@ -21,7 +21,7 @@ function App({ children }) {
     <div className="container p-sm">
       <Header
         menu={menu}
-        logo={{ url: logo, name: app.name, alt: "industry-brand" }}
+        logo={{ url: logo, name: app.appName, alt: "industry-brand" }}
       />
       {children}
       <Footer appName={app.name} />

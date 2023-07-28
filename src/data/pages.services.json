@@ -14,7 +14,7 @@
       "subtitle": "",
       "hero": {
         "url": "unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
-        "small": "small/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
+        "small": "small/unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
         "name": "hero",
         "alt": "regular cleaning",
         "credit": {
@@ -55,9 +55,7 @@
           ]
         }
       ],
-      "cta": [
-        { "icon": "checkout", "uid": "button-check-123", "label": "Book Now!" }
-      ]
+      "cta": [{ "icon": "checkout", "uid": "button-check-123", "label": "Book Now!" }]
     },
     {
       "hasHero": true,
@@ -67,7 +65,7 @@
       "subtitle": "",
       "hero": {
         "url": "unsplash/no-revisions-cpIgNaazQ6w-unsplash.jpg",
-        "small": "small/no-revisions-cpIgNaazQ6w-unsplash.jpg",
+        "small": "small/unsplash/no-revisions-cpIgNaazQ6w-unsplash.jpg",
         "name": "hero",
         "alt": "Deep cleaning",
         "credit": {
@@ -108,9 +106,7 @@
           ]
         }
       ],
-      "cta": [
-        { "icon": "checkout", "uid": "button-check-123", "label": "Book Now!" }
-      ]
+      "cta": [{ "icon": "checkout", "uid": "button-check-123", "label": "Book Now!" }]
     },
     {
       "hasHero": true,
@@ -138,9 +134,7 @@
       "cost": 199,
       "body": "If you're moving into a new home or preparing to move out, our move-in/out cleaning service is ideal. We meticulously clean every nook and cranny, ensuring that the space is spotless and ready for you or the next residents.",
       "hasFeatures": true,
-      "cta": [
-        { "icon": "checkout", "uid": "button-check-123", "label": "Book Now!" }
-      ]
+      "cta": [{ "icon": "checkout", "uid": "button-check-123", "label": "Book Now!" }]
     }
   ]
 }

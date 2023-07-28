@@ -21,16 +21,27 @@ export const AuthState = ({ children }) => {
   }, []);
 
   const getAccessToken = async () => {
-    const { data } = await axiosAuth.post("/users/refresh-token");
-    dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
-    dispatch({ type: "SET_USER_DATA", payload: data.user });
+    try {
+      const { data } = await axiosAuth.post("/auth/refresh-token");
+      console.log("data", data);
+      dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
+      dispatch({ type: "SET_USER_DATA", payload: data.user });
+    } catch (error) {
+      const { status, data } = error.response;
+      if (status === 403) {
+        console.log("response", error.response);
+        // forbiden -- no cookie
+        dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
+        dispatch({ type: "SET_USER_DATA", payload: {} });
+      }
+    }
   };
 
   const signIn = async (username, password) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
       const creds = { username, password };
-      const { data } = await axiosAuth.post("/users/login", creds);
+      const { data } = await axiosAuth.post("/auth/login", creds);
       dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
       dispatch({ type: "SET_USER_DATA", payload: data.user });
     } catch (e) {
@@ -42,7 +53,7 @@ export const AuthState = ({ children }) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
       const creds = { username, password };
-      const { data } = await axiosAuth.post("/users/register", creds);
+      const { data } = await axiosAuth.post("/auth/register", creds);
       dispatch({ type: "SET_LOGIN", payload: data.user });
     } catch (e) {
       let payload = JSON.parse(e.request.response).message;
@@ -52,7 +63,7 @@ export const AuthState = ({ children }) => {
   const logOut = async (user) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const { data } = await axiosAuth.post("/users/logout", user);
+      const { data } = await axiosAuth.post("/auth/logout", user);
       dispatch({ type: "SET_USER_DATA", payload: data });
     } catch (e) {
       let payload = JSON.parse(e.request.response).message;
@@ -62,7 +73,7 @@ export const AuthState = ({ children }) => {
   const getUserData = async () => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const { data } = await axiosAuth.get("/users");
+      const { data } = await axiosAuth.get("/auth");
       // console.log("data", data);
       dispatch({ type: "SET_USER_DATA", payload: data });
     } catch (e) {
