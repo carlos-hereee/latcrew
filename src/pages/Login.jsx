@@ -6,9 +6,10 @@ import {
 import { AuthContext } from "../context/AuthContext";
 
 import { Link, useNavigate } from "react-router-dom";
+import { Form } from "nexious-library/@nxs-organism";
 // import Icons from "../components/molecules/icons/Icons";
 
-const Auth = () => {
+const Login = () => {
   const {
     signIn,
     //  error,
@@ -23,25 +24,19 @@ const Auth = () => {
     }
   }, [accessToken]);
   const handleSubmit = (values) => {
+    console.log("values", values);
     signIn(values);
   };
   return (
-    <section className="flex-c">
-      <div className="card flex-g">
-        <h3 className="card-title">Login</h3>
-        <div className="card-body">
-          {/* <NoCaptchaForm 
-            data={{ username: "", password: "" }}
-            submit={handleSubmit}
-          /> */}
-        </div>
-        <div className="card-footer">
-          <Link to="signup" className="link">
-            Create an account
-          </Link>
-        </div>
+    <div className="container">
+      <h2 className="heading">Login</h2>
+      <Form values={{ username: "", password: "" }} submit={handleSubmit} />
+      <div className="card-footer">
+        <Link to="/signup" className="link">
+          Create an account
+        </Link>
       </div>
-    </section>
+    </div>
   );
 };
-export default Auth;
+export default Login;

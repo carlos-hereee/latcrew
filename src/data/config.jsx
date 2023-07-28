@@ -470,8 +470,13 @@ export const app = {
       ping: 0,
       isAlt: true,
       isPrivate: true,
-      alt: "login",
+    },
+    {
+      name: "login",
+      icon: "login",
+      uid: shortid.generate(),
+      isAlt: true,
+      alt: "register",
     },
   ],
-  name: "Lat Crew",
 };

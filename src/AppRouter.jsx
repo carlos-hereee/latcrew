@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Checkout from "./pages/Checkout";
+import Login from "./pages/Login";
 
 const AppRouter = () => {
   return (
@@ -19,6 +20,7 @@ const AppRouter = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/FAQ" element={<FAQ />} />
       <Route path="/checkout" element={<Checkout />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 };
