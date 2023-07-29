@@ -11,6 +11,7 @@ export const AuthState = ({ children }) => {
     accessToken: "",
     user: {},
     dummyUser: user,
+    signInError: "",
     userValues: { name: "", email: "", phone: "" },
     signUpValues: { username: "", password: "", confirmPassword: "" },
     loginValues: { username: "", password: "" },
@@ -42,11 +43,12 @@ export const AuthState = ({ children }) => {
     try {
       const creds = { username, password };
       const { data } = await axiosAuth.post("/auth/login", creds);
+      console.log("data", data);
       dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
       dispatch({ type: "SET_USER_DATA", payload: data.user });
-    } catch (e) {
-      let payload = JSON.parse(e.request.response).message;
-      dispatch({ type: "SET_ERROR", payload });
+    } catch (error) {
+      let payload = error.response.data.message;
+      dispatch({ type: "SET_SING_IN_ERROR", payload });
     }
   };
   const register = async (username, password) => {
@@ -54,8 +56,10 @@ export const AuthState = ({ children }) => {
     try {
       const creds = { username, password };
       const { data } = await axiosAuth.post("/auth/register", creds);
+      console.log("data", data);
       dispatch({ type: "SET_LOGIN", payload: data.user });
     } catch (e) {
+      console.log("e", e);
       let payload = JSON.parse(e.request.response).message;
       dispatch({ type: "SET_SIGNUP_ERROR", payload });
     }
@@ -98,6 +102,7 @@ export const AuthState = ({ children }) => {
         dummyUser: state.dummyUser,
         userValues: state.userValues,
         accessToken: state.accessToken,
+        signInError: state.signInError,
         getAccessToken,
         signIn,
         register,

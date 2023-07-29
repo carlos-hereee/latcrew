@@ -15,17 +15,14 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "axios": "^1.4.0",
-    "formik": "^2.2.9",
     "moment": "^2.29.4",
     "react": "^18.2.0",
-    "react-calendar": "^4.2.1",
     "react-dom": "^18.2.0",
     "react-google-recaptcha": "^2.1.0",
     "react-router-dom": "^6.11.1",
     "sass": "^1.62.1",
     "shortid": "^2.2.16",
-    "uuid": "^9.0.0",
-    "yup": "^1.1.1"
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
