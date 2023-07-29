@@ -12,7 +12,7 @@ const Login = () => {
       {signInError && <p className="error-message">{signInError}</p>}
       <Form
         values={{ username: "qwerty", password: "secretPassword" }}
-        submit={(e) => signIn(e)}
+        submit={(values) => signIn(values)}
       />
       <div className="text-center m-tb">
         <Link to="/signup" className="link">

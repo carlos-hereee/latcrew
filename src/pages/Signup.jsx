@@ -6,14 +6,17 @@ import { Form } from "nexious-library/@nxs-organism";
 const SignUp = () => {
   const { register, signUpError } = useContext(AuthContext);
 
+  const initvalues = {
+    username: "qwerty",
+    email: "example@mail.com",
+    password: "secretPassword",
+    confirmPassword: "secretPassword",
+  };
   return (
     <div>
       <h2 className="heading">Sign up</h2>
       {signUpError && <p className="error-message">{signUpError}</p>}
-      <Form
-        values={{ username: "", email: "", password: "", confirmPassword: "" }}
-        submit={register}
-      />
+      <Form values={initvalues} submit={(values) => register(values)} />
       <div className="text-center m-tb">
         <Link to="/login" className="link">
           Already have an account?
