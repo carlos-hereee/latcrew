@@ -9,14 +9,14 @@ const SignUp = () => {
   const initvalues = {
     username: "qwerty",
     email: "example@mail.com",
-    password: "secretPassword",
-    confirmPassword: "secretPassword",
+    password: "secret",
+    confirmPassword: "secret",
   };
   return (
     <div>
       <h2 className="heading">Sign up</h2>
       {signUpError && <p className="error-message">{signUpError}</p>}
-      <Form values={initvalues} submit={(values) => register(values)} />
+      <Form values={initvalues} submit={(values) => register(values)} showAuthTips />
       <div className="text-center m-tb">
         <Link to="/login" className="link">
           Already have an account?

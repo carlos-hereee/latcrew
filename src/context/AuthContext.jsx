@@ -2,6 +2,7 @@
 import { createContext, useReducer, useEffect } from "react";
 import { axiosAuth } from "../utils/axios";
 import { reducer } from "./reducer/AuthReducer";
+import { isDev } from "../data/config";
 import user from "../data/data.user.json";
 export const AuthContext = createContext();
 
@@ -39,19 +40,18 @@ export const AuthState = ({ children }) => {
   };
 
   const signIn = async (credentials) => {
-    // dispatch({ type: "IS_LOADING", payload: true });
     try {
       const { data } = await axiosAuth.post("/auth/login", credentials);
       console.log("data", data);
       dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
       dispatch({ type: "SET_USER_DATA", payload: data.user });
     } catch (error) {
+      if (isDev) console.log("error", error);
       const { status, data } = error.response;
-      dispatch({ type: "SET_SING_IN_ERROR", payload: data });
+      dispatch({ type: "SIGN_IN_ERROR", payload: data });
     }
   };
   const register = async (credentials) => {
-    // dispatch({ type: "IS_LOADING", payload: true });
     try {
       const { data } = await axiosAuth.post("/auth/register", credentials);
       console.log("data", data);
@@ -59,7 +59,7 @@ export const AuthState = ({ children }) => {
     } catch (error) {
       const { status, data } = error.response;
       console.log("error", error);
-      dispatch({ type: "SET_SIGNUP_ERROR", payload: data });
+      dispatch({ type: "SIGN_UP_ERROR", payload: data });
     }
   };
   const logOut = async (user) => {
@@ -101,6 +101,7 @@ export const AuthState = ({ children }) => {
         userValues: state.userValues,
         accessToken: state.accessToken,
         signInError: state.signInError,
+        signUpError: state.signUpError,
         getAccessToken,
         signIn,
         register,

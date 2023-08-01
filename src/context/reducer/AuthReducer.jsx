@@ -4,8 +4,10 @@ export const reducer = (state, action) => {
       return { ...state, isLoading: action.payload };
     case "SET_ERROR":
       return { ...state, isLoading: false, error: action.payload };
-    case "SET_SING_IN_ERROR":
+    case "SIGN_IN_ERROR":
       return { ...state, isLoading: false, signInError: action.payload };
+    case "SIGN_UP_ERROR":
+      return { ...state, isLoading: false, signUpError: action.payload };
     case "SET_ACCESS_TOKEN":
       return { ...state, isLoading: false, accessToken: action.payload };
     case "SET_USER_DATA":
