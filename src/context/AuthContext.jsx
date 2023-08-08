@@ -15,7 +15,8 @@ export const AuthState = ({ children }) => {
     signInError: "",
     userValues: { name: "", email: "", phone: "" },
     signUpValues: { username: "", password: "", confirmPassword: "" },
-    loginValues: { username: "", password: "" },
+    loginValues: { username: "qwerty", password: "secretPassword" },
+    isChangePassword: true,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
@@ -31,7 +32,6 @@ export const AuthState = ({ children }) => {
     } catch (error) {
       const { status, data } = error.response;
       if (status === 403) {
-        console.log("response", error.response);
         // forbiden -- no cookie
         dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
         dispatch({ type: "SET_USER_DATA", payload: {} });
@@ -48,17 +48,19 @@ export const AuthState = ({ children }) => {
     } catch (error) {
       if (isDev) console.log("error", error);
       const { status, data } = error.response;
-      dispatch({ type: "SIGN_IN_ERROR", payload: data });
+      if (status === 401 && data.includes("security is low")) {
+        dispatch({ type: "SET_CHANGE_PASSWORD", payload: data });
+      } else dispatch({ type: "SIGN_IN_ERROR", payload: data });
     }
   };
   const register = async (credentials) => {
     try {
       const { data } = await axiosAuth.post("/auth/register", credentials);
-      console.log("data", data);
+      dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
       dispatch({ type: "SET_LOGIN", payload: data.user });
     } catch (error) {
+      if (isDev) console.log("error", error);
       const { status, data } = error.response;
-      console.log("error", error);
       dispatch({ type: "SIGN_UP_ERROR", payload: data });
     }
   };
@@ -68,8 +70,9 @@ export const AuthState = ({ children }) => {
       const { data } = await axiosAuth.post("/auth/logout", user);
       dispatch({ type: "SET_USER_DATA", payload: data });
     } catch (e) {
-      let payload = JSON.parse(e.request.response).message;
-      dispatch({ type: "SET_ERROR", payload });
+      if (isDev) console.log("error", error);
+      const { status, data } = error.response;
+      dispatch({ type: "SET_ERROR", payload: data });
     }
   };
   const getUserData = async () => {
@@ -91,6 +94,14 @@ export const AuthState = ({ children }) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_SHIPPING_DETAILS", payload: data });
   };
+  const changePassword = async (credentials) => {
+    try {
+      const { data } = await axiosAuth.put("/auth/change-password", credentials);
+      console.log("data", data);
+    } catch (error) {
+      if (isDev) console.log("error", error);
+    }
+  };
   return (
     <AuthContext.Provider
       value={{
@@ -99,9 +110,11 @@ export const AuthState = ({ children }) => {
         user: state.user,
         dummyUser: state.dummyUser,
         userValues: state.userValues,
+        loginValues: state.loginValues,
         accessToken: state.accessToken,
         signInError: state.signInError,
         signUpError: state.signUpError,
+        isChangePassword: state.isChangePassword,
         getAccessToken,
         signIn,
         register,
@@ -109,6 +122,7 @@ export const AuthState = ({ children }) => {
         updateUserData,
         setShipping,
         getUserData,
+        changePassword,
       }}>
       {children}
     </AuthContext.Provider>

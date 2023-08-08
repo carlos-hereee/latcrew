@@ -1,3 +1,11 @@
+const setChangePassword = (state, action) => {
+  return {
+    ...state,
+    isLoading: false,
+    signInError: action.payload,
+    isChangePassword: action.payload ? true : false,
+  };
+};
 export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
@@ -14,6 +22,8 @@ export const reducer = (state, action) => {
       return { ...state, isLoading: false, user: action.payload };
     case "UPDATE_SHIPPING_DETAILS":
       return { ...state, isLoading: false, shippingDetails: action.payload };
+    case "SET_CHANGE_PASSWORD":
+      return setChangePassword(state, action);
     default:
       return state;
   }

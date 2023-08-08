@@ -1,16 +1,23 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Form } from "nexious-library/@nxs-organism";
 
 const SignUp = () => {
-  const { register, signUpError } = useContext(AuthContext);
+  const { register, signUpError, accessToken } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (accessToken) {
+      navigate("/dashboard");
+    }
+  }, [accessToken]);
 
   const initvalues = {
     username: "qwerty",
     email: "example@mail.com",
-    password: "secret",
-    confirmPassword: "secret",
+    password: "secretPassword",
+    confirmPassword: "secretPassword",
   };
   return (
     <div>

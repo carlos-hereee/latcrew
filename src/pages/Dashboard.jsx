@@ -1,14 +1,13 @@
-// import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
-const Dashboard = ({ history }) => {
+const Dashboard = () => {
   const { user, logOut } = useContext(AuthContext);
+  console.log("user", user);
   return (
     <section className="dashboard m-auto">
       <nav className="navbar">
-        <button className="btn btn-danger" onClick={() => logOut(user, history)}>
+        <button type="button" className="btn btn-danger" onClick={() => logOut(user)}>
           Log Out
         </button>
       </nav>

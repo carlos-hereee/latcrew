@@ -9,6 +9,8 @@ import FAQ from "./pages/FAQ";
 import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
+import PrivateRoute from "./utils/PrivateRoute";
 
 const AppRouter = () => {
   return (
@@ -23,6 +25,14 @@ const AppRouter = () => {
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route
+        path="/dashboard"
+        element={
+          <PrivateRoute>
+            <Route path="/dashboard" element={<Dashboard />} />
+          </PrivateRoute>
+        }
+      />
     </Routes>
   );
 };
