@@ -355,26 +355,7 @@ export const app = {
   services: {
     sections: [150, 200, 250].map((n) => serviceSection(n)),
   },
-  socials: [
-    {
-      isEmpty: true,
-      name: "instagram",
-      link: "https://www.instagram.com//",
-      uid: shortid.generate(),
-    },
-    {
-      isEmpty: true,
-      name: "twitter",
-      link: "https://www.twitter.com//",
-      uid: shortid.generate(),
-    },
-    {
-      isEmpty: true,
-      name: "facebook",
-      link: "https://www.twitter.com//",
-      uid: shortid.generate(),
-    },
-  ],
+
   checkout: {
     title: "Check out",
     subtitle: "",

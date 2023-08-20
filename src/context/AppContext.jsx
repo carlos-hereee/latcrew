@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 
 import shortid from "shortid";
-import { AuthContext } from "./AuthContext";
+// import { AuthContext } from "./AuthContext";
 // import { app } from "../data/config";
 import app from "../data/pages.landing.json";
 import services from "../data/pages.services.json";
@@ -13,6 +13,7 @@ import faq from "../data/pages.faq.json";
 import checkout from "../data/pages.checkout.json";
 import footerNewsletter from "../data/newsletter.json";
 import menu from "../data/menu.json";
+import socials from "../data/socials.json";
 import { axiosAuth } from "../utils/axios";
 import { reducer } from "./reducer/LogReducer";
 
