@@ -1,0 +1,54 @@
+[
+  {
+    "name": "spanish",
+    "icon": "flag",
+    "isToggle": true,
+    "isAlt": true,
+    "uid": "lan",
+    "ping": 0,
+    "alt": "english"
+  },
+  {
+    "name": "services",
+    "icon": "services",
+    "uid": "services-1",
+    "ping": 0,
+    "isAlt": false
+  },
+  {
+    "name": "testimonials",
+    "icon": "testimonials",
+    "uid": "testimonial-1",
+    "ping": 0,
+    "isAlt": false
+  },
+  {
+    "name": "about",
+    "icon": "about",
+    "uid": "about-1",
+    "ping": 0,
+    "isAlt": false
+  },
+  {
+    "name": "contact",
+    "icon": "contact",
+    "uid": "contact-1",
+    "ping": 0,
+    "isAlt": false
+  },
+  {
+    "name": "FAQ",
+    "icon": "FAQ",
+    "uid": "faq-1",
+    "ping": 0,
+    "isAlt": true,
+    "isPrivate": true
+  },
+  {
+    "name": "login",
+    "icon": "login",
+    "uid": "auth-1",
+    "isAlt": true,
+    "alt": "register"
+  }
+]

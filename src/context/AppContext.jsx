@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import shortid from "shortid";
 import { AuthContext } from "./AuthContext";
-import { app } from "../data/config";
-import landing from "../data/pages.landing.json";
+// import { app } from "../data/config";
+import app from "../data/pages.landing.json";
 import services from "../data/pages.services.json";
 import testimonials from "../data/pages.testimonials.json";
 import about from "../data/pages.about.json";
@@ -12,6 +12,7 @@ import contact from "../data/pages.contact.json";
 import faq from "../data/pages.faq.json";
 import checkout from "../data/pages.checkout.json";
 import footerNewsletter from "../data/newsletter.json";
+import menu from "../data/menu.json";
 import { axiosAuth } from "../utils/axios";
 import { reducer } from "./reducer/LogReducer";
 
@@ -19,6 +20,7 @@ export const AppContext = createContext();
 
 export const AppState = ({ children }) => {
   const initialState = {
+    newsletter: footerNewsletter,
     isLoading: false,
     faq,
     about,
@@ -26,10 +28,9 @@ export const AppState = ({ children }) => {
     contact,
     services,
     testimonials,
-    newsletter: footerNewsletter,
-    menu: app.menu,
-    app: landing,
-    socials: app.socials,
+    menu,
+    app,
+    socials,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   // const { accessToken } = useContext(AuthContext);
