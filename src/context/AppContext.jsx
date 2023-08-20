@@ -11,6 +11,7 @@ import about from "../data/pages.about.json";
 import contact from "../data/pages.contact.json";
 import faq from "../data/pages.faq.json";
 import checkout from "../data/pages.checkout.json";
+import footerNewsletter from "../data/newsletter.json";
 import { axiosAuth } from "../utils/axios";
 import { reducer } from "./reducer/LogReducer";
 
@@ -19,37 +20,30 @@ export const AppContext = createContext();
 export const AppState = ({ children }) => {
   const initialState = {
     isLoading: false,
+    faq,
+    about,
+    checkout,
+    contact,
+    services,
+    testimonials,
+    newsletter: footerNewsletter,
     menu: app.menu,
     app: landing,
     socials: app.socials,
-    about: about,
-    checkout: checkout,
-    contact: contact,
-    footerNewsletter: app.footerNewsletter,
-    services: services,
-    testimonials: testimonials,
-    faq: faq,
-    burger: {},
-    paymentType: {},
-    selected: {},
-    isFiltered: false,
-    appliedFilters: [],
-    filtered: [],
-    filterToggle: false,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { accessToken } = useContext(AuthContext);
+  // const { accessToken } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (accessToken) {
-      getAllAssets(accessToken);
-    }
-  }, [accessToken]);
+  // useEffect(() => {
+  //   if (accessToken) {
+  //     getAllAssets(accessToken);
+  //   }
+  // }, [accessToken]);
 
-  const getAllAssets = async (accessToken) => {
-    console.log("accesstoken", accessToken);
-  };
+  // const getAllAssets = async (accessToken) => {
+  //   // console.log("accesstoken", accessToken);
+  // };
   const toggleMenu = (menu, m) => {
     const data = menu.map((i) => {
       if (i.uid === m.uid) {

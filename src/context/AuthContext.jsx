@@ -3,7 +3,7 @@ import { createContext, useReducer, useEffect } from "react";
 import { axiosAuth } from "../utils/axios";
 import { reducer } from "./reducer/AuthReducer";
 import { isDev } from "../data/config";
-import user from "../data/data.user.json";
+import user from "../data/user.json";
 export const AuthContext = createContext();
 
 export const AuthState = ({ children }) => {
@@ -15,8 +15,8 @@ export const AuthState = ({ children }) => {
     signInError: "",
     userValues: { name: "", email: "", phone: "" },
     signUpValues: { username: "", password: "", confirmPassword: "" },
-    loginValues: { username: "qwerty", password: "secretPassword" },
-    isChangePassword: true,
+    loginValues: { username: "", password: "" },
+    isChangePassword: false,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
@@ -26,7 +26,6 @@ export const AuthState = ({ children }) => {
   const getAccessToken = async () => {
     try {
       const { data } = await axiosAuth.post("/auth/refresh-token");
-      console.log("data", data);
       dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
       dispatch({ type: "SET_USER_DATA", payload: data.user });
     } catch (error) {
@@ -42,7 +41,6 @@ export const AuthState = ({ children }) => {
   const signIn = async (credentials) => {
     try {
       const { data } = await axiosAuth.post("/auth/login", credentials);
-      console.log("data", data);
       dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
       dispatch({ type: "SET_USER_DATA", payload: data.user });
     } catch (error) {
@@ -50,7 +48,10 @@ export const AuthState = ({ children }) => {
       const { status, data } = error.response;
       if (status === 401 && data.includes("security is low")) {
         dispatch({ type: "SET_CHANGE_PASSWORD", payload: data });
-      } else dispatch({ type: "SIGN_IN_ERROR", payload: data });
+      }
+      if (status === 403 || status === 404) {
+        dispatch({ type: "SIGN_IN_ERROR", payload: data.message });
+      }
     }
   };
   const register = async (credentials) => {
@@ -100,6 +101,10 @@ export const AuthState = ({ children }) => {
       console.log("data", data);
     } catch (error) {
       if (isDev) console.log("error", error);
+      const { status, data } = error.response;
+      if (status === 403) {
+        dispatch({ type: "SIGN_IN_ERROR", payload: data.message });
+      }
     }
   };
   return (

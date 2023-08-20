@@ -383,15 +383,7 @@ export const app = {
     hero: { link: "", name: "main-hero" },
     booked: { title: "Bag Summary" },
   },
-  footerNewsletter: {
-    title: "Join the newsletter",
-    subtitle: "Suscribe to get the latest content by email",
-    response: "Unsubscribe at any time.",
-    hasHero: false,
-    hasIcon: false,
-    hasLink: false,
-    hero: { link: "", name: "main-hero" },
-  },
+
   contact: {
     title: "Contact us",
     subtitle: "",

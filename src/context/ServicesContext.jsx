@@ -4,7 +4,7 @@ import { LogContext } from "./LogContext";
 import { AuthContext } from "./AuthContext";
 import { reducer } from "./reducer/ServicesReducer";
 import services from "../data/pages.services.json";
-import user from "../data/data.user.json";
+import user from "../data/user.json";
 
 export const ServicesContext = createContext();
 export const ServicesState = ({ children }) => {
