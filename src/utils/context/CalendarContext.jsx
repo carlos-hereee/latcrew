@@ -3,19 +3,11 @@ import { LogContext } from "./LogContext";
 import { ServicesContext } from "./ServicesContext";
 import { axiosAuth } from "../axios";
 import { reducer } from "../reducer/CalendarReducer";
-import { app } from "../../data/config";
+import { calendarState } from "./initialData";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
-  const initialState = {
-    isLoading: false,
-    calendar: [],
-    events: app.events || [],
-    selectedDay: {},
-    meeting: {},
-    booked: [],
-  };
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, calendarState);
   const { addMessageToLog } = useContext(LogContext);
   const { bookEvent, cart, active } = useContext(ServicesContext);
 

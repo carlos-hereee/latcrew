@@ -12,6 +12,9 @@ import newsletter from "../../data/app//newsletter.json";
 import menu from "../../data/app/menu.json";
 import socials from "../../data/app/socials.json";
 
+// calendar data
+import calendarState from "../../data/app/calendarState.json";
+
 const appState = {
   newsletter,
   isLoading: false,
@@ -26,4 +29,4 @@ const appState = {
   socials,
 };
 
-export { authState, appState };
+export { authState, appState, calendarState };
