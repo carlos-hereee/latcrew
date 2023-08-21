@@ -2,7 +2,7 @@
 import { createContext, useReducer, useEffect } from "react";
 import { axiosAuth } from "../axios";
 import { reducer } from "../reducer/AuthReducer";
-import { isDev } from "../../data/config";
+import { isDev } from "../isDev";
 import { authState } from "./initialData";
 
 export const AuthContext = createContext();

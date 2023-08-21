@@ -1,5 +1,5 @@
 // auth context data
-import authState from "../../data/app/authState.json";
+import authState from "../../data/state/authState.json";
 // app context data
 import app from "../../data/pages/pages.landing.json";
 import services from "../../data/pages/pages.services.json";
@@ -11,9 +11,10 @@ import checkout from "../../data/pages/pages.checkout.json";
 import newsletter from "../../data/app//newsletter.json";
 import menu from "../../data/app/menu.json";
 import socials from "../../data/app/socials.json";
-
 // calendar data
-import calendarState from "../../data/app/calendarState.json";
+import calendarState from "../../data/state/calendarState.json";
+// services data
+import servicesState from "../../data/state/servicesState.json";
 
 const appState = {
   newsletter,
@@ -29,4 +30,4 @@ const appState = {
   socials,
 };
 
-export { authState, appState, calendarState };
+export { authState, appState, calendarState, servicesState };
