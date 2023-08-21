@@ -1,5 +1,4 @@
-import { axiosAuth } from "../../axios";
-
+import { axiosAuth } from "../../../axios";
 export const signIn = async (dispatch, credentials) => {
   try {
     const { data } = await axiosAuth.post("/auth/login", credentials);

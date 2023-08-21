@@ -1,5 +1,5 @@
-import { axiosAuth } from "../../axios";
-import { isDev } from "../../isDev";
+import { axiosAuth } from "../../../axios";
+import { isDev } from "../../../isDev";
 
 export const getAccessToken = async (dispatch) => {
   try {

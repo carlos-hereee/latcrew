@@ -1,5 +1,4 @@
-import { axiosAuth } from "../../axios";
-
+import { axiosAuth } from "../../../axios";
 export const logOut = async (dispatch, user) => {
   dispatch({ type: "IS_LOADING", payload: true });
   try {

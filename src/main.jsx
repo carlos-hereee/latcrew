@@ -6,7 +6,7 @@ import { AppState } from "./utils/context/app/AppContext";
 import { ServicesState } from "./utils/context/ServicesContext";
 import { LogState } from "./utils/context/LogContext";
 import { AuthState } from "./utils/context/auth/AuthContext";
-import { CalendarState } from "./utils/context/CalendarContext";
+import { CalendarState } from "./utils/context/calendar/CalendarContext";
 import AppRouter from "./AppRouter";
 import "nexious-library/@index.css";
 import "./index.css";

@@ -2,13 +2,14 @@
 import { createContext, useReducer, useEffect } from "react";
 import { reducer } from "./AuthReducer";
 import { authState } from "../initialData";
-import { getAccessToken } from "./getAccessToken";
-import { signIn } from "./signIn";
-import { register } from "./register";
-import { logOut } from "./logout";
-import { updateUserData } from "./updateUserData";
-import { setShipping } from "./setShipping";
-import { getUserData } from "./getUserData";
+import { signIn } from "./helpers/signIn";
+import { register } from "./helpers/register";
+import { logOut } from "./helpers/logout";
+import { updateUserData } from "./helpers/updateUserData";
+import { setShipping } from "./helpers/setShipping";
+import { getUserData } from "./helpers/getUserData";
+import { changePassword } from "./helpers/changePassword";
+import { getAccessToken } from "./helpers/getAccessToken";
 
 export const AuthContext = createContext();
 
