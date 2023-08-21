@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import { AppState } from "./utils/context/AppContext";
 import { ServicesState } from "./utils/context/ServicesContext";
 import { LogState } from "./utils/context/LogContext";
-import { AuthState } from "./utils/context/AuthContext";
+import { AuthState } from "./utils/context/auth/AuthContext";
 import { CalendarState } from "./utils/context/CalendarContext";
 import AppRouter from "./AppRouter";
 import "nexious-library/@index.css";

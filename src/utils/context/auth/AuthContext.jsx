@@ -1,32 +1,19 @@
 // eslint-disable-next-line no-unused-vars
 import { createContext, useReducer, useEffect } from "react";
-import { axiosAuth } from "../axios";
-import { reducer } from "../reducer/AuthReducer";
-import { isDev } from "../isDev";
-import { authState } from "./initialData";
+import { axiosAuth } from "../../axios";
+import { reducer } from "./AuthReducer";
+import { isDev } from "../../isDev";
+import { authState } from "../initialData";
+import { getAccessToken } from "./getAccessToken";
 
 export const AuthContext = createContext();
 
 export const AuthState = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, authState);
-  useEffect(() => {
-    getAccessToken();
-  }, []);
 
-  const getAccessToken = async () => {
-    try {
-      const { data } = await axiosAuth.post("/auth/refresh-token");
-      dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
-      dispatch({ type: "SET_USER_DATA", payload: data.user });
-    } catch (error) {
-      const { status, data } = error.response;
-      if (status === 403) {
-        // forbiden -- no cookie
-        dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
-        dispatch({ type: "SET_USER_DATA", payload: {} });
-      }
-    }
-  };
+  useEffect(() => {
+    getAccessToken(dispatch);
+  }, []);
 
   const signIn = async (credentials) => {
     try {
@@ -34,7 +21,7 @@ export const AuthState = ({ children }) => {
       dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
       dispatch({ type: "SET_USER_DATA", payload: data.user });
     } catch (error) {
-      if (isDev) console.log("error", error);
+      if (isDev) console.log("sign in error", error);
       const { status, data } = error.response;
       if (status === 401 && data.includes("security is low")) {
         dispatch({ type: "SET_CHANGE_PASSWORD", payload: data });
@@ -50,7 +37,7 @@ export const AuthState = ({ children }) => {
       dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
       dispatch({ type: "SET_LOGIN", payload: data.user });
     } catch (error) {
-      if (isDev) console.log("error", error);
+      if (isDev) console.log("register error", error);
       const { status, data } = error.response;
       dispatch({ type: "SIGN_UP_ERROR", payload: data });
     }
@@ -110,7 +97,6 @@ export const AuthState = ({ children }) => {
         signInError: state.signInError,
         signUpError: state.signUpError,
         isChangePassword: state.isChangePassword,
-        getAccessToken,
         signIn,
         register,
         logOut,

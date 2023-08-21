@@ -3,7 +3,7 @@ import { AppContext } from "../utils/context/AppContext";
 import { TextBubble } from "nexious-library/@nxs-atoms";
 import { Rating } from "nexious-library/@nxs-molecules";
 import { UserCard, Form } from "nexious-library/@nxs-organism";
-import { AuthContext } from "../utils/context/AuthContext";
+import { AuthContext } from "../utils/context/auth/AuthContext";
 
 const Testimonials = () => {
   const { testimonials } = useContext(AppContext);

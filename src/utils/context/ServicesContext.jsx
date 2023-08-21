@@ -1,7 +1,7 @@
 import { createContext, useReducer, useContext } from "react";
 import shortid from "shortid";
 import { LogContext } from "./LogContext";
-import { AuthContext } from "./AuthContext";
+import { AuthContext } from "./auth/AuthContext";
 import { reducer } from "../reducer/ServicesReducer";
 import { servicesState } from "./initialData";
 
