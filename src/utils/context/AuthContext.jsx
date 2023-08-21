@@ -3,12 +3,12 @@ import { createContext, useReducer, useEffect } from "react";
 import { axiosAuth } from "../axios";
 import { reducer } from "../reducer/AuthReducer";
 import { isDev } from "../../data/config";
-import initialState from "../../data/app/authState.json";
+import { authState } from "./initialData";
 
 export const AuthContext = createContext();
 
 export const AuthState = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, authState);
   useEffect(() => {
     getAccessToken();
   }, []);
