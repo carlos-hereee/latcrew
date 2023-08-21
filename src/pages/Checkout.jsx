@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
-import { AppContext } from "../context/AppContext";
-import { ServicesContext } from "../context/ServicesContext";
-import { AuthContext } from "../context/AuthContext";
+import { AppContext } from "../utils/context/AppContext";
+import { ServicesContext } from "../utils/context/ServicesContext";
+import { AuthContext } from "../utils/context/AuthContext";
 import { Cart, UserCard, PaymentMethods } from "nexious-library/@nxs-organism";
 import { useNavigate } from "react-router-dom";
 import { EmptySection, Total } from "nexious-library/@nxs-molecules";

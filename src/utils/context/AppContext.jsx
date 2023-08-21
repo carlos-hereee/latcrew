@@ -3,18 +3,18 @@ import { useNavigate } from "react-router-dom";
 
 import shortid from "shortid";
 // import { AuthContext } from "./AuthContext";
-import app from "../data/pages/pages.landing.json";
-import services from "../data/pages/pages.services.json";
-import testimonials from "../data/pages/pages.testimonials.json";
-import about from "../data/pages/pages.about.json";
-import contact from "../data/pages/pages.contact.json";
-import faq from "../data/pages/pages.faq.json";
-import checkout from "../data/pages/pages.checkout.json";
-import footerNewsletter from "../data/app//newsletter.json";
-import menu from "../data/app/menu.json";
-import socials from "../data/app/socials.json";
-import { axiosAuth } from "../utils/axios";
-import { reducer } from "./reducer/LogReducer";
+import app from "../../data/pages/pages.landing.json";
+import services from "../../data/pages/pages.services.json";
+import testimonials from "../../data/pages/pages.testimonials.json";
+import about from "../../data/pages/pages.about.json";
+import contact from "../../data/pages/pages.contact.json";
+import faq from "../../data/pages/pages.faq.json";
+import checkout from "../../data/pages/pages.checkout.json";
+import footerNewsletter from "../../data/app//newsletter.json";
+import menu from "../../data/app/menu.json";
+import socials from "../../data/app/socials.json";
+import { axiosAuth } from "../../utils/axios";
+import { reducer } from "../reducer/LogReducer";
 
 export const AppContext = createContext();
 

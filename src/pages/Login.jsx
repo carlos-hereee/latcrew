@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
-import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, ChangePassword } from "nexious-library/@nxs-organism";
+import { AuthContext } from "../utils/context/AuthContext";
 // import ChangePassword from "../components/ChangePassword";
 
 const Login = () => {

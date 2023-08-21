@@ -1,10 +1,10 @@
 import { useContext, useEffect } from "react";
-import { CalendarContext } from "../context/CalendarContext";
-import { ServicesContext } from "../context/ServicesContext";
+import { CalendarContext } from "../utils/context/CalendarContext";
+import { ServicesContext } from "../utils/context/ServicesContext";
 import { CalendarEvents } from "nexious-library/@nxs-organism";
 import { useNavigate } from "react-router-dom";
 import { Calendar } from "nexious-library/@nxs-template";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../utils/context/AuthContext";
 
 const Booking = () => {
   const { events, selectedDay, meeting, setMeeting, setDay } =

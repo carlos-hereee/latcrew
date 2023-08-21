@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../utils/context/AuthContext";
 import { Form } from "nexious-library/@nxs-organism";
 
 const SignUp = () => {

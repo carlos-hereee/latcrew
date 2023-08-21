@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../utils/context/AppContext";
 import { HeroCardAlt, CardSection, Form } from "nexious-library/@nxs-organism";
 const Contact = () => {
   const { contact } = useContext(AppContext);
@@ -8,11 +8,7 @@ const Contact = () => {
   };
   return (
     <div className="container">
-      <HeroCardAlt
-        heading={contact.heading}
-        hero={contact.hero}
-        body={contact.body}
-      />
+      <HeroCardAlt heading={contact.heading} hero={contact.hero} body={contact.body} />
       <div className="contact-cards">
         {contact.contact.map((c) => (
           <CardSection
@@ -24,8 +20,8 @@ const Contact = () => {
         ))}
       </div>
       <p className="p-stretch">
-        For immediate assistance, use our convenient contact form below. We look
-        forward to hearing from you!
+        For immediate assistance, use our convenient contact form below. We look forward
+        to hearing from you!
       </p>
       <div className="w-100">
         <Form

@@ -1,9 +1,9 @@
 import { createContext, useReducer, useContext } from "react";
 import { LogContext } from "./LogContext";
 import { ServicesContext } from "./ServicesContext";
-import { axiosAuth } from "../utils/axios";
-import { reducer } from "./reducer/CalendarReducer";
-import { app } from "../data/config";
+import { axiosAuth } from "../axios";
+import { reducer } from "../reducer/CalendarReducer";
+import { app } from "../../data/config";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {

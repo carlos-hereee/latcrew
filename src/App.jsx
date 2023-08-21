@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
-import { AuthContext } from "./context/AuthContext";
-import { AppContext } from "./context/AppContext";
+import { AuthContext } from "./utils/context/AuthContext";
+import { AppContext } from "./utils/context/AppContext";
 import { Footer, Header } from "nexious-library/@nxs-template";
 import { Loading } from "nexious-library/@nxs-organism";
 import logo from "/icons/logo.svg";

@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../utils/context/AppContext";
 import Container from "../components/Container";
-import { ServicesContext } from "../context/ServicesContext";
+import { ServicesContext } from "../utils/context/ServicesContext";
 
 const Services = () => {
   const { services } = useContext(AppContext);

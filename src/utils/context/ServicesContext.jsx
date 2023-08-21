@@ -2,9 +2,9 @@ import { createContext, useReducer, useContext } from "react";
 import shortid from "shortid";
 import { LogContext } from "./LogContext";
 import { AuthContext } from "./AuthContext";
-import { reducer } from "./reducer/ServicesReducer";
-import services from "../data/pages/pages.services.json";
-import user from "../data/app/user.json";
+import { reducer } from "../reducer/ServicesReducer";
+import services from "../../data/pages/pages.services.json";
+import user from "../../data/app/user.json";
 
 export const ServicesContext = createContext();
 export const ServicesState = ({ children }) => {
