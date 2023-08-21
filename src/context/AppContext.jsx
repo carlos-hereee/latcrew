@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 import shortid from "shortid";
 // import { AuthContext } from "./AuthContext";
-// import { app } from "../data/config";
 import app from "../data/pages.landing.json";
 import services from "../data/pages.services.json";
 import testimonials from "../data/pages.testimonials.json";

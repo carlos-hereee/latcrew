@@ -1,5 +1,5 @@
 import shortid from "shortid";
-import { lorem20, lorem10, serviceSection } from "./variables";
+import { serviceSection } from "./variables";
 import { formatDate, formatTime } from "../utils/moment";
 
 export const app = {
@@ -356,32 +356,6 @@ export const app = {
     sections: [150, 200, 250].map((n) => serviceSection(n)),
   },
 
-  checkout: {
-    title: "Check out",
-    subtitle: "",
-    hasHero: false,
-    hasIcon: false,
-    hero: { link: "", name: "main-hero" },
-    booked: { title: "Bag Summary" },
-  },
-
-  contact: {
-    title: "Contact us",
-    subtitle: "",
-    hasHero: false,
-    hasIcon: false,
-    hero: { link: "", name: "main-hero" },
-  },
-  about: {
-    title: "Welcome to Lat Crew",
-    subtitle: "",
-    hasHero: false,
-    hasIcon: false,
-    hasSection: false,
-    description: lorem10,
-    hero: { link: "", name: "main-hero" },
-    details: [lorem20, lorem10],
-  },
   schedule: {
     title: "Bussiness Hours",
     subtitle: "",
