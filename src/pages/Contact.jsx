@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AppContext } from "../utils/context/AppContext";
+import { AppContext } from "../utils/context/app/AppContext";
 import { HeroCardAlt, CardSection, Form } from "nexious-library/@nxs-organism";
 const Contact = () => {
   const { contact } = useContext(AppContext);

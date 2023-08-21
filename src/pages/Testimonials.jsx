@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { AppContext } from "../utils/context/AppContext";
+import { AppContext } from "../utils/context/app/AppContext";
 import { TextBubble } from "nexious-library/@nxs-atoms";
 import { Rating } from "nexious-library/@nxs-molecules";
 import { UserCard, Form } from "nexious-library/@nxs-organism";

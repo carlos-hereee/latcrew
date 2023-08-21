@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { AppContext } from "../utils/context/AppContext";
+import { AppContext } from "../utils/context/app/AppContext";
 import { ServicesContext } from "../utils/context/ServicesContext";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 import { Cart, UserCard, PaymentMethods } from "nexious-library/@nxs-organism";
