@@ -3,21 +3,11 @@ import { createContext, useReducer, useEffect } from "react";
 import { axiosAuth } from "../utils/axios";
 import { reducer } from "./reducer/AuthReducer";
 import { isDev } from "../data/config";
-import user from "../data/user.json";
+import initialState from "../data/app/authState.json";
+
 export const AuthContext = createContext();
 
 export const AuthState = ({ children }) => {
-  const initialState = {
-    isLoading: false,
-    accessToken: "",
-    user: {},
-    dummyUser: user,
-    signInError: "",
-    userValues: { name: "", email: "", phone: "" },
-    signUpValues: { username: "", password: "", confirmPassword: "" },
-    loginValues: { username: "", password: "" },
-    isChangePassword: false,
-  };
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
     getAccessToken();

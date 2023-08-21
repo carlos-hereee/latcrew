@@ -1,0 +1,10 @@
+{
+  "isLoading": false,
+  "accessToken": "",
+  "user": {},
+  "signInError": "",
+  "userValues": { "name": "", "email": "", "phone": "" },
+  "signUpValues": { "username": "", "password": "", "confirmPassword": "" },
+  "loginValues": { "username": "", "password": "" },
+  "isChangePassword": false
+}
