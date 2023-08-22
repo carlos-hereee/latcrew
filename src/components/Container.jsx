@@ -3,7 +3,7 @@ import { Heading } from "nexious-library/@nxs-atoms";
 import { NavButton } from "nexious-library/@nxs-molecules";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { ServicesContext } from "../utils/context/ServicesContext";
+import { ServicesContext } from "../utils/context/services/ServicesContext";
 
 const Container = ({ filter, filtered, isFiltered, data }) => {
   const { setActive } = useContext(ServicesContext);

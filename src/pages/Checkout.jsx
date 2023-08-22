@@ -1,10 +1,10 @@
 import { useContext, useEffect } from "react";
 import { AppContext } from "../utils/context/app/AppContext";
-import { ServicesContext } from "../utils/context/ServicesContext";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 import { Cart, UserCard, PaymentMethods } from "nexious-library/@nxs-organism";
 import { useNavigate } from "react-router-dom";
 import { EmptySection, Total } from "nexious-library/@nxs-molecules";
+import { ServicesContext } from "../utils/context/services/ServicesContext";
 
 const Checkout = () => {
   const { checkout } = useContext(AppContext);
