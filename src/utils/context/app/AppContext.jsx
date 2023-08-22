@@ -1,5 +1,5 @@
 import { createContext, useReducer } from "react";
-import { reducer } from "../../reducer/LogReducer";
+import { reducer } from "../log/LogReducer";
 import { appState } from "../initialData";
 import { updateMenu } from "./helpers/updateMenu";
 import { newsletter } from "./helpers/newsletter";

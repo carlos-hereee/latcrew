@@ -1,25 +1,20 @@
 import { createContext, useReducer } from "react";
-import { reducer } from "../reducer/LogReducer";
+import { reducer } from "./LogReducer";
+import { addMessageToLog } from "./helpers/addMessageToLog";
+import { removeMessageFromLog } from "./helpers/removeMessageFromLog";
 export const LogContext = createContext();
 
 export const LogState = ({ children }) => {
   const initialState = { isLoading: false, log: [] };
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const addMessageToLog = (message) => {
-    dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: message });
-  };
-  const removeMessageFromLog = (message) => {
-    dispatch({ type: "REMOVE_MESSAGE_FROM_LOG", payload: message });
-  };
-
   return (
     <LogContext.Provider
       value={{
         log: state.log,
         isLoading: state.isLoading,
-        addMessageToLog,
-        removeMessageFromLog,
+        addMessageToLog: (a) => addMessageToLog(dispatch, a),
+        removeMessageFromLog: (a) => removeMessageFromLog(dispatch, a),
       }}>
       {children}
     </LogContext.Provider>

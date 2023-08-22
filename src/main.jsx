@@ -8,7 +8,7 @@ import "./index.css";
 import { ServicesState } from "./utils/context/services/ServicesContext";
 import { AppState } from "./utils/context/app/AppContext";
 import { AuthState } from "./utils/context/auth/AuthContext";
-import { LogState } from "./utils/context/LogContext";
+import { LogState } from "./utils/context/log/LogContext";
 import { CalendarState } from "./utils/context/calendar/CalendarContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

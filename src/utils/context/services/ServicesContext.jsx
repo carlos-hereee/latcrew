@@ -1,5 +1,5 @@
 import { createContext, useReducer } from "react";
-import { reducer } from "../../reducer/ServicesReducer";
+import { reducer } from "./ServicesReducer";
 import { servicesState } from "../initialData";
 import { bookEvent } from "./helpers/bookEvent";
 import { filter } from "./helpers/filter";
