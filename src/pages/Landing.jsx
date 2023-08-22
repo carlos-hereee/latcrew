@@ -4,6 +4,7 @@ import { HeroCard, FeatureCard } from "nexious-library/@nxs-organism";
 import { Socials } from "nexious-library/@nxs-molecules";
 const Landing = () => {
   const { app, socials } = useContext(AppContext);
+
   return (
     <div className="container">
       <div className="flex-d-column">

@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import { reducer } from "../log/LogReducer";
 import { appState } from "../initialData";
 import { updateMenu } from "./helpers/updateMenu";
@@ -10,17 +10,22 @@ import { resetSelect } from "./helpers/resetSelect";
 import { updateFilter } from "./helpers/updateFilter";
 import { updateAppliedFilter } from "./helpers/updateAppliedFilter";
 import { resetFilter } from "./helpers/resetFilter";
+import { AuthContext } from "../auth/AuthContext";
 
 export const AppContext = createContext();
 
 export const AppState = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, appState);
+  const { accessToken } = useContext(AuthContext);
 
-  // useEffect(() => {
-  //   if (accessToken) {
-  //     getAllAssets(accessToken);
-  //   }
-  // }, [accessToken]);
+  useEffect(() => {
+    if (accessToken) {
+      // update menu
+      // getAllAssets(accessToken);
+      console.log("state.menu", state.menu);
+      console.log("accessToken", accessToken);
+    }
+  }, [accessToken]);
 
   return (
     <AppContext.Provider

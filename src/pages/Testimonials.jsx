@@ -7,7 +7,7 @@ import { AuthContext } from "../utils/context/auth/AuthContext";
 
 const Testimonials = () => {
   const { testimonials } = useContext(AppContext);
-  const { user, dummyUser } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [inputRating, setInputRating] = useState(0);
   const handleSubmit = (e) => {
     // console.log("handleSubmit", e);
@@ -17,11 +17,7 @@ const Testimonials = () => {
       <h1 className="heading">{testimonials.title}</h1>
       <p className="p-stretch">{testimonials.body}</p>
       <div className="m-tb flex-g w-100">
-        {user.uid ? (
-          <UserCard user={user} hideLabels />
-        ) : (
-          <UserCard user={dummyUser} hideLabels />
-        )}
+        {user && <UserCard user={user} hideLabels />}
         <div className="w-100">
           <Rating star={inputRating} click={(e) => setInputRating(e)} />
           <Form
