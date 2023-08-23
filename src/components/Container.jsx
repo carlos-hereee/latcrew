@@ -1,6 +1,5 @@
-import { Card } from "nexious-library/@nxs-organism";
+import { Card, Navigation } from "nexious-library/@nxs-organism";
 import { Heading } from "nexious-library/@nxs-atoms";
-import { NavButton } from "nexious-library/@nxs-molecules";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { ServicesContext } from "../utils/context/services/ServicesContext";
@@ -18,14 +17,8 @@ const Container = ({ filter, filtered, isFiltered, data }) => {
   };
   return (
     <section className="container">
-      <Heading data={data.title} />
-      {data.isNav && (
-        <nav className="navbar">
-          {data.nav.map((g) => (
-            <NavButton data={g} click={handleClick} key={g.uid} />
-          ))}
-        </nav>
-      )}
+      <Heading data={data.title} click={handleClick} />
+      {data.isNav && <Navigation menu={data.nav} click={handleClick} />}
       {data.body && <p className="p-stretch">{data.body}</p>}
       <div className="card-container">
         {isFiltered

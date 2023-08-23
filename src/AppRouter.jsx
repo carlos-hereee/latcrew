@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { PageNotFound } from "nexious-library/@nxs-molecules";
 import Landing from "./pages/Landing";
 import Services from "./pages/Services";
 import Booking from "./pages/Booking";
@@ -33,6 +34,7 @@ const AppRouter = () => {
           </PrivateRoute>
         }
       />
+      <Route path="/*" element={<PageNotFound />} />
     </Routes>
   );
 };
