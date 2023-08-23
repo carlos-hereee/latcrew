@@ -11,6 +11,7 @@ import { updateFilter } from "./helpers/updateFilter";
 import { updateAppliedFilter } from "./helpers/updateAppliedFilter";
 import { resetFilter } from "./helpers/resetFilter";
 import { AuthContext } from "../auth/AuthContext";
+import { findAlternatives } from "../../helpers/findAlternatives";
 
 export const AppContext = createContext();
 
@@ -20,10 +21,8 @@ export const AppState = ({ children }) => {
 
   useEffect(() => {
     if (accessToken) {
-      // update menu
-      // getAllAssets(accessToken);
-      console.log("state.menu", state.menu);
-      console.log("accessToken", accessToken);
+      const menu = findAlternatives(state.menu);
+      dispatch({ type: "UPDATE_MENU", payload: menu });
     }
   }, [accessToken]);
 
