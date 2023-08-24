@@ -12,6 +12,7 @@ import { updateAppliedFilter } from "./helpers/updateAppliedFilter";
 import { resetFilter } from "./helpers/resetFilter";
 import { AuthContext } from "../auth/AuthContext";
 import { findAlternatives } from "../../helpers/findAlternatives";
+import { updateLanguage } from "./helpers/updateLanguage";
 
 export const AppContext = createContext();
 
@@ -52,8 +53,10 @@ export const AppState = ({ children }) => {
         appliedFilters: state.appliedFilters,
         isFiltered: state.isFiltered,
         filterToggle: state.filterToggle,
+        language: state.language,
         updateBurger: (a) => updateBurger(dispatch, a),
-        updateMenu: (a, b) => updateMenu(dispatch, a, b),
+        updateMenu: (a) => updateMenu(dispatch, a),
+        updateLanguage: (a) => updateLanguage(dispatch, a),
         newsletter: (a) => newsletter(dispatch, a),
         selectPaymentType: (a) => selectPaymentType(dispatch, a),
         readyCheckout: (a, b, c) => readyCheckout(dispatch, a, b, c),
