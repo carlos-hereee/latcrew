@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { reducer } from "../log/LogReducer";
+import { reducer } from "./AppReducer";
 import { appState } from "../initialData";
 import { updateMenu } from "./helpers/updateMenu";
 import { newsletter } from "./helpers/newsletter";
