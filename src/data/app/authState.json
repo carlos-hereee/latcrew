@@ -2,11 +2,23 @@
   "isLoading": false,
   "accessToken": "",
   "user": {},
-  "dummyUser": {},
+  "dummyUser": {
+    "username": "qwerty",
+    "email": "",
+    "phone": "",
+    "userId": "qwerty-123"
+  },
   "signInError": "",
   "userValues": { "name": "", "email": "", "phone": "" },
   "signUpValues": { "username": "", "password": "", "confirmPassword": "" },
   "loginValues": { "username": "", "password": "" },
   "isChangePassword": false,
-  "language": {}
+  "language": {
+    "default": "lan-english",
+    "name": "english",
+    "label": "english",
+    "locale": "en",
+    "icon": "flag",
+    "uid": "lan-english"
+  }
 }

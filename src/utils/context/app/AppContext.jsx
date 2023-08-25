@@ -13,7 +13,7 @@ import { AuthContext } from "../auth/AuthContext";
 import { findAlternatives } from "../../helpers/findAlternatives";
 import { updateAppAssets } from "./helpers/updateAppAssets";
 import { englishState } from "../../../data/english/englishState";
-import defaultState from "../../../data/defaultState.json";
+import defaultState from "../../../data/app/defaultState.json";
 import { spanishState } from "../../../data/spanish/spanishState";
 
 export const AppContext = createContext();

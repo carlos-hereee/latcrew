@@ -13,13 +13,13 @@
       {
         "name": "english",
         "label": "english",
-        "language": "en",
+        "locale": "en",
         "icon": "flag",
         "uid": "lan-english"
       },
       {
         "name": "espanol",
-        "language": "es",
+        "locale": "es",
         "label": "espanol",
         "icon": "flag",
         "uid": "lan-espanol"
@@ -67,7 +67,12 @@
     "ping": 0
   },
   {
-    "active": { "name": "login", "label": "login", "icon": "login", "uid": "auth-login" },
+    "active": {
+      "name": "login",
+      "label": "login",
+      "icon": "login",
+      "uid": "auth-login"
+    },
     "isPrivate": true,
     "uid": "auth-1",
     "alternatives": [

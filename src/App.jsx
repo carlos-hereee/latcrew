@@ -3,7 +3,6 @@ import { AuthContext } from "./utils/context/auth/AuthContext";
 import { AppContext } from "./utils/context/app/AppContext";
 import { Footer, Header } from "nexious-library/@nxs-template";
 import { Loading } from "nexious-library/@nxs-organism";
-import logo from "/icons/logo.svg";
 
 function App({ children }) {
   const { isLoading, language, updateLanguage } = useContext(AuthContext);
@@ -24,17 +23,10 @@ function App({ children }) {
   if (isLoading) {
     return <Loading />;
   }
+  console.log("app", app);
   return (
     <div className="container p-sm">
-      <Header
-        menu={menu}
-        logo={{
-          url: logo,
-          name: app && app.appName ? app.appName : "sparkle shine",
-          alt: "industry-brand",
-        }}
-        updateMenu={handleUpdateMenu}
-      />
+      <Header menu={menu} logo={app.hero} updateMenu={handleUpdateMenu} />
       {children}
       <Footer appName={app && app.appName ? app.appName : "sparkle shine"} />
     </div>
