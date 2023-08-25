@@ -1,4 +1,4 @@
-import { cloneElement, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "./utils/context/auth/AuthContext";
 import { AppContext } from "./utils/context/app/AppContext";
 import { Footer, Header } from "nexious-library/@nxs-template";
@@ -14,12 +14,6 @@ function App({ children }) {
       document.title = app.appName;
     }
   }, [app.appName]);
-
-  useEffect(() => {
-    if (language) {
-      console.log("language", language);
-    }
-  }, [language]);
 
   const handleUpdateMenu = (e) => {
     if (!language || language.uid !== e[0].active.uid) {

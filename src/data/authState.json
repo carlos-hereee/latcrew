@@ -2,9 +2,11 @@
   "isLoading": false,
   "accessToken": "",
   "user": {},
+  "dummyUser": {},
   "signInError": "",
   "userValues": { "name": "", "email": "", "phone": "" },
   "signUpValues": { "username": "", "password": "", "confirmPassword": "" },
   "loginValues": { "username": "", "password": "" },
-  "isChangePassword": false
+  "isChangePassword": false,
+  "language": {}
 }

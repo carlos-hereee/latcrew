@@ -17,7 +17,13 @@ export const AppContext = createContext();
 
 export const AppState = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, appState);
-  const { accessToken } = useContext(AuthContext);
+  const { accessToken, language, updateLanguage } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (language.uid) {
+      console.log("language", language);
+    }
+  }, [language]);
 
   useEffect(() => {
     if (accessToken) {

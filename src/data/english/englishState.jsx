@@ -1,5 +1,3 @@
-// auth context data
-import authState from "./state/authState.json";
 // app context data
 import app from "./pages/pages.landing.json";
 import services from "./pages/pages.services.json";
@@ -30,4 +28,4 @@ const appState = {
   socials,
 };
 
-export { authState, appState, calendarState, servicesState };
+export { appState, calendarState, servicesState };

@@ -1,5 +1,5 @@
 {
-  "appName": "Lat Crew",
+  "appName": "Sparkle and Shine",
   "hero": {
     "url": "unsplash/naomi-hebert-MP0bgaS_d1c-unsplash.jpg",
     "small": "small/unsplash/naomi-hebert-MP0bgaS_d1c-unsplash.jpg",
@@ -11,10 +11,10 @@
       "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
     }
   },
-  "heading": "Lat crew: Professional House Cleaning Services",
-  "tagline": "Transforming your home into a clean haven",
-  "cta": "Book Now",
-  "body": "Welcome to Sparkle and Shine, your go-to solution for top-quality house cleaning services. We believe that a clean home is a happy home, and our dedicated team is here  help you achieve just that. With our exceptional cleaning experstise and attention to detail, we are committed to providing a prestine living evironment that you can truly relax in",
+  "heading": "Sparkle and Shine: servicios profesionales de limpieza del hogar",
+  "tagline": "Transformando tu hogar en un refugio limpio",
+  "cta": "Reservar ahora",
+  "body": "Bienvenido a Sparkle and Shine, su solución ideal para servicios de limpieza del hogar de alta calidad. Creemos que un hogar limpio es un hogar feliz y nuestro dedicado equipo está aquí para ayudarlo a lograr precisamente eso. Con nuestra excepcional experiencia en limpieza y atención al detalle, estamos comprometidos a brindar un ambiente de vida impecable en el que usted realmente pueda relajarse.",
   "features": [
     {
       "uid": "feature-1",
@@ -24,8 +24,8 @@
         "name": "icon-hero",
         "alt": "trusted-brand"
       },
-      "heading": "Trusted Professionals",
-      "body": "Our cleaning staff consists of experienced and trained professionals who are dedicated to providing exceptional service and attention to detail."
+      "heading": "Profesionales de confianza",
+      "body": "Nuestro personal de limpieza está formado por profesionales experimentados y capacitados que se dedican a brindar un servicio excepcional y atención al detalle."
     },
     {
       "uid": "feature-2",
@@ -35,8 +35,8 @@
         "name": "icon-hero",
         "alt": "eco-friendly"
       },
-      "heading": "Eco-Friendly Approach",
-      "body": "We use environmentally friendly cleaning products that are effective in removing dirt and grime without compromising the health of your family or the planet."
+      "heading": "Enfoque ecológico",
+      "body": "Utilizamos productos de limpieza respetuosos con el medio ambiente que son eficaces para eliminar la suciedad y la mugre sin comprometer la salud de tu familia ni la del planeta."
     },
     {
       "uid": "feature-3",
@@ -47,7 +47,7 @@
         "name": "icon-hero"
       },
       "heading": "Customizable Cleaning Plans",
-      "body": "We understand that every home is unique. That's why we offer customizable cleaning plans that allow you to tailor our services to meet your specific requirements."
+      "body": "Entendemos que cada hogar es único. Es por eso que ofrecemos planes de limpieza personalizables que le permiten adaptar nuestros servicios para satisfacer sus requisitos específicos."
     }
   ]
 }
