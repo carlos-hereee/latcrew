@@ -1,5 +1,5 @@
 // app context data
-import app from "./pages/pages.landing.json";
+import landing from "./pages/pages.landing.json";
 import services from "./pages/pages.services.json";
 import testimonials from "./pages/pages.testimonials.json";
 import about from "./pages/pages.about.json";
@@ -22,7 +22,7 @@ const englishState = {
   contact,
   services,
   testimonials,
-  app,
+  landing,
   socials,
 };
 

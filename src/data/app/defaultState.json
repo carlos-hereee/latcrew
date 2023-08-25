@@ -460,7 +460,16 @@
     ]
   },
   "app": {
-    "name": "Sparkle and Shine", "logo":{}
+    "name": "Sparkle and Shine",
+    "theme": "default",
+    "language": "default",
+    "logo": {
+      "url": "icons/logo.svg",
+      "small": "small/icons/logo.jpg",
+      "name": "logo",
+      "alt": "industry brand",
+      "label": "Sparkle and Shine"
+    }
   },
   "socials": [
     {

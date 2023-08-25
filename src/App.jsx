@@ -23,10 +23,9 @@ function App({ children }) {
   if (isLoading) {
     return <Loading />;
   }
-  console.log("app", app);
   return (
     <div className="container p-sm">
-      <Header menu={menu} logo={app.hero} updateMenu={handleUpdateMenu} />
+      <Header menu={menu} logo={app.logo} updateMenu={handleUpdateMenu} />
       {children}
       <Footer appName={app && app.appName ? app.appName : "sparkle shine"} />
     </div>
