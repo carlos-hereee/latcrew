@@ -2,7 +2,7 @@
   "default": "lan-english",
   "name": "english",
   "label": "english",
-  "language": "en",
+  "locale": "en",
   "icon": "flag",
   "uid": "lan-english"
 }

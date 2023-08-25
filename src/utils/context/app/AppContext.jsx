@@ -14,6 +14,7 @@ import { findAlternatives } from "../../helpers/findAlternatives";
 import { updateAppAssets } from "./helpers/updateAppAssets";
 import { englishState } from "../../../data/english/englishState";
 import defaultState from "../../../data/defaultState.json";
+import { spanishState } from "../../../data/spanish/spanishState";
 
 export const AppContext = createContext();
 
@@ -23,8 +24,8 @@ export const AppState = ({ children }) => {
 
   useEffect(() => {
     if (language.uid) {
-      console.log("language", language);
-      // updateAppAssets(dispatch, language.uid === );
+      const payload = language.locale === "es" ? spanishState : englishState;
+      updateAppAssets(dispatch, payload);
     }
   }, [language]);
 

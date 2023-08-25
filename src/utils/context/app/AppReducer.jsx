@@ -24,8 +24,9 @@ export const reducer = (state, action) => {
       return { ...state, isLoading: false, menu: action.payload };
     case "UPDATE_BURGER":
       return { ...state, isLoading: false, burger: action.payload };
-    case "LOAD_CONTENT":
+    case "UPDATE_APP_ASSETS":
       return { ...state, isLoading: false, ...action.payload };
+    // return updateAppAssets(state, action);
     case "LOAD_FILTERS":
       return loadFilters(state, action);
     case "SELECT_PAYMENT_TYPE":

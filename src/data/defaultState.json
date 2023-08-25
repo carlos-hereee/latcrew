@@ -24,13 +24,13 @@
         {
           "name": "english",
           "label": "english",
-          "language": "en",
+          "locale": "en",
           "icon": "flag",
           "uid": "lan-english"
         },
         {
           "name": "espanol",
-          "language": "es",
+          "locale": "es",
           "label": "espanol",
           "icon": "flag",
           "uid": "lan-espanol"
