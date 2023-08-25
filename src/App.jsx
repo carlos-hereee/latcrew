@@ -10,10 +10,10 @@ function App({ children }) {
   const { app, menu, updateMenu } = useContext(AppContext);
 
   useEffect(() => {
-    if (app.appName) {
+    if (app && app.appName) {
       document.title = app.appName;
     }
-  }, [app.appName]);
+  }, [app]);
 
   const handleUpdateMenu = (e) => {
     if (!language || language.uid !== e[0].active.uid) {
@@ -28,11 +28,15 @@ function App({ children }) {
     <div className="container p-sm">
       <Header
         menu={menu}
-        logo={{ url: logo, name: app.appName, alt: "industry-brand" }}
+        logo={{
+          url: logo,
+          name: app && app.appName ? app.appName : "sparkle shine",
+          alt: "industry-brand",
+        }}
         updateMenu={handleUpdateMenu}
       />
       {children}
-      <Footer appName={app.name} />
+      <Footer appName={app && app.appName ? app.appName : "sparkle shine"} />
     </div>
   );
 }

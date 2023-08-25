@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { reducer } from "./AppReducer";
-import { appState } from "../../../data/spanish/spanishState";
 import { updateMenu } from "./helpers/updateMenu";
 import { newsletter } from "./helpers/newsletter";
 import { selectPaymentType } from "./helpers/selectPaymentType";
@@ -12,16 +11,20 @@ import { updateAppliedFilter } from "./helpers/updateAppliedFilter";
 import { resetFilter } from "./helpers/resetFilter";
 import { AuthContext } from "../auth/AuthContext";
 import { findAlternatives } from "../../helpers/findAlternatives";
+import { updateAppAssets } from "./helpers/updateAppAssets";
+import { englishState } from "../../../data/english/englishState";
+import defaultState from "../../../data/defaultState.json";
 
 export const AppContext = createContext();
 
 export const AppState = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, appState);
+  const [state, dispatch] = useReducer(reducer, defaultState);
   const { accessToken, language, updateLanguage } = useContext(AuthContext);
 
   useEffect(() => {
     if (language.uid) {
       console.log("language", language);
+      // updateAppAssets(dispatch, language.uid === );
     }
   }, [language]);
 
