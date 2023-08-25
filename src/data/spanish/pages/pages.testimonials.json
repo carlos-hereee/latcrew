@@ -1,10 +1,10 @@
 {
-  "title": "Testimonials",
-  "body": "Don't just take our word for it! Hear what our satisfied customers have to say about our services:",
+  "title": "Testimonios",
+  "body": "¡No confíe sólo en nuestra palabra! Escuche lo que nuestros clientes satisfechos tienen que decir sobre nuestros servicios:",
   "reviews": [
     {
       "uid": "review-1",
-      "title": "Blown Away",
+      "title": "impresionado",
       "rating": 5,
       "user": {
         "name": "John Doe",
@@ -20,11 +20,11 @@
           }
         }
       },
-      "body": "I am blown away by the level of detail and professionalism demonstrated by Sparkle & Shine. My home has never looked better!"
+      "body": "Estoy impresionado por el nivel de detalle y profesionalismo demostrado por Sparkle & Shine. ¡Mi casa nunca ha tenido mejor aspecto!"
     },
     {
       "uid": "review-2",
-      "title": "Transfomative",
+      "title": "Transformador",
       "rating": 5,
       "user": {
         "name": "Jessica G.",
@@ -40,11 +40,11 @@
           }
         }
       },
-      "body": "The team at Sparkle & Shine transformed my messy post-construction site into a spotless and habitable home. I highly recommend their services."
+      "body": "El equipo de Sparkle & Shine transformó mi desordenado sitio posterior a la construcción en una casa impecable y habitable. Recomiendo ampliamente sus servicios."
     },
     {
       "uid": "review-3",
-      "title": "Eco friendly",
+      "title": "Respetuoso del medio ambiente",
       "rating": 5,
       "user": {
         "name": "Samantha J.",
@@ -60,7 +60,7 @@
           }
         }
       },
-      "body": "I appreciate the eco-friendly approach of Sparkle & Shine. They not only provide excellent cleaning but also take care of our planet. Well done!"
+      "body": "Aprecio el enfoque ecológico de Sparkle & Shine. No sólo proporcionan una limpieza excelente sino que también cuidan nuestro planeta. ¡Bien hecho!"
     }
   ]
 }

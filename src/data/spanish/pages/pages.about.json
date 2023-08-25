@@ -10,9 +10,9 @@
       "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
     }
   },
-  "heading": "Committed to professionalism, reliability, and creating a clean and healthy environment for our clients.",
-  "cta": "Book Now!",
-  "body": "At Sparkle & Shine, we take pride in being a trusted provider of top-notch house cleaning services. With years of experience in the industry, our team is dedicated to delivering exceptional results and exceeding customer expectations.",
+  "heading": "Comprometidos con el profesionalismo, la confiabilidad y la creación de un ambiente limpio y saludable para nuestros clientes.",
+  "cta": "Reservar ahora!",
+  "body": "En Sparkle & Shine, estamos orgullosos de ser un proveedor confiable de servicios de limpieza del hogar de primer nivel. Con años de experiencia en la industria, nuestro equipo está dedicado a brindar resultados excepcionales y superar las expectativas del cliente.",
   "team": [
     {
       "uid": "review-1",
@@ -31,7 +31,7 @@
           }
         }
       },
-      "body": "The epitome of Zen in a world of chaos. With a knack for finding inner peace in the most unexpected places, leaving a trail of tranquility in my wake. "
+      "body": "El epítome del Zen en un mundo de caos. Con habilidad para encontrar la paz interior en los lugares más inesperados, dejando un rastro de tranquilidad a mi paso."
     },
     {
       "uid": "review-2",
@@ -50,7 +50,7 @@
           }
         }
       },
-      "body": "With an effortless swagger and a perpetual smirk. A master of good vibes and great company, the ultimate guru of living life my own pace."
+      "body": "Con una arrogancia sin esfuerzo y una sonrisa perpetua. Un maestro del buen rollo y la buena compañía, el gurú definitivo de vivir la vida a mi propio ritmo."
     },
     {
       "uid": "review-3",
@@ -69,7 +69,7 @@
           }
         }
       },
-      "body": "Daydreamer with a heart full of wanderlust. With a perpetually tousled mane and a smile that radiates warmth, she effortlessly floats through life's adventures."
+      "body": "Soñador despierto con un corazón lleno de pasión por los viajes. Con una melena perpetuamente despeinada y una sonrisa que irradia calidez, flota sin esfuerzo por las aventuras de la vida."
     }
   ]
 }

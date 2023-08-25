@@ -2,7 +2,7 @@
   {
     "active": {
       "name": "english",
-      "label": "english",
+      "label": "English",
       "icon": "flag",
       "uid": "lan-english"
     },
@@ -12,7 +12,7 @@
     "alternatives": [
       {
         "name": "english",
-        "label": "english",
+        "label": "English",
         "locale": "en",
         "icon": "flag",
         "uid": "lan-english"
@@ -20,7 +20,7 @@
       {
         "name": "espanol",
         "locale": "es",
-        "label": "espanol",
+        "label": "Espanol",
         "icon": "flag",
         "uid": "lan-espanol"
       }
@@ -28,7 +28,7 @@
   },
   {
     "name": "services",
-    "label": "services",
+    "label": "Servicios",
     "active": "services",
     "icon": "services",
     "uid": "services",
@@ -36,7 +36,7 @@
   },
   {
     "name": "testimonials",
-    "label": "testimonials",
+    "label": "testimonios",
     "active": "testimonials",
     "icon": "testimonials",
     "uid": "testimonial",
@@ -44,7 +44,7 @@
   },
   {
     "name": "about",
-    "label": "about",
+    "label": "Acerca de",
     "active": "about",
     "icon": "about",
     "uid": "about",
@@ -52,7 +52,7 @@
   },
   {
     "name": "contact",
-    "label": "contact",
+    "label": "Contacto",
     "active": "contact",
     "icon": "contact",
     "uid": "contact",
@@ -60,7 +60,7 @@
   },
   {
     "name": "FAQ",
-    "label": "FAQ",
+    "label": "Preguntas más frecuentes",
     "active": "FAQ",
     "icon": "FAQ",
     "uid": "faq",
@@ -69,15 +69,15 @@
   {
     "active": {
       "name": "login",
-      "label": "login",
+      "label": "Acceso",
       "icon": "login",
       "uid": "auth-login"
     },
     "isPrivate": true,
     "uid": "auth-1",
     "alternatives": [
-      { "name": "login", "label": "login", "icon": "login", "uid": "auth-login" },
-      { "name": "dashboard", "label": "dashboard", "icon": "user", "uid": "auth-dash" }
+      { "name": "login", "label": "Acceso", "icon": "login", "uid": "auth-login" },
+      { "name": "dashboard", "label": "Panel", "icon": "user", "uid": "auth-dash" }
     ]
   }
 ]

@@ -1,8 +1,8 @@
 {
   "default": "lan-english",
-  "name": "english",
-  "label": "english",
+  "name": "ingles",
+  "label": "English",
   "locale": "en",
-  "icon": "flag",
+  "icon": "flag-usa",
   "uid": "lan-english"
 }

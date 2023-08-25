@@ -1,16 +1,16 @@
 {
-  "title": "Bussiness Hours",
+  "title": "Horas de trabajo",
   "subtitle": "",
   "hasHero": false,
   "hasIcon": false,
-  "hero": { "link": "", "name": "main-hero" },
+  "hero": { "url": "", "alt": "", "name": "" },
   "hours": [
-    { "day": "Monday", "hours": "9:00am - 7:00pm", "key": "shortid.generate()1" },
-    { "day": "Tuesday", "hours": "9:00am - 7:00pm", "key": "shortid.generate()2" },
-    { "day": "Wednesday", "hours": "9:00am - 7:00pm", "key": "shortid.generate()3" },
-    { "day": "Thursday", "hours": "9:00am - 7:00pm", "key": "shortid.generate()4" },
-    { "day": "Friday", "hours": "9:00am - 7:00pm", "key": "shortid.generate()5" },
-    { "day": "Saturday", "hours": "9:00am - 7:00pm", "key": "shortid.generate()6" },
-    { "day": "Sunday", "hours": "Closed", "key": "shortid.generate()7" }
+    { "day": "Lunes", "hours": "9:00am - 7:00pm", "key": "shortid.generate()1" },
+    { "day": "Martes", "hours": "9:00am - 7:00pm", "key": "shortid.generate()2" },
+    { "day": "Miercoles", "hours": "9:00am - 7:00pm", "key": "shortid.generate()3" },
+    { "day": "Jueve", "hours": "9:00am - 7:00pm", "key": "shortid.generate()4" },
+    { "day": "Vierve", "hours": "9:00am - 7:00pm", "key": "shortid.generate()5" },
+    { "day": "Sabado", "hours": "9:00am - 7:00pm", "key": "shortid.generate()6" },
+    { "day": "Domingo", "hours": "Cerrado", "key": "shortid.generate()7" }
   ]
 }

@@ -10,12 +10,12 @@
       "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
     }
   },
-  "heading": "Frequently asked questions",
-  "body": "Got questions? We have answers. Here are some frequently asked questions about our cleaning services:",
+  "heading": "Preguntas frecuentes",
+  "body": "¿Tienes preguntas? Tenemos respuestas. Aquí tienes algunas preguntas frecuentes sobre nuestros servicios de limpieza:",
   "faq": [
     {
       "uid": "review-1",
-      "name": "How often should I schedule a regular cleaning?",
+      "title": "¿Con qué frecuencia debo programar una limpieza regular?",
       "hero": {
         "url": "icons/phone.svg",
         "small": "small/icons/phone.jpg",
@@ -26,7 +26,7 @@
     },
     {
       "uid": "review-2",
-      "name": "Are you cleaning products safe for children and pets?",
+      "title": "¿Son sus productos de limpieza seguros para niños y mascotas?",
       "hero": {
         "url": "icons/gps.svg",
         "small": "small/icons/gps.jpg",
@@ -37,7 +37,7 @@
     },
     {
       "uid": "review-3",
-      "name": "Can I request additional services not included in the packages?",
+      "title": "¿Puedo solicitar servicios adicionales no incluidos en los paquetes?",
       "hero": {
         "url": "icons/mail.svg",
         "small": "small/icons/mail.jpg",
@@ -48,7 +48,7 @@
     },
     {
       "uid": "review-4",
-      "name": "Do you provide cleaning equipment and supplies?",
+      "title": "¿Proporcionan equipos y suministros de limpieza?",
       "hero": {
         "url": "icons/mail.svg",
         "small": "small/icons/mail.jpg",
@@ -59,11 +59,10 @@
     },
     {
       "uid": "review-5",
-      "name": "What is your cancellation policy?",
+      "title": "¿Cuál es su política de cancelación?",
       "hero": {
         "url": "icons/mail.svg",
         "small": "small/icons/mail.jpg",
-
         "name": "contact-hero",
         "alt": "contact-hero"
       },
@@ -71,7 +70,7 @@
     },
     {
       "uid": "review-6",
-      "name": "Want to talk to a human?",
+      "title": "¿Quieres hablar con un humano?",
       "hero": {
         "url": "icons/mail.svg",
         "small": "small/icons/mail.jpg",

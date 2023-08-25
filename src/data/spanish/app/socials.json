@@ -2,18 +2,21 @@
   {
     "isEmpty": true,
     "name": "instagram",
+    "label": "",
     "link": "https://www.instagram.com//",
     "uid": "instagram-1"
   },
   {
     "isEmpty": true,
     "name": "twitter",
+    "label": "",
     "link": "https://www.twitter.com//",
     "uid": "twitter-1"
   },
   {
     "isEmpty": true,
     "name": "facebook",
+    "label": "",
     "link": "https://www.twitter.com//",
     "uid": "facebook-1"
   }

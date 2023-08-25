@@ -1,9 +1,9 @@
 {
-  "title": "Join the newsletter",
-  "subtitle": "Suscribe to get the latest content by email",
-  "response": "Unsubscribe at any time.",
+  "title": "Únase al boletín",
+  "subtitle": "Suscríbete para recibir el contenido más reciente por correo electrónico",
+  "response": "Darse de baja en cualquier momento.",
   "hasHero": false,
   "hasIcon": false,
   "hasLink": false,
-  "hero": { "link": "", "name": "main-hero" }
+  "hero": { "url": "", "alt": "", "name": "" }
 }

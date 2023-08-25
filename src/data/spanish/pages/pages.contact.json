@@ -10,16 +10,18 @@
       "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
     }
   },
-  "heading": "We’d love to hear from you",
-  "body": "Ready to experience the joy of a clean and pristine home? Contact Sparkle & Shine today to schedule your appointment or request a free quote. Our dedicated team is ready to assist you and answer any questions you may have. You can reach us by:",
+  "heading": "Nos encantaría saber de usted",
+  "body": "¿Listo para experimentar la alegría de un hogar limpio y prístino? Comuníquese con Sparkle & Shine hoy para programar su cita o solicitar una cotización gratuita. Nuestro equipo dedicado está listo para ayudarlo y responder cualquier pregunta que pueda tener. Puede comunicarse con nosotros por:",
   "contact": [
     {
       "uid": "review-1",
       "name": "phone",
+      "label": "Telefono",
       "hero": {
         "url": "icons/phone.svg",
         "small": "small/icons/phone.jpg",
         "name": "contact-hero",
+        "label": "",
         "alt": "contact-hero"
       },
       "body": "+1 (123) 456 - 7890"
@@ -27,10 +29,12 @@
     {
       "uid": "review-2",
       "name": "Address",
+      "label": "Direccion",
       "hero": {
         "url": "icons/gps.svg",
         "small": "small/icons/gps.jpg",
         "name": "contact-hero",
+        "label": "",
         "alt": "contact-hero"
       },
       "body": "Greater Houston Houston, TX 12345"
@@ -38,10 +42,12 @@
     {
       "uid": "review-3",
       "name": "email",
+      "label": "Correo electrónico",
       "hero": {
         "url": "icons/mail.svg",
         "small": "small/icons/mail.jpg",
         "name": "contact-hero",
+        "label": "",
         "alt": "contact-hero"
       },
       "body": "example@email.com"

@@ -20,7 +20,7 @@ export const AppContext = createContext();
 
 export const AppState = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, defaultState);
-  const { accessToken, language, updateLanguage } = useContext(AuthContext);
+  const { accessToken, language } = useContext(AuthContext);
 
   useEffect(() => {
     if (language.uid) {
@@ -35,12 +35,12 @@ export const AppState = ({ children }) => {
       dispatch({ type: "UPDATE_MENU", payload: menu });
     }
   }, [accessToken]);
-  // TODO: switch languages
 
   return (
     <AppContext.Provider
       value={{
         isLoading: state.isLoading,
+        app: state.app,
         socials: state.socials,
         about: state.about,
         services: state.services,
@@ -52,7 +52,7 @@ export const AppState = ({ children }) => {
         checkout: state.checkout,
         contact: state.contact,
         footerNewsletter: state.footerNewsletter,
-        app: state.app,
+        landing: state.landing,
         testimonials: state.testimonials,
         paymentMethods: state.paymentMethods,
         selected: state.selected,
