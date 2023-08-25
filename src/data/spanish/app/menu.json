@@ -36,7 +36,7 @@
   },
   {
     "name": "testimonials",
-    "label": "testimonios",
+    "label": "Testimonios",
     "active": "testimonials",
     "icon": "testimonials",
     "uid": "testimonial",

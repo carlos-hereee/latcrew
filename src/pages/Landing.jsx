@@ -3,8 +3,7 @@ import { AppContext } from "../utils/context/app/AppContext";
 import { HeroCard, FeatureCard } from "nexious-library/@nxs-organism";
 import { Socials } from "nexious-library/@nxs-molecules";
 const Landing = () => {
-  const { landing, socials } = useContext(AppContext);
-  console.log("landing", landing);
+  const { landing, media } = useContext(AppContext);
 
   return (
     <div className="container">
@@ -19,7 +18,7 @@ const Landing = () => {
         )}
         {landing && <p className="p-stretch">{landing.body}</p>}
       </div>
-      <Socials data={socials} heading="Dont miss a thing! Follow us on our socials" />
+      <Socials socials={media.socials} heading={media.title} />
       <div className="feature-card-container m-tb">
         {landing &&
           landing.features &&

@@ -471,26 +471,29 @@
       "label": "Sparkle and Shine"
     }
   },
-  "socials": [
-    {
-      "isEmpty": true,
-      "name": "instagram",
-      "link": "https://www.instagram.com//",
-      "uid": "instagram-1"
-    },
-    {
-      "isEmpty": true,
-      "name": "twitter",
-      "link": "https://www.twitter.com//",
-      "uid": "twitter-1"
-    },
-    {
-      "isEmpty": true,
-      "name": "facebook",
-      "link": "https://www.twitter.com//",
-      "uid": "facebook-1"
-    }
-  ],
+  "media": {
+    "title": "Dont miss a thing! Follow us on our socials",
+    "socials": [
+      {
+        "isEmpty": true,
+        "name": "instagram",
+        "link": "https://www.instagram.com//",
+        "uid": "instagram-1"
+      },
+      {
+        "isEmpty": true,
+        "name": "twitter",
+        "link": "https://www.twitter.com//",
+        "uid": "twitter-1"
+      },
+      {
+        "isEmpty": true,
+        "name": "facebook",
+        "link": "https://www.twitter.com//",
+        "uid": "facebook-1"
+      }
+    ]
+  },
   "menu": [
     {
       "active": {

@@ -7,7 +7,8 @@ import contact from "./pages/pages.contact.json";
 import faq from "./pages/pages.faq.json";
 import checkout from "./pages/pages.checkout.json";
 import newsletter from "./app//newsletter.json";
-import socials from "./app/socials.json";
+import menu from "./app/menu.json";
+import media from "./app/socials.json";
 // calendar data
 import calendarState from "./state/calendarState.json";
 // services data
@@ -23,7 +24,8 @@ const englishState = {
   services,
   testimonials,
   landing,
-  socials,
+  menu,
+  media,
 };
 
 export { englishState, calendarState, servicesState };

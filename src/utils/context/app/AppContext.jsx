@@ -41,7 +41,7 @@ export const AppState = ({ children }) => {
       value={{
         isLoading: state.isLoading,
         app: state.app,
-        socials: state.socials,
+        media: state.media,
         about: state.about,
         services: state.services,
         menu: state.menu,
