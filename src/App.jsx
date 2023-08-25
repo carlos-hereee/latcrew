@@ -25,7 +25,12 @@ function App({ children }) {
   }
   return (
     <div className="container p-sm">
-      <Header menu={menu} logo={app.logo} updateMenu={handleUpdateMenu} />
+      <Header
+        menu={menu}
+        logo={app.logo}
+        updateMenu={handleUpdateMenu}
+        language={language}
+      />
       {children}
       <Footer appName={app && app.appName ? app.appName : "sparkle shine"} />
     </div>

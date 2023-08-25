@@ -496,12 +496,6 @@
   },
   "menu": [
     {
-      "active": {
-        "name": "english",
-        "label": "english",
-        "icon": "flag",
-        "uid": "lan-english"
-      },
       "isToggle": true,
       "lang": "en",
       "uid": "menu-item-lan",
@@ -510,14 +504,14 @@
           "name": "english",
           "label": "english",
           "locale": "en",
-          "icon": "flag",
+          "url": "icons/english.svg",
           "uid": "lan-english"
         },
         {
           "name": "espanol",
           "locale": "es",
           "label": "espanol",
-          "icon": "flag",
+          "url": "icons/spanish.svg",
           "uid": "lan-espanol"
         }
       ]
@@ -525,7 +519,7 @@
     {
       "name": "services",
       "label": "services",
-      "active": "services",
+      "link": "services",
       "icon": "services",
       "uid": "services",
       "ping": 0
@@ -533,7 +527,7 @@
     {
       "name": "testimonials",
       "label": "testimonials",
-      "active": "testimonials",
+      "link": "testimonials",
       "icon": "testimonials",
       "uid": "testimonial",
       "ping": 0
@@ -541,7 +535,7 @@
     {
       "name": "about",
       "label": "about",
-      "active": "about",
+      "link": "about",
       "icon": "about",
       "uid": "about",
       "ping": 0
@@ -549,7 +543,7 @@
     {
       "name": "contact",
       "label": "contact",
-      "active": "contact",
+      "link": "contact",
       "icon": "contact",
       "uid": "contact",
       "ping": 0
@@ -557,7 +551,7 @@
     {
       "name": "FAQ",
       "label": "FAQ",
-      "active": "FAQ",
+      "link": "FAQ",
       "icon": "FAQ",
       "uid": "faq",
       "ping": 0
@@ -569,11 +563,24 @@
         "icon": "login",
         "uid": "auth-login"
       },
+      "link": "login",
       "isPrivate": true,
       "uid": "auth-1",
       "alternatives": [
-        { "name": "login", "label": "login", "icon": "login", "uid": "auth-login" },
-        { "name": "dashboard", "label": "dashboard", "icon": "user", "uid": "auth-dash" }
+        {
+          "name": "login",
+          "label": "login",
+          "icon": "login",
+          "uid": "auth-login",
+          "link": "login"
+        },
+        {
+          "name": "dashboard",
+          "label": "dashboard",
+          "icon": "user",
+          "uid": "auth-dash",
+          "link": "dashboard"
+        }
       ]
     }
   ],

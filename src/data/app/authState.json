@@ -14,11 +14,10 @@
   "loginValues": { "username": "", "password": "" },
   "isChangePassword": false,
   "language": {
-    "default": "lan-english",
     "name": "english",
-    "label": "english",
+    "label": "English",
     "locale": "en",
-    "icon": "flag",
+    "url": "icons/english.svg",
     "uid": "lan-english"
   }
 }

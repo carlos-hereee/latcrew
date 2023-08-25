@@ -1,11 +1,5 @@
 [
   {
-    "active": {
-      "name": "english",
-      "label": "English",
-      "icon": "flag",
-      "uid": "lan-english"
-    },
     "isToggle": true,
     "lang": "en",
     "uid": "menu-item-lan",
@@ -14,14 +8,14 @@
         "name": "english",
         "label": "English",
         "locale": "en",
-        "icon": "flag",
+        "url": "icons/english.svg",
         "uid": "lan-english"
       },
       {
         "name": "espanol",
         "locale": "es",
         "label": "Espanol",
-        "icon": "flag",
+        "url": "icons/spanish.svg",
         "uid": "lan-espanol"
       }
     ]
@@ -29,7 +23,7 @@
   {
     "name": "services",
     "label": "Services",
-    "active": "services",
+    "link": "services",
     "icon": "services",
     "uid": "services",
     "ping": 0
@@ -37,7 +31,7 @@
   {
     "name": "testimonials",
     "label": "Testimonials",
-    "active": "testimonials",
+    "link": "testimonials",
     "icon": "testimonials",
     "uid": "testimonial",
     "ping": 0
@@ -45,7 +39,7 @@
   {
     "name": "about",
     "label": "About",
-    "active": "about",
+    "link": "about",
     "icon": "about",
     "uid": "about",
     "ping": 0
@@ -53,7 +47,7 @@
   {
     "name": "contact",
     "label": "Contact",
-    "active": "contact",
+    "link": "contact",
     "icon": "contact",
     "uid": "contact",
     "ping": 0
@@ -61,7 +55,7 @@
   {
     "name": "FAQ",
     "label": "FAQ",
-    "active": "FAQ",
+    "link": "FAQ",
     "icon": "FAQ",
     "uid": "faq",
     "ping": 0
@@ -74,10 +68,23 @@
       "uid": "auth-login"
     },
     "isPrivate": true,
+    "link": "login",
     "uid": "auth-1",
     "alternatives": [
-      { "name": "login", "label": "Login", "icon": "login", "uid": "auth-login" },
-      { "name": "dashboard", "label": "Dashboard", "icon": "user", "uid": "auth-dash" }
+      {
+        "name": "login",
+        "label": "Login",
+        "icon": "login",
+        "uid": "auth-login",
+        "link": "login"
+      },
+      {
+        "name": "dashboard",
+        "label": "Dashboard",
+        "icon": "user",
+        "uid": "auth-dash",
+        "link": "dashboard"
+      }
     ]
   }
 ]
