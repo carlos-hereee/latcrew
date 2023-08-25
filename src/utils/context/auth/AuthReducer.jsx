@@ -12,6 +12,8 @@ export const reducer = (state, action) => {
       return { ...state, isLoading: action.payload };
     case "SET_ERROR":
       return { ...state, isLoading: false, error: action.payload };
+    case "UPDATE_LANGUAGE":
+      return { ...state, isLoading: false, language: action.payload };
     case "SIGN_IN_ERROR":
       return { ...state, isLoading: false, signInError: action.payload };
     case "SIGN_UP_ERROR":

@@ -1,6 +1,6 @@
 import { createContext, useReducer } from "react";
 import { reducer } from "./CalendarReducer";
-import { calendarState } from "../initialData";
+import { calendarState } from "../../../data/spanish/spanishState";
 import { contactUs } from "./helpers/contactUs";
 import { getCalendarDay } from "./helpers/getCalendarDay";
 import { setDay } from "./helpers/setDay";

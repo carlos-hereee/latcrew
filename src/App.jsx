@@ -6,14 +6,20 @@ import { Loading } from "nexious-library/@nxs-organism";
 import logo from "/icons/logo.svg";
 
 function App({ children }) {
-  const { isLoading } = useContext(AuthContext);
-  const { app, menu, updateMenu, language, updateLanguage } = useContext(AppContext);
+  const { isLoading, language, updateLanguage } = useContext(AuthContext);
+  const { app, menu, updateMenu } = useContext(AppContext);
 
   useEffect(() => {
     if (app.appName) {
       document.title = app.appName;
     }
   }, [app.appName]);
+
+  useEffect(() => {
+    if (language) {
+      console.log("language", language);
+    }
+  }, [language]);
 
   const handleUpdateMenu = (e) => {
     if (!language || language.uid !== e[0].active.uid) {

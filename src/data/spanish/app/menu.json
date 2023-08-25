@@ -1,0 +1,78 @@
+[
+  {
+    "active": {
+      "name": "english",
+      "label": "english",
+      "icon": "flag",
+      "uid": "lan-english"
+    },
+    "isToggle": true,
+    "lang": "en",
+    "uid": "menu-item-lan",
+    "alternatives": [
+      {
+        "name": "english",
+        "label": "english",
+        "language": "en",
+        "icon": "flag",
+        "uid": "lan-english"
+      },
+      {
+        "name": "espanol",
+        "language": "es",
+        "label": "espanol",
+        "icon": "flag",
+        "uid": "lan-espanol"
+      }
+    ]
+  },
+  {
+    "name": "services",
+    "label": "services",
+    "active": "services",
+    "icon": "services",
+    "uid": "services",
+    "ping": 0
+  },
+  {
+    "name": "testimonials",
+    "label": "testimonials",
+    "active": "testimonials",
+    "icon": "testimonials",
+    "uid": "testimonial",
+    "ping": 0
+  },
+  {
+    "name": "about",
+    "label": "about",
+    "active": "about",
+    "icon": "about",
+    "uid": "about",
+    "ping": 0
+  },
+  {
+    "name": "contact",
+    "label": "contact",
+    "active": "contact",
+    "icon": "contact",
+    "uid": "contact",
+    "ping": 0
+  },
+  {
+    "name": "FAQ",
+    "label": "FAQ",
+    "active": "FAQ",
+    "icon": "FAQ",
+    "uid": "faq",
+    "ping": 0
+  },
+  {
+    "active": { "name": "login", "label": "login", "icon": "login", "uid": "auth-login" },
+    "isPrivate": true,
+    "uid": "auth-1",
+    "alternatives": [
+      { "name": "login", "label": "login", "icon": "login", "uid": "auth-login" },
+      { "name": "dashboard", "label": "dashboard", "icon": "user", "uid": "auth-dash" }
+    ]
+  }
+]
