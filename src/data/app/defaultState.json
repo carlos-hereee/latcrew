@@ -279,7 +279,7 @@
           "url": "unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
           "small": "small/unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
           "name": "hero",
-          "theme": "",
+          "theme": "thumbnail",
           "alt": "regular cleaning",
           "credit": {
             "artistName": "pille-r-priske",
@@ -293,9 +293,9 @@
         "count": 1,
         "hyperlink": [{ "word": "Maiores", "link": "/lorem" }],
         "cost": 199,
-        "hasFeatures": true,
         "features": [
           {
+            "uid": "feat-1-1",
             "title": "What's included?",
             "haslist": true,
             "list": [
@@ -307,6 +307,7 @@
             ]
           },
           {
+            "uid": "feat-1-2",
             "title": "Benefits",
             "haslist": true,
             "list": [
@@ -335,6 +336,7 @@
           "url": "unsplash/no-revisions-cpIgNaazQ6w-unsplash.jpg",
           "small": "small/unsplash/no-revisions-cpIgNaazQ6w-unsplash.jpg",
           "name": "hero",
+          "theme": "thumbnail",
           "alt": "Deep cleaning",
           "credit": {
             "artistName": "no-revisions",
@@ -349,9 +351,9 @@
         "hyperlink": [{ "word": "Maiores", "link": "/lorem" }],
         "cost": 199,
         "body": "Provides a thorough and comprehensive cleaning of your entire home, targeting areas that may not receive regular attention. Our dedicated team will meticulously clean hard-to-reach places, such as behind furniture, inside cabinets, and under appliances. We focus on removing built-up grime, dirt, and dust, leaving your home refreshed and revitalized. Deep cleaning is recommended for occasional deep refreshment, before special occasions, or as a seasonal cleaning routine.",
-        "hasFeatures": true,
         "features": [
           {
+            "uid": "feat-2-1",
             "title": "What's included?",
             "haslist": true,
             "list": [
@@ -363,6 +365,7 @@
             ]
           },
           {
+            "uid": "feat-2-2",
             "title": "Benefits",
             "haslist": true,
             "list": [
@@ -391,6 +394,7 @@
           "url": "unsplash/volha-flaxeco-BCNjBsK37XA-unsplash.jpg",
           "small": "small/unsplash/volha-flaxeco-BCNjBsK37XA-unsplash.jpg",
           "name": "hero",
+          "theme": "thumbnail",
           "alt": "Deep cleaning",
           "credit": {
             "artistName": "volha-flaxeco",
@@ -405,7 +409,6 @@
         "hyperlink": [{ "word": "Maiores", "link": "/lorem" }],
         "cost": 199,
         "body": "If you're moving into a new home or preparing to move out, our move-in/out cleaning service is ideal. We meticulously clean every nook and cranny, ensuring that the space is spotless and ready for you or the next residents.",
-        "hasFeatures": true,
         "cta": [
           {
             "name": "main",

@@ -15,8 +15,8 @@
         "url": "unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
         "small": "small/unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
         "name": "hero",
-        "alt": "regular cleaning",
         "theme": "thumbnail",
+        "alt": "regular cleaning",
         "credit": {
           "artistName": "pille-r-priske",
           "artistUrl": "https://unsplash.com/@pillepriske?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
@@ -29,9 +29,9 @@
       "count": 1,
       "hyperlink": [{ "word": "Maiores", "link": "/lorem" }],
       "cost": 199,
-      "hasFeatures": true,
       "features": [
         {
+          "uid": "feat-1-1",
           "title": "What's included?",
           "haslist": true,
           "list": [
@@ -43,6 +43,7 @@
           ]
         },
         {
+          "uid": "feat-1-2",
           "title": "Benefits",
           "haslist": true,
           "list": [
@@ -55,10 +56,10 @@
       ],
       "cta": [
         {
-          "name": "main",
           "icon": "checkout",
           "uid": "button-check-123",
-          "label": "Book Now!"
+          "label": "Book Now!",
+          "name": "main"
         }
       ]
     },
@@ -86,9 +87,9 @@
       "hyperlink": [{ "word": "Maiores", "link": "/lorem" }],
       "cost": 199,
       "body": "Provides a thorough and comprehensive cleaning of your entire home, targeting areas that may not receive regular attention. Our dedicated team will meticulously clean hard-to-reach places, such as behind furniture, inside cabinets, and under appliances. We focus on removing built-up grime, dirt, and dust, leaving your home refreshed and revitalized. Deep cleaning is recommended for occasional deep refreshment, before special occasions, or as a seasonal cleaning routine.",
-      "hasFeatures": true,
       "features": [
         {
+          "uid": "feat-2-1",
           "title": "What's included?",
           "haslist": true,
           "list": [
@@ -100,6 +101,7 @@
           ]
         },
         {
+          "uid": "feat-2-2",
           "title": "Benefits",
           "haslist": true,
           "list": [
@@ -143,7 +145,6 @@
       "hyperlink": [{ "word": "Maiores", "link": "/lorem" }],
       "cost": 199,
       "body": "If you're moving into a new home or preparing to move out, our move-in/out cleaning service is ideal. We meticulously clean every nook and cranny, ensuring that the space is spotless and ready for you or the next residents.",
-      "hasFeatures": true,
       "cta": [
         {
           "name": "main",
