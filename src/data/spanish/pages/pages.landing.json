@@ -13,7 +13,14 @@
   },
   "title": "Sparkle and Shine: servicios profesionales de limpieza del hogar",
   "tagline": "Transformando tu hogar en un refugio limpio",
-  "cta": "Reservar ahora",
+  "cta": [
+    {
+      "icon": "checkout",
+      "uid": "button-check-123",
+      "label": "Reservar ahora!",
+      "name": "main"
+    }
+  ],
   "body": "Bienvenido a Sparkle and Shine, su solución ideal para servicios de limpieza del hogar de alta calidad. Creemos que un hogar limpio es un hogar feliz y nuestro dedicado equipo está aquí para ayudarlo a lograr precisamente eso. Con nuestra excepcional experiencia en limpieza y atención al detalle, estamos comprometidos a brindar un ambiente de vida impecable en el que usted realmente pueda relajarse.",
   "features": [
     {
@@ -22,6 +29,7 @@
         "url": "icons/secure-icon.svg",
         "small": "small/icons/secure-icon.jpg",
         "name": "icon-hero",
+        "theme": "icon-hero",
         "alt": "trusted-brand"
       },
       "title": "Profesionales de confianza",
@@ -32,6 +40,7 @@
       "hero": {
         "url": "icons/recycle.svg",
         "small": "small/icons/recycle.jpg",
+        "theme": "icon-hero",
         "name": "icon-hero",
         "alt": "eco-friendly"
       },
@@ -43,6 +52,7 @@
       "hero": {
         "url": "icons/custom.svg",
         "small": "small/icons/custom.jpg",
+        "theme": "icon-hero",
         "icon": "custom",
         "name": "icon-hero"
       },

@@ -13,6 +13,7 @@ const Booking = () => {
     useContext(ServicesContext);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+
   useEffect(() => {
     if (!active.uid) {
       navigate("/services");

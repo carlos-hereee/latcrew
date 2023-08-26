@@ -53,10 +53,10 @@
       ],
       "cta": [
         {
-          "name": "main",
           "icon": "checkout",
           "uid": "button-check-123",
-          "label": "Book Now!"
+          "label": "Reservar ahora!",
+          "name": "main"
         }
       ]
     },
@@ -110,10 +110,10 @@
       ],
       "cta": [
         {
-          "name": "main",
           "icon": "checkout",
           "uid": "button-check-123",
-          "label": "Book Now!"
+          "label": "Reservar ahora!",
+          "name": "main"
         }
       ]
     },
