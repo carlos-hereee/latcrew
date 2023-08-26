@@ -4,6 +4,5 @@
   "response": "Darse de baja en cualquier momento.",
   "hasHero": false,
   "hasIcon": false,
-  "hasLink": false,
   "hero": { "url": "", "alt": "", "name": "" }
 }

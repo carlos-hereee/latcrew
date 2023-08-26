@@ -21,7 +21,6 @@
           "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
         }
       },
-      "hasLink": false,
       "isForSale": true,
       "isBookable": true,
       "isAccessory": false,
@@ -53,7 +52,14 @@
           ]
         }
       ],
-      "cta": [{ "icon": "checkout", "uid": "button-check-123", "label": "Book Now!" }]
+      "cta": [
+        {
+          "name": "main",
+          "icon": "checkout",
+          "uid": "button-check-123",
+          "label": "Book Now!"
+        }
+      ]
     },
     {
       "hasHero": true,
@@ -72,7 +78,6 @@
           "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
         }
       },
-      "hasLink": false,
       "isForSale": true,
       "isBookable": true,
       "isAccessory": false,
@@ -104,7 +109,14 @@
           ]
         }
       ],
-      "cta": [{ "icon": "checkout", "uid": "button-check-123", "label": "Book Now!" }]
+      "cta": [
+        {
+          "name": "main",
+          "icon": "checkout",
+          "uid": "button-check-123",
+          "label": "Book Now!"
+        }
+      ]
     },
     {
       "hasHero": true,
@@ -123,7 +135,6 @@
           "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
         }
       },
-      "hasLink": false,
       "isForSale": true,
       "isBookable": true,
       "isAccessory": false,
@@ -133,7 +144,12 @@
       "body": "Si se muda a una nueva casa o se prepara para mudarse, nuestro servicio de limpieza de entrada y salida es ideal. Limpiamos meticulosamente cada rincón, asegurándonos de que el espacio esté impecable y listo para usted o los próximos residentes.",
       "hasFeatures": true,
       "cta": [
-        { "icon": "checkout", "uid": "button-check-123", "label": "Reservar ahora!" }
+        {
+          "name": "main",
+          "icon": "checkout",
+          "uid": "button-check-123",
+          "label": "Reservar ahora!"
+        }
       ]
     }
   ]

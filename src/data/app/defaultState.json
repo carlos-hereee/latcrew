@@ -5,7 +5,6 @@
     "response": "Unsubscribe at any time.",
     "hasHero": false,
     "hasIcon": false,
-    "hasLink": false,
     "hero": { "link": "", "name": "main-hero" }
   },
   "isLoading": false,
@@ -259,14 +258,15 @@
     "body": "We offer a wide range of professional cleaning services tailored to meet your specific needs. Whether you require regular cleaning maintenance, deep cleaning for a thorough refresh, or specialized cleaning for a move-in/out or post-construction situation, our skilled team is here to deliver exceptional results. We pride ourselves on using eco-fr iendly cleaning products that are safe for your home and the environment. Explore our services below:",
     "hasHero": false,
     "hasIcon": false,
-    "hero": { "url": "", "name": "main-hero" },
+    "hero": { "url": "", "name": "", "alt": "" },
     "services": [
       {
+        "title": "Regular Cleaning",
+        "subtitle": "",
+        "body": "Designed to maintain the cleanliness and organization of your home on a recurring basis. Our trained cleaning professionals will visit your home at scheduled intervals to perform essential cleaning tasks. This service typically includes dusting surfaces, vacuuming carpets and floors, mopping hard surfaces, sanitizing bathrooms, and tidying up common areas. By choosing regular cleaning, you can enjoy a consistently clean and inviting living space without the stress of managing it yourself.",
         "hasHero": true,
         "hasIcon": false,
         "uid": "services-1",
-        "title": "Regular Cleaning",
-        "subtitle": "",
         "hero": {
           "url": "unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
           "small": "small/unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
@@ -278,14 +278,12 @@
             "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
           }
         },
-        "hasLink": false,
         "isForSale": true,
         "isBookable": true,
         "isAccessory": false,
         "count": 1,
         "hyperlink": [{ "word": "Maiores", "link": "/lorem" }],
         "cost": 199,
-        "body": "Designed to maintain the cleanliness and organization of your home on a recurring basis. Our trained cleaning professionals will visit your home at scheduled intervals to perform essential cleaning tasks. This service typically includes dusting surfaces, vacuuming carpets and floors, mopping hard surfaces, sanitizing bathrooms, and tidying up common areas. By choosing regular cleaning, you can enjoy a consistently clean and inviting living space without the stress of managing it yourself.",
         "hasFeatures": true,
         "features": [
           {
@@ -310,7 +308,14 @@
             ]
           }
         ],
-        "cta": [{ "icon": "checkout", "uid": "button-check-123", "label": "Book Now!" }]
+        "cta": [
+          {
+            "icon": "checkout",
+            "uid": "button-check-123",
+            "label": "Book Now!",
+            "name": "main"
+          }
+        ]
       },
       {
         "hasHero": true,
@@ -329,7 +334,6 @@
             "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
           }
         },
-        "hasLink": false,
         "isForSale": true,
         "isBookable": true,
         "isAccessory": false,
@@ -361,7 +365,14 @@
             ]
           }
         ],
-        "cta": [{ "icon": "checkout", "uid": "button-check-123", "label": "Book Now!" }]
+        "cta": [
+          {
+            "name": "main",
+            "icon": "checkout",
+            "uid": "button-check-123",
+            "label": "Book Now!"
+          }
+        ]
       },
       {
         "hasHero": true,
@@ -380,7 +391,6 @@
             "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
           }
         },
-        "hasLink": false,
         "isForSale": true,
         "isBookable": true,
         "isAccessory": false,
@@ -389,7 +399,14 @@
         "cost": 199,
         "body": "If you're moving into a new home or preparing to move out, our move-in/out cleaning service is ideal. We meticulously clean every nook and cranny, ensuring that the space is spotless and ready for you or the next residents.",
         "hasFeatures": true,
-        "cta": [{ "icon": "checkout", "uid": "button-check-123", "label": "Book Now!" }]
+        "cta": [
+          {
+            "name": "main",
+            "icon": "checkout",
+            "uid": "button-check-123",
+            "label": "Book Now!"
+          }
+        ]
       }
     ]
   },

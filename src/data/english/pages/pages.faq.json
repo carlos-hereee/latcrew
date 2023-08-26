@@ -15,7 +15,7 @@
   "faq": [
     {
       "uid": "review-1",
-      "name": "How often should I schedule a regular cleaning?",
+      "title": "How often should I schedule a regular cleaning?",
       "hero": {
         "url": "icons/phone.svg",
         "small": "small/icons/phone.jpg",
@@ -26,7 +26,7 @@
     },
     {
       "uid": "review-2",
-      "name": "Are you cleaning products safe for children and pets?",
+      "title": "Are you cleaning products safe for children and pets?",
       "hero": {
         "url": "icons/gps.svg",
         "small": "small/icons/gps.jpg",
@@ -37,7 +37,7 @@
     },
     {
       "uid": "review-3",
-      "name": "Can I request additional services not included in the packages?",
+      "title": "Can I request additional services not included in the packages?",
       "hero": {
         "url": "icons/mail.svg",
         "small": "small/icons/mail.jpg",
@@ -48,7 +48,7 @@
     },
     {
       "uid": "review-4",
-      "name": "Do you provide cleaning equipment and supplies?",
+      "title": "Do you provide cleaning equipment and supplies?",
       "hero": {
         "url": "icons/mail.svg",
         "small": "small/icons/mail.jpg",
@@ -59,7 +59,7 @@
     },
     {
       "uid": "review-5",
-      "name": "What is your cancellation policy?",
+      "title": "What is your cancellation policy?",
       "hero": {
         "url": "icons/mail.svg",
         "small": "small/icons/mail.jpg",
@@ -71,7 +71,7 @@
     },
     {
       "uid": "review-6",
-      "name": "Want to talk to a human?",
+      "title": "Want to talk to a human?",
       "hero": {
         "url": "icons/mail.svg",
         "small": "small/icons/mail.jpg",

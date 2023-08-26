@@ -20,26 +20,11 @@ const Container = ({ filter, filtered, isFiltered, data }) => {
       <Heading data={data.title} click={handleClick} />
       {data.isNav && <Navigation menu={data.nav} click={handleClick} />}
       {data.body && <p className="p-stretch">{data.body}</p>}
+
       <div className="card-container">
         {isFiltered
-          ? filtered.map((fg) => (
-              <Card
-                header={fg}
-                body={fg}
-                footer={{ cta: fg.cta }}
-                click={onCardClick}
-                key={fg.uid}
-              />
-            ))
-          : data.services.map((g) => (
-              <Card
-                header={g}
-                body={g}
-                footer={{ cta: g.cta }}
-                click={onCardClick}
-                key={g.uid}
-              />
-            ))}
+          ? filtered.map((fg) => <Card data={fg} click={onCardClick} key={fg.uid} />)
+          : data.services.map((g) => <Card data={g} click={onCardClick} key={g.uid} />)}
       </div>
     </section>
   );
