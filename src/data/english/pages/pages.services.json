@@ -16,6 +16,7 @@
         "small": "small/unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
         "name": "hero",
         "alt": "regular cleaning",
+        "theme": "thumbnail",
         "credit": {
           "artistName": "pille-r-priske",
           "artistUrl": "https://unsplash.com/@pillepriske?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
@@ -70,6 +71,7 @@
         "url": "unsplash/no-revisions-cpIgNaazQ6w-unsplash.jpg",
         "small": "small/unsplash/no-revisions-cpIgNaazQ6w-unsplash.jpg",
         "name": "hero",
+        "theme": "thumbnail",
         "alt": "Deep cleaning",
         "credit": {
           "artistName": "no-revisions",
@@ -126,6 +128,7 @@
         "url": "unsplash/volha-flaxeco-BCNjBsK37XA-unsplash.jpg",
         "small": "small/unsplash/volha-flaxeco-BCNjBsK37XA-unsplash.jpg",
         "name": "hero",
+        "theme": "thumbnail",
         "alt": "Deep cleaning",
         "credit": {
           "artistName": "volha-flaxeco",
