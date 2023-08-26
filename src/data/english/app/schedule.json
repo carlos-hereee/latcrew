@@ -2,7 +2,6 @@
   "title": "Bussiness Hours",
   "subtitle": "",
   "hasHero": false,
-  "hasIcon": false,
   "hero": { "link": "", "name": "main-hero" },
   "hours": [
     { "day": "Monday", "hours": "9:00am - 7:00pm", "key": "shortid.generate()1" },

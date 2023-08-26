@@ -2,12 +2,10 @@
   "title": "servicios de limpieza profesional",
   "body": "Ofrecemos una amplia gama de servicios de limpieza profesionales adaptados a sus necesidades específicas. Ya sea que necesite un mantenimiento de limpieza regular, una limpieza profunda para una renovación completa o una limpieza especializada para una situación de mudanza o salida o posterior a la construcción, nuestro equipo capacitado está aquí para brindar resultados excepcionales. Nos enorgullecemos de utilizar productos de limpieza ecológicos que son seguros para su hogar y el medio ambiente. Explora nuestros servicios a continuación:",
   "hasHero": false,
-  "hasIcon": false,
   "hero": { "url": "", "alt": "", "name": "" },
   "services": [
     {
       "hasHero": true,
-      "hasIcon": false,
       "uid": "services-1",
       "title": "Limpieza periódica",
       "hero": {
@@ -63,7 +61,6 @@
     },
     {
       "hasHero": true,
-      "hasIcon": false,
       "uid": "services-2",
       "title": "Limpieza profunda",
       "subtitle": "",
@@ -120,7 +117,6 @@
     },
     {
       "hasHero": true,
-      "hasIcon": false,
       "uid": "services-3",
       "title": "Servicios Especializados",
       "subtitle": "Move-In/Out Cleaning",

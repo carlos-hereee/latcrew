@@ -1,5 +1,5 @@
 {
-  "heading": "Order details",
+  "title": "Order details",
   "paymentMethods": [
     {
       "uid": "payment-1",

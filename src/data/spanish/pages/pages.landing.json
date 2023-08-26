@@ -11,7 +11,7 @@
       "assetUrl": "https://unsplash.com/s/photos/cleaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
     }
   },
-  "heading": "Sparkle and Shine: servicios profesionales de limpieza del hogar",
+  "title": "Sparkle and Shine: servicios profesionales de limpieza del hogar",
   "tagline": "Transformando tu hogar en un refugio limpio",
   "cta": "Reservar ahora",
   "body": "Bienvenido a Sparkle and Shine, su solución ideal para servicios de limpieza del hogar de alta calidad. Creemos que un hogar limpio es un hogar feliz y nuestro dedicado equipo está aquí para ayudarlo a lograr precisamente eso. Con nuestra excepcional experiencia en limpieza y atención al detalle, estamos comprometidos a brindar un ambiente de vida impecable en el que usted realmente pueda relajarse.",
@@ -24,7 +24,7 @@
         "name": "icon-hero",
         "alt": "trusted-brand"
       },
-      "heading": "Profesionales de confianza",
+      "title": "Profesionales de confianza",
       "body": "Nuestro personal de limpieza está formado por profesionales experimentados y capacitados que se dedican a brindar un servicio excepcional y atención al detalle."
     },
     {
@@ -35,7 +35,7 @@
         "name": "icon-hero",
         "alt": "eco-friendly"
       },
-      "heading": "Enfoque ecológico",
+      "title": "Enfoque ecológico",
       "body": "Utilizamos productos de limpieza respetuosos con el medio ambiente que son eficaces para eliminar la suciedad y la mugre sin comprometer la salud de tu familia ni la del planeta."
     },
     {
@@ -46,7 +46,7 @@
         "icon": "custom",
         "name": "icon-hero"
       },
-      "heading": "Customizable Cleaning Plans",
+      "title": "Customizable Cleaning Plans",
       "body": "Entendemos que cada hogar es único. Es por eso que ofrecemos planes de limpieza personalizables que le permiten adaptar nuestros servicios para satisfacer sus requisitos específicos."
     }
   ]

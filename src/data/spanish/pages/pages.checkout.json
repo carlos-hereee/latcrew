@@ -1,5 +1,5 @@
 {
-  "heading": "Detalles del pedido",
+  "title": "Detalles del pedido",
   "paymentMethods": [
     {
       "uid": "payment-1",
