@@ -44,7 +44,7 @@
       "name": "email",
       "label": "Correo electrónico",
       "hero": {
-        "url": "icons/mail.svg",
+        "url": "icons/email.svg",
         "small": "small/icons/mail.jpg",
         "name": "contact-hero",
         "label": "",
@@ -52,5 +52,6 @@
       },
       "body": "example@email.com"
     }
-  ]
+  ],
+  "form": { "initialValues": { "name": "", "email": "", "message": "" } }
 }

@@ -11,7 +11,14 @@
     }
   },
   "title": "Comprometidos con el profesionalismo, la confiabilidad y la creación de un ambiente limpio y saludable para nuestros clientes.",
-  "cta": "Reservar ahora!",
+  "cta": [
+    {
+      "icon": "checkout",
+      "uid": "button-check-123",
+      "label": "Reservar ahora!",
+      "name": "main"
+    }
+  ],
   "body": "En Sparkle & Shine, estamos orgullosos de ser un proveedor confiable de servicios de limpieza del hogar de primer nivel. Con años de experiencia en la industria, nuestro equipo está dedicado a brindar resultados excepcionales y superar las expectativas del cliente.",
   "team": [
     {

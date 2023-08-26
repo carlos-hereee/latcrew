@@ -19,7 +19,8 @@
       "hero": {
         "url": "icons/phone.svg",
         "small": "small/icons/phone.jpg",
-        "name": "contact-hero",
+        "name": "contact-icons",
+        "theme": "",
         "alt": "contact-hero"
       },
       "body": "+1 (123) 456 - 7890"
@@ -30,7 +31,8 @@
       "hero": {
         "url": "icons/gps.svg",
         "small": "small/icons/gps.jpg",
-        "name": "contact-hero",
+        "name": "contact-icons",
+        "theme": "",
         "alt": "contact-hero"
       },
       "body": "Greater Houston Houston, TX 12345"
@@ -39,12 +41,14 @@
       "uid": "review-3",
       "name": "email",
       "hero": {
-        "url": "icons/mail.svg",
+        "url": "icons/email.svg",
         "small": "small/icons/mail.jpg",
-        "name": "contact-hero",
+        "name": "contact-icons",
+        "theme": "",
         "alt": "contact-hero"
       },
       "body": "example@email.com"
     }
-  ]
+  ],
+  "form": { "initialValues": { "name": "", "email": "", "message": "" } }
 }

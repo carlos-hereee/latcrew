@@ -104,7 +104,14 @@
       }
     },
     "title": "Committed to professionalism, reliability, and creating a clean and healthy environment for our clients.",
-    "cta": "Book Now!",
+    "cta": [
+      {
+        "icon": "checkout",
+        "uid": "button-check-123",
+        "label": "Book Now!",
+        "name": "main"
+      }
+    ],
     "body": "At Sparkle & Shine, we take pride in being a trusted provider of top-notch house cleaning services. With years of experience in the industry, our team is dedicated to delivering exceptional results and exceeding customer expectations.",
     "team": [
       {
@@ -242,14 +249,15 @@
         "uid": "review-3",
         "name": "email",
         "hero": {
-          "url": "icons/mail.svg",
+          "url": "icons/email.svg",
           "small": "small/icons/mail.jpg",
           "name": "contact-hero",
           "alt": "contact-hero"
         },
         "body": "example@email.com"
       }
-    ]
+    ],
+    "form": { "initialValues": { "name": "", "email": "", "message": "" } }
   },
   "services": {
     "title": "Professional cleaning services",

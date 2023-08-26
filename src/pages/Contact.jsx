@@ -3,20 +3,13 @@ import { AppContext } from "../utils/context/app/AppContext";
 import { HeroCardAlt, CardSection, Form } from "nexious-library/@nxs-organism";
 const Contact = () => {
   const { contact } = useContext(AppContext);
-  const handleSubmit = (e) => {
-    // console.log("e", e);
-  };
+  const handleSubmit = (e) => {};
   return (
     <div className="container">
-      <HeroCardAlt heading={contact.heading} hero={contact.hero} body={contact.body} />
+      <HeroCardAlt data={contact} />
       <div className="contact-cards">
         {contact.contact.map((c) => (
-          <CardSection
-            key={c.uid}
-            hideReadMore
-            header={{ title: c.name, hasHero: true, hero: c.hero }}
-            body={c.body}
-          />
+          <CardSection key={c.uid} hideReadMore data={c} />
         ))}
       </div>
       <p className="p-stretch">
@@ -24,11 +17,7 @@ const Contact = () => {
         to hearing from you!
       </p>
       <div className="w-100">
-        <Form
-          values={{ name: "", email: "", message: "" }}
-          submit={handleSubmit}
-          stretchInput
-        />
+        <Form values={contact.form.initialValues} submit={handleSubmit} stretchInput />
       </div>
     </div>
   );
