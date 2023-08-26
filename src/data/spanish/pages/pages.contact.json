@@ -22,6 +22,7 @@
         "small": "small/icons/phone.jpg",
         "name": "contact-hero",
         "label": "",
+        "theme": "contact-icons",
         "alt": "contact-hero"
       },
       "body": "+1 (123) 456 - 7890"
@@ -35,6 +36,7 @@
         "small": "small/icons/gps.jpg",
         "name": "contact-hero",
         "label": "",
+        "theme": "contact-icons",
         "alt": "contact-hero"
       },
       "body": "Greater Houston Houston, TX 12345"
@@ -48,6 +50,7 @@
         "small": "small/icons/mail.jpg",
         "name": "contact-hero",
         "label": "",
+        "theme": "contact-icons",
         "alt": "contact-hero"
       },
       "body": "example@email.com"
