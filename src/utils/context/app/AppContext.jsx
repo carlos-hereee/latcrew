@@ -15,12 +15,14 @@ import { updateAppAssets } from "./helpers/updateAppAssets";
 import { englishState } from "../../../data/english/englishState";
 import defaultState from "../../../data/app/defaultState.json";
 import { spanishState } from "../../../data/spanish/spanishState";
+import { useNavigate } from "react-router-dom";
 
 export const AppContext = createContext();
 
 export const AppState = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, defaultState);
   const { accessToken, language } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (language.uid) {
@@ -33,6 +35,7 @@ export const AppState = ({ children }) => {
     if (accessToken) {
       const menu = findAlternatives(state.menu);
       dispatch({ type: "UPDATE_MENU", payload: menu });
+      navigate("/dashboard");
     }
   }, [accessToken]);
 

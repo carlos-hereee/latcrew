@@ -7,7 +7,7 @@ const Dashboard = () => {
   return (
     <section className="dashboard m-auto">
       <nav className="navbar">
-        <button type="button" className="btn btn-danger" onClick={() => logOut(user)}>
+        <button type="button" className="btn btn-danger" onClick={() => logOut()}>
           Log Out
         </button>
       </nav>

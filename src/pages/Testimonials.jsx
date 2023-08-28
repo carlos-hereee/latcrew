@@ -12,13 +12,14 @@ const Testimonials = () => {
   const handleSubmit = (e) => {
     // console.log("handleSubmit", e);
   };
+  console.log("user", user);
   return (
     <div className="container">
       <h1 className="heading">{testimonials.title}</h1>
       <p className="p-stretch">{testimonials.body}</p>
-      <div className="m-tb flex-g w-100">
-        {user && <UserCard user={user} hideLabels />}
-        <div className="w-100">
+      <div className="m-tb flex-w w-100 p-1">
+        {user && user.hero && <UserCard user={user} hideLabels />}
+        <div className="flex-center flex-w w-100">
           <Rating star={inputRating} click={(e) => setInputRating(e)} />
           <Form
             values={{ message: "" }}

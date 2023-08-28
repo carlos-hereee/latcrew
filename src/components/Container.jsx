@@ -7,6 +7,7 @@ import { ServicesContext } from "../utils/context/services/ServicesContext";
 const Container = ({ filter, filtered, isFiltered, data }) => {
   const { setActive } = useContext(ServicesContext);
   const navigate = useNavigate();
+
   const handleClick = (e) => {
     let content = e.currentTarget.textContent.split(" ").join("").toLowerCase();
     filter(data.services, content);

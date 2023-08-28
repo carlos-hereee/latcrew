@@ -26,14 +26,9 @@ const AppRouter = () => {
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route
-        path="/dashboard"
-        element={
-          <PrivateRoute>
-            <Route path="/dashboard" element={<Dashboard />} />
-          </PrivateRoute>
-        }
-      />
+      <Route element={<PrivateRoute />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Route>
       <Route path="/*" element={<PageNotFound />} />
     </Routes>
   );
