@@ -1,16 +1,18 @@
 import { useContext, useEffect } from "react";
 import { CalendarContext } from "../utils/context/calendar/CalendarContext";
 import { ServicesContext } from "../utils/context/services/ServicesContext";
-import { CalendarEvents } from "nexious-library/@nxs-organism";
+// import { CalendarEvents } from "nexious-library/@nxs-organism";
 import { useNavigate } from "react-router-dom";
 import { Calendar } from "nexious-library/@nxs-template";
 import { AuthContext } from "../utils/context/auth/AuthContext";
+import CalendarEvents from "../components/CalendarEvents";
 
 const Booking = () => {
   const { events, selectedDay, meeting, setMeeting, setDay } =
     useContext(CalendarContext);
   const { bookable, removeFromCart, cart, active, setActive, addToCart } =
     useContext(ServicesContext);
+
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -38,17 +40,7 @@ const Booking = () => {
         selectedDay={selectedDay}
         setSelectedDay={setDay}
       />
-      <CalendarEvents
-        selectedDay={selectedDay}
-        events={bookable}
-        active={active}
-        meeting={meeting}
-        user={user}
-        setMeeting={(e) => setMeeting(e)}
-        setActive={(e) => setActive(e)}
-        removeFromCart={(e) => removeFromCart(cart, e)}
-        handleCheckout={onCheckout}
-      />
+      <CalendarEvents />
     </section>
   );
 };

@@ -1,14 +1,6 @@
 const loadServices = (state, action) => {
   return { ...state, isLoading: false, isFiltered: false, services: action.payload };
 };
-const updateAssets = (state, action) => {
-  return {
-    ...state,
-    isLoading: false,
-    isFiltered: true,
-    filteredServices: action.payload,
-  };
-};
 
 const bookRequired = (state, action) => {
   return {
@@ -42,7 +34,7 @@ export const reducer = (state, action) => {
     case "UPDATE_ACTIVE":
       return { ...state, isLoading: false, active: action.payload };
     case "UPDATE_SERVICES":
-      return updateAssets(state, action);
+      return { ...state, isLoading: false, services: action.payload };
     case "BOOK_EVENT":
       return { ...state, isLoading: false, cart: action.payload };
     case "BOOK_REQUIRED":

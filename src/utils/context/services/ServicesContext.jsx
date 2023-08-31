@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import { reducer } from "./ServicesReducer";
 import { servicesState } from "../../../data/spanish/spanishState";
 import { bookEvent } from "./helpers/bookEvent";
@@ -10,10 +10,19 @@ import { bookingRequired } from "./helpers/BookingRequired";
 import { setIsUserReq } from "./helpers/setIsUserReq";
 import { setActive } from "./helpers/setActive";
 import { removeFromCart } from "./helpers/removeFromCart";
+import { AppContext } from "../app/AppContext";
+import { updateServices } from "./helpers/updateServices";
 
 export const ServicesContext = createContext();
 export const ServicesState = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, servicesState);
+  const { services } = useContext(AppContext);
+
+  useEffect(() => {
+    if (services && services.services) {
+      updateServices(dispatch, services.services);
+    }
+  }, [services]);
 
   return (
     <ServicesContext.Provider
@@ -27,6 +36,7 @@ export const ServicesState = ({ children }) => {
         total: state.total,
         bookable: state.bookable,
         booked: state.booked,
+        services: state.services,
         bookEvent: (a, b, c) => bookEvent(dispatch, a, b, c),
         filter: (a, b) => filter(dispatch, a, b),
         addToCart: (a, b) => addToCart(dispatch, a, b),
