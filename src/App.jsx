@@ -2,15 +2,15 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "./utils/context/auth/AuthContext";
 import { AppContext } from "./utils/context/app/AppContext";
 import { Footer, Header } from "nexious-library/@nxs-template";
-import { Loading } from "nexious-library/@nxs-organism";
+import { Loading } from "nexious-library/@nxs-molecules";
 
 function App({ children }) {
   const { isLoading, language, updateLanguage } = useContext(AuthContext);
   const { app, menu, updateMenu } = useContext(AppContext);
 
   useEffect(() => {
-    if (app && app.appName) {
-      document.title = app.appName;
+    if (app && app.name) {
+      document.title = app.name;
     }
   }, [app]);
 
@@ -21,7 +21,7 @@ function App({ children }) {
     updateMenu(e);
   };
   if (isLoading) {
-    return <Loading />;
+    return <Loading message="Loading app assets.." />;
   }
   return (
     <div className="container p-sm">

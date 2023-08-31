@@ -5,7 +5,7 @@
     "response": "Unsubscribe at any time.",
     "hero": { "link": "", "name": "main-hero" }
   },
-  "isLoading": false,
+  "isLoading": true,
   "faq": {
     "hero": {
       "url": "unsplash/jeff-sheldon-6MT4_Ut8a3Y-unsplash.jpg",
