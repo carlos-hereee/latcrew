@@ -2,6 +2,5 @@
   "title": "Join the newsletter",
   "subtitle": "Suscribe to get the latest content by email",
   "response": "Unsubscribe at any time.",
-  "hasHero": false,
   "hero": { "link": "", "name": "main-hero" }
 }

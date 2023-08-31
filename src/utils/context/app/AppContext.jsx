@@ -16,6 +16,7 @@ import { englishState } from "../../../data/english/englishState";
 import defaultState from "../../../data/app/defaultState.json";
 import { spanishState } from "../../../data/spanish/spanishState";
 import { useNavigate } from "react-router-dom";
+import { getLatestAppData } from "./helpers/getLatestAppData";
 
 export const AppContext = createContext();
 
@@ -33,11 +34,17 @@ export const AppState = ({ children }) => {
 
   useEffect(() => {
     if (accessToken) {
+      // update menu - display dashboard
       const menu = findAlternatives(state.menu);
       dispatch({ type: "UPDATE_MENU", payload: menu });
       navigate("/dashboard");
     }
   }, [accessToken]);
+
+  useEffect(() => {
+    // fetch latest app data
+    getLatestAppData(dispatch);
+  }, []);
 
   return (
     <AppContext.Provider

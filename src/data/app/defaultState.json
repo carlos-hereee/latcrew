@@ -3,7 +3,6 @@
     "title": "Join the newsletter",
     "subtitle": "Suscribe to get the latest content by email",
     "response": "Unsubscribe at any time.",
-    "hasHero": false,
     "hero": { "link": "", "name": "main-hero" }
   },
   "isLoading": false,
@@ -266,14 +265,12 @@
     "title": "Professional cleaning services",
     "subtitle": "",
     "body": "We offer a wide range of professional cleaning services tailored to meet your specific needs. Whether you require regular cleaning maintenance, deep cleaning for a thorough refresh, or specialized cleaning for a move-in/out or post-construction situation, our skilled team is here to deliver exceptional results. We pride ourselves on using eco-fr iendly cleaning products that are safe for your home and the environment. Explore our services below:",
-    "hasHero": false,
     "hero": { "url": "", "name": "", "alt": "" },
     "services": [
       {
         "title": "Regular Cleaning",
         "subtitle": "",
         "body": "Designed to maintain the cleanliness and organization of your home on a recurring basis. Our trained cleaning professionals will visit your home at scheduled intervals to perform essential cleaning tasks. This service typically includes dusting surfaces, vacuuming carpets and floors, mopping hard surfaces, sanitizing bathrooms, and tidying up common areas. By choosing regular cleaning, you can enjoy a consistently clean and inviting living space without the stress of managing it yourself.",
-        "hasHero": true,
         "uid": "services-1",
         "hero": {
           "url": "unsplash/pille-r-priske-Y1JjwhHaPRM-unsplash.jpg",
@@ -328,7 +325,6 @@
         ]
       },
       {
-        "hasHero": true,
         "uid": "services-2",
         "title": "Deep Cleaning",
         "subtitle": "",
@@ -386,7 +382,6 @@
         ]
       },
       {
-        "hasHero": true,
         "uid": "services-3",
         "title": "Specialized Services",
         "subtitle": "Move-In/Out Cleaning",

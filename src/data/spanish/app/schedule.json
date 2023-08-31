@@ -1,7 +1,6 @@
 {
   "title": "Horas de trabajo",
   "subtitle": "",
-  "hasHero": false,
   "hero": { "url": "", "alt": "", "name": "" },
   "hours": [
     { "day": "Lunes", "hours": "9:00am - 7:00pm", "key": "shortid.generate()1" },

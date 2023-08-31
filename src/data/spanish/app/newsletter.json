@@ -2,6 +2,5 @@
   "title": "Únase al boletín",
   "subtitle": "Suscríbete para recibir el contenido más reciente por correo electrónico",
   "response": "Darse de baja en cualquier momento.",
-  "hasHero": false,
   "hero": { "url": "", "alt": "", "name": "" }
 }

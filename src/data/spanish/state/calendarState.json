@@ -2,7 +2,6 @@
   "events": {
     "title": "Book Appointments",
     "subtitle": "",
-    "hasHero": false,
     "isNav": false,
     "sections": []
   },

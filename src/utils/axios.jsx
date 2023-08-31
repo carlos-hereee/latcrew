@@ -13,7 +13,7 @@ export const axiosAuth = axios.create({
 });
 export const axiosWithOutAuth = axios.create({
   baseURL: import.meta.env.VITE_DB_BASE_URL,
-  withCredentials: true,
+  // withCredentials: true,
   headers: {
     "Access-Control-Allow-Origin": import.meta.env.VITE_CLIENT_BASE_URL,
     "Content-Type": "application/json;charset=UTF-8",

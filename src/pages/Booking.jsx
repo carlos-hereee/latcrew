@@ -21,12 +21,13 @@ const Booking = () => {
       navigate("/services");
     }
   }, []);
+
   const onCheckout = () => {
     addToCart(cart, { service: active, meeting, user });
     navigate("/checkout");
   };
   const handleDayClick = (e) => {
-    meeting.uid !== e.uid && setMeeting({});
+    meeting?.uid !== e.uid && setMeeting({});
     setDay(e);
   };
   return (
