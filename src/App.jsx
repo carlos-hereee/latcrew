@@ -32,7 +32,7 @@ function App({ children }) {
         language={language}
       />
       {children}
-      <Footer appName={app && app.appName ? app.appName : "sparkle shine"} />
+      <Footer appName={app && app.name ? app.name : "sparkle shine"} />
     </div>
   );
 }
