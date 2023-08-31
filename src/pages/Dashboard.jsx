@@ -1,24 +1,18 @@
 import { useContext } from "react";
 import { AuthContext } from "../utils/context/auth/AuthContext";
-import { UserCard } from "nexious-library/@nxs-organism";
 import { ServicesContext } from "../utils/context/services/ServicesContext";
-import { Link } from "react-router-dom";
 import FeatureItems from "../components/FeatureItems";
 
 const Dashboard = () => {
   const { user, logOut } = useContext(AuthContext);
   const { booked } = useContext(ServicesContext);
-  // console.log("user", user);
   return (
     <section className="dashboard m-auto">
-      <div className="flex-d-column w-100">
-        <h2 className="heading">
-          Welcome back {user.nickname ? user.nickname : user.username}
-        </h2>
-      </div>
-      <FeatureItems />
       <div>
-        <h2 className="heading">Upcoming orders</h2>
+        <h2 className="heading">
+          Welcome back {user.nickname ? user.nickname : user.username} you have{" "}
+          {booked.length} upcoming orders:
+        </h2>
         {booked.length > 0 ? (
           booked.map(<div>{booked.uid}</div>)
         ) : (
@@ -27,7 +21,7 @@ const Dashboard = () => {
           </div>
         )}
       </div>
-
+      <FeatureItems />
       <nav className="navbar">
         <button type="button" className="btn-main">
           Edit profile

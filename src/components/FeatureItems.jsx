@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ServicesContext } from "../utils/context/services/ServicesContext";
 import { AppContext } from "../utils/context/app/AppContext";
 import { useNavigate } from "react-router-dom";
+import { CartRow } from "nexious-library/@nxs-molecules";
 
 const FeatureItems = (props) => {
   const { services } = useContext(AppContext);
@@ -13,7 +14,7 @@ const FeatureItems = (props) => {
     navigate("/booking");
   };
   return (
-    <div className="container">
+    <div className="container feature-items">
       <h2 className="heading">Book a package now!</h2>
       {services.services.map((service) => (
         <CartRow data={service} key={service.uid} click={() => handleClick(service)} />
