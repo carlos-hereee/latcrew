@@ -7,7 +7,7 @@ const Dashboard = () => {
   const { user, logOut } = useContext(AuthContext);
   const { booked } = useContext(ServicesContext);
   return (
-    <section className="dashboard m-auto">
+    <div className="container">
       <div>
         <h2 className="heading">
           Welcome back {user.nickname ? user.nickname : user.username} you have{" "}
@@ -30,7 +30,7 @@ const Dashboard = () => {
           Log Out
         </button>
       </nav>
-    </section>
+    </div>
   );
 };
 export default Dashboard;

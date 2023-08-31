@@ -10,7 +10,7 @@ import { updateFilter } from "./helpers/updateFilter";
 import { updateAppliedFilter } from "./helpers/updateAppliedFilter";
 import { resetFilter } from "./helpers/resetFilter";
 import { AuthContext } from "../auth/AuthContext";
-import { findAlternatives } from "../../helpers/findAlternatives";
+import { findMenuItemLogin } from "../../helpers/findMenuItemLogin";
 import { useNavigate } from "react-router-dom";
 import { getLatestAppData } from "./helpers/getLatestAppData";
 
@@ -29,13 +29,14 @@ export const AppState = ({ children }) => {
   }, [language]);
 
   useEffect(() => {
-    if (accessToken) {
-      // update menu - display dashboard
-      const menu = findAlternatives(state.menu);
+    if (accessToken && state.menu) {
+      let menu = state.menu;
+      const { menuItem, idx } = findMenuItemLogin(menu);
+      menu[idx].active = menuItem;
       dispatch({ type: "UPDATE_MENU", payload: menu });
       navigate("/dashboard");
     }
-  }, [accessToken]);
+  }, [accessToken, state.menu]);
 
   useEffect(() => {
     // fetch latest app data

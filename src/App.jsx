@@ -13,6 +13,8 @@ function App({ children }) {
       document.title = app.name;
     }
   }, [app]);
+  // console.log("app", app);
+  // console.log("language", language);
 
   const handleUpdateMenu = (e) => {
     if (!language || language.uid !== e[0].active.uid) {
@@ -25,12 +27,14 @@ function App({ children }) {
   }
   return (
     <div className="container p-sm">
-      <Header
-        menu={menu}
-        logo={app.logo}
-        updateMenu={handleUpdateMenu}
-        language={language}
-      />
+      {menu && app?.logo && (
+        <Header
+          menu={menu}
+          logo={app.logo}
+          updateMenu={handleUpdateMenu}
+          language={language}
+        />
+      )}
       {children}
       <Footer appName={app && app.name ? app.name : "sparkle shine"} />
     </div>

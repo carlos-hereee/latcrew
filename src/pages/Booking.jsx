@@ -17,7 +17,7 @@ const Booking = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!active.uid) {
+    if (!active?.uid) {
       navigate("/services");
     }
   }, []);

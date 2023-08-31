@@ -35,7 +35,7 @@ const CalendarEvents = () => {
     <div className="calendar-events">
       <div className="calendar-package-details">
         <h2 className="heading">Selected package</h2>
-        <CardSection data={active} click={() => handleClick(active)} />
+        {active && <CardSection data={active} click={() => handleClick(active)} />}
       </div>
       <div className="event-wrapper">
         {selectedDay && (
