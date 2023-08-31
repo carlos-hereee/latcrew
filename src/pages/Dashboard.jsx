@@ -11,9 +11,9 @@ const Dashboard = () => {
       <div>
         <h2 className="heading">
           Welcome back {user.nickname ? user.nickname : user.username} you have{" "}
-          {booked.length} upcoming orders:
+          {booked?.length ? booked.length : 0} upcoming orders:
         </h2>
-        {booked.length > 0 ? (
+        {booked?.length > 0 ? (
           booked.map(<div>{booked.uid}</div>)
         ) : (
           <div className="flex-center w-100">

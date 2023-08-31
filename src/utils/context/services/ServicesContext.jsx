@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { reducer } from "./ServicesReducer";
-import { servicesState } from "../../../data/spanish/spanishState";
+import servicesState from "../../../data/servicesState.json";
 import { bookEvent } from "./helpers/bookEvent";
 import { filter } from "./helpers/filter";
 import { addToBooked } from "./helpers/addToBooked";

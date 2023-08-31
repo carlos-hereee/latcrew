@@ -1,13 +1,12 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { reducer } from "./CalendarReducer";
-// import { calendarState } from "../../../data/spanish/spanishState";
 import { contactUs } from "./helpers/contactUs";
 import { getCalendarDay } from "./helpers/getCalendarDay";
 import { setDay } from "./helpers/setDay";
 import { setMeeting } from "./helpers/setMeeting";
 import { bookNow } from "./helpers/bookNow";
 import { resetDay } from "./helpers/resetDay";
-import calendarState from "../../../data/app/calendarState.json";
+import calendarState from "../../../data/calendarState.json";
 import { AppContext } from "../app/AppContext";
 import { updateEvents } from "./helpers/updateEvents";
 

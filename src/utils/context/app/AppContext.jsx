@@ -11,10 +11,6 @@ import { updateAppliedFilter } from "./helpers/updateAppliedFilter";
 import { resetFilter } from "./helpers/resetFilter";
 import { AuthContext } from "../auth/AuthContext";
 import { findAlternatives } from "../../helpers/findAlternatives";
-import { updateAppAssets } from "./helpers/updateAppAssets";
-import { englishState } from "../../../data/english/englishState";
-import defaultState from "../../../data/app/defaultState.json";
-import { spanishState } from "../../../data/spanish/spanishState";
 import { useNavigate } from "react-router-dom";
 import { getLatestAppData } from "./helpers/getLatestAppData";
 
@@ -27,8 +23,8 @@ export const AppState = ({ children }) => {
 
   useEffect(() => {
     if (language.uid) {
-      const payload = language.locale === "es" ? spanishState : englishState;
-      updateAppAssets(dispatch, payload);
+      // const payload = language.locale === "es" ? spanishState : englishState;
+      // updateAppAssets(dispatch, payload);
     }
   }, [language]);
 
