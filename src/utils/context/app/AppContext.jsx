@@ -44,6 +44,7 @@ export const AppState = ({ children }) => {
       value={{
         isLoading: state.isLoading,
         app: state.app,
+        calendar: state.calendar,
         media: state.media,
         about: state.about,
         services: state.services,

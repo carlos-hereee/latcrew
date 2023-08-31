@@ -1,16 +1,27 @@
-import { createContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import { reducer } from "./CalendarReducer";
-import { calendarState } from "../../../data/spanish/spanishState";
+// import { calendarState } from "../../../data/spanish/spanishState";
 import { contactUs } from "./helpers/contactUs";
 import { getCalendarDay } from "./helpers/getCalendarDay";
 import { setDay } from "./helpers/setDay";
 import { setMeeting } from "./helpers/setMeeting";
 import { bookNow } from "./helpers/bookNow";
 import { resetDay } from "./helpers/resetDay";
+import calendarState from "../../../data/app/calendarState.json";
+import { AppContext } from "../app/AppContext";
+import { updateEvents } from "./helpers/updateEvents";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, calendarState);
+  const { calendar } = useContext(AppContext);
+
+  useEffect(() => {
+    if (calendar && calendar.events) {
+      updateEvents(dispatch, calendar.events);
+      // console.log("calendar", calendar);
+    }
+  }, [calendar]);
 
   return (
     <CalendarContext.Provider
@@ -27,6 +38,7 @@ export const CalendarState = ({ children }) => {
         setMeeting: (a) => setMeeting(dispatch, a),
         bookNow: (a, b) => bookNow(dispatch, a, b),
         resetDay: (a) => resetDay(dispatch, a),
+        findNextOpenApp: (a, b) => findNextOpenApp(dispatch, a, b),
       }}>
       {children}
     </CalendarContext.Provider>

@@ -3,20 +3,33 @@
 import { CardSection } from "nexious-library/@nxs-organism";
 import { Icon } from "nexious-library/@nxs-atoms";
 // import { setActive } from "../utils/context/services/helpers/setActive";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ServicesContext } from "../utils/context/services/ServicesContext";
 import { CalendarContext } from "../utils/context/calendar/CalendarContext";
+import { AppContext } from "../utils/context/app/AppContext";
+import { findNextOpenApp } from "../utils/helpers/findNextOpenApp";
+// import { setMeeting } from "../utils/context/calendar/helpers/setMeeting";
 
 const CalendarEvents = () => {
   // const { selectedDay, active, meeting, setMeeting, handleCheckout, user }
   const { active, services } = useContext(ServicesContext);
-  const { selectedDay, meeting } = useContext(CalendarContext);
+  const {
+    selectedDay,
+    meeting,
+    events,
+    setMeeting,
+    // findNextOpenApp,
+  } = useContext(CalendarContext);
+  // const { selectedDay } = useContext(AppContext);
+  const [error, setError] = useState("");
   const handleClick = (e) => {
     // setActive(e);
     console.log("e", e);
   };
   const findNextOpen = (e) => {
-    console.log("e", e);
+    const { error, event } = findNextOpenApp(events);
+    if (error) return setError(error);
+    setMeeting(event);
   };
   return (
     <div className="calendar-events">
@@ -25,10 +38,12 @@ const CalendarEvents = () => {
         <CardSection data={active} click={() => handleClick(active)} />
       </div>
       <div className="event-wrapper">
-        <h2 className="heading">
-          {`${selectedDay.date} ${meeting.uid ? `@ ${meeting.response}` : ""}`}
-        </h2>
-        {selectedDay.list?.length > 0 ? (
+        {selectedDay && (
+          <h2 className="heading">
+            {`${selectedDay.date} ${meeting?.uid ? `@ ${meeting.response}` : ""}`}
+          </h2>
+        )}
+        {selectedDay && selectedDay.list.length > 0 ? (
           selectedDay.list.map((day) => (
             <button key={day.uid}>
               <Icon icon={meeting.uid === day.uid ? "check" : "uncheck"} />
@@ -36,11 +51,15 @@ const CalendarEvents = () => {
             </button>
           ))
         ) : (
-          <div className="flex-d-column">
-            <strong>All booked up, please try a different day</strong>
-            <button className="btn-main" type="button" onClick={findNextOpen}>
-              Find next availible
-            </button>
+          <div className="container">
+            <strong>No open meetings this day, try a different day</strong>
+            {error ? (
+              <p className="error-message">{error}</p>
+            ) : (
+              <button className="btn-main" type="button" onClick={findNextOpen}>
+                Find next availible
+              </button>
+            )}
           </div>
         )}
       </div>

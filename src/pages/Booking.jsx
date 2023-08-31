@@ -6,13 +6,13 @@ import { useNavigate } from "react-router-dom";
 import { Calendar } from "nexious-library/@nxs-template";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 import CalendarEvents from "../components/CalendarEvents";
+import { AppContext } from "../utils/context/app/AppContext";
 
 const Booking = () => {
-  const { events, selectedDay, meeting, setMeeting, setDay } =
-    useContext(CalendarContext);
+  const { selectedDay, meeting, setMeeting, setDay } = useContext(CalendarContext);
   const { bookable, removeFromCart, cart, active, setActive, addToCart } =
     useContext(ServicesContext);
-
+  const { calendar } = useContext(AppContext);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -36,7 +36,7 @@ const Booking = () => {
         onDayClick={handleDayClick}
         minDate={new Date()}
         // minDetail="month"
-        events={events.sections}
+        events={calendar.events}
         selectedDay={selectedDay}
         setSelectedDay={setDay}
       />
