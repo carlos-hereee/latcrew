@@ -21,7 +21,7 @@ import { getLatestAppData } from "./helpers/getLatestAppData";
 export const AppContext = createContext();
 
 export const AppState = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, defaultState);
+  const [state, dispatch] = useReducer(reducer, { isLoading: true });
   const { accessToken, language } = useContext(AuthContext);
   const navigate = useNavigate();
 

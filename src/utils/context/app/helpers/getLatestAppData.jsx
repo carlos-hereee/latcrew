@@ -1,11 +1,10 @@
 import { axiosAuth } from "../../../axios";
 
 export const getLatestAppData = async (dispatch) => {
-  console.log("log");
   try {
-    const data = await axiosAuth.get("/app/latest");
-    console.log("data", data);
+    const { data } = await axiosAuth.get("/app/latest");
+    dispatch({ type: "UPDATE_APP_ASSETS", payload: data });
   } catch (error) {
-    console.log("error", error);
+    console.log("error fetching lateset app data: ", error);
   }
 };
