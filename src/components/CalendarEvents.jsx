@@ -8,28 +8,31 @@ import { ServicesContext } from "../utils/context/services/ServicesContext";
 import { CalendarContext } from "../utils/context/calendar/CalendarContext";
 import { AppContext } from "../utils/context/app/AppContext";
 import { findNextOpenApp } from "../utils/helpers/findNextOpenApp";
-// import { setMeeting } from "../utils/context/calendar/helpers/setMeeting";
+import { AuthContext } from "../utils/context/auth/AuthContext";
+import { Link } from "react-router-dom";
+import { CartRow } from "nexious-library/@nxs-molecules";
 
 const CalendarEvents = () => {
-  // const { selectedDay, active, meeting, setMeeting, handleCheckout, user }
-  const { active, services } = useContext(ServicesContext);
+  const { handleCheckout, user } = useContext(AuthContext);
+  const { active, services, setActive } = useContext(ServicesContext);
   const { selectedDay, meeting, events, setMeeting, error, setError } =
     useContext(CalendarContext);
-  // const { selectedDay } = useContext(AppContext);
-  const handleClick = (e) => {
-    // setActive(e);
-    console.log("e", e);
-  };
+
   const findNextOpen = (e) => {
     const { error, event } = findNextOpenApp(events);
     if (error) return setError(error);
     setMeeting(event);
   };
+
   return (
     <div className="calendar-events">
       <div className="calendar-package-details">
         <h2 className="heading">Selected package</h2>
-        {active && <CardSection data={active} click={() => handleClick(active)} />}
+        {active ? (
+          <CardSection data={active} />
+        ) : (
+          services.map((s) => <CartRow data={s} key={s.uid} click={() => setActive(s)} />)
+        )}
       </div>
       <div className="event-wrapper">
         {selectedDay && (
@@ -49,6 +52,10 @@ const CalendarEvents = () => {
             <strong>No open meetings this day, try a different day</strong>
             {error ? (
               <p className="error-message">{error}</p>
+            ) : user.role === "admin" ? (
+              <Link to="/admin-dashboard" className="btn btn-main">
+                Add more meetings on dashboard
+              </Link>
             ) : (
               <button className="btn-main" type="button" onClick={findNextOpen}>
                 Find next availible

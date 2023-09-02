@@ -12,8 +12,11 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./utils/PrivateRoute";
+import { useContext } from "react";
+import { AuthContext } from "./utils/context/auth/AuthContext";
 
 const AppRouter = () => {
+  const { accessToken } = useContext(AuthContext);
   return (
     <Routes>
       <Route exact path="/" element={<Landing />} />
@@ -29,7 +32,7 @@ const AppRouter = () => {
       <Route element={<PrivateRoute />}>
         <Route path="/dashboard" element={<Dashboard />} />
       </Route>
-      <Route path="/*" element={<PageNotFound />} />
+      <Route path="/*" element={<PageNotFound to={accessToken ? "/dashboard" : "/"} />} />
     </Routes>
   );
 };
