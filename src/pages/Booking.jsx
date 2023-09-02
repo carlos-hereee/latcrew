@@ -36,9 +36,7 @@ const Booking = () => {
         onDayClick={handleDayClick}
         minDate={new Date()}
         // minDetail="month"
-        events={calendar.events}
-        selectedDay={selectedDay}
-        setSelectedDay={setDay}
+        events={calendar.events ? calendar.events : []}
       />
       <CalendarEvents />
     </section>
