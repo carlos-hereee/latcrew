@@ -1,11 +1,22 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 import { ServicesContext } from "../utils/context/services/ServicesContext";
 import FeatureItems from "../components/FeatureItems";
+import { useNavigate } from "react-router-dom";
+import { AdminContext } from "../utils/context/admin/AdminContext";
 
 const Dashboard = () => {
   const { user, logOut } = useContext(AuthContext);
   const { booked } = useContext(ServicesContext);
+  const { updateLoading } = useContext(AdminContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user && user.role === "admin") {
+      updateLoading(false);
+      navigate("/admin-dashboard");
+    }
+  }, [user]);
   return (
     <div className="container">
       <div>

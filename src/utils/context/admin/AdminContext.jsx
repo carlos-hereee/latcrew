@@ -6,18 +6,23 @@ import { useNavigate } from "react-router-dom";
 export const AdminContext = createContext();
 export const AdminState = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, { isLoading: true });
-  const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
+  // const { user } = useContext(AuthContext);
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    if (user) {
-      user.role === "admin"
-        ? dispatch({ type: "IS_LOADING", payload: false })
-        : navigate("/dashboard");
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user) {
+  //     user.role === "admin"
+  //       ? dispatch({ type: "IS_LOADING", payload: false })
+  //       : navigate("/dashboard");
+  //   }
+  // }, [user]);
   return (
-    <AdminContext.Provider value={{ init: state.init, isLoading: state.isLoading }}>
+    <AdminContext.Provider
+      value={{
+        init: state.init,
+        isLoading: state.isLoading,
+        updateLoading: (a) => dispatch({ type: "IS_LOADING", payload: a }),
+      }}>
       {children}
     </AdminContext.Provider>
   );
