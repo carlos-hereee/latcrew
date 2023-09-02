@@ -10,10 +10,11 @@ export const AdminState = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user && user.role !== "admin") {
-      navigate("/dashboard");
-      dispatch({ type: "IS_LOADING", payload: false });
-    } else dispatch({ type: "IS_LOADING", payload: false });
+    if (user) {
+      user.role === "admin"
+        ? dispatch({ type: "IS_LOADING", payload: false })
+        : navigate("/dashboard");
+    }
   }, [user]);
   return (
     <AdminContext.Provider value={{ init: state.init, isLoading: state.isLoading }}>
