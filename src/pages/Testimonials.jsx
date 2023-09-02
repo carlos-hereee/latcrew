@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../utils/context/app/AppContext";
-import { TextBubble } from "nexious-library/@nxs-atoms";
 import { Rating } from "nexious-library/@nxs-molecules";
-import { UserCard, Form } from "nexious-library/@nxs-organism";
+import { UserCard, Form, CardTextBubble } from "nexious-library/@nxs-organism";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 
 const Testimonials = () => {
@@ -12,7 +11,7 @@ const Testimonials = () => {
   const handleSubmit = (e) => {
     // console.log("handleSubmit", e);
   };
-  console.log("user", user);
+  // console.log("user", user);
   return (
     <div className="container">
       <h1 className="heading">{testimonials.title}</h1>
@@ -32,13 +31,7 @@ const Testimonials = () => {
       </div>
       {testimonials.reviews.length > 0 &&
         testimonials.reviews.map((t) => (
-          <div className="flex-g w-100 m-tb" key={t.uid}>
-            <UserCard user={t.user} hideLabels />
-            <div className="w-100 review-container">
-              <Rating star={t.rating} />
-              <TextBubble data={t} />
-            </div>
-          </div>
+          <CardTextBubble data={t} hero={t.user.hero} key={t.uid} theme="p-1" />
         ))}
     </div>
   );
