@@ -9,6 +9,7 @@ import { resetDay } from "./helpers/resetDay";
 import calendarState from "../../../data/calendarState.json";
 import { AppContext } from "../app/AppContext";
 import { updateEvents } from "./helpers/updateEvents";
+import { setError } from "./helpers/setError";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
@@ -31,6 +32,7 @@ export const CalendarState = ({ children }) => {
         meeting: state.meeting,
         events: state.events,
         booked: state.booked,
+        error: state.error,
         contactUs: (a) => contactUs(dispatch, a),
         getCalendarDay: (a) => getCalendarDay(dispatch, a),
         setDay: (a) => setDay(dispatch, a),
@@ -38,6 +40,7 @@ export const CalendarState = ({ children }) => {
         bookNow: (a, b) => bookNow(dispatch, a, b),
         resetDay: (a) => resetDay(dispatch, a),
         findNextOpenApp: (a, b) => findNextOpenApp(dispatch, a, b),
+        setError: (a) => setError(dispatch, a),
       }}>
       {children}
     </CalendarContext.Provider>

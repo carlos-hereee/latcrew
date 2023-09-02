@@ -8,6 +8,8 @@ export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
       return { ...state, isLoading: action.payload };
+    case "SET_ERROR":
+      return { ...state, error: action.payload };
     case "BOOKED":
       return { ...state, booked: action.payload };
     case "UPDATE_SELECTED_DAY":

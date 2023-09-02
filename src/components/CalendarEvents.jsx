@@ -13,15 +13,9 @@ import { findNextOpenApp } from "../utils/helpers/findNextOpenApp";
 const CalendarEvents = () => {
   // const { selectedDay, active, meeting, setMeeting, handleCheckout, user }
   const { active, services } = useContext(ServicesContext);
-  const {
-    selectedDay,
-    meeting,
-    events,
-    setMeeting,
-    // findNextOpenApp,
-  } = useContext(CalendarContext);
+  const { selectedDay, meeting, events, setMeeting, error, setError } =
+    useContext(CalendarContext);
   // const { selectedDay } = useContext(AppContext);
-  const [error, setError] = useState("");
   const handleClick = (e) => {
     // setActive(e);
     console.log("e", e);
