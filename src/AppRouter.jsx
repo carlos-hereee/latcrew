@@ -14,6 +14,7 @@ import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./utils/PrivateRoute";
 import { useContext } from "react";
 import { AuthContext } from "./utils/context/auth/AuthContext";
+import AdminDashboard from "./pages/AdminDashboard";
 
 const AppRouter = () => {
   const { accessToken } = useContext(AuthContext);
@@ -31,6 +32,7 @@ const AppRouter = () => {
       <Route path="/signup" element={<Signup />} />
       <Route element={<PrivateRoute />}>
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Route>
       <Route path="/*" element={<PageNotFound to={accessToken ? "/dashboard" : "/"} />} />
     </Routes>

@@ -10,6 +10,7 @@ import { AppState } from "./utils/context/app/AppContext";
 import { AuthState } from "./utils/context/auth/AuthContext";
 import { LogState } from "./utils/context/log/LogContext";
 import { CalendarState } from "./utils/context/calendar/CalendarContext";
+import { AdminState } from "./utils/context/admin/AdminContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -19,9 +20,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <AppState>
             <ServicesState>
               <CalendarState>
-                <App>
-                  <AppRouter />
-                </App>
+                <AdminState>
+                  <App>
+                    <AppRouter />
+                  </App>
+                </AdminState>
               </CalendarState>
             </ServicesState>
           </AppState>
