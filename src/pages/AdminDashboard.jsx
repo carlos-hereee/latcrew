@@ -7,10 +7,11 @@ import { Calendar } from "nexious-library/@nxs-template";
 import { CalendarContext } from "../utils/context/calendar/CalendarContext";
 
 const AdminDashboard = () => {
-  const { isLoading, addCalendarEvent } = useContext(AdminContext);
+  const { isLoading } = useContext(AdminContext);
   const { user } = useContext(AuthContext);
   const { booked } = useContext(ServicesContext);
-  const { setDay, selectedDay, events, error } = useContext(CalendarContext);
+  const { setDay, selectedDay, events, error, addCalendarEvent } =
+    useContext(CalendarContext);
 
   const [start, setStart] = useState();
 
@@ -24,7 +25,7 @@ const AdminDashboard = () => {
     setDay(e);
   };
   const handleAddMeeting = () => {
-    addCalendarEvent(selectedDay, user);
+    addCalendarEvent(selectedDay);
   };
   if (isLoading) return <Loading message="Authenticating user .. please wait" />;
   const heading = "No open meetings this day, try a different day";

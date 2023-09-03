@@ -10,7 +10,7 @@ import calendarState from "../../../data/calendarState.json";
 import { AppContext } from "../app/AppContext";
 import { updateEvents } from "./helpers/updateEvents";
 import { setError } from "./helpers/setError";
-import { addCalendarEvent } from "../admin/helpers/addCalendarEvent";
+import { addCalendarEvent } from "./helpers/addCalendarEvent";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
