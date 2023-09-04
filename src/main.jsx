@@ -13,23 +13,23 @@ import { CalendarState } from "./utils/context/calendar/CalendarContext";
 import { AdminState } from "./utils/context/admin/AdminContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <LogState>
-        <AuthState>
-          <AppState>
-            <ServicesState>
-              <CalendarState>
-                <AdminState>
-                  <App>
-                    <AppRouter />
-                  </App>
-                </AdminState>
-              </CalendarState>
-            </ServicesState>
-          </AppState>
-        </AuthState>
-      </LogState>
-    </BrowserRouter>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <BrowserRouter>
+    <LogState>
+      <AuthState>
+        <AppState>
+          <ServicesState>
+            <CalendarState>
+              <AdminState>
+                <App>
+                  <AppRouter />
+                </App>
+              </AdminState>
+            </CalendarState>
+          </ServicesState>
+        </AppState>
+      </AuthState>
+    </LogState>
+  </BrowserRouter>
+  // </React.StrictMode>
 );

@@ -25,6 +25,7 @@ function App({ children }) {
   if (isLoading) {
     return <Loading message="Loading app assets.." />;
   }
+  // console.log("menu", menu[6]);
   return (
     <div className="container p-sm">
       {menu && app?.logo && (

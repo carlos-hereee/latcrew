@@ -30,14 +30,11 @@ export const AppState = ({ children }) => {
 
   useEffect(() => {
     if (state.menu) {
-      // console.log("accessToken", accessToken);
-      let menu = state.menu;
-      const { menuItem, idx } = toggleMenuItemLogin(menu, accessToken);
-      menu[idx].active = menuItem;
-      dispatch({ type: "UPDATE_MENU", payload: menu });
-      navigate(`/${menuItem.link}`);
+      const { altMenu, idx } = toggleMenuItemLogin(state.menu, accessToken);
+      dispatch({ type: "UPDATE_MENU", payload: altMenu });
+      navigate(`/${altMenu[idx].link}`);
     }
-  }, [state.menu]);
+  }, [accessToken]);
 
   useEffect(() => {
     // fetch latest app data
