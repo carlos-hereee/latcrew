@@ -14,6 +14,7 @@ import { toggleMenuItemLogin } from "../../helpers/toggleMenuItemLogin";
 import { useNavigate } from "react-router-dom";
 import { getLatestAppData } from "./helpers/getLatestAppData";
 import appState from "../../../data/appState.json";
+import { uploadImage } from "./helpers/uploadImage";
 
 export const AppContext = createContext();
 
@@ -48,6 +49,7 @@ export const AppState = ({ children }) => {
         isLoading: state.isLoading,
         app: state.app,
         pageValues: state.pageValues,
+        pageValuesTypes: state.pageValuesTypes,
         pageLabels: state.pageLabels,
         pagePlaceholders: state.pagePlaceholders,
         calendar: state.calendar,
@@ -83,6 +85,7 @@ export const AppState = ({ children }) => {
         updateFilter: (a, b) => updateFilter(dispatch, a, b),
         updateAppliedFilter: (a, b) => updateAppliedFilter(dispatch, a, b),
         resetFilter: (a) => resetFilter(dispatch, a),
+        uploadImage: (a) => uploadImage(dispatch, a),
       }}>
       {children}
     </AppContext.Provider>
