@@ -3,8 +3,8 @@ import { isDev } from "../../../helpers/isDev";
 
 export const getLatestAppData = async (dispatch) => {
   try {
-    const { data } = await axiosAuth.get("/app/latest");
-    dispatch({ type: "UPDATE_APP_ASSETS", payload: data });
+    const response = await axiosAuth.get("/app/latest");
+    dispatch({ type: "UPDATE_APP_ASSETS", payload: response.data });
   } catch (error) {
     if (isDev) console.log("error fetching lateset app data: ", error);
     const response = error.response;
@@ -13,4 +13,5 @@ export const getLatestAppData = async (dispatch) => {
       dispatch({ type: "UPDATE_APP_ASSETS", payload: response.data });
     }
   }
+  dispatch({ type: "IS_LOADING", payload: false });
 };

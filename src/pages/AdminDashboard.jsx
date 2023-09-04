@@ -6,10 +6,12 @@ import { AuthContext } from "../utils/context/auth/AuthContext";
 import { Calendar } from "nexious-library/@nxs-template";
 import { Form, Navigation } from "nexious-library/@nxs-organism";
 import { CalendarContext } from "../utils/context/calendar/CalendarContext";
+import { AppContext } from "../utils/context/app/AppContext";
+import BuildPage from "../components/BuildPage";
 
 const AdminDashboard = () => {
-  const { isLoading } = useContext(AdminContext);
-  const { user, logout, menu } = useContext(AuthContext);
+  const { user, logout, menu, isLoading } = useContext(AuthContext);
+  const { app } = useContext(AppContext);
   const { booked } = useContext(ServicesContext);
   const { setDay, selectedDay, events, error, addCalendarEvent } =
     useContext(CalendarContext);
@@ -28,14 +30,18 @@ const AdminDashboard = () => {
   const handleAddMeeting = () => {
     addCalendarEvent(selectedDay);
   };
+  console.log("app", app);
   if (isLoading) return <Loading message="Authenticating user .. please wait" />;
-  const heading = "No open meetings this day, try a different day";
+  if (!app) return <BuildPage />;
+  // const heading = "No open meetings this day, try a different day";
   return (
     <div className="container">
-      <h2 className="heading">
-        Welcome back {user?.nickname ? user.nickname : user.username} you have{" "}
-        {booked?.length ? booked.length : 0} upcoming orders:
-      </h2>
+      {booked && (
+        <h2 className="heading">
+          Welcome back {user?.nickname ? user.nickname : user.username} you have{" "}
+          {booked?.length} upcoming orders:
+        </h2>
+      )}
       <Navigation menu={menu} />
       {selectedDay && (
         <>
