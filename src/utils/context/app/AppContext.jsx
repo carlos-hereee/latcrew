@@ -29,14 +29,14 @@ export const AppState = ({ children }) => {
   }, [language]);
 
   useEffect(() => {
-    if (accessToken && state.menu) {
+    if (state.menu) {
       let menu = state.menu;
-      const { menuItem, idx } = findMenuItemLogin(menu);
+      const { menuItem, idx } = findMenuItemLogin(menu, accessToken);
       menu[idx].active = menuItem;
       dispatch({ type: "UPDATE_MENU", payload: menu });
-      navigate("/dashboard");
+      navigate(`/${menuItem.link}`);
     }
-  }, [accessToken, state.menu]);
+  }, [accessToken]);
 
   useEffect(() => {
     // fetch latest app data

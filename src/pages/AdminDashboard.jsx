@@ -4,11 +4,12 @@ import { AdminContext } from "../utils/context/admin/AdminContext";
 import { ServicesContext } from "../utils/context/services/ServicesContext";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 import { Calendar } from "nexious-library/@nxs-template";
+import { Form } from "nexious-library/@nxs-organism";
 import { CalendarContext } from "../utils/context/calendar/CalendarContext";
 
 const AdminDashboard = () => {
   const { isLoading } = useContext(AdminContext);
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const { booked } = useContext(ServicesContext);
   const { setDay, selectedDay, events, error, addCalendarEvent } =
     useContext(CalendarContext);
@@ -31,6 +32,9 @@ const AdminDashboard = () => {
   const heading = "No open meetings this day, try a different day";
   return (
     <div className="container">
+      <button type="button" className="btn-cancel logout-btn" onClick={logout}>
+        Log out
+      </button>
       {user && (
         <h2 className="heading">
           Welcome back {user?.nickname ? user.nickname : user.username} you have{" "}
@@ -59,9 +63,12 @@ const AdminDashboard = () => {
         <EmptySection heading={heading} message={error} />
       )}
       {selectedDay && (
-        <button className="btn-main" type="button" onClick={handleAddMeeting}>
-          Add a meeting
-        </button>
+        <>
+          <Form initialValues={{ date: "" }} />
+          <button className="btn-main" type="button" onClick={handleAddMeeting}>
+            Add a meeting
+          </button>
+        </>
       )}
     </div>
   );

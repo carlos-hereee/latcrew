@@ -1,4 +1,4 @@
-import { axiosAuth } from "../../../axios";
+import { axiosAuth } from "../../../helpers/axios";
 
 export const changePassword = async (dispatch, credentials) => {
   try {

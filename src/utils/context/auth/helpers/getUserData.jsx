@@ -1,4 +1,4 @@
-import { axiosAuth } from "../../../axios";
+import { axiosAuth } from "../../../helpers/axios";
 export const getUserData = async (dispatch) => {
   dispatch({ type: "IS_LOADING", payload: true });
   try {

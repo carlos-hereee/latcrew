@@ -11,7 +11,7 @@
   "signInError": "",
   "userValues": { "name": "", "email": "", "phone": "" },
   "signUpValues": { "username": "", "password": "", "confirmPassword": "" },
-  "loginValues": { "username": "", "password": "" },
+  "loginValues": { "username": "qwerty", "password": "secretPassword" },
   "isChangePassword": false,
   "language": {
     "name": "english",

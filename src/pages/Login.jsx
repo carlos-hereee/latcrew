@@ -5,21 +5,15 @@ import { AuthContext } from "../utils/context/auth/AuthContext";
 // import ChangePassword from "../components/ChangePassword";
 
 const Login = () => {
-  const {
-    signIn,
-    signInError,
-    loginValues,
-    accessToken,
-    isChangePassword,
-    changePassword,
-  } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const { signIn, signInError, loginValues, isChangePassword, changePassword } =
+    useContext(AuthContext);
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    if (accessToken) {
-      navigate("/dashboard");
-    }
-  }, [accessToken]);
+  // useEffect(() => {
+  //   if (accessToken) {
+  //     navigate("/dashboard");
+  //   }
+  // }, [accessToken]);
 
   if (isChangePassword) {
     return (
@@ -35,7 +29,7 @@ const Login = () => {
     <div className="container">
       <h2 className="heading">Login</h2>
       {signInError && <p className="error-message">{signInError}</p>}
-      <Form values={loginValues} submit={signIn} />
+      <Form initialValues={loginValues} submit={signIn} />
       <div className="text-center m-tb">
         <Link to="/signup" className="link">
           Create an account

@@ -1,6 +1,7 @@
-import { axiosAuth } from "../../../axios";
+import { axiosAuth } from "../../../helpers/axios";
 
 export const register = async (dispatch, credentials) => {
+  dispatch({ type: "IS_LOADING", payload: true });
   try {
     const { data } = await axiosAuth.post("/auth/register", credentials);
     dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
