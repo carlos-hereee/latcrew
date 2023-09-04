@@ -21,17 +21,19 @@ export const reducer = (state, action) => {
     case "IS_LOADING":
       return { ...state, isLoading: action.payload };
     case "UPDATE_MENU":
-      return { ...state, isLoading: false, menu: action.payload };
+      return { ...state, menu: action.payload };
     case "UPDATE_BURGER":
-      return { ...state, isLoading: false, burger: action.payload };
+      return { ...state, burger: action.payload };
+    case "UPDATE_LANGUAGE":
+      return { ...state, language: action.payload };
     case "UPDATE_APP_ASSETS":
-      return { ...state, isLoading: false, ...action.payload };
+      return { ...state, ...action.payload };
     case "LOAD_FILTERS":
       return loadFilters(state, action);
     case "SELECT_PAYMENT_TYPE":
-      return { ...state, isLoading: false, paymentType: action.payload };
+      return { ...state, paymentType: action.payload };
     case "UPDATE_SELECTED":
-      return { ...state, isLoading: false, selected: action.payload };
+      return { ...state, selected: action.payload };
     case "UPDATE_APPLIED_FILTER":
       return updateAppliedFilter(state, action);
     case "UPDATE_FILTER":

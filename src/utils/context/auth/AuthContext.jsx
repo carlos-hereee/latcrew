@@ -34,6 +34,7 @@ export const AuthState = ({ children }) => {
         signUpError: state.signUpError,
         isChangePassword: state.isChangePassword,
         language: state.language,
+        menu: state.menu,
         signIn: (e) => signIn(dispatch, e),
         register: (e) => register(dispatch, e),
         logout: () => logOut(dispatch),

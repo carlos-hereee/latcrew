@@ -10,7 +10,7 @@ import { updateFilter } from "./helpers/updateFilter";
 import { updateAppliedFilter } from "./helpers/updateAppliedFilter";
 import { resetFilter } from "./helpers/resetFilter";
 import { AuthContext } from "../auth/AuthContext";
-import { findMenuItemLogin } from "../../helpers/findMenuItemLogin";
+import { toggleMenuItemLogin } from "../../helpers/toggleMenuItemLogin";
 import { useNavigate } from "react-router-dom";
 import { getLatestAppData } from "./helpers/getLatestAppData";
 
@@ -30,13 +30,14 @@ export const AppState = ({ children }) => {
 
   useEffect(() => {
     if (state.menu) {
+      // console.log("accessToken", accessToken);
       let menu = state.menu;
-      const { menuItem, idx } = findMenuItemLogin(menu, accessToken);
+      const { menuItem, idx } = toggleMenuItemLogin(menu, accessToken);
       menu[idx].active = menuItem;
       dispatch({ type: "UPDATE_MENU", payload: menu });
       navigate(`/${menuItem.link}`);
     }
-  }, [accessToken]);
+  }, [state.menu]);
 
   useEffect(() => {
     // fetch latest app data

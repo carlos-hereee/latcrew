@@ -3,21 +3,16 @@
   "accessToken": "",
   "user": {},
   "dummyUser": {
-    "username": "qwerty",
+    "username": "",
     "email": "",
     "phone": "",
-    "userId": "qwerty-123"
+    "userId": ""
   },
   "signInError": "",
   "userValues": { "name": "", "email": "", "phone": "" },
   "signUpValues": { "username": "", "password": "", "confirmPassword": "" },
   "loginValues": { "username": "qwerty", "password": "secretPassword" },
   "isChangePassword": false,
-  "language": {
-    "name": "english",
-    "label": "English",
-    "locale": "en",
-    "url": "icons/english.svg",
-    "uid": "lan-english"
-  }
+  "language": {},
+  "menu": []
 }

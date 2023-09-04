@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export const AdminContext = createContext();
 export const AdminState = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, { isLoading: true });
+  const [state, dispatch] = useReducer(reducer, { isLoading: true, menu: [] });
   // const { user } = useContext(AuthContext);
   // const navigate = useNavigate();
 

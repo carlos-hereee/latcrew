@@ -1,7 +1,13 @@
 import { axiosAuth } from "../../../helpers/axios";
+import { isDev } from "../../../helpers/isDev";
 
 export const addCalendarEvent = async (dispatch, day) => {
-  const { data } = axiosAuth.post("/calendar/add-event", { day });
-  console.log("data", data);
-  // return <div>addCalendarEvent</div>;
+  try {
+    const response = await axiosAuth.post("/calendar/add-event", { day });
+    console.log("data", response);
+  } catch (error) {
+    if (isDev) console.log("error adding calendar event ", error);
+    const message = error.response.data;
+    dispatch({ type: "SET_ERROR", payload: message });
+  }
 };

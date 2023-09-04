@@ -4,12 +4,12 @@ import { AdminContext } from "../utils/context/admin/AdminContext";
 import { ServicesContext } from "../utils/context/services/ServicesContext";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 import { Calendar } from "nexious-library/@nxs-template";
-import { Form } from "nexious-library/@nxs-organism";
+import { Form, Navigation } from "nexious-library/@nxs-organism";
 import { CalendarContext } from "../utils/context/calendar/CalendarContext";
 
 const AdminDashboard = () => {
   const { isLoading } = useContext(AdminContext);
-  const { user, logout } = useContext(AuthContext);
+  const { user, logout, menu } = useContext(AuthContext);
   const { booked } = useContext(ServicesContext);
   const { setDay, selectedDay, events, error, addCalendarEvent } =
     useContext(CalendarContext);
@@ -32,26 +32,30 @@ const AdminDashboard = () => {
   const heading = "No open meetings this day, try a different day";
   return (
     <div className="container">
-      <button type="button" className="btn-cancel logout-btn" onClick={logout}>
-        Log out
-      </button>
-      {user && (
-        <h2 className="heading">
-          Welcome back {user?.nickname ? user.nickname : user.username} you have{" "}
-          {booked?.length ? booked.length : 0} upcoming orders:
-        </h2>
-      )}
-      {start && (
+      <h2 className="heading">
+        Welcome back {user?.nickname ? user.nickname : user.username} you have{" "}
+        {booked?.length ? booked.length : 0} upcoming orders:
+      </h2>
+      <Navigation menu={menu} />
+      {selectedDay && (
+        <>
+          {/* <Form initialValues={{ date: "" }} /> */}
+          {error && <p className="error-message">{error}</p>}
+          <button className="btn-main" type="button" onClick={handleAddMeeting}>
+            Add a meeting
+          </button>
+        </>
+      )}{" "}
+      {/* {start && (
         <Calendar
           onDayClick={handleDayClick}
           events={events}
           value={start}
           setDay={setDay}
         />
-      )}
-      {booked?.length && booked.map(<div>{booked.uid}</div>)}
+      )} */}
+      {/* {booked?.length && booked.map(<div>{booked.uid}</div>)}
       {selectedDay && <h2 className="heading">{selectedDay.date}</h2>}
-
       {selectedDay && selectedDay.list?.length > 0 ? (
         selectedDay.list.map((day) => (
           <button key={day.uid}>
@@ -60,16 +64,11 @@ const AdminDashboard = () => {
           </button>
         ))
       ) : (
-        <EmptySection heading={heading} message={error} />
-      )}
-      {selectedDay && (
-        <>
-          <Form initialValues={{ date: "" }} />
-          <button className="btn-main" type="button" onClick={handleAddMeeting}>
-            Add a meeting
-          </button>
-        </>
-      )}
+        <EmptySection heading={heading} />
+      )} */}
+      {/* <button type="button" className="btn-cancel logout-btn" onClick={logout}>
+        Log out
+      </button> */}
     </div>
   );
 };
