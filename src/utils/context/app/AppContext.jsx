@@ -13,11 +13,12 @@ import { AuthContext } from "../auth/AuthContext";
 import { toggleMenuItemLogin } from "../../helpers/toggleMenuItemLogin";
 import { useNavigate } from "react-router-dom";
 import { getLatestAppData } from "./helpers/getLatestAppData";
+import appState from "../../../data/appState.json";
 
 export const AppContext = createContext();
 
 export const AppState = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, { isLoading: true });
+  const [state, dispatch] = useReducer(reducer, appState);
   const { accessToken, language } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -46,6 +47,9 @@ export const AppState = ({ children }) => {
       value={{
         isLoading: state.isLoading,
         app: state.app,
+        pageValues: state.pageValues,
+        pageLabels: state.pageLabels,
+        pagePlaceholders: state.pagePlaceholders,
         calendar: state.calendar,
         media: state.media,
         about: state.about,

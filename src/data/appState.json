@@ -1,0 +1,6 @@
+{
+  "isLoading": true,
+  "pageValues": { "name": "" },
+  "pageLabels": { "name": "Enter app" },
+  "pagePlaceholders": { "name": "name.." }
+}
