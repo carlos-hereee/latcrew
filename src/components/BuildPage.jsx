@@ -12,13 +12,14 @@ const BuildPage = () => {
 
   return (
     <div className="flex-d-column">
-      <h1 className="heading">Build your app</h1>
+      <h1 className="heading">Initialize your app</h1>
       <Form
         initialValues={pageValues}
         labels={pageLabels}
         placeholders={pagePlaceholders}
         types={pageValuesTypes}
         submit={handleSubmit}
+        submitLabel="Save and Continue"
       />
     </div>
   );

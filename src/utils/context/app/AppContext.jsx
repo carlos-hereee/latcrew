@@ -17,6 +17,7 @@ import appState from "../../../data/appState.json";
 import { uploadImage } from "./helpers/uploadImage";
 import { getFiles } from "./helpers/getFiles";
 import { isDev } from "../../helpers/isDev";
+import { updateApp } from "./helpers/updateApp";
 
 export const AppContext = createContext();
 
@@ -97,6 +98,7 @@ export const AppState = ({ children }) => {
         resetFilter: (a) => resetFilter(dispatch, a),
         uploadImage: (a, b) => uploadImage(dispatch, a, b),
         getFiles: (a) => getFiles(dispatch, a),
+        updateApp: (a) => updateApp(dispatch, a),
       }}>
       {children}
     </AppContext.Provider>

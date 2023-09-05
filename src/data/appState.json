@@ -1,15 +1,13 @@
 {
   "isLoading": true,
   "isOffline": false,
-  "theme": ["light", "dark"],
   "appName": "",
-  "pageValues": { "appName": "", "theme": "", "logo": "" },
-  "pageValuesTypes": { "appName": "text", "theme": "select", "logo": "file" },
+  "pageValues": { "appName": "Sparkle and Shine", "logo": "" },
+  "pageValuesTypes": { "appName": "text", "logo": "file" },
   "pageLabels": {
     "appName": "Enter app name",
-    "theme": "Choose app theme",
     "logo": "Choose logo for app"
   },
-  "pagePlaceholders": { "appName": "Enter appname ..", "theme": "light" },
+  "pagePlaceholders": { "appName": "Enter appname .." },
   "logo": {}
 }
