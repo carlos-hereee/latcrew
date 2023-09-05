@@ -1,11 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../utils/context/app/AppContext";
 
 // TODO: UPload files
 // type FileEventTarget = EventTarget & { files: FileList };
 const UploadFile = () => {
   // const { name, baseUrl, path, upload } = props;
-  const { uploadImage } = useContext(AppContext);
+  const { uploadImage, getFiles } = useContext(AppContext);
 
   const [currentImage, setCurrentImage] = useState();
   const [previewImage, setPreviewImage] = useState("");
@@ -19,14 +19,13 @@ const UploadFile = () => {
     setPreviewImage(URL.createObjectURL(selectedFiles?.[0]));
     setProgress(0);
   };
-
-  const handleSubmit = (e) => {
-    // e.preventDefault();
-    // setProgress(0);
-    // console.log("currentImage", currentImage);
+  const upload = () => {
+    // todo send file to server
+    setProgress(0);
     if (!currentImage) return;
-    // let formData = new FormData();
-    uploadImage(currentImage);
+    uploadImage(currentImage, (event) => {
+      setProgress(Math.round(100 * event.loaded) / event.total);
+    });
   };
   return (
     <div className="container">
@@ -34,8 +33,7 @@ const UploadFile = () => {
         type="file"
         onChange={selectImage}
         accept="image/*"
-        className="btn-main"
-        // name={name}
+        className="btn-main input-file-uploader"
         // hidden
       />
       {previewImage && (
@@ -46,7 +44,7 @@ const UploadFile = () => {
         type="button"
         className="btn-main"
         disabled={!currentImage}
-        onClick={handleSubmit}>
+        onClick={upload}>
         Upload
       </button>
 

@@ -20,6 +20,8 @@ export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
       return { ...state, isLoading: action.payload };
+    case "SET_UPLOAD_FILE_ERROR":
+      return { ...state, uploadFileError: action.payload };
     case "UPDATE_MENU":
       return { ...state, menu: action.payload };
     case "UPDATE_BURGER":
@@ -40,7 +42,6 @@ export const reducer = (state, action) => {
       return updateFilter(state, action);
     case "RESET_FILTER":
       return resetFilter(state, action);
-
     default:
       return state;
   }

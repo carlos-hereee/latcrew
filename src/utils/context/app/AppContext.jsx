@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { getLatestAppData } from "./helpers/getLatestAppData";
 import appState from "../../../data/appState.json";
 import { uploadImage } from "./helpers/uploadImage";
+import { getFiles } from "./helpers/getFiles";
 
 export const AppContext = createContext();
 
@@ -53,6 +54,7 @@ export const AppState = ({ children }) => {
         pageLabels: state.pageLabels,
         pagePlaceholders: state.pagePlaceholders,
         calendar: state.calendar,
+        uploadFileError: state.uploadFileError,
         media: state.media,
         about: state.about,
         services: state.services,
@@ -85,7 +87,8 @@ export const AppState = ({ children }) => {
         updateFilter: (a, b) => updateFilter(dispatch, a, b),
         updateAppliedFilter: (a, b) => updateAppliedFilter(dispatch, a, b),
         resetFilter: (a) => resetFilter(dispatch, a),
-        uploadImage: (a) => uploadImage(dispatch, a),
+        uploadImage: (a, b) => uploadImage(dispatch, a, b),
+        getFiles: (a) => getFiles(dispatch, a),
       }}>
       {children}
     </AppContext.Provider>
