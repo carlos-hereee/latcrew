@@ -1,11 +1,13 @@
 {
   "isLoading": true,
   "theme": ["light", "dark"],
+  "appName": "",
   "pageValues": { "name": "", "theme": "" },
   "pageValuesTypes": { "name": "text", "theme": "select" },
   "pageLabels": {
     "name": "Enter app",
     "theme": "Chose app theme"
   },
-  "pagePlaceholders": { "name": "name..", "theme": "light" }
+  "pagePlaceholders": { "name": "name..", "theme": "light" },
+  "logo": {}
 }

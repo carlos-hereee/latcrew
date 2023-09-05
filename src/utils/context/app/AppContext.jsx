@@ -49,6 +49,7 @@ export const AppState = ({ children }) => {
       value={{
         isLoading: state.isLoading,
         app: state.app,
+        logo: state.logo,
         pageValues: state.pageValues,
         pageValuesTypes: state.pageValuesTypes,
         pageLabels: state.pageLabels,

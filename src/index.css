@@ -1,7 +1,7 @@
-#root {
+/* #root {
   max-width: 1200px;
   margin: auto;
-}
+} */
 
 .testimonial-form {
   display: flex;
@@ -63,4 +63,9 @@
 }
 .logout-btn {
   margin: 5rem auto;
+}
+.app-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 3fr 1fr;
 }

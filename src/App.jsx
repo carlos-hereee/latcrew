@@ -6,15 +6,12 @@ import { Loading } from "nexious-library/@nxs-molecules";
 
 function App({ children }) {
   const { isLoading, language, updateLanguage } = useContext(AuthContext);
-  const { app, menu, updateMenu } = useContext(AppContext);
-
+  const { app, menu, updateMenu, logo } = useContext(AppContext);
   useEffect(() => {
     if (app && app.name) {
       document.title = app.name;
     }
-  }, [app]);
-  // console.log("app", app);
-  // console.log("language", language);
+  }, [app && app.name]);
 
   const handleUpdateMenu = (e) => {
     if (!language || language.uid !== e[0].active.uid) {
@@ -25,17 +22,9 @@ function App({ children }) {
   if (isLoading) {
     return <Loading message="Loading app assets.." />;
   }
-  // console.log("menu", menu[6]);
   return (
-    <div className="container p-sm">
-      {menu && app?.logo && (
-        <Header
-          menu={menu}
-          logo={app.logo}
-          updateMenu={handleUpdateMenu}
-          language={language}
-        />
-      )}
+    <div className="app-container">
+      <Header menu={menu} logo={logo} updateMenu={handleUpdateMenu} language={language} />
       {children}
       <Footer appName={app && app.name ? app.name : "sparkle shine"} />
     </div>
