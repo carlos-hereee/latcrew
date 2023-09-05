@@ -11,6 +11,7 @@ export const getAccessToken = async (dispatch) => {
   } catch (error) {
     if (isDev) console.log("error fetching token", error);
     if (!error.response) {
+      dispatch({ type: "SET_STRANDED", payload: true });
       dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
       dispatch({ type: "SET_USER_DATA", payload: {} });
       return dispatch({ type: "IS_LOADING", payload: false });

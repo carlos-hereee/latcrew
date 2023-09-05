@@ -1,5 +1,6 @@
 {
   "isLoading": true,
+  "isOffline": false,
   "theme": ["light", "dark"],
   "appName": "",
   "pageValues": { "name": "", "theme": "" },

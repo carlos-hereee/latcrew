@@ -48,6 +48,7 @@ export const AppState = ({ children }) => {
     <AppContext.Provider
       value={{
         isLoading: state.isLoading,
+        isOffline: state.isOffline,
         app: state.app,
         logo: state.logo,
         pageValues: state.pageValues,
