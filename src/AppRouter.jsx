@@ -16,13 +16,12 @@ import { useContext } from "react";
 import { AuthContext } from "./utils/context/auth/AuthContext";
 import AdminDashboard from "./pages/AdminDashboard";
 import { AppContext } from "./utils/context/app/AppContext";
-// import { PageNotFound } from "nexious-library/@nxs-molecules";
 
 const AppRouter = () => {
-  const { accessToken } = useContext(AuthContext);
+  const { accessToken, user } = useContext(AuthContext);
   const { isComingSoon } = useContext(AppContext);
 
-  if (isComingSoon) return <ComingSoon />;
+  if (isComingSoon && user.role !== "admin") return <ComingSoon />;
   return (
     <Routes>
       <Route exact path="/" element={<Landing />} />

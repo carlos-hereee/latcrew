@@ -1,11 +1,12 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AppContext } from "../utils/context/app/AppContext";
 
 // TODO: UPload files
 // type FileEventTarget = EventTarget & { files: FileList };
 const UploadFile = () => {
-  // const { name, baseUrl, path, upload } = props;
   const { uploadImage, getFiles } = useContext(AppContext);
+  const imageUpLoaderRef = useRef(null);
+  const imageRef = useRef(null);
 
   const [currentImage, setCurrentImage] = useState();
   const [previewImage, setPreviewImage] = useState("");
@@ -13,6 +14,7 @@ const UploadFile = () => {
   const [message, setMessage] = useState("");
   const [imageInfos, setImageInfos] = useState([]);
 
+  const imageClick = () => imageUpLoaderRef.current.click();
   const selectImage = (event) => {
     const selectedFiles = event.target.files;
     setCurrentImage(selectedFiles?.[0]);
@@ -33,12 +35,16 @@ const UploadFile = () => {
         type="file"
         onChange={selectImage}
         accept="image/*"
-        className="btn-main input-file-uploader"
-        // hidden
+        ref={imageUpLoaderRef}
+        hidden
       />
-      {previewImage && (
-        <img className="hero preview-hero" src={previewImage} alt="preview" />
-      )}
+      <img
+        className="hero preview-hero thumbnail"
+        src={previewImage}
+        ref={imageRef}
+        alt="image-upload-preview"
+        onClick={imageClick}
+      />
       {message && <p className="error-message">{message}</p>}
       <button
         type="button"

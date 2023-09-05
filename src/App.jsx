@@ -26,7 +26,7 @@ function App({ children }) {
   return (
     <div className="app-container">
       <Header menu={menu} logo={logo} updateMenu={handleUpdateMenu} language={language} />
-      {children}
+      <div className="p-horizontal">{children}</div>
       <Footer appName={app && app.name ? app.name : "sparkle shine"} />
     </div>
   );

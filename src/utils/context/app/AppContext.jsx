@@ -16,33 +16,38 @@ import { getLatestAppData } from "./helpers/getLatestAppData";
 import appState from "../../../data/appState.json";
 import { uploadImage } from "./helpers/uploadImage";
 import { getFiles } from "./helpers/getFiles";
+import { isDev } from "../../helpers/isDev";
 
 export const AppContext = createContext();
 
 export const AppState = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, appState);
-  const { accessToken, language } = useContext(AuthContext);
+  const { accessToken, language, user } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (language.uid) {
-      // const payload = language.locale === "es" ? spanishState : englishState;
-      // updateAppAssets(dispatch, payload);
-    }
-  }, [language]);
+  // useEffect(() => {
+  //   if (language.uid) {
+  //     // const payload = language.locale === "es" ? spanishState : englishState;
+  //     // updateAppAssets(dispatch, payload);
+  //   }
+  // }, [language]);
 
   useEffect(() => {
-    if (state.menu) {
-      const { altMenu, idx } = toggleMenuItemLogin(state.menu, accessToken);
-      dispatch({ type: "UPDATE_MENU", payload: altMenu });
-      navigate(`/${altMenu[idx].link}`);
+    // user is login
+    if (accessToken) {
+      isDev && console.log("token aquired");
+      // navigate admin and regular users
+      if (user.role === "admin") navigate("/admin-dashboard");
+      else navigate("/dashboard");
+      if (state.menu) {
+        const { altMenu, idx } = toggleMenuItemLogin(state.menu, accessToken);
+        dispatch({ type: "UPDATE_MENU", payload: altMenu });
+        navigate(`/${altMenu[idx].link}`);
+      }
     }
+    // avoiding redundant request
+    else getLatestAppData(dispatch);
   }, [accessToken]);
-
-  useEffect(() => {
-    // fetch latest app data
-    getLatestAppData(dispatch);
-  }, []);
 
   return (
     <AppContext.Provider

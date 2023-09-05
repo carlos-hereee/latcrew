@@ -3,12 +3,13 @@
   "isOffline": false,
   "theme": ["light", "dark"],
   "appName": "",
-  "pageValues": { "name": "", "theme": "" },
-  "pageValuesTypes": { "name": "text", "theme": "select" },
+  "pageValues": { "appName": "", "theme": "", "logo": "" },
+  "pageValuesTypes": { "appName": "text", "theme": "select", "logo": "file" },
   "pageLabels": {
-    "name": "Enter app",
-    "theme": "Chose app theme"
+    "appName": "Enter app name",
+    "theme": "Choose app theme",
+    "logo": "Choose logo for app"
   },
-  "pagePlaceholders": { "name": "name..", "theme": "light" },
+  "pagePlaceholders": { "appName": "Enter appname ..", "theme": "light" },
   "logo": {}
 }
