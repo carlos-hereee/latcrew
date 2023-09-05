@@ -19,5 +19,9 @@ export const getLatestAppData = async (dispatch) => {
       dispatch({ type: "UPDATE_APP_ASSETS", payload: response.data });
       return dispatch({ type: "IS_LOADING", payload: false });
     }
+    if (response.status === 404) {
+      dispatch({ type: "COMING_SOON", payload: true });
+      return dispatch({ type: "IS_LOADING", payload: false });
+    }
   }
 };

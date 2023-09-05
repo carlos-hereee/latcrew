@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { PageNotFound } from "nexious-library/@nxs-molecules";
+import { PageNotFound, ComingSoon } from "nexious-library/@nxs-molecules";
 import Landing from "./pages/Landing";
 import Services from "./pages/Services";
 import Booking from "./pages/Booking";
@@ -15,9 +15,14 @@ import PrivateRoute from "./utils/helpers/PrivateRoute";
 import { useContext } from "react";
 import { AuthContext } from "./utils/context/auth/AuthContext";
 import AdminDashboard from "./pages/AdminDashboard";
+import { AppContext } from "./utils/context/app/AppContext";
+// import { PageNotFound } from "nexious-library/@nxs-molecules";
 
 const AppRouter = () => {
   const { accessToken } = useContext(AuthContext);
+  const { isComingSoon } = useContext(AppContext);
+
+  if (isComingSoon) return <ComingSoon />;
   return (
     <Routes>
       <Route exact path="/" element={<Landing />} />

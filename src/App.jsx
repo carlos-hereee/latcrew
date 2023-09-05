@@ -7,6 +7,7 @@ import { Loading } from "nexious-library/@nxs-molecules";
 function App({ children }) {
   const { isLoading, language, updateLanguage } = useContext(AuthContext);
   const { app, menu, updateMenu, logo } = useContext(AppContext);
+
   useEffect(() => {
     if (app && app.name) {
       document.title = app.name;
