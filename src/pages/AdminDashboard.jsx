@@ -7,7 +7,7 @@ import { Calendar } from "nexious-library/@nxs-template";
 import { Form, Navigation } from "nexious-library/@nxs-organism";
 import { CalendarContext } from "../utils/context/calendar/CalendarContext";
 import { AppContext } from "../utils/context/app/AppContext";
-import BuildPage from "../components/BuildPage";
+import BuildApp from "../components/BuildApp";
 
 const AdminDashboard = () => {
   const { user, logout, menu, isLoading } = useContext(AuthContext);
@@ -32,7 +32,7 @@ const AdminDashboard = () => {
   };
   // console.log("app", app);
   if (isLoading) return <Loading message="Authenticating user .. please wait" />;
-  if (!app) return <BuildPage />;
+  if (!app) return <BuildApp />;
   // const heading = "No open meetings this day, try a different day";
   return (
     <div className="container">

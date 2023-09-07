@@ -18,6 +18,7 @@ import { uploadImage } from "./helpers/uploadImage";
 import { getFiles } from "./helpers/getFiles";
 import { isDev } from "../../helpers/isDev";
 import { updateApp } from "./helpers/updateApp";
+import { buildApp } from "./helpers/buildApp";
 
 export const AppContext = createContext();
 
@@ -99,6 +100,7 @@ export const AppState = ({ children }) => {
         uploadImage: (a, b) => uploadImage(dispatch, a, b),
         getFiles: (a) => getFiles(dispatch, a),
         updateApp: (a) => updateApp(dispatch, a),
+        buildApp: (a) => buildApp(dispatch, a),
       }}>
       {children}
     </AppContext.Provider>
