@@ -1,11 +1,11 @@
-import { axiosAuth } from "../../../helpers/axios";
+import { axiosWithMedia } from "../../../helpers/axios";
 import { isDev } from "../../../helpers/isDev";
 
 export const buildApp = async (dispatch, data) => {
-  console.log("app values", data);
   try {
-    const response = await axiosAuth.post("/app/build-app", data);
-    console.log("response", response);
+    const { data } = await axiosWithMedia.post("/app/build-app", data);
+    // console.log("response", response);
+    dispatch({ type: "UPDATE_APP_ASSETS", payload: data });
   } catch (error) {
     isDev && console.log("error", error);
   }

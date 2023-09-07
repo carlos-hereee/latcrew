@@ -9,8 +9,8 @@ function App({ children }) {
   const { app, menu, updateMenu, logo } = useContext(AppContext);
 
   useEffect(() => {
-    if (app && app.name) {
-      document.title = app.name;
+    if (app.appName) {
+      document.title = app.appName;
     }
   }, [app && app.name]);
 
