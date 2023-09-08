@@ -30,7 +30,7 @@ const AdminDashboard = () => {
   const handleAddMeeting = () => {
     addCalendarEvent(selectedDay);
   };
-  console.log("app", app);
+  // console.log("app", app);
   if (isLoading) return <Loading message="Authenticating user .. please wait" />;
   if (!app) return <BuildApp />;
   // const heading = "No open meetings this day, try a different day";

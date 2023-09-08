@@ -8,8 +8,9 @@ function App({ children }) {
   const { isLoading, language, updateLanguage } = useContext(AuthContext);
   const { app, menu, updateMenu, logo } = useContext(AppContext);
 
+  // console.log("logo", logo);
   useEffect(() => {
-    if (app.appName) {
+    if (app?.appName) {
       document.title = app.appName;
     }
   }, [app && app.name]);

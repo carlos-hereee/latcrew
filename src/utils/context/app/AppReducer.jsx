@@ -32,6 +32,8 @@ export const reducer = (state, action) => {
       return { ...state, language: action.payload };
     case "UPDATE_APP_ASSETS":
       return { ...state, app: action.payload };
+    case "UPDATE_APP_LOGO":
+      return { ...state, logo: action.payload };
     case "LOAD_FILTERS":
       return loadFilters(state, action);
     case "SELECT_PAYMENT_TYPE":
