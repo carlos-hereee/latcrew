@@ -2,9 +2,12 @@ import { useContext } from "react";
 import { AppContext } from "../utils/context/app/AppContext";
 import { HeroCard, FeatureCard } from "nexious-library/@nxs-organism";
 import { Socials } from "nexious-library/@nxs-molecules";
+import AppInProgress from "../components/AppInProgress ";
 
 const Landing = () => {
-  const { landing, media } = useContext(AppContext);
+  const { landing, media, app } = useContext(AppContext);
+  // console.log("app, landing, media", app);
+  if (!app) return <AppInProgress />;
   return (
     <div className="container">
       {landing && (

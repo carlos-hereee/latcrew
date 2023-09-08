@@ -19,6 +19,7 @@ import { getFiles } from "./helpers/getFiles";
 import { isDev } from "../../helpers/isDev";
 import { updateApp } from "./helpers/updateApp";
 import { buildApp } from "./helpers/buildApp";
+import { deleteApp } from "./helpers/deleteApp";
 
 export const AppContext = createContext();
 
@@ -101,6 +102,7 @@ export const AppState = ({ children }) => {
         getFiles: (a) => getFiles(dispatch, a),
         updateApp: (a) => updateApp(dispatch, a),
         buildApp: (a) => buildApp(dispatch, a),
+        deleteApp: (a) => deleteApp(dispatch, a),
       }}>
       {children}
     </AppContext.Provider>

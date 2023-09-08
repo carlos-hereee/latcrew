@@ -10,8 +10,8 @@ import { AppContext } from "../utils/context/app/AppContext";
 import BuildApp from "../components/BuildApp";
 
 const AdminDashboard = () => {
-  const { user, logout, menu, isLoading } = useContext(AuthContext);
-  const { app } = useContext(AppContext);
+  const { user, logout, isLoading } = useContext(AuthContext);
+  const { app, menu, deleteApp } = useContext(AppContext);
   const { booked } = useContext(ServicesContext);
   const { setDay, selectedDay, events, error, addCalendarEvent } =
     useContext(CalendarContext);
@@ -31,21 +31,20 @@ const AdminDashboard = () => {
     addCalendarEvent(selectedDay);
   };
   // console.log("app", app);
+  // console.log("user", user);
   if (isLoading) return <Loading message="Authenticating user .. please wait" />;
   if (!app) return <BuildApp />;
   // const heading = "No open meetings this day, try a different day";
   return (
     <div className="container">
-      {booked && (
-        <h2 className="heading">
-          Welcome back {user?.nickname ? user.nickname : user.username} you have{" "}
-          {booked?.length} upcoming orders:
-        </h2>
-      )}
-      <Navigation menu={menu} />
+      <h1 className="heading">
+        Welcome back {user?.nickname ? user.nickname : user.username}
+      </h1>
+      <h2>App Settings</h2>
+      {menu && menu.length > 0 ? menu.map((m) => <button>m</button>) : "add pages"}
+      {/* <Navigation menu={menu} /> */}
       {selectedDay && (
         <>
-          {/* <Form initialValues={{ date: "" }} /> */}
           {error && <p className="error-message">{error}</p>}
           <button className="btn-main" type="button" onClick={handleAddMeeting}>
             Add a meeting
@@ -72,9 +71,15 @@ const AdminDashboard = () => {
       ) : (
         <EmptySection heading={heading} />
       )} */}
-      {/* <button type="button" className="btn-cancel logout-btn" onClick={logout}>
-        Log out
-      </button> */}
+      <h2>Danger zone</h2>
+      <div className="flex-row">
+        <button type="button" className="btn-cancel" onClick={logout}>
+          Log out
+        </button>
+        <button type="button" className="btn-cancel" onClick={() => deleteApp(app)}>
+          Delete app
+        </button>
+      </div>
     </div>
   );
 };
