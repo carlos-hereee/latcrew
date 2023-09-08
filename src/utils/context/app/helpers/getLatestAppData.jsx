@@ -6,7 +6,12 @@ export const getLatestAppData = async (dispatch) => {
   try {
     const response = await axiosAuth.get("/app/latest");
     dispatch({ type: "UPDATE_APP_ASSETS", payload: response.data });
-    dispatch({ type: "UPDATE_APP_LOGO", payload: response.data.logo });
+    if (response.data.logo) {
+      dispatch({ type: "UPDATE_APP_LOGO", payload: response.data.logo });
+    }
+    if (response.data.menu) {
+      dispatch({ type: "UPDATE_MENU", payload: response.data.menu });
+    }
   } catch (error) {
     if (isDev) console.log("error fetching latest app data: ", error);
     // server is offline

@@ -32,6 +32,7 @@ const AdminDashboard = () => {
   };
   // console.log("app", app);
   // console.log("user", user);
+  console.log("user", menu);
   if (isLoading) return <Loading message="Authenticating user .. please wait" />;
   if (!app) return <BuildApp />;
   // const heading = "No open meetings this day, try a different day";
@@ -40,8 +41,14 @@ const AdminDashboard = () => {
       <h1 className="heading">
         Welcome back {user?.nickname ? user.nickname : user.username}
       </h1>
-      <h2>App Settings</h2>
-      {menu && menu.length > 0 ? menu.map((m) => <button>m</button>) : "add pages"}
+      <h2>App Pages</h2>
+      {menu && menu.length > 0
+        ? menu.map((m) => (
+            <button key={m.menuId} className="btn-main" type="button">
+              {m.active.name}
+            </button>
+          ))
+        : "add pages"}
       {/* <Navigation menu={menu} /> */}
       {selectedDay && (
         <>

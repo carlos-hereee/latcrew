@@ -45,7 +45,7 @@ export const AppState = ({ children }) => {
       if (state.menu) {
         const { altMenu, idx } = toggleMenuItemLogin(state.menu, accessToken);
         dispatch({ type: "UPDATE_MENU", payload: altMenu });
-        navigate(`/${altMenu[idx].link}`);
+        altMenu[idx].link && navigate(`/${altMenu[idx].link}`);
       }
     }
     // avoiding redundant request

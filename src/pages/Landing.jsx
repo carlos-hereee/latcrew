@@ -3,10 +3,13 @@ import { AppContext } from "../utils/context/app/AppContext";
 import { HeroCard, FeatureCard } from "nexious-library/@nxs-organism";
 import { Socials } from "nexious-library/@nxs-molecules";
 import AppInProgress from "../components/AppInProgress ";
+import { AuthContext } from "../utils/context/auth/AuthContext";
 
 const Landing = () => {
   const { landing, media, app } = useContext(AppContext);
+  const { user } = useContext(AuthContext);
   // console.log("app, landing, media", app);
+  // console.log("user, landing, media", user);
   if (!app) return <AppInProgress />;
   return (
     <div className="container">
