@@ -2,12 +2,52 @@
   "isLoading": true,
   "isOffline": false,
   "appName": "",
-  "pageValues": { "appName": "Sparkle and Shine", "logo": "" },
-  "pageValuesTypes": { "appName": "text", "logo": "file" },
-  "pageLabels": {
+  "appValues": { "appName": "Sparkle and Shine", "logo": "" },
+  "appValuesTypes": { "appName": "text", "logo": "file" },
+  "appLabels": {
     "appName": "Enter app name",
     "logo": "Choose logo for app"
   },
-  "pagePlaceholders": { "appName": "Enter appname .." },
+  "appPlaceholders": { "appName": "Enter appname .." },
+  "pageValues": {
+    "title": "",
+    "hero": "",
+    "body": "",
+    "details": "",
+    "name": "",
+    "theme": "",
+    "sections": "",
+    "cta": ""
+  },
+  "pageValuesTypes": {
+    "title": "text",
+    "hero": "file",
+    "body": "text",
+    "details": "text",
+    "name": "text",
+    "theme": "text",
+    "sections": "text",
+    "cta": "text"
+  },
+  "pageLabels": {
+    "title": "Enter page heading",
+    "hero": "Add an image",
+    "body": "Enter page text",
+    "details": "Enter page details",
+    "name": "Enter page name",
+    "theme": "Enter page theme",
+    "sections": "Enter sections",
+    "cta": "Call to action"
+  },
+  "pagePlaceholders": {
+    "title": "",
+    "hero": "",
+    "body": "",
+    "details": "",
+    "name": "",
+    "theme": "",
+    "sections": "",
+    "cta": ""
+  },
   "logo": {}
 }

@@ -1,20 +1,18 @@
 import { useContext, useEffect, useState } from "react";
-import { Loading, EmptySection } from "nexious-library/@nxs-molecules";
-import { AdminContext } from "../utils/context/admin/AdminContext";
-import { ServicesContext } from "../utils/context/services/ServicesContext";
+import { Loading } from "nexious-library/@nxs-molecules";
+// import { ServicesContext } from "../utils/context/services/ServicesContext";
 import { AuthContext } from "../utils/context/auth/AuthContext";
-import { Calendar } from "nexious-library/@nxs-template";
-import { Form, Navigation } from "nexious-library/@nxs-organism";
 import { CalendarContext } from "../utils/context/calendar/CalendarContext";
 import { AppContext } from "../utils/context/app/AppContext";
 import BuildApp from "../components/BuildApp";
+import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
   const { user, logout, isLoading } = useContext(AuthContext);
   const { app, menu, deleteApp } = useContext(AppContext);
-  const { booked } = useContext(ServicesContext);
-  const { setDay, selectedDay, events, error, addCalendarEvent } =
-    useContext(CalendarContext);
+  // const { booked } = useContext(ServicesContext);
+  const { setDay, selectedDay, error, addCalendarEvent } = useContext(CalendarContext);
+  const navigate = useNavigate();
 
   const [start, setStart] = useState();
 
@@ -32,7 +30,7 @@ const AdminDashboard = () => {
   };
   // console.log("app", app);
   // console.log("user", user);
-  console.log("user", menu);
+  // console.log("user", menu);
   if (isLoading) return <Loading message="Authenticating user .. please wait" />;
   if (!app) return <BuildApp />;
   // const heading = "No open meetings this day, try a different day";
@@ -42,13 +40,22 @@ const AdminDashboard = () => {
         Welcome back {user?.nickname ? user.nickname : user.username}
       </h1>
       <h2>App Pages</h2>
-      {menu && menu.length > 0
-        ? menu.map((m) => (
-            <button key={m.menuId} className="btn-main" type="button">
-              {m.active.name}
-            </button>
-          ))
-        : "add pages"}
+      {menu.length > 0 &&
+        menu.map(
+          (m) =>
+            !m.isPrivate && (
+              <button
+                key={m.menuId}
+                className="btn-main"
+                onClick={() => console.log("edit page ', ", m, "")}
+                type="button">
+                {m.active.name}
+              </button>
+            )
+        )}
+      <button type="button" className="btn-main" onClick={() => navigate("/add-page")}>
+        +add page
+      </button>
       {/* <Navigation menu={menu} /> */}
       {selectedDay && (
         <>

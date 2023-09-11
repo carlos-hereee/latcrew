@@ -3,8 +3,8 @@ import { AppContext } from "../utils/context/app/AppContext";
 import { Form } from "nexious-library/@nxs-organism";
 
 const BuildApp = () => {
-  const { pageValues, pageLabels, pagePlaceholders } = useContext(AppContext);
-  const { pageValuesTypes, buildApp } = useContext(AppContext);
+  const { appValues, appLabels, appPlaceholders } = useContext(AppContext);
+  const { appValuesTypes, buildApp } = useContext(AppContext);
 
   // const handleSubmit = (e) => {
   //   console.log("e", e);
@@ -14,10 +14,10 @@ const BuildApp = () => {
     <div className="flex-d-column">
       <h1 className="heading">Initialize your app</h1>
       <Form
-        initialValues={pageValues}
-        labels={pageLabels}
-        placeholders={pagePlaceholders}
-        types={pageValuesTypes}
+        initialValues={appValues}
+        labels={appLabels}
+        placeholders={appPlaceholders}
+        types={appValuesTypes}
         submit={buildApp}
         submitLabel="Save and Continue"
         requireAllFields

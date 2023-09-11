@@ -20,6 +20,7 @@ import { isDev } from "../../helpers/isDev";
 import { updateApp } from "./helpers/updateApp";
 import { buildApp } from "./helpers/buildApp";
 import { deleteApp } from "./helpers/deleteApp";
+import { addPage } from "./helpers/addPage";
 
 export const AppContext = createContext();
 
@@ -45,7 +46,7 @@ export const AppState = ({ children }) => {
       if (state.menu) {
         const { altMenu, idx } = toggleMenuItemLogin(state.menu, accessToken);
         dispatch({ type: "UPDATE_MENU", payload: altMenu });
-        altMenu[idx].link && navigate(`/${altMenu[idx].link}`);
+        // altMenu[idx].active.link && navigate(`/${altMenu[idx].active.link}`);
       }
     }
     // avoiding redundant request
@@ -103,6 +104,7 @@ export const AppState = ({ children }) => {
         updateApp: (a) => updateApp(dispatch, a),
         buildApp: (a) => buildApp(dispatch, a),
         deleteApp: (a) => deleteApp(dispatch, a),
+        addPage: (a) => addPage(dispatch, a),
       }}>
       {children}
     </AppContext.Provider>
