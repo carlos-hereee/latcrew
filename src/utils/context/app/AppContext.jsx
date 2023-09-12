@@ -42,6 +42,7 @@ export const AppState = ({ children }) => {
       isDev && console.log("token aquired");
       // navigate admin and regular users
       if (user.role === "admin") navigate("/admin-dashboard");
+      // if (user.role === "admin") navigate("/add-page");
       else navigate("/dashboard");
       if (state.menu) {
         const { altMenu, idx } = toggleMenuItemLogin(state.menu, accessToken);
@@ -65,6 +66,10 @@ export const AppState = ({ children }) => {
         pageValuesTypes: state.pageValuesTypes,
         pageLabels: state.pageLabels,
         pagePlaceholders: state.pagePlaceholders,
+        appValues: state.appValues,
+        appValuesTypes: state.appValuesTypes,
+        appLabels: state.appLabels,
+        appPlaceholders: state.appPlaceholders,
         calendar: state.calendar,
         uploadFileError: state.uploadFileError,
         media: state.media,
@@ -104,7 +109,7 @@ export const AppState = ({ children }) => {
         updateApp: (a) => updateApp(dispatch, a),
         buildApp: (a) => buildApp(dispatch, a),
         deleteApp: (a) => deleteApp(dispatch, a),
-        addPage: (a) => addPage(dispatch, a),
+        addPage: (a) => addPage(dispatch, a, getLatestAppData),
       }}>
       {children}
     </AppContext.Provider>

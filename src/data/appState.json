@@ -10,43 +10,35 @@
   },
   "appPlaceholders": { "appName": "Enter appname .." },
   "pageValues": {
-    "title": "",
+    "name": "FAQ",
+    "title": "Frequently asked questions",
     "hero": "",
-    "body": "",
-    "details": "",
-    "name": "",
-    "theme": "",
-    "sections": "",
+    "body": "Got questions? We have answers. Here are some frequently asked questions about our cleaning services:",
+    "hasSubsections": "",
     "cta": ""
   },
   "pageValuesTypes": {
     "title": "text",
     "hero": "file",
-    "body": "text",
-    "details": "text",
+    "body": "textarea",
     "name": "text",
-    "theme": "text",
-    "sections": "text",
-    "cta": "text"
+    "hasSubsections": "checkbox",
+    "cta": "checkbox"
   },
   "pageLabels": {
-    "title": "Enter page heading",
-    "hero": "Add an image",
-    "body": "Enter page text",
-    "details": "Enter page details",
     "name": "Enter page name",
-    "theme": "Enter page theme",
-    "sections": "Enter sections",
-    "cta": "Call to action"
+    "title": "Enter page heading",
+    "hero": "Add page image",
+    "body": "Enter page body text",
+    "hasSubsections": "This part of the app has sub sections",
+    "cta": "This part of the app has a call to action"
   },
   "pagePlaceholders": {
-    "title": "",
+    "title": "Page headline",
     "hero": "",
-    "body": "",
-    "details": "",
-    "name": "",
-    "theme": "",
-    "sections": "",
+    "body": "Text body",
+    "name": "Page name",
+    "hasSubsections": "",
     "cta": ""
   },
   "logo": {}

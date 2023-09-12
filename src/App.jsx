@@ -24,6 +24,7 @@ function App({ children }) {
   if (isLoading) {
     return <Loading message="Loading app assets.." />;
   }
+  console.log("menu", menu);
   return (
     <div className="app-container">
       <Header menu={menu} logo={logo} updateMenu={handleUpdateMenu} language={language} />

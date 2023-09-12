@@ -4,7 +4,7 @@ import { Form } from "nexious-library/@nxs-organism";
 
 const AddPage = () => {
   const { pageValues, pageLabels, pagePlaceholders } = useContext(AppContext);
-  const { pageValueTypes, addPage } = useContext(AppContext);
+  const { pageValuesTypes, addPage } = useContext(AppContext);
   return (
     <div className="flex-d-column">
       <h1>Add page content</h1>
@@ -12,10 +12,11 @@ const AddPage = () => {
         initialValues={pageValues}
         labels={pageLabels}
         placeholders={pagePlaceholders}
-        types={pageValueTypes}
+        types={pageValuesTypes}
         submit={addPage}
         submitLabel="Save and continue"
         useMedia
+        schema={{ required: ["title", "name"] }}
       />
     </div>
   );
