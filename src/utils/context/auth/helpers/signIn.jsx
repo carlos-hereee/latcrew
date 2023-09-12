@@ -2,12 +2,12 @@ import { axiosAuth } from "../../../helpers/axios";
 import { isDev } from "../../../helpers/isDev";
 
 export const signIn = async (dispatch, credentials) => {
-  dispatch({ type: "IS_LOADING", payload: true });
-  console.log("credentials", credentials);
   try {
+    dispatch({ type: "IS_LOADING", payload: true });
     const { data } = await axiosAuth.post("/auth/login", credentials);
     dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
     dispatch({ type: "SET_USER_DATA", payload: data.user });
+    dispatch({ type: "IS_LOADING", payload: false });
   } catch (error) {
     if (isDev) console.log("sign in error", error);
     const { status, data } = error.response;
@@ -18,6 +18,6 @@ export const signIn = async (dispatch, credentials) => {
       console.log("data", data);
       dispatch({ type: "SIGN_IN_ERROR", payload: data });
     }
+    dispatch({ type: "IS_LOADING", payload: false });
   }
-  dispatch({ type: "IS_LOADING", payload: false });
 };

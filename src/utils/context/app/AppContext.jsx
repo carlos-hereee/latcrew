@@ -43,7 +43,7 @@ export const AppState = ({ children }) => {
       // navigate admin and regular users
       if (user.role === "admin") navigate("/admin-dashboard");
       // if (user.role === "admin") navigate("/add-page");
-      else navigate("/dashboard");
+      // else navigate("/dashboard");
       if (state.menu) {
         const { altMenu, idx } = toggleMenuItemLogin(state.menu, accessToken);
         dispatch({ type: "UPDATE_MENU", payload: altMenu });

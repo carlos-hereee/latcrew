@@ -19,7 +19,7 @@ export const getAccessToken = async (dispatch) => {
     }
     const { status, data } = error.response;
     // server is offline
-    if (status === 403) {
+    if (status === 403 || status === 404) {
       // forbiden -- no cookie
       dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
       dispatch({ type: "SET_USER_DATA", payload: {} });

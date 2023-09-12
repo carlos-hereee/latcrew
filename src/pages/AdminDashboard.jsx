@@ -85,15 +85,6 @@ const AdminDashboard = () => {
       ) : (
         <EmptySection heading={heading} />
       )} */}
-      <h2>Danger zone</h2>
-      <div className="flex-row">
-        <button type="button" className="btn-cancel" onClick={logout}>
-          Log out
-        </button>
-        <button type="button" className="btn-cancel" onClick={() => deleteApp(app)}>
-          Delete app
-        </button>
-      </div>
     </div>
   );
 };

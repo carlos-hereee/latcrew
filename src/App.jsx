@@ -4,9 +4,10 @@ import { AppContext } from "./utils/context/app/AppContext";
 import { Footer, Header } from "nexious-library/@nxs-template";
 import { Loading } from "nexious-library/@nxs-molecules";
 import AppInProgress from "./components/AppInProgress ";
+import UserPlayground from "./components/UserPlayground";
 
 function App({ children }) {
-  const { isLoading, language, updateLanguage } = useContext(AuthContext);
+  const { isLoading, language, updateLanguage, accessToken } = useContext(AuthContext);
   const { app, menu, updateMenu, logo } = useContext(AppContext);
 
   // console.log("logo", logo);
@@ -25,7 +26,8 @@ function App({ children }) {
   if (isLoading) {
     return <Loading message="Loading app assets.." />;
   }
-  // console.log("app", app);
+  console.log("app", app, accessToken === undefined);
+  if (!app && accessToken) return <UserPlayground />;
   if (!app) return <AppInProgress />;
   console.log("to do menu", menu);
   return (

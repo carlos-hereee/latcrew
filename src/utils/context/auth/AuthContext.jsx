@@ -29,6 +29,7 @@ export const AuthState = ({ children }) => {
         dummyUser: state.dummyUser,
         userValues: state.userValues,
         loginValues: state.loginValues,
+        signUpValues: state.signUpValues,
         accessToken: state.accessToken,
         signInError: state.signInError,
         signUpError: state.signUpError,

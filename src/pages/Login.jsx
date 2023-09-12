@@ -1,7 +1,7 @@
-import { useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
 import { Form, ChangePassword } from "nexious-library/@nxs-organism";
 import { AuthContext } from "../utils/context/auth/AuthContext";
+// import { Link, useNavigate } from "react-router-dom";
 // import ChangePassword from "../components/ChangePassword";
 
 const Login = ({ handleClick }) => {
