@@ -4,7 +4,7 @@ import { Form, ChangePassword } from "nexious-library/@nxs-organism";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 // import ChangePassword from "../components/ChangePassword";
 
-const Login = () => {
+const Login = ({ handleClick }) => {
   const { signIn, signInError, loginValues, isChangePassword, changePassword } =
     useContext(AuthContext);
 
@@ -25,9 +25,9 @@ const Login = () => {
       <Form initialValues={loginValues} submit={signIn} />
       <div className="flex-center">
         <label>Dont have an account? </label>
-        <Link to="/signup" className="link">
+        <button className="btn-link" type="button" onClick={() => handleClick("signUp")}>
           Create an account
-        </Link>
+        </button>
       </div>
     </div>
   );

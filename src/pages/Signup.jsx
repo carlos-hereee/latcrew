@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 import { Form } from "nexious-library/@nxs-organism";
 
-const SignUp = () => {
+const SignUp = ({ handleClick }) => {
   const { register, signUpError, signUpValues } = useContext(AuthContext);
   // const navigate = useNavigate();
 
@@ -28,10 +28,11 @@ const SignUp = () => {
         submit={(values) => register(values)}
         showAuthTips
       />
-      <div className="text-center m-tb">
-        <Link to="/login" className="link">
-          Already have an account?
-        </Link>
+      <div className="flex-center">
+        <label>Already have an account?</label>
+        <button type="button" onClick={() => handleClick("login")} className="btn-link">
+          Go to Login
+        </button>
       </div>
     </div>
   );
