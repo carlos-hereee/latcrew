@@ -1,7 +1,6 @@
 const setChangePassword = (state, action) => {
   return {
     ...state,
-    isLoading: false,
     signInError: action.payload,
     isChangePassword: action.payload ? true : false,
   };
@@ -11,21 +10,21 @@ export const reducer = (state, action) => {
     case "IS_LOADING":
       return { ...state, isLoading: action.payload };
     case "SET_ERROR":
-      return { ...state, isLoading: false, error: action.payload };
+      return { ...state, error: action.payload };
     case "SET_STRANDED":
-      return { ...state, isLoading: false, isOffline: action.payload };
+      return { ...state, isOffline: action.payload };
     case "UPDATE_LANGUAGE":
-      return { ...state, isLoading: false, language: action.payload };
+      return { ...state, language: action.payload };
     case "SIGN_IN_ERROR":
-      return { ...state, isLoading: false, signInError: action.payload };
+      return { ...state, signInError: action.payload };
     case "SIGN_UP_ERROR":
-      return { ...state, isLoading: false, signUpError: action.payload };
+      return { ...state, signUpError: action.payload };
     case "SET_ACCESS_TOKEN":
-      return { ...state, isLoading: false, accessToken: action.payload };
+      return { ...state, accessToken: action.payload };
     case "SET_USER_DATA":
-      return { ...state, isLoading: false, user: action.payload };
+      return { ...state, user: action.payload };
     case "UPDATE_SHIPPING_DETAILS":
-      return { ...state, isLoading: false, shippingDetails: action.payload };
+      return { ...state, shippingDetails: action.payload };
     case "SET_CHANGE_PASSWORD":
       return setChangePassword(state, action);
     default:

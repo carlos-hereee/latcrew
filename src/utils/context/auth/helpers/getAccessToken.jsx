@@ -3,6 +3,7 @@ import { isDev } from "../../../helpers/isDev";
 
 export const getAccessToken = async (dispatch) => {
   console.log("fetching accessTOken");
+  dispatch({ type: "IS_LOADING", payload: true });
   try {
     const { data } = await axiosAuth.post("/auth/refresh-token");
     dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
@@ -14,7 +15,6 @@ export const getAccessToken = async (dispatch) => {
       dispatch({ type: "SET_STRANDED", payload: true });
       dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
       dispatch({ type: "SET_USER_DATA", payload: {} });
-      return dispatch({ type: "IS_LOADING", payload: false });
     }
     const { status, data } = error.response;
     // server is offline
@@ -22,7 +22,7 @@ export const getAccessToken = async (dispatch) => {
       // forbiden -- no cookie
       dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
       dispatch({ type: "SET_USER_DATA", payload: {} });
-      return dispatch({ type: "IS_LOADING", payload: false });
     }
   }
+  dispatch({ type: "IS_LOADING", payload: false });
 };

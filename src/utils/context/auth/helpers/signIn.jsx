@@ -1,6 +1,9 @@
 import { axiosAuth } from "../../../helpers/axios";
+import { isDev } from "../../../helpers/isDev";
+
 export const signIn = async (dispatch, credentials) => {
   dispatch({ type: "IS_LOADING", payload: true });
+  console.log("credentials", credentials);
   try {
     const { data } = await axiosAuth.post("/auth/login", credentials);
     dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
@@ -12,7 +15,9 @@ export const signIn = async (dispatch, credentials) => {
       dispatch({ type: "SET_CHANGE_PASSWORD", payload: data });
     }
     if (status === 403 || status === 404) {
-      dispatch({ type: "SIGN_IN_ERROR", payload: data.message });
+      console.log("data", data);
+      dispatch({ type: "SIGN_IN_ERROR", payload: data });
     }
   }
+  dispatch({ type: "IS_LOADING", payload: false });
 };
