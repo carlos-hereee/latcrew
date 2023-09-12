@@ -15,7 +15,7 @@ const Testimonials = () => {
   return (
     <div className="container">
       <h1 className="heading">{testimonials.title}</h1>
-      <p className="p-stretch">{testimonials.body}</p>
+      <p className="text-max">{testimonials.body}</p>
       <div className="m-tb flex-w w-100 p-1">
         {user && user.hero && <UserCard user={user} hideLabels />}
         <div className="flex-center flex-w w-100">

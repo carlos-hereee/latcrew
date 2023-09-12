@@ -20,7 +20,7 @@ const Container = ({ filter, filtered, isFiltered, data }) => {
     <section className="container">
       <Heading data={data.title} click={handleClick} />
       {data.isNav && <Navigation menu={data.nav} click={handleClick} />}
-      {data.body && <p className="p-stretch">{data.body}</p>}
+      {data.body && <p className="text-max">{data.body}</p>}
 
       <div className="card-container">
         {isFiltered

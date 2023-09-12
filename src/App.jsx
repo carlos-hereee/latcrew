@@ -3,6 +3,7 @@ import { AuthContext } from "./utils/context/auth/AuthContext";
 import { AppContext } from "./utils/context/app/AppContext";
 import { Footer, Header } from "nexious-library/@nxs-template";
 import { Loading } from "nexious-library/@nxs-molecules";
+import AppInProgress from "./components/AppInProgress ";
 
 function App({ children }) {
   const { isLoading, language, updateLanguage } = useContext(AuthContext);
@@ -24,11 +25,13 @@ function App({ children }) {
   if (isLoading) {
     return <Loading message="Loading app assets.." />;
   }
-  console.log("menu", menu);
+  // console.log("app", app);
+  if (!app) return <AppInProgress />;
+  console.log("to do menu", menu);
   return (
     <div className="app-container">
       <Header menu={menu} logo={logo} updateMenu={handleUpdateMenu} language={language} />
-      <div className="p-horizontal">{children}</div>
+      <div className="elbow-space">{children}</div>
       <Footer appName={app && app.name ? app.name : "sparkle shine"} />
     </div>
   );

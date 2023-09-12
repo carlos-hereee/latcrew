@@ -26,6 +26,8 @@ export const reducer = (state, action) => {
       return { ...state, isComingSoon: action.payload };
     case "UPDATE_MENU":
       return { ...state, menu: action.payload };
+    case "UPDATE_PAGES":
+      return { ...state, pages: action.payload };
     case "UPDATE_BURGER":
       return { ...state, burger: action.payload };
     case "UPDATE_LANGUAGE":

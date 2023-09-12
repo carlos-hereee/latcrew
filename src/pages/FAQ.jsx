@@ -11,7 +11,7 @@ const FAQ = () => {
         {faq.faq.map((f) => (
           <div className="faq" key={f.uid}>
             <h2 className="heading">{f.title}</h2>
-            <p className="p-stretch">{f.body}</p>
+            <p className="text-max">{f.body}</p>
           </div>
         ))}
       </div>

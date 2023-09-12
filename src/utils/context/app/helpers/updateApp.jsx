@@ -2,7 +2,6 @@ import { axiosAuth } from "../../../helpers/axios";
 import { isDev } from "../../../helpers/isDev";
 
 export const updateApp = async (dispatch, values) => {
-  console.log("updating app");
   try {
     const { data } = await axiosAuth.post("/app/update-app", values);
     console.log("data", data);

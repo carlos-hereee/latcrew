@@ -61,6 +61,7 @@ export const AppState = ({ children }) => {
         isOffline: state.isOffline,
         isComingSoon: state.isComingSoon,
         app: state.app,
+        pages: state.pages,
         logo: state.logo,
         pageValues: state.pageValues,
         pageValuesTypes: state.pageValuesTypes,

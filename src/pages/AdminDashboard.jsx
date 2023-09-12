@@ -40,7 +40,7 @@ const AdminDashboard = () => {
         Welcome back {user?.nickname ? user.nickname : user.username}
       </h1>
       <h2>App Pages</h2>
-      {menu.length > 0 &&
+      {menu?.length > 0 &&
         menu.map(
           (m) =>
             !m.isPrivate && (

@@ -12,7 +12,7 @@ const Contact = () => {
           <CardSection key={c.uid} hideReadMore data={c} />
         ))}
       </div>
-      <p className="p-stretch">
+      <p className="text-max">
         For immediate assistance, use our convenient contact form below. We look forward
         to hearing from you!
       </p>

@@ -9,7 +9,7 @@ const About = () => {
     <div className="container">
       <div className="flex-d-column">
         <HeroCard data={about} />
-        <p className="p-stretch">{about.body}</p>
+        <p className="text-max">{about.body}</p>
       </div>
       <h2 className="heading">Meet our team</h2>
       <div className="flex-w flex-center">
