@@ -25,7 +25,10 @@ const AccountSettings = (props) => {
         submitLabel="Save and continue"
       />
       <h2 className="heading">More options:</h2>
-      <button className="btn-main btn-link" type="button" onClick={onClick}>
+      <button
+        className="btn-main btn-link"
+        type="button"
+        onClick={() => onClick("changePassword")}>
         Change password
       </button>
     </div>

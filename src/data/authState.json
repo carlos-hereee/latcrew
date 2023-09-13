@@ -11,7 +11,7 @@
   "signInError": "",
   "userValues": { "username": "", "email": "", "phone": "", "nickname": "" },
   "userLabels": {
-    "username": "",
+    "username": "Username: ",
     "email": "Email: **Adding email is optional. The benefits of doing so, include account recovery, receiving updates, exclusive discounts, and much more.",
     "phone": "Phone number: **Adding your phone number is optional.",
     "nickname": "Nickname: **Adding nickname is optional."

@@ -67,8 +67,11 @@
 .app-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-rows: 120px 3fr 1fr;
 }
 .danger-zone {
   margin-bottom: 2rem;
 }
+/* .banner {
+  max-height: 150px;
+} */

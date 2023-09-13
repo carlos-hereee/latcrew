@@ -10,7 +10,7 @@ const ChangePassword = (props) => {
 
   return (
     <div className="container">
-      <GoBackButton onClick={onClick} />
+      <GoBackButton onClick={() => onClick("home")} />
       <h2 className="heading">Change password</h2>
       {changePasswordError && <p className="error-message">{changePasswordError}</p>}
       <Form
