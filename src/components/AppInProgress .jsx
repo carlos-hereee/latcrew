@@ -4,7 +4,7 @@ import SignUp from "../pages/Signup";
 import ForgotPassword from "./ForgotPassword ";
 
 const AppInProgress = () => {
-  const [page, setPage] = useState("login");
+  const [page, setPage] = useState("forgotPassword");
   return (
     <div className="app-container elbow-space">
       <h2>App is under construction, try again later</h2>

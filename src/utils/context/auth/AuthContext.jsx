@@ -11,6 +11,7 @@ import { getUserData } from "./helpers/getUserData";
 import { changePassword } from "./helpers/changePassword";
 import { getAccessToken } from "./helpers/getAccessToken";
 import { updateLanguage } from "../app/helpers/updateLanguage";
+import { forgotPassword } from "./helpers/forgotPassword";
 
 export const AuthContext = createContext();
 
@@ -38,8 +39,12 @@ export const AuthState = ({ children }) => {
         passChangeValues: state.passChangeValues,
         passChangeLabels: state.passChangeLabels,
         passChangePlaceholders: state.passChangePlaceholders,
+        forgotPassValues: state.forgotPassValues,
+        forgotPassLabels: state.forgotPassLabels,
+        forgotPassPlaceholders: state.forgotPassPlaceholders,
         isChangePassword: state.isChangePassword,
         changePasswordError: state.changePasswordError,
+        forgotPasswordError: state.forgotPasswordError,
         language: state.language,
         menu: state.menu,
         signIn: (e) => signIn(dispatch, e),
@@ -48,8 +53,10 @@ export const AuthState = ({ children }) => {
         updateUser: (e) => updateUserData(dispatch, e),
         setShipping: (e) => setShipping(dispatch, e),
         getUserData: (e) => getUserData(dispatch, e),
+        fetchUser: (a) => fetchUser(dispatch, a),
         changePassword: (e) => changePassword(dispatch, e),
         updateLanguage: (a) => updateLanguage(dispatch, a),
+        forgotPassword: (a) => forgotPassword(dispatch, a),
       }}>
       {children}
     </AuthContext.Provider>

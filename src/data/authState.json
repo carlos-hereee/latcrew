@@ -42,6 +42,13 @@
     "newPassword": "",
     "confirmNewPassword": ""
   },
+  "forgotPassValues": {
+    "username": "qwerty",
+    "newPassword": "secretPassword",
+    "confirmNewPassword": "secretPassword"
+  },
+  "forgotPassLabels": { "username": "" },
+  "forgotPassPlaceholders": { "username": "" },
   "isChangePassword": false,
   "language": {},
   "menu": []
