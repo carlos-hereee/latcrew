@@ -6,7 +6,7 @@ import { AuthContext } from "../utils/context/auth/AuthContext";
 const ChangePassword = (props) => {
   const { onClick } = props;
   const { changePassword, passChangeValues, passChangeLabels } = useContext(AuthContext);
-  const { passChangePlaceholders } = useContext(AuthContext);
+  const { passChangePlaceholders, changePasswordError } = useContext(AuthContext);
 
   return (
     <div className="container">
@@ -16,6 +16,7 @@ const ChangePassword = (props) => {
         onClick={onClick}
       />
       <h2 className="heading">Change password</h2>
+      {changePasswordError && <p className="error-message">{changePasswordError}</p>}
       <Form
         initialValues={passChangeValues}
         labels={passChangeLabels}

@@ -25,10 +25,10 @@
   "signUpValues": { "username": "", "password": "", "confirmPassword": "" },
   "loginValues": { "username": "qwerty", "password": "secretPassword" },
   "passChangeValues": {
-    "username": "",
-    "oldPassword": "",
-    "newPassword": "",
-    "confirmNewPassword": ""
+    "username": "qwerty",
+    "oldPassword": "secretPassword",
+    "newPassword": "strongPassword",
+    "confirmNewPassword": "strongPassword"
   },
   "passChangeLabels": {
     "username": "",

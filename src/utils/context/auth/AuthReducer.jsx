@@ -17,6 +17,8 @@ export const reducer = (state, action) => {
       return { ...state, language: action.payload };
     case "SIGN_IN_ERROR":
       return { ...state, signInError: action.payload };
+    case "CHANGE_PASSWORD_ERROR":
+      return { ...state, changePasswordError: action.payload };
     case "SIGN_UP_ERROR":
       return { ...state, signUpError: action.payload };
     case "SET_ACCESS_TOKEN":

@@ -5,8 +5,8 @@ import { AuthContext } from "../utils/context/auth/AuthContext";
 // import ChangePassword from "../components/ChangePassword";
 
 const Login = ({ handleClick }) => {
-  const { signIn, signInError, loginValues, isChangePassword, changePassword } =
-    useContext(AuthContext);
+  const { signIn, signInError, loginValues, isChangePassword } = useContext(AuthContext);
+  const { changePassword } = useContext(AuthContext);
 
   if (isChangePassword) {
     return (

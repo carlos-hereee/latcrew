@@ -5,8 +5,7 @@ export const signIn = async (dispatch, credentials) => {
   try {
     dispatch({ type: "IS_LOADING", payload: true });
     const { data } = await axiosAuth.post("/auth/login", credentials);
-    dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
-    dispatch({ type: "SET_USER_DATA", payload: data.user });
+    dispatch({ type: "SET_ACCESS_TOKEN", payload: data });
     dispatch({ type: "IS_LOADING", payload: false });
   } catch (error) {
     if (isDev) console.log("sign in error", error);

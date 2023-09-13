@@ -39,6 +39,7 @@ export const AuthState = ({ children }) => {
         passChangeLabels: state.passChangeLabels,
         passChangePlaceholders: state.passChangePlaceholders,
         isChangePassword: state.isChangePassword,
+        changePasswordError: state.changePasswordError,
         language: state.language,
         menu: state.menu,
         signIn: (e) => signIn(dispatch, e),
