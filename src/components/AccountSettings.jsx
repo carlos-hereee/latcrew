@@ -2,10 +2,9 @@ import { useContext } from "react";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 import { Form } from "nexious-library/@nxs-organism";
 
-const AccountSettings = (props) => {
+const AccountSettings = ({ onClick }) => {
   const { user, updateUser } = useContext(AuthContext);
   const { userValues, userLabels, userPlaceholders } = useContext(AuthContext);
-  const { onClick } = props;
 
   const initialValues = {
     ...userValues,
