@@ -17,6 +17,7 @@ export const signIn = async (dispatch, credentials) => {
       console.log("data", data);
       dispatch({ type: "SIGN_IN_ERROR", payload: data });
     }
+    dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
     dispatch({ type: "IS_LOADING", payload: false });
   }
 };

@@ -2,15 +2,17 @@ import { axiosAuth } from "../../../helpers/axios";
 import { isDev } from "../../../helpers/isDev";
 
 export const logOut = async (dispatch) => {
-  dispatch({ type: "IS_LOADING", payload: true });
   try {
+    dispatch({ type: "IS_LOADING", payload: true });
     await axiosAuth.delete("/auth/logout");
     // reset user and access token
     dispatch({ type: "SET_USER_DATA", payload: {} });
     dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
+    dispatch({ type: "IS_LOADING", payload: false });
   } catch (e) {
-    if (isDev) console.log("error", error);
+    isDev && console.log("error occured logging out", error);
     const { status, data } = error.response;
     dispatch({ type: "SET_ERROR", payload: data });
+    dispatch({ type: "IS_LOADING", payload: false });
   }
 };
