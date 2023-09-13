@@ -1,4 +1,4 @@
-import { IconButton } from "nexious-library/@nxs-molecules";
+import { GoBackButton } from "nexious-library/@nxs-molecules";
 import { Form } from "nexious-library/@nxs-organism";
 import { useContext } from "react";
 import { AuthContext } from "../utils/context/auth/AuthContext";
@@ -10,11 +10,7 @@ const ChangePassword = (props) => {
 
   return (
     <div className="container">
-      <IconButton
-        icon={{ icon: "leftArrow", label: "Go back", name: "Go back" }}
-        theme="btn-main"
-        onClick={onClick}
-      />
+      <GoBackButton onClick={onClick} />
       <h2 className="heading">Change password</h2>
       {changePasswordError && <p className="error-message">{changePasswordError}</p>}
       <Form

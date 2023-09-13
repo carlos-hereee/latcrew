@@ -5,12 +5,13 @@ import { Footer, Header } from "nexious-library/@nxs-template";
 import { Loading } from "nexious-library/@nxs-molecules";
 import AppInProgress from "./components/AppInProgress ";
 import UserPlayground from "./components/UserPlayground";
+import ChangePassword from "./components/ChangePassword";
 
 function App({ children }) {
-  const { isLoading, language, updateLanguage, accessToken } = useContext(AuthContext);
+  const { isLoading, language, updateLanguage } = useContext(AuthContext);
+  const { isChangePassword, accessToken } = useContext(AuthContext);
   const { app, menu, updateMenu, logo } = useContext(AppContext);
 
-  // console.log("logo", logo);
   useEffect(() => {
     if (app?.appName) {
       document.title = app.appName;
@@ -23,13 +24,14 @@ function App({ children }) {
     }
     updateMenu(e);
   };
-  if (isLoading) {
-    return <Loading message="Loading app assets.." />;
-  }
-  console.log("app", app, accessToken === undefined);
+  // loading state
+  if (isLoading) return <Loading message="Loading app assets.." />;
+  // if login in but no app is been created
   if (!app && accessToken) return <UserPlayground />;
+  // emergency password change
+  if (isChangePassword) return <ChangePassword />;
+  // no app no login - everything's okay tho, app is under construction
   if (!app) return <AppInProgress />;
-  console.log("to do menu", menu);
   return (
     <div className="app-container">
       <Header menu={menu} logo={logo} updateMenu={handleUpdateMenu} language={language} />
