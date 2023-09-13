@@ -14,7 +14,7 @@ const UserPlayground = () => {
     <div className="app-container elbow-space">
       <WelcomeMessage user={user} message={message.welcomeMessage} />
       {page === "auth" ? (
-        <ChangePassword />
+        <ChangePassword onClick={() => setPage("")} />
       ) : (
         <div className="container">
           <button type="button" className="btn-main" onClick={() => setPage("account")}>

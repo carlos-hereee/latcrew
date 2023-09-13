@@ -10,8 +10,38 @@
   },
   "signInError": "",
   "userValues": { "username": "", "email": "", "phone": "", "nickname": "" },
+  "userLabels": {
+    "username": "",
+    "email": "Email: **Adding email is optional. The benefits of doing so, include account recovery, receiving updates, exclusive discounts, and much more.",
+    "phone": "Phone number: **Adding your phone number is optional.",
+    "nickname": "Nickname: **Adding nickname is optional."
+  },
+  "userPlaceholders": {
+    "username": "",
+    "email": "",
+    "phone": "",
+    "nickname": "What would you like everyone to call you?"
+  },
   "signUpValues": { "username": "", "password": "", "confirmPassword": "" },
   "loginValues": { "username": "qwerty", "password": "secretPassword" },
+  "passChangeValues": {
+    "username": "",
+    "oldPassword": "",
+    "newPassword": "",
+    "confirmNewPassword": ""
+  },
+  "passChangeLabels": {
+    "username": "",
+    "oldPassword": "",
+    "newPassword": "",
+    "confirmNewPassword": ""
+  },
+  "passChangePlaceholders": {
+    "username": "",
+    "oldPassword": "",
+    "newPassword": "",
+    "confirmNewPassword": ""
+  },
   "isChangePassword": false,
   "language": {},
   "menu": []
