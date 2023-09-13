@@ -9,7 +9,7 @@
     "userId": ""
   },
   "signInError": "",
-  "userValues": { "name": "", "email": "", "phone": "" },
+  "userValues": { "username": "", "email": "", "phone": "", "nickname": "" },
   "signUpValues": { "username": "", "password": "", "confirmPassword": "" },
   "loginValues": { "username": "qwerty", "password": "secretPassword" },
   "isChangePassword": false,

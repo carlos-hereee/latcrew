@@ -1,4 +1,9 @@
 {
-  "email": "Email: **Adding email is optional. The benefits of doing so, such as account recovery, receiving updates, exclusive discounts, and much more.",
+  "labels": {
+    "email": "Email: **Adding email is optional. The benefits of doing so, include account recovery, receiving updates, exclusive discounts, and much more.",
+    "nickname": "Nickname: **Adding nickname is optional.",
+    "phone": "Phone number: **Adding your phone number is optional."
+  },
+  "nicknamePlaceholder": "What would you like everyone to call you?",
   "welcomeMessage": "Welcome back"
 }

@@ -1,17 +1,28 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 import DangerZone from "./DangerZone";
-import ProfileCompletion from "./ProfileCompletion";
+import AccountSettings from "./AccountSettings";
 import WelcomeMessage from "./WelcomeMessage";
 import message from "../data/messages.json";
+import ChangePassword from "./ChangePassword";
 
 const UserPlayground = () => {
   const { user } = useContext(AuthContext);
-  console.log("user", user);
+  const [page, setPage] = useState("auth");
+  // console.log("user", user);
   return (
     <div className="app-container elbow-space">
       <WelcomeMessage user={user} message={message.welcomeMessage} />
-      <ProfileCompletion />
+      {page === "auth" ? (
+        <ChangePassword />
+      ) : (
+        <div className="container">
+          <button type="button" className="btn-main" onClick={() => setPage("account")}>
+            Update account settings{" "}
+          </button>
+          {page === "account" && <AccountSettings onClick={() => setPage("auth")} />}
+        </div>
+      )}
       <DangerZone />
     </div>
   );
