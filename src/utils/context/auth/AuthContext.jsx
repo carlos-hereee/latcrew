@@ -12,6 +12,7 @@ import { changePassword } from "./helpers/changePassword";
 import { getAccessToken } from "./helpers/getAccessToken";
 import { updateLanguage } from "../app/helpers/updateLanguage";
 import { forgotPassword } from "./helpers/forgotPassword";
+import { fetchUser } from "./helpers/fetchUser";
 
 export const AuthContext = createContext();
 
@@ -27,7 +28,7 @@ export const AuthState = ({ children }) => {
         isLoading: state.isLoading,
         error: state.error,
         user: state.user,
-        dummyUser: state.dummyUser,
+        dummyData: state.dummyData,
         userValues: state.userValues,
         userLabels: state.userLabels,
         userPlaceholders: state.userPlaceholders,

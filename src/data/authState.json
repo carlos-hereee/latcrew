@@ -2,7 +2,7 @@
   "isLoading": true,
   "accessToken": "",
   "user": {},
-  "dummyUser": {
+  "dummyData": {
     "username": "",
     "email": "",
     "phone": "",

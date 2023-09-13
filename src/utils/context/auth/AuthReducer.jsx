@@ -19,6 +19,8 @@ export const reducer = (state, action) => {
       return { ...state, signInError: action.payload };
     case "FORGOT_PASSWORD_ERROR":
       return { ...state, forgotPasswordError: action.payload };
+    case "SET_DUMMY_DATA":
+      return { ...state, dummyData: action.payload };
     case "CHANGE_PASSWORD_ERROR":
       return { ...state, changePasswordError: action.payload };
     case "SIGN_UP_ERROR":

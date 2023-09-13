@@ -1,12 +1,15 @@
 import { axiosAuth } from "../../../helpers/axios";
-export const getUserData = async (dispatch, username) => {
+
+export const fetchUser = async (dispatch, user) => {
   try {
     dispatch({ type: "IS_LOADING", payload: true });
-    const { data } = await axiosAuth.get("/auth/user", username);
-    // console.log("data", data);
-    dispatch({ type: "SET_USER_DATA", payload: data });
+    const { data } = await axiosAuth.get(`/auth/user/${user.username}`);
+    dispatch({ type: "SET_DUMMY_DATA", payload: data });
+    dispatch({ type: "FORGOT_PASSWORD_ERROR", payload: "" });
+    dispatch({ type: "IS_LOADING", payload: false });
   } catch (error) {
     const { data, status } = error.response;
     dispatch({ type: "FORGOT_PASSWORD_ERROR", payload: data });
+    dispatch({ type: "IS_LOADING", payload: false });
   }
 };
