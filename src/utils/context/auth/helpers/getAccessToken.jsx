@@ -6,9 +6,9 @@ export const getAccessToken = async (dispatch) => {
     console.log("fetching accessTOken");
     dispatch({ type: "IS_LOADING", payload: true });
     const { data } = await axiosAuth.post("/auth/refresh-token");
-    dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
-    dispatch({ type: "SET_USER_DATA", payload: data.user });
-    dispatch({ type: "UPDATE_LANGUAGE", payload: data.language });
+    dispatch({ type: "SET_ACCESS_TOKEN", payload: data });
+    // dispatch({ type: "SET_USER_DATA", payload: data.user });
+    // dispatch({ type: "UPDATE_LANGUAGE", payload: data.language });
     dispatch({ type: "IS_LOADING", payload: false });
   } catch (error) {
     if (isDev) console.log("error fetching token", error);

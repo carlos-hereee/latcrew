@@ -7,8 +7,7 @@ const ForgotPassword = ({ handleClick }) => {
   const { forgotPassValues, forgotPassLabels, fetchUser } = useContext(AuthContext);
   const { forgotPassword, forgotPassPlaceholders, dummyData } = useContext(AuthContext);
   const { forgotPasswordError } = useContext(AuthContext);
-  // const [steps, setSteps] = useState("1");
-  // console.log("dummyData", dummyData);
+
   return (
     <div>
       <GoBackButton onClick={() => handleClick("login")} />

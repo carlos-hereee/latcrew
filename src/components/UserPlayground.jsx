@@ -8,11 +8,11 @@ import ChangePassword from "./ChangePassword";
 
 const UserPlayground = () => {
   const { user } = useContext(AuthContext);
-  const [page, setPage] = useState("auth");
+  const [page, setPage] = useState("");
   // console.log("user", user);
   return (
     <div className="app-container elbow-space">
-      <WelcomeMessage user={user} message={message.welcomeMessage} />
+      {user && <WelcomeMessage user={user} message={message.welcomeMessage} />}
       {page === "auth" ? (
         <ChangePassword onClick={() => setPage("")} />
       ) : (

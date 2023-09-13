@@ -3,7 +3,7 @@ const WelcomeMessage = (props) => {
   return (
     <div>
       <h2 className="heading">
-        {message} {user.nickname ? user.nickname : user.username}
+        {message} {user?.nickname ? user.nickname : user.username}
       </h2>
     </div>
   );

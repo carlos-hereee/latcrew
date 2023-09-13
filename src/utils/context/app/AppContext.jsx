@@ -41,7 +41,7 @@ export const AppState = ({ children }) => {
     if (accessToken) {
       isDev && console.log("token aquired");
       // navigate admin and regular users
-      if (user.role === "admin") navigate("/admin-dashboard");
+      if (user && user.role === "admin") navigate("/admin-dashboard");
       // if (user.role === "admin") navigate("/add-page");
       // else navigate("/dashboard");
       if (state.menu) {
@@ -51,7 +51,7 @@ export const AppState = ({ children }) => {
       }
     }
     // avoiding redundant request
-    else getLatestAppData(dispatch);
+    else if (state.app) getLatestAppData(dispatch);
   }, [accessToken]);
 
   return (
