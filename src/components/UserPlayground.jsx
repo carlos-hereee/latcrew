@@ -16,8 +16,9 @@ const UserPlayground = () => {
         <WelcomeMessage user={user} message={message.welcomeMessage} />
         <DangerZone />
       </div>
-      {page === "changePassword" && <ChangePassword onClick={(name) => setPage(name)} />}
-      {page === "home" && <MainPage onClick={(name) => setPage(name)} />}
+      {page === "changePassword" && <ChangePassword handleClick={(e) => setPage(e)} />}
+      {page === "home" && <MainPage handleClick={(name) => setPage(name)} />}
+      {/* <div>FOOTER</div> */}
     </div>
   );
 };

@@ -3,14 +3,13 @@ import { Form } from "nexious-library/@nxs-organism";
 import { useContext } from "react";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 
-const ChangePassword = (props) => {
-  const { onClick } = props;
+const ChangePassword = ({ handleClick }) => {
   const { changePassword, passChangeValues, passChangeLabels } = useContext(AuthContext);
   const { passChangePlaceholders, changePasswordError } = useContext(AuthContext);
 
   return (
     <div className="container">
-      <GoBackButton onClick={() => onClick("home")} />
+      <GoBackButton onClick={() => handleClick("home")} />
       <h2 className="heading">Change password</h2>
       {changePasswordError && <p className="error-message">{changePasswordError}</p>}
       <Form
