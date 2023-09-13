@@ -39,7 +39,7 @@ export const AuthState = ({ children }) => {
         signIn: (e) => signIn(dispatch, e),
         register: (e) => register(dispatch, e),
         logout: () => logOut(dispatch),
-        updateUserData: (e) => updateUserData(dispatch, e),
+        updateUser: (e) => updateUserData(dispatch, e),
         setShipping: (e) => setShipping(dispatch, e),
         getUserData: (e) => getUserData(dispatch, e),
         changePassword: (e) => changePassword(dispatch, e),
