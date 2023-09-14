@@ -15,6 +15,8 @@ export const reducer = (state, action) => {
       return { ...state, isOffline: action.payload };
     case "UPDATE_LANGUAGE":
       return { ...state, language: action.payload };
+    case "SET_APP_ID":
+      return { ...state, appId: action.payload };
     case "SIGN_IN_ERROR":
       return { ...state, signInError: action.payload };
     case "FORGOT_PASSWORD_ERROR":

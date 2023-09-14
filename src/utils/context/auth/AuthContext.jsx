@@ -13,6 +13,7 @@ import { getAccessToken } from "./helpers/getAccessToken";
 import { updateLanguage } from "../app/helpers/updateLanguage";
 import { forgotPassword } from "./helpers/forgotPassword";
 import { fetchUser } from "./helpers/fetchUser";
+import { buildApp } from "./helpers/buildApp";
 
 export const AuthContext = createContext();
 
@@ -58,6 +59,7 @@ export const AuthState = ({ children }) => {
         changePassword: (e) => changePassword(dispatch, e),
         updateLanguage: (a) => updateLanguage(dispatch, a),
         forgotPassword: (a) => forgotPassword(dispatch, a),
+        buildApp: (a) => buildApp(dispatch, a),
       }}>
       {children}
     </AuthContext.Provider>

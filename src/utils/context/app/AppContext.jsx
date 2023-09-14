@@ -18,15 +18,15 @@ import { uploadImage } from "./helpers/uploadImage";
 import { getFiles } from "./helpers/getFiles";
 import { isDev } from "../../helpers/isDev";
 import { updateApp } from "./helpers/updateApp";
-import { buildApp } from "./helpers/buildApp";
 import { deleteApp } from "./helpers/deleteApp";
 import { addPage } from "./helpers/addPage";
+import { uploadFile } from "./helpers/uploadFile";
 
 export const AppContext = createContext();
 
 export const AppState = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, appState);
-  const { accessToken, language, user } = useContext(AuthContext);
+  const { accessToken, language, user, appId } = useContext(AuthContext);
   const navigate = useNavigate();
 
   // useEffect(() => {
@@ -35,6 +35,11 @@ export const AppState = ({ children }) => {
   //     // updateAppAssets(dispatch, payload);
   //   }
   // }, [language]);
+
+  useEffect(() => {
+    // app was found
+    if (appId) getLatestAppData(dispatch);
+  }, [appId]);
 
   useEffect(() => {
     // user is login
@@ -50,8 +55,6 @@ export const AppState = ({ children }) => {
         // altMenu[idx].active.link && navigate(`/${altMenu[idx].active.link}`);
       }
     }
-    // avoiding redundant request
-    else if (state.app) getLatestAppData(dispatch);
   }, [accessToken]);
 
   return (
@@ -107,8 +110,8 @@ export const AppState = ({ children }) => {
         resetFilter: (a) => resetFilter(dispatch, a),
         uploadImage: (a, b) => uploadImage(dispatch, a, b),
         getFiles: (a) => getFiles(dispatch, a),
+        uploadFile: (a) => uploadFile(dispatch, a),
         updateApp: (a) => updateApp(dispatch, a),
-        buildApp: (a) => buildApp(dispatch, a),
         deleteApp: (a) => deleteApp(dispatch, a),
         addPage: (a) => addPage(dispatch, a, getLatestAppData),
       }}>
