@@ -2,12 +2,9 @@
   "isLoading": true,
   "isOffline": false,
   "appName": "",
-  "appValues": { "appName": "Sparkle and Shine", "logo": "" },
-  "appValuesTypes": { "appName": "text", "logo": "file" },
-  "appLabels": {
-    "appName": "Enter app name",
-    "logo": "Choose logo for app"
-  },
+  "appValues": { "appName": "Sparkle and Shine" },
+  "appValuesTypes": { "appName": "text" },
+  "appLabels": { "appName": "Enter app name", "logo": "Choose logo for app" },
   "appPlaceholders": { "appName": "Enter appname .." },
   "pageValues": {
     "name": "FAQ",

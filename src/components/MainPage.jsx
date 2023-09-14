@@ -4,8 +4,8 @@ import { Button } from "nexious-library/@nxs-atoms";
 import AppSettings from "./AppSettings";
 
 const MainPage = ({ handleClick }) => {
-  const [active, setActive] = useState("account");
-  const [show, setShow] = useState({ account: false, app: false });
+  const [active, setActive] = useState("app");
+  const [show, setShow] = useState({ account: false, app: true });
   const label = { app: "App Settings", account: "Account Settings" };
   const theme = "active";
 
