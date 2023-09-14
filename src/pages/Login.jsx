@@ -11,21 +11,16 @@ const Login = ({ handleClick }) => {
       {signInError && <p className="error-message">{signInError}</p>}
       <Form initialValues={loginValues} onSubmit={signIn} />
       <div className="flex-d-column flex-center">
+        <button className="btn-link" type="button" onClick={() => handleClick("signUp")}>
+          Dont have an account?
+          <br /> Create an account
+        </button>
         <button
           className="btn-link"
           type="button"
           onClick={() => handleClick("forgotPassword")}>
           Forgot password?
         </button>
-        <div className="flex-center">
-          <label>Dont have an account? </label>
-          <button
-            className="btn-link"
-            type="button"
-            onClick={() => handleClick("signUp")}>
-            Create an account
-          </button>
-        </div>
       </div>
     </div>
   );

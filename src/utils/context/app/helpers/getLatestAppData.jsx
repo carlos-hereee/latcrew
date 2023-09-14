@@ -6,14 +6,17 @@ export const getLatestAppData = async (dispatch, appId) => {
   try {
     dispatch({ type: "IS_LOADING", payload: false });
     const { data } = await axiosAuth.get(`/app/latest/${appId}`);
-    dispatch({ type: "UPDATE_APP_ASSETS", payload: data.app });
-    // if (data?.app?.logo) {
-    //   dispatch({ type: "UPDATE_APP_LOGO", payload: data.app.logo });
-    // }
-    // if (data?.app?.menu) {
-    //   dispatch({ type: "UPDATE_MENU", payload: data.menu });
-    // }
-    if (data?.pages) {
+    console.log("data", data);
+    if (data.app) {
+      const { app } = data;
+      dispatch({ type: "UPDATE_APP_ASSETS", payload: app });
+      // if (.app?.logo) {
+      //   dispatch({ type: "UPDATE_APP_LOGO", payload: app.logo });
+      // }
+      app.menu && dispatch({ type: "UPDATE_MENU", payload: app.menu });
+      app.logo && dispatch({ type: "UPDATE_LOGO", payload: app.logo });
+    }
+    if (data.pages) {
       dispatch({ type: "UPDATE_PAGES", payload: data.pages });
     }
     dispatch({ type: "IS_LOADING", payload: false });

@@ -22,7 +22,11 @@
     "phone": "",
     "nickname": "What would you like everyone to call you?"
   },
-  "signUpValues": { "username": "", "password": "", "confirmPassword": "" },
+  "signUpValues": {
+    "username": "qwerty",
+    "password": "secretPassword",
+    "confirmPassword": "secretPassword"
+  },
   "loginValues": { "username": "qwerty", "password": "secretPassword" },
   "passChangeValues": {
     "username": "qwerty",

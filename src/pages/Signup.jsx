@@ -9,15 +9,11 @@ const SignUp = ({ handleClick }) => {
     <div>
       <h2 className="heading">Sign up</h2>
       {signUpError && <p className="error-message">{signUpError}</p>}
-      <Form
-        initialValues={signUpValues}
-        submit={(values) => register(values)}
-        showAuthTips
-      />
+      <Form initialValues={signUpValues} onSubmit={(values) => register(values)} />
       <div className="flex-center">
-        <label>Already have an account?</label>
         <button type="button" onClick={() => handleClick("login")} className="btn-link">
-          Go to Login
+          Already have an account?
+          <br /> Go to Login
         </button>
       </div>
     </div>

@@ -9,6 +9,7 @@ export const getAccessToken = async (dispatch) => {
     dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
     if (data.user) {
       const { user } = data;
+      console.log("user", user);
       dispatch({ type: "SET_USER_DATA", payload: user });
       user.appId && dispatch({ type: "SET_APP_ID", payload: user.appId });
       user.permissions && dispatch({ type: "SET_PERMSSIONS", payload: user.permissions });
