@@ -36,9 +36,10 @@ export const AppState = ({ children }) => {
   //   }
   // }, [language]);
 
+  // console.log("usser", user);
   useEffect(() => {
     // app was found
-    if (appId) getLatestAppData(dispatch);
+    if (appId) getLatestAppData(dispatch, appId);
   }, [appId]);
 
   useEffect(() => {
@@ -113,7 +114,7 @@ export const AppState = ({ children }) => {
         uploadFile: (a) => uploadFile(dispatch, a),
         updateApp: (a) => updateApp(dispatch, a),
         deleteApp: (a) => deleteApp(dispatch, a),
-        addPage: (a) => addPage(dispatch, a, getLatestAppData),
+        addPage: (a) => addPage(dispatch, a, appId, getLatestAppData),
       }}>
       {children}
     </AppContext.Provider>

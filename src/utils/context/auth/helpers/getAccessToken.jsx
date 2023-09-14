@@ -7,7 +7,15 @@ export const getAccessToken = async (dispatch) => {
     dispatch({ type: "IS_LOADING", payload: true });
     const { data } = await axiosAuth.post("/auth/refresh-token");
     dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
-    dispatch({ type: "SET_USER_DATA", payload: data.user });
+    if (data.user) {
+      const { user } = data;
+      dispatch({ type: "SET_USER_DATA", payload: user });
+      user.appId && dispatch({ type: "SET_APP_ID", payload: user.appId });
+      user.permissions && dispatch({ type: "SET_PERMSSIONS", payload: user.permissions });
+      user.ownedApps && dispatch({ type: "SET_OWNED_APPS", payload: user.ownedApps });
+    }
+    // if user owns an app
+
     // dispatch({ type: "UPDATE_LANGUAGE", payload: data.language });
     dispatch({ type: "IS_LOADING", payload: false });
   } catch (error) {

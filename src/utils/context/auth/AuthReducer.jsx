@@ -17,6 +17,10 @@ export const reducer = (state, action) => {
       return { ...state, language: action.payload };
     case "SET_APP_ID":
       return { ...state, appId: action.payload };
+    case "SET_PERMSSIONS":
+      return { ...state, permissions: action.payload };
+    case "SET_OWNED_APPS":
+      return { ...state, ownedApps: action.payload };
     case "SIGN_IN_ERROR":
       return { ...state, signInError: action.payload };
     case "FORGOT_PASSWORD_ERROR":

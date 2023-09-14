@@ -1,6 +1,6 @@
 import { axiosWithMedia } from "../../../helpers/axios";
 
-export const addPage = async (dispatch, a, fetchLatest) => {
+export const addPage = async (dispatch, a, appId, fetchLatest) => {
   try {
     await axiosWithMedia.post("/app/add-page", a);
     // const response = await axiosWithMedia.post("/app/add-page", a);
