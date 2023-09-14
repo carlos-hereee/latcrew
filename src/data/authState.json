@@ -55,5 +55,7 @@
   "forgotPassPlaceholders": { "username": "" },
   "isChangePassword": false,
   "language": {},
-  "menu": []
+  "menu": [],
+  "ownedApps": [],
+  "isAdmin": false
 }

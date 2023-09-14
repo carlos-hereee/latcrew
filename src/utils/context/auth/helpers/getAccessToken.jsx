@@ -1,4 +1,5 @@
 import { axiosAuth } from "../../../helpers/axios";
+import { filterUserValues } from "../../../helpers/filterUserValues";
 import { isDev } from "../../../helpers/isDev";
 
 export const getAccessToken = async (dispatch) => {
@@ -8,12 +9,13 @@ export const getAccessToken = async (dispatch) => {
     const { data } = await axiosAuth.post("/auth/refresh-token");
     dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
     if (data.user) {
-      const { user } = data;
-      console.log("user", user);
-      dispatch({ type: "SET_USER_DATA", payload: user });
-      user.appId && dispatch({ type: "SET_APP_ID", payload: user.appId });
+      const user = data.user;
+      const userData = filterUserValues(user);
+      // store key varaibles
+      dispatch({ type: "SET_USER_DATA", payload: userData });
       user.permissions && dispatch({ type: "SET_PERMSSIONS", payload: user.permissions });
       user.ownedApps && dispatch({ type: "SET_OWNED_APPS", payload: user.ownedApps });
+      user.ownedApps.length > 0 && dispatch({ type: "SET_IS_ADMIN", payload: true });
     }
     // if user owns an app
 

@@ -21,26 +21,19 @@ import { updateApp } from "./helpers/updateApp";
 import { deleteApp } from "./helpers/deleteApp";
 import { addPage } from "./helpers/addPage";
 import { uploadFile } from "./helpers/uploadFile";
+import { getOwnedApps } from "./helpers/getOwnedApps";
 
 export const AppContext = createContext();
 
 export const AppState = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, appState);
-  const { accessToken, language, user, appId } = useContext(AuthContext);
+  const { accessToken, user, appId, isAdmin } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (language.uid) {
-  //     // const payload = language.locale === "es" ? spanishState : englishState;
-  //     // updateAppAssets(dispatch, payload);
-  //   }
-  // }, [language]);
-
-  // console.log("usser", user);
   useEffect(() => {
     // app was found
-    if (appId) getLatestAppData(dispatch, appId);
-  }, [appId]);
+    if (isAdmin) getOwnedApps(dispatch);
+  }, [isAdmin]);
 
   useEffect(() => {
     // user is login
