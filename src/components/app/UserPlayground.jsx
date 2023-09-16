@@ -9,29 +9,30 @@ import { AppContext } from "../../utils/context/app/AppContext";
 import { Select } from "nexious-library/@nxs-molecules";
 const UserPlayground = () => {
   const { user } = useContext(AuthContext);
-  const { theme, themeList } = useContext(AppContext);
+  const { theme, themeList, setTheme } = useContext(AppContext);
   const [page, setPage] = useState("home");
-  const [style, setTheme] = useState(theme ? theme : "light-mode");
 
   const handleThemeChange = (event) => {
     event.preventDefault();
     setTheme(event.target.value);
   };
   return (
-    <div className={`app-container elbow-space ${style}`}>
+    <div className={`app-container elbow-space ${theme}`}>
       <div className="banner">
         <WelcomeMessage user={user} message={message.welcomeMessage} />
-        <div className="select-field">
-          <Select
-            name={theme}
-            list={themeList}
-            onChange={handleThemeChange}
-            active={style}
-            label={"Theme: "}
-            theme={style}
-          />
+        <div className="flex-center">
+          <div className="select-field">
+            <Select
+              name={theme}
+              list={themeList}
+              onChange={handleThemeChange}
+              active={theme}
+              label={"Theme: "}
+              theme={theme}
+            />
+          </div>
+          <DangerZone />
         </div>
-        <DangerZone />
       </div>
       {page === "changePassword" && <ChangePassword handleClick={(e) => setPage(e)} />}
       {page === "home" && <MainPage handleClick={(name) => setPage(name)} />}

@@ -21,6 +21,7 @@ import { updateApp } from "./helpers/updateApp";
 import { deleteApp } from "./helpers/deleteApp";
 import { addPage } from "./helpers/addPage";
 import { uploadFile } from "./helpers/uploadFile";
+import { setTheme } from "./helpers/setTheme";
 
 export const AppContext = createContext();
 
@@ -103,6 +104,7 @@ export const AppState = ({ children }) => {
         uploadFile: (a) => uploadFile(dispatch, a),
         updateApp: (a) => updateApp(dispatch, a),
         deleteApp: (a) => deleteApp(dispatch, a),
+        setTheme: (a) => setTheme(dispatch, a),
         addPage: (a) => addPage(dispatch, a, appId, getLatestAppData),
       }}>
       {children}

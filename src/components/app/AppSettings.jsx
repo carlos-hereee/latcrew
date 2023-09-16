@@ -18,7 +18,7 @@ const AppSettings = ({ onClick }) => {
       {isAdmin ? (
         <>
           {ownedApps.map((apps) => (
-            <div key={apps.appId} className="card-row card-shadow card-light-mode pad-t">
+            <div key={apps.appId} className="card-row pad-t">
               <Hero
                 hero={apps.logo ? apps.log : {}}
                 onImageClick={() => editLogo(apps)}

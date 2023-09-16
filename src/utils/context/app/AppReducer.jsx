@@ -22,6 +22,8 @@ export const reducer = (state, action) => {
       return { ...state, isLoading: action.payload };
     case "SET_UPLOAD_FILE_ERROR":
       return { ...state, uploadFileError: action.payload };
+    case "SET_THEME":
+      return { ...state, theme: action.payload };
     case "COMING_SOON":
       return { ...state, isComingSoon: action.payload };
     case "UPDATE_MENU":
