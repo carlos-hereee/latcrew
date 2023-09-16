@@ -14,7 +14,13 @@ const MainPage = ({ handleClick }) => {
     editApp: false,
   });
   const label = { app: "App Settings", account: "Account Settings" };
-  const appTheme = show["app"] ? "active" : show["newApp"] ? "active" : "";
+  const appTheme = show["app"]
+    ? "active"
+    : show["newApp"]
+    ? "active"
+    : show["editApp"]
+    ? "active"
+    : "";
   const accTheme = show["account"] && "active";
 
   const handleMenu = (name) => {

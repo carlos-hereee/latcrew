@@ -20,9 +20,20 @@ const EditApp = ({ onClick }) => {
   };
   return (
     <div>
-      <Button label="Go-back" onClick={() => onClick("app")} />
-      <h2>Editing app: </h2>
+      <Button label="Go-back" handleClick={() => onClick("app")} />
+      <h2 className="heading">Editing app: </h2>
       <EditAppName appName={editApp.appName} onChange={handleChange} />
+      <h2 className="heading">Pages:</h2>
+      {editApp.menu.map((item) => (
+        <div className="pages" key={item.menuId}>
+          {item.active.label}
+        </div>
+      ))}
+
+      <p>themeList</p>
+      <p>language</p>
+      <p>newsletter</p>
+      <p>calendar</p>
       {/* <Form initialValues={values} /> */}
     </div>
   );
