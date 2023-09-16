@@ -6,7 +6,12 @@ import BuildApp from "./BuildApp";
 
 const MainPage = ({ handleClick }) => {
   const [active, setActive] = useState("app");
-  const [show, setShow] = useState({ account: false, app: true, newApp: false });
+  const [show, setShow] = useState({
+    account: false,
+    app: true,
+    newApp: false,
+    editApp: false,
+  });
   const label = { app: "App Settings", account: "Account Settings" };
   const appTheme = show["app"] ? "active" : show["newApp"] ? "active" : "";
   const accTheme = show["account"] && "active";

@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 import { ServicesContext } from "../utils/context/services/ServicesContext";
-import FeatureItems from "../components/FeatureItems";
+import FeatureItems from "../components/app/FeatureItems";
 import { useNavigate } from "react-router-dom";
 import { AdminContext } from "../utils/context/admin/AdminContext";
 

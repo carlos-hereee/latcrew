@@ -3,9 +3,9 @@ import { AuthContext } from "./utils/context/auth/AuthContext";
 import { AppContext } from "./utils/context/app/AppContext";
 import { Footer, Header } from "nexious-library/@nxs-template";
 import { Loading } from "nexious-library/@nxs-molecules";
-import AppInProgress from "./components/AppInProgress ";
-import UserPlayground from "./components/UserPlayground";
-import ChangePassword from "./components/ChangePassword";
+import AppInProgress from "./components/app/AppInProgress ";
+import UserPlayground from "./components/app/UserPlayground";
+import ChangePassword from "./components/form/ChangePassword";
 
 function App({ children }) {
   const { isLoading, language, updateLanguage } = useContext(AuthContext);

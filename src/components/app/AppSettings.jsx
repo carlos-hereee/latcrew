@@ -1,6 +1,6 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import BuildApp from "./BuildApp";
-import { AuthContext } from "../utils/context/auth/AuthContext";
+import { AuthContext } from "../../utils/context/auth/AuthContext";
 import { Hero } from "nexious-library/@nxs-molecules";
 
 const AppSettings = ({ onClick }) => {

@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { AppContext } from "../utils/context/app/AppContext";
+import { AppContext } from "../../utils/context/app/AppContext";
 import { Form } from "nexious-library/@nxs-organism";
-import { AuthContext } from "../utils/context/auth/AuthContext";
+import { AuthContext } from "../../utils/context/auth/AuthContext";
 // import { UploadFile } from "nexious-library/@nxs-molecules";
 
 const BuildApp = ({ heading, cancelBtn, onClick }) => {

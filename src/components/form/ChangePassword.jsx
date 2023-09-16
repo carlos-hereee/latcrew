@@ -1,7 +1,7 @@
 import { GoBackButton } from "nexious-library/@nxs-molecules";
 import { Form } from "nexious-library/@nxs-organism";
 import { useContext } from "react";
-import { AuthContext } from "../utils/context/auth/AuthContext";
+import { AuthContext } from "../../utils/context/auth/AuthContext";
 
 const ChangePassword = ({ handleClick }) => {
   const { changePassword, passChangeValues, passChangeLabels } = useContext(AuthContext);

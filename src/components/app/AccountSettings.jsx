@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AuthContext } from "../utils/context/auth/AuthContext";
+import { AuthContext } from "../../utils/context/auth/AuthContext";
 import { Form } from "nexious-library/@nxs-organism";
 
 const AccountSettings = ({ onClick }) => {

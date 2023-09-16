@@ -4,11 +4,11 @@ import { CardSection } from "nexious-library/@nxs-organism";
 import { Icon } from "nexious-library/@nxs-atoms";
 // import { setActive } from "../utils/context/services/helpers/setActive";
 import { useContext, useState } from "react";
-import { ServicesContext } from "../utils/context/services/ServicesContext";
-import { CalendarContext } from "../utils/context/calendar/CalendarContext";
-import { AppContext } from "../utils/context/app/AppContext";
-import { findNextOpenApp } from "../utils/helpers/findNextOpenApp";
-import { AuthContext } from "../utils/context/auth/AuthContext";
+import { ServicesContext } from "../../utils/context/services/ServicesContext";
+import { CalendarContext } from "../../utils/context/calendar/CalendarContext";
+import { AppContext } from "../../utils/context/app/AppContext";
+import { findNextOpenApp } from "../../utils/helpers/findNextOpenApp";
+import { AuthContext } from "../../utils/context/auth/AuthContext";
 import { Link } from "react-router-dom";
 import { CartRow } from "nexious-library/@nxs-molecules";
 

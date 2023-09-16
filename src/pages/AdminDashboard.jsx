@@ -4,7 +4,7 @@ import { Loading } from "nexious-library/@nxs-molecules";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 import { CalendarContext } from "../utils/context/calendar/CalendarContext";
 import { AppContext } from "../utils/context/app/AppContext";
-import BuildApp from "../components/BuildApp";
+import BuildApp from "../components/app/BuildApp";
 import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {

@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
-import { AuthContext } from "../utils/context/auth/AuthContext";
+import { AuthContext } from "../../utils/context/auth/AuthContext";
 import DangerZone from "./DangerZone";
 import WelcomeMessage from "./WelcomeMessage";
-import message from "../data/messages.json";
-import ChangePassword from "./ChangePassword";
+import message from "../../data/messages.json";
+import ChangePassword from "../form/ChangePassword";
 import MainPage from "./MainPage";
 
 const UserPlayground = () => {

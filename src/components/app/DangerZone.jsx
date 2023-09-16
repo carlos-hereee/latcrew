@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { AuthContext } from "../utils/context/auth/AuthContext";
-import { AppContext } from "../utils/context/app/AppContext";
+import { AuthContext } from "../../utils/context/auth/AuthContext";
+import { AppContext } from "../../utils/context/app/AppContext";
 
 const DangerZone = () => {
   const { logout, deleteApp } = useContext(AuthContext);
