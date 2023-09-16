@@ -6,6 +6,21 @@
   "appValuesTypes": { "appName": "text" },
   "appLabels": { "appName": "Enter app name", "logo": "Choose logo for app" },
   "appPlaceholders": { "appName": "Enter appname .." },
+  "theme": "light-mode",
+  "themeList": [
+    {
+      "name": "light-mode",
+      "value": "light-mode",
+      "themeId": "theme-light-mode",
+      "uid": "theme-light-mode"
+    },
+    {
+      "name": "dark-mode",
+      "value": "dark-mode",
+      "themeId": "theme-dark-mode",
+      "uid": "theme-dark-mode"
+    }
+  ],
   "pageValues": {
     "name": "FAQ",
     "title": "Frequently asked questions",

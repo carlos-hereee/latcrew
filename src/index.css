@@ -64,20 +64,12 @@
 .logout-btn {
   margin: 5rem auto;
 }
-.app-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 150px 3fr 1fr;
-}
+
 .danger-zone {
   margin-bottom: 2rem;
 }
-.banner {
-  display: grid;
-  align-items: center;
-  grid-template-columns: 2fr 3fr;
-  /* align-items: center; */
-  gap: 1rem;
 
-  /* max-height: 150px; */
+.select-field {
+  display: flex;
+  align-items: center;
 }

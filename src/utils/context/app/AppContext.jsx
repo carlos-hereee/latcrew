@@ -52,6 +52,8 @@ export const AppState = ({ children }) => {
         isOffline: state.isOffline,
         isComingSoon: state.isComingSoon,
         app: state.app,
+        theme: state.theme,
+        themeList: state.themeList,
         pages: state.pages,
         logo: state.logo,
         pageValues: state.pageValues,
