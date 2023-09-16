@@ -26,13 +26,8 @@ export const AppContext = createContext();
 
 export const AppState = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, appState);
-  const { accessToken, user, appId, isAdmin } = useContext(AuthContext);
+  const { accessToken, user, appId } = useContext(AuthContext);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    // app was found
-    if (isAdmin) getOwnedApps(dispatch);
-  }, [isAdmin]);
 
   useEffect(() => {
     // user is login

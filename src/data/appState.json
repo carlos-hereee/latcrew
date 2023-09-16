@@ -2,7 +2,7 @@
   "isLoading": true,
   "isOffline": false,
   "appName": "",
-  "appValues": { "appName": "Sparkle and Shine" },
+  "appValues": { "appName": "" },
   "appValuesTypes": { "appName": "text" },
   "appLabels": { "appName": "Enter app name", "logo": "Choose logo for app" },
   "appPlaceholders": { "appName": "Enter appname .." },

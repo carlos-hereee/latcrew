@@ -2,12 +2,14 @@ import { useState } from "react";
 import AccountSettings from "./AccountSettings";
 import { Button } from "nexious-library/@nxs-atoms";
 import AppSettings from "./AppSettings";
+import BuildApp from "./BuildApp";
 
 const MainPage = ({ handleClick }) => {
   const [active, setActive] = useState("app");
-  const [show, setShow] = useState({ account: false, app: true });
+  const [show, setShow] = useState({ account: false, app: true, newApp: false });
   const label = { app: "App Settings", account: "Account Settings" };
-  const theme = "active";
+  const appTheme = show["app"] ? "active" : show["newApp"] ? "active" : "";
+  const accTheme = show["account"] && "active";
 
   const handleMenu = (name) => {
     setActive(name);
@@ -19,16 +21,19 @@ const MainPage = ({ handleClick }) => {
         <Button
           label={label.app}
           handleClick={() => handleMenu("app")}
-          theme={show["app"] && theme}
+          theme={appTheme}
         />
         <Button
           label={label.account}
           handleClick={() => handleMenu("account")}
-          theme={show["account"] && theme}
+          theme={accTheme}
         />
       </div>
       {active === "account" && show[active] && <AccountSettings onClick={handleClick} />}
-      {active === "app" && show[active] && <AppSettings onClick={handleClick} />}
+      {active === "app" && show[active] && <AppSettings onClick={handleMenu} />}
+      {active === "newApp" && show[active] && (
+        <BuildApp cancelBtn onClick={() => handleMenu("app")} />
+      )}
     </div>
   );
 };
