@@ -21,7 +21,7 @@ const MainPage = ({ handleClick }) => {
     setActive(name);
     setShow({ account: false, app: false, [name]: !show[name] });
   };
-  console.log("active", active);
+  // console.log("active", active);
   return (
     <div className="container">
       <div className="flex-g">

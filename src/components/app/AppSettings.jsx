@@ -8,8 +8,8 @@ const AppSettings = ({ onClick }) => {
   const { isAdmin, ownedApps } = useContext(AuthContext);
   const { theme, getAppWithAppId, setEditApp } = useContext(AppContext);
   const editApp = (app) => {
+    setEditApp(app.appId);
     onClick("editApp");
-    setEditApp(app);
   };
   const editLogo = (appId) => {
     console.log("app", appId);
@@ -19,19 +19,13 @@ const AppSettings = ({ onClick }) => {
       {isAdmin ? (
         <>
           <h2 className="heading">All owned apps</h2>
-          {ownedApps.map((apps) => (
-            <div key={apps.appId} className="card-row pad-t">
-              <Hero
-                hero={apps.logo ? apps.log : {}}
-                onImageClick={() => editLogo(apps)}
-              />
+          {ownedApps.map((app) => (
+            <div key={app.appId} className="card-row pad-t">
+              <Hero hero={app.logo ? app.log : {}} onImageClick={() => editLogo(app)} />
               <div className="flex-column elbow-space mb-2">
-                <h2 className="heading">{apps.appName}</h2>
+                <h2 className="heading">{app.appName}</h2>
                 <div className="flex-center flex-row flex-wrap">
-                  <button
-                    className="btn-main"
-                    type="button"
-                    onClick={() => editApp(apps.appId)}>
+                  <button className="btn-main" type="button" onClick={() => editApp(app)}>
                     Edit app
                   </button>
                   {/* <button
@@ -43,7 +37,7 @@ const AppSettings = ({ onClick }) => {
                   <button
                     className="btn-main"
                     type="button"
-                    onClick={() => getAppWithAppId(apps.appId)}>
+                    onClick={() => getAppWithAppId(app.appId)}>
                     See live
                   </button>
                   {/* <button

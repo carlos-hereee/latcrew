@@ -23,6 +23,7 @@ import { addPage } from "./helpers/addPage";
 import { uploadFile } from "./helpers/uploadFile";
 import { setTheme } from "./helpers/setTheme";
 import { getAppWithAppId } from "./helpers/getAppWithAppId";
+import { setEditApp } from "./helpers/setEditApp";
 
 export const AppContext = createContext();
 
@@ -108,7 +109,8 @@ export const AppState = ({ children }) => {
         deleteApp: (a) => deleteApp(dispatch, a),
         setTheme: (a) => dispatch({ type: "SET_THEME", payload: a }),
         getAppWithAppId: (a) => getAppWithAppId(dispatch, a),
-        setEditApp: (a) => dispatch({ type: "SET_EDIT_APP", payload: a }),
+        setEditApp: (a) => setEditApp(dispatch, a),
+        updateEditAppState: (a) => dispatch({ type: "SET_EDIT_APP", payload: a }),
         addPage: (a) => addPage(dispatch, a, appId, getLatestAppData),
       }}>
       {children}
