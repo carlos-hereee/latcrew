@@ -9,6 +9,7 @@ import MainPage from "./MainPage";
 const UserPlayground = () => {
   const { user } = useContext(AuthContext);
   const [page, setPage] = useState("home");
+  console.log("user", user);
 
   return (
     <div className="app-container elbow-space">

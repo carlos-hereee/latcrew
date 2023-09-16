@@ -10,16 +10,15 @@ export const getAccessToken = async (dispatch) => {
     dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
     if (data.user) {
       const user = data.user;
-      const userData = filterUserValues(user);
       // store key varaibles
+      const userData = filterUserValues(user);
       dispatch({ type: "SET_USER_DATA", payload: userData });
+      const filterPermission = user.permissions.filter((app) => app.role === "admin");
+      filterPermission.length > 0 && dispatch({ type: "SET_IS_ADMIN", payload: true });
       user.permissions && dispatch({ type: "SET_PERMSSIONS", payload: user.permissions });
       user.ownedApps && dispatch({ type: "SET_OWNED_APPS", payload: user.ownedApps });
-      user.ownedApps.length > 0 && dispatch({ type: "SET_IS_ADMIN", payload: true });
+      // dispatch({ type: "UPDATE_LANGUAGE", payload: data.language });
     }
-    // if user owns an app
-
-    // dispatch({ type: "UPDATE_LANGUAGE", payload: data.language });
     dispatch({ type: "IS_LOADING", payload: false });
   } catch (error) {
     if (isDev) console.log("error fetching token", error);

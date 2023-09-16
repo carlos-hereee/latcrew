@@ -21,7 +21,6 @@ import { updateApp } from "./helpers/updateApp";
 import { deleteApp } from "./helpers/deleteApp";
 import { addPage } from "./helpers/addPage";
 import { uploadFile } from "./helpers/uploadFile";
-import { getOwnedApps } from "./helpers/getOwnedApps";
 
 export const AppContext = createContext();
 
