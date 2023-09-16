@@ -22,6 +22,7 @@ import { deleteApp } from "./helpers/deleteApp";
 import { addPage } from "./helpers/addPage";
 import { uploadFile } from "./helpers/uploadFile";
 import { setTheme } from "./helpers/setTheme";
+import { getAppWithAppId } from "./helpers/getAppWithAppId";
 
 export const AppContext = createContext();
 
@@ -57,6 +58,7 @@ export const AppState = ({ children }) => {
         themeList: state.themeList,
         pages: state.pages,
         logo: state.logo,
+        editApp: state.editApp,
         pageValues: state.pageValues,
         pageValuesTypes: state.pageValuesTypes,
         pageLabels: state.pageLabels,
@@ -104,7 +106,9 @@ export const AppState = ({ children }) => {
         uploadFile: (a) => uploadFile(dispatch, a),
         updateApp: (a) => updateApp(dispatch, a),
         deleteApp: (a) => deleteApp(dispatch, a),
-        setTheme: (a) => setTheme(dispatch, a),
+        setTheme: (a) => dispatch({ type: "SET_THEME", payload: a }),
+        getAppWithAppId: (a) => getAppWithAppId(dispatch, a),
+        setEditApp: (a) => dispatch({ type: "SET_EDIT_APP", payload: a }),
         addPage: (a) => addPage(dispatch, a, appId, getLatestAppData),
       }}>
       {children}

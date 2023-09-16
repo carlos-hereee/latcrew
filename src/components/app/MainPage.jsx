@@ -3,6 +3,7 @@ import AccountSettings from "./AccountSettings";
 import { Button } from "nexious-library/@nxs-atoms";
 import AppSettings from "./AppSettings";
 import BuildApp from "./BuildApp";
+import EditApp from "./EditApp";
 
 const MainPage = ({ handleClick }) => {
   const [active, setActive] = useState("app");
@@ -20,6 +21,7 @@ const MainPage = ({ handleClick }) => {
     setActive(name);
     setShow({ account: false, app: false, [name]: !show[name] });
   };
+  console.log("active", active);
   return (
     <div className="container">
       <div className="flex-g">
@@ -39,6 +41,7 @@ const MainPage = ({ handleClick }) => {
       {active === "newApp" && show[active] && (
         <BuildApp cancelBtn onClick={() => handleMenu("app")} />
       )}
+      {active === "editApp" && show[active] && <EditApp onClick={handleMenu} />}
     </div>
   );
 };

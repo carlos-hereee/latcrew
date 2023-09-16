@@ -6,17 +6,19 @@ import { AppContext } from "../../utils/context/app/AppContext";
 
 const AppSettings = ({ onClick }) => {
   const { isAdmin, ownedApps } = useContext(AuthContext);
-  const { theme } = useContext(AppContext);
+  const { theme, getAppWithAppId, setEditApp } = useContext(AppContext);
   const editApp = (app) => {
-    console.log("app", app);
+    onClick("editApp");
+    setEditApp(app);
   };
-  const editLogo = (app) => {
-    console.log("loho click", app);
+  const editLogo = (appId) => {
+    console.log("app", appId);
   };
   return (
     <div className="container">
       {isAdmin ? (
         <>
+          <h2 className="heading">All owned apps</h2>
           {ownedApps.map((apps) => (
             <div key={apps.appId} className="card-row pad-t">
               <Hero
@@ -29,19 +31,19 @@ const AppSettings = ({ onClick }) => {
                   <button
                     className="btn-main"
                     type="button"
-                    onClick={() => editApp(apps)}>
+                    onClick={() => editApp(apps.appId)}>
                     Edit app
                   </button>
-                  <button
+                  {/* <button
                     className="btn-main"
                     type="button"
                     onClick={() => editApp(apps)}>
                     Advanced Settings
-                  </button>
+                  </button> */}
                   <button
                     className="btn-main"
                     type="button"
-                    onClick={() => editApp(apps)}>
+                    onClick={() => getAppWithAppId(apps.appId)}>
                     See live
                   </button>
                   {/* <button

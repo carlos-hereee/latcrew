@@ -19,7 +19,7 @@ export const ServicesState = ({ children }) => {
   const { services } = useContext(AppContext);
 
   useEffect(() => {
-    if (services && services.services) {
+    if (services && services?.services) {
       updateServices(dispatch, services.services);
     }
   }, [services]);

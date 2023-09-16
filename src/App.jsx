@@ -13,10 +13,8 @@ function App({ children }) {
   const { app, menu, updateMenu, logo } = useContext(AppContext);
 
   useEffect(() => {
-    if (app?.appName) {
-      document.title = app.appName;
-    }
-  }, [app && app.name]);
+    if (app?.appName) document.title = app.appName;
+  }, [app]);
 
   const handleUpdateMenu = (e) => {
     if (!language || language.uid !== e[0].active.uid) {

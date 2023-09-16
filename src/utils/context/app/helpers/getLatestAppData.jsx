@@ -10,9 +10,6 @@ export const getLatestAppData = async (dispatch, appId) => {
     if (data.app) {
       const { app } = data;
       dispatch({ type: "UPDATE_APP_ASSETS", payload: app });
-      // if (.app?.logo) {
-      //   dispatch({ type: "UPDATE_APP_LOGO", payload: app.logo });
-      // }
       app.menu && dispatch({ type: "UPDATE_MENU", payload: app.menu });
       app.logo && dispatch({ type: "UPDATE_LOGO", payload: app.logo });
     }
