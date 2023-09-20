@@ -7,6 +7,7 @@ export const axiosAuth = axios.create({
     "Access-Control-Allow-Origin": import.meta.env.VITE_CLIENT_BASE_URL,
     "Content-Type": "application/json; charset=utf-8",
     "Accept": "application/json",
+    "SameSite": "Lax",
   },
 });
 export const axiosWithMedia = axios.create({

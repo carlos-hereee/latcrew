@@ -16,41 +16,43 @@ const AppSettings = ({ onClick }) => {
   };
   return (
     <div className="container">
-      {isAdmin ? (
-        <>
-          <h2 className="heading">All owned apps</h2>
-          {ownedApps.map((app) => (
-            <div key={app.appId} className="card-row pad-t">
-              <Hero hero={app.logo ? app.log : {}} onImageClick={() => editLogo(app)} />
-              <div className="flex-column elbow-space mb-2">
-                <h2 className="heading">{app.appName}</h2>
-                <div className="flex-center flex-row flex-wrap">
-                  <button className="btn-main" type="button" onClick={() => editApp(app)}>
-                    Edit app
-                  </button>
-                  {/* <button
+      <h2 className="heading">All your apps: </h2>
+      {ownedApps.length < 0 ? (
+        ownedApps.map((app) => (
+          <div key={app.appId} className="card-row pad-t">
+            <Hero hero={app.logo ? app.log : {}} onImageClick={() => editLogo(app)} />
+            <div className="flex-column elbow-space mb-2">
+              <h2 className="heading">{app.appName}</h2>
+              <div className="flex-center flex-row flex-wrap">
+                <button className="btn-main" type="button" onClick={() => editApp(app)}>
+                  Edit app
+                </button>
+                {/* <button
                     className="btn-main"
                     type="button"
                     onClick={() => editApp(apps)}>
                     Advanced Settings
                   </button> */}
-                  <button
-                    className="btn-main"
-                    type="button"
-                    onClick={() => getAppWithAppId(app.appId)}>
-                    See live
-                  </button>
-                  {/* <button
+                <button
+                  className="btn-main"
+                  type="button"
+                  onClick={() => getAppWithAppId(app.appId)}>
+                  See live
+                </button>
+                {/* <button
                     className="btn-cancel"
                     disabled
                     type="button"
                     onClick={() => editApp(apps)}>
                     Delete app
                   </button> */}
-                </div>
               </div>
             </div>
-          ))}
+          </div>
+        ))
+      ) : (
+        <>
+          <p>You dont own any apps yet</p>
           <button
             type="button"
             className={`btn-main w-max ${theme ? "btn-" + theme : ""}`}
@@ -58,8 +60,6 @@ const AppSettings = ({ onClick }) => {
             + Create a new app
           </button>
         </>
-      ) : (
-        <BuildApp heading="Create your first app" />
       )}
     </div>
   );
