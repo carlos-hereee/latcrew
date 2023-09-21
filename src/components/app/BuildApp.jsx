@@ -1,32 +1,38 @@
 import { useContext } from "react";
 import { AppContext } from "../../utils/context/app/AppContext";
-import { PaginateForm } from "nexious-library/@nxs-organism";
+import { PaginateForm } from "nexious-library/@nxs-template";
 import { AuthContext } from "../../utils/context/auth/AuthContext";
 // import { UploadFile } from "nexious-library/@nxs-molecules";
 
 const BuildApp = ({ heading, cancelBtn, onClick }) => {
-  const { appValues, appLabels, appPlaceholders } = useContext(AppContext);
-  const { appValuesTypes } = useContext(AppContext);
+  const { appValues, landingPageValues, landingPageLabels, landingPageTypes } =
+    useContext(AppContext);
   const { buildApp } = useContext(AuthContext);
+  const handleFormSubmit = (event) => {
+    console.log("handle paginated form submit event", event);
+  };
   return (
     <div className="container">
-      <h1 className="heading">{heading ? heading : "Initialize your app"}</h1>
       <PaginateForm
-        // initialValues={appValues}
-        // labels={appLabels}
-        // placeholders={appPlaceholders}
-        // types={appValuesTypes}
-        // onSubmit={(payload) => buildApp(payload)}
-        // submitLabel="Save and continue"
-        // schema={{ required: ["appName"] }}
-        start={1}
-        totalPages={3}
+        order={["landingPage", "appName"]}
         paginate={[
           {
-            pageNumber: 1,
+            formName: "appName",
+            heading: "Initialize your app",
             initialValues: appValues,
+            submitLabel: "Save and continue",
+            schema: { required: ["appName"] },
+          },
+          {
+            formName: "landingPage",
+            heading: "Build landing page",
+            initialValues: landingPageValues,
+            submitLabel: "Save and continue",
+            labels: landingPageLabels,
+            types: landingPageTypes,
           },
         ]}
+        onFormSubmit={handleFormSubmit}
       />
       {cancelBtn && (
         <button type="button" className="btn-cancel" onClick={onClick}>
