@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
-import { AuthContext } from "../../utils/context/auth/AuthContext";
-import DangerZone from "./DangerZone";
-import WelcomeMessage from "./WelcomeMessage";
-import message from "../../data/messages.json";
-import ChangePassword from "../form/ChangePassword";
+import { AuthContext } from "../utils/context/auth/AuthContext";
+import DangerZone from "../components/app/DangerZone";
+import WelcomeMessage from "../components/app/WelcomeMessage";
+import message from "../data/messages.json";
+import ChangePassword from "../components/form/ChangePassword";
 import MainPage from "./MainPage";
-import { AppContext } from "../../utils/context/app/AppContext";
+import { AppContext } from "../utils/context/app/AppContext";
 import { Select } from "nexious-library/@nxs-molecules";
 const UserPlayground = () => {
   const { user } = useContext(AuthContext);

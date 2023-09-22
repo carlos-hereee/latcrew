@@ -1,16 +1,16 @@
 import { useState } from "react";
-import AccountSettings from "./AccountSettings";
+import AccountSettings from "../components/app/AccountSettings";
 import { Button } from "nexious-library/@nxs-atoms";
-import AppSettings from "./AppSettings";
-import BuildApp from "./BuildApp";
-import EditApp from "./EditApp";
+import AppSettings from "../components/app/AppSettings";
+import BuildApp from "../components/app/BuildApp";
+import EditApp from "../components/app/EditApp";
 
 const MainPage = ({ handleClick }) => {
-  const [active, setActive] = useState("app");
+  const [active, setActive] = useState("newApp");
   const [show, setShow] = useState({
     account: false,
-    app: true,
-    newApp: false,
+    app: false,
+    newApp: true,
     editApp: false,
   });
   const label = { app: "App Settings", account: "Account Settings" };

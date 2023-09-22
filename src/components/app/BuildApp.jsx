@@ -5,21 +5,35 @@ import { AuthContext } from "../../utils/context/auth/AuthContext";
 // import { UploadFile } from "nexious-library/@nxs-molecules";
 
 const BuildApp = ({ heading, cancelBtn, onClick }) => {
-  const { appValues, landingPageValues, landingPageLabels, landingPageTypes } =
-    useContext(AppContext);
+  const { landingPageValues, landingPageLabels, sectionValues } = useContext(AppContext);
+  const { landingPageTypes } = useContext(AppContext);
   const { buildApp } = useContext(AuthContext);
+
+  const initFormValues = (formName, data) => {};
+
   const handleFormSubmit = (event) => {
-    console.log("handle paginated form submit event", event);
+    // search for sub forms
+    const hasCTA = event.landingPage.cta;
+    const hasSubSection = event.landingPage.sections;
+    if (hasCTA || hasSubSection) {
+      hasSubSection && console.log("hasCTA", hasCTA, "has sub section", hasSubSection);
+      hasCTA && console.log("hasCTA", hasCTA, "has sub section", hasSubSection);
+      // console.log("handle paginated form submit event", event);
+    } else {
+      buildApp(event);
+    }
   };
   return (
     <div className="container">
+      {heading && <h2 className="heading">{heading}</h2>}
       <PaginateForm
-        order={["landingPage", "appName"]}
+        // order={["landingPage", "appName"]}
         paginate={[
           {
             formName: "appName",
             heading: "Initialize your app",
-            initialValues: appValues,
+            // initialValues: { appName: "" },
+            initialValues: { appName: "Sharkle and Shine" },
             submitLabel: "Save and continue",
             schema: { required: ["appName"] },
           },
