@@ -9,6 +9,7 @@ const BuildApp = ({ heading, cancelBtn, onClick }) => {
   const { landingPageTypes } = useContext(AppContext);
   const { buildApp } = useContext(AuthContext);
   const [formPage, setFormPage] = useState(0);
+  // const entryValues = sectionValues;
   const [paginate, setPaginate] = useState([
     {
       formName: "appName",
@@ -32,9 +33,10 @@ const BuildApp = ({ heading, cancelBtn, onClick }) => {
       ...prev,
       {
         formName: "section",
-        heading: "Additional features",
+        heading: "Key app features",
         submitLabel: hasCTA ? "Save and continue" : "Publish app",
         initialValues: sectionValues,
+        addEntry: { initialValues: sectionValues, label: "Add another" },
       },
     ]);
   };
@@ -45,7 +47,8 @@ const BuildApp = ({ heading, cancelBtn, onClick }) => {
         formName: "cta",
         heading: "Call To Action",
         submitLabel: hasSubSection ? "Save and continue" : "Publish app",
-        initialValues: sectionValues,
+        initialValues: { label: "Book now!", link: "services" },
+        placeholders: { link: "services" },
       },
     ]);
   };
@@ -69,11 +72,11 @@ const BuildApp = ({ heading, cancelBtn, onClick }) => {
         paginate={paginate}
         onFormSubmit={handleFormSubmit}
       />
-      {cancelBtn && (
+      {/* {cancelBtn && (
         <button type="button" className="btn-cancel" onClick={onClick}>
           Cancel
         </button>
-      )}
+      )} */}
     </div>
   );
 };
