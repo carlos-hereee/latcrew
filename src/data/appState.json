@@ -5,9 +5,9 @@
   "appValues": { "appName": "Sharkle and Shine" },
   "appLabels": { "appName": "Enter app name" },
   "appPlaceholders": { "appName": "Enter appname .." },
-  "sectionValues": { "sectionName": "" },
-  "sectionLabels": { "sectionName": "" },
-  "sectionPlaceholders": { "sectionName": "Enter section name .." },
+  "sectionValues": { "title": "", "label": "", "body": "" },
+  "sectionLabels": { "title": "", "label": "", "body": "" },
+  "sectionPlaceholders": { "title": "", "label": "", "body": "" },
   "landingPageValues": {
     "title": "Sharkle and Shine: Professional House Cleaning Services",
     "tagline": "Transforming your home into a clean haven",
