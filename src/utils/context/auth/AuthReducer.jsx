@@ -2,7 +2,7 @@ const setChangePassword = (state, action) => {
   return {
     ...state,
     signInError: action.payload,
-    isChangePassword: action.payload ? true : false,
+    emergencyPasswordChangeIsRequired: action.payload ? true : false,
   };
 };
 export const reducer = (state, action) => {

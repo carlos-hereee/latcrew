@@ -44,7 +44,7 @@ export const AuthState = ({ children }) => {
         forgotPassValues: state.forgotPassValues,
         forgotPassLabels: state.forgotPassLabels,
         forgotPassPlaceholders: state.forgotPassPlaceholders,
-        isChangePassword: state.isChangePassword,
+        emergencyPasswordChangeIsRequired: state.emergencyPasswordChangeIsRequired,
         changePasswordError: state.changePasswordError,
         forgotPasswordError: state.forgotPasswordError,
         language: state.language,

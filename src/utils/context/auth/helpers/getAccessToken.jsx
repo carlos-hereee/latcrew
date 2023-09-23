@@ -22,14 +22,16 @@ export const getAccessToken = async (dispatch) => {
     dispatch({ type: "IS_LOADING", payload: false });
   } catch (error) {
     if (isDev) console.log("error fetching token", error);
+    // in case server gives no response
     if (!error.response) {
+      console.log("server is offline -- gave no response");
       dispatch({ type: "SET_STRANDED", payload: true });
       dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
       dispatch({ type: "SET_USER_DATA", payload: {} });
     }
-    const { status, data } = error.response;
-    // server is offline
-    if (status === 403 || status === 404) {
+    const status = error.response?.status;
+    // server is offline, rejected, or not found
+    if (status === 403 || status === 404 || status === 403) {
       // forbiden -- no cookie
       dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
       dispatch({ type: "SET_USER_DATA", payload: {} });

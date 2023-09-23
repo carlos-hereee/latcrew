@@ -53,7 +53,7 @@
   },
   "forgotPassLabels": { "username": "" },
   "forgotPassPlaceholders": { "username": "" },
-  "isChangePassword": false,
+  "emergencyPasswordChangeIsRequired": false,
   "language": {},
   "menu": [],
   "ownedApps": [],
