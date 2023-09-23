@@ -1,4 +1,4 @@
-import { axiosWithMedia } from "../../../helpers/configs/axios";
+import { axiosWithMedia } from "../../../axios/axios";
 
 export const addPage = async (dispatch, a, appId, fetchLatest) => {
   try {

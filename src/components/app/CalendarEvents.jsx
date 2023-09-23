@@ -7,7 +7,7 @@ import { useContext, useState } from "react";
 import { ServicesContext } from "../../utils/context/services/ServicesContext";
 import { CalendarContext } from "../../utils/context/calendar/CalendarContext";
 import { AppContext } from "../../utils/context/app/AppContext";
-import { findNextOpenApp } from "../../utils/helpers/app/findNextOpenApp";
+import { findNextOpenApp } from "../../utils/app/findNextOpenApp";
 import { AuthContext } from "../../utils/context/auth/AuthContext";
 import { Link } from "react-router-dom";
 import { CartRow } from "nexious-library/@nxs-molecules";

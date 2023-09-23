@@ -1,5 +1,5 @@
-import { axiosAuth } from "../../../helpers/configs/axios";
-import { isDev } from "../../../helpers/configs/isDev";
+import { axiosAuth } from "../../../axios/axios";
+import { isDev } from "../../../configs/isDev";
 
 export const logOut = async (dispatch) => {
   try {

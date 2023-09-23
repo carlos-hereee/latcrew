@@ -11,7 +11,7 @@ import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
-import PrivateRoute from "./utils/helpers/router/PrivateRoute";
+import PrivateRoute from "./utils/router/PrivateRoute";
 import { useContext } from "react";
 import { AuthContext } from "./utils/context/auth/AuthContext";
 import AdminDashboard from "./pages/AdminDashboard";
