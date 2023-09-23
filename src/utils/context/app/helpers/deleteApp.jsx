@@ -1,4 +1,3 @@
-import { axiosWithMedia } from "../../../axios/axios";
 import { isDev } from "../../../configs/isDev";
 
 export const deleteApp = async (dispatch, data) => {

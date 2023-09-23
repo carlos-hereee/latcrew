@@ -1,4 +1,4 @@
-import { axiosAuth } from "../../../axios/axios";
+import { axiosAuth } from "../../../axios/axiosAuth";
 import { filterUserValues } from "../../../app/filterUserValues";
 import { isDev } from "../../../configs/isDev";
 

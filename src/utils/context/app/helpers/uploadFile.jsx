@@ -1,4 +1,4 @@
-import { axiosWithMedia } from "../../../axios/axios";
+import { axiosWithMedia } from "../../../axios/axiosAuth";
 import { isDev } from "../../../configs/isDev";
 
 export const uploadFile = async (dispatch, file) => {

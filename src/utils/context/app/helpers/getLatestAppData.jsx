@@ -1,4 +1,4 @@
-import { axiosAuth } from "../../../axios/axios";
+import { axiosAuth } from "../../../axios/axiosAuth";
 import { isDev } from "../../../configs/isDev";
 import offline from "../../../../data/offlineAppState.json";
 
