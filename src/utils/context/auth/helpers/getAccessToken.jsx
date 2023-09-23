@@ -1,6 +1,6 @@
-import { axiosAuth } from "../../../helpers/axios";
-import { filterUserValues } from "../../../helpers/filterUserValues";
-import { isDev } from "../../../helpers/isDev";
+import { axiosAuth } from "../../../helpers/configs/axios";
+import { filterUserValues } from "../../../helpers/app/filterUserValues";
+import { isDev } from "../../../helpers/configs/isDev";
 
 export const getAccessToken = async (dispatch) => {
   try {

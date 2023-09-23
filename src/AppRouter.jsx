@@ -11,18 +11,31 @@ import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
-import PrivateRoute from "./utils/helpers/PrivateRoute";
+import PrivateRoute from "./utils/helpers/router/PrivateRoute";
 import { useContext } from "react";
 import { AuthContext } from "./utils/context/auth/AuthContext";
 import AdminDashboard from "./pages/AdminDashboard";
 import { AppContext } from "./utils/context/app/AppContext";
 import AddPage from "./pages/AddPages";
-
+import AppInProgress from "./components/app/AppInProgress ";
+import UserPlayground from "./pages/UserPlayground";
+import ChangePassword from "./components/form/ChangePassword";
+import Offline from "./pages/Offline";
 const AppRouter = () => {
-  const { accessToken, user } = useContext(AuthContext);
-  const { isComingSoon } = useContext(AppContext);
+  const { accessToken, user, app } = useContext(AuthContext);
+  const { emergencyPasswordChangeIsRequired, isOffline } = useContext(AuthContext);
 
-  if (isComingSoon && user.role !== "admin") return <ComingSoon />;
+  // const { isComingSoon } = useContext(AppContext);
+
+  // if (isComingSoon && user.role !== "admin") return <ComingSoon />;
+  // if server not coaperating use offline data
+  if (isOffline) return <Offline />;
+
+  // if login in but no app is been created
+  if (!app && accessToken) return <UserPlayground />;
+  // emergency password change
+  if (emergencyPasswordChangeIsRequired) return <ChangePassword />;
+
   return (
     <Routes>
       <Route exact path="/" element={<Landing />} />

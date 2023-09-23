@@ -28,6 +28,7 @@ export const AuthState = ({ children }) => {
       value={{
         isLoading: state.isLoading,
         error: state.error,
+        isOffline: state.isOffline,
         user: state.user,
         dummyData: state.dummyData,
         userValues: state.userValues,

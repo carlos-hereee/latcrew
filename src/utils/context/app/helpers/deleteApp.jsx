@@ -1,5 +1,5 @@
-import { axiosWithMedia } from "../../../helpers/axios";
-import { isDev } from "../../../helpers/isDev";
+import { axiosWithMedia } from "../../../helpers/configs/axios";
+import { isDev } from "../../../helpers/configs/isDev";
 
 export const deleteApp = async (dispatch, data) => {
   try {

@@ -1,4 +1,4 @@
 const Offline = () => {
   return <div>SERVER IS OFFLINE</div>;
 };
-return Offline;
+export default Offline;

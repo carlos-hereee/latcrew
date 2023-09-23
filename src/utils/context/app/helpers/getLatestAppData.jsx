@@ -1,5 +1,5 @@
-import { axiosAuth } from "../../../helpers/axios";
-import { isDev } from "../../../helpers/isDev";
+import { axiosAuth } from "../../../helpers/configs/axios";
+import { isDev } from "../../../helpers/configs/isDev";
 import offline from "../../../../data/offlineAppState.json";
 
 export const getLatestAppData = async (dispatch, appId) => {

@@ -1,5 +1,5 @@
-import { axiosAuth } from "../../../helpers/axios";
-import { isDev } from "../../../helpers/isDev";
+import { axiosAuth } from "../../../helpers/configs/axios";
+import { isDev } from "../../../helpers/configs/isDev";
 
 export const getAppWithAppId = async (dispatch, appId) => {
   try {

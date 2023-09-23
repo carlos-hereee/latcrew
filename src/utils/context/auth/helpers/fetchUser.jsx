@@ -1,4 +1,4 @@
-import { axiosAuth } from "../../../helpers/axios";
+import { axiosAuth } from "../../../helpers/configs/axios";
 
 export const fetchUser = async (dispatch, user) => {
   try {
