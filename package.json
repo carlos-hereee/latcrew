@@ -6,6 +6,7 @@
   "scripts": {
     "start": "vite",
     "init-ts-project": "cd node_modules/nexious-library && npm run renameFile",
+    "init-ts-project-rename": "cd node_modules/nexious-library && npm run renameFile src 'jsx' 'tsx'",
     "dev": "npm link nexious-library && vite",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
