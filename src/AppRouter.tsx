@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { PageNotFound } from "nexious-library/@nxs-molecules";
+// import { PageNotFound } from "nexious-library/@nxs-molecules";
 import Landing from "./pages/Landing";
 import Services from "./pages/Services";
 import Booking from "./pages/Booking";
@@ -19,9 +19,10 @@ import AddPage from "./pages/AddPages";
 import UserPlayground from "./pages/UserPlayground";
 import ChangePassword from "./components/form/ChangePassword";
 import Offline from "./pages/Offline";
+import { AuthSchema } from "utils/types/auth";
 
 const AppRouter: React.FC = () => {
-  const { accessToken, user, app, isOffline } = useContext(AuthContext);
+  const { accessToken, user, isOffline } = useContext<AuthSchema>(AuthContext);
   // const { emergencyPasswordChangeIsRequired, } = useContext(AuthContext);
 
   // const { isComingSoon } = useContext(AppContext);
@@ -31,7 +32,7 @@ const AppRouter: React.FC = () => {
   if (isOffline) return <Offline />;
 
   // if login in but no app is been created
-  if (!app && accessToken) return <UserPlayground />;
+  // if (!app && accessToken) return <UserPlayground />;
   // emergency password change
   // if (emergencyPasswordChangeIsRequired) return <ChangePassword />;
 
@@ -45,14 +46,14 @@ const AppRouter: React.FC = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/FAQ" element={<FAQ />} />
       <Route path="/checkout" element={<Checkout />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
+      {/* <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} /> */}
       <Route element={<PrivateRoute />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/add-page" element={<AddPage />} />
       </Route>
-      <Route path="/*" element={<PageNotFound to={accessToken ? "/dashboard" : "/"} />} />
+      {/* <Route path="/*" element={<PageNotFound to={accessToken ? "/dashboard" : "/"} />} /> */}
     </Routes>
   );
 };

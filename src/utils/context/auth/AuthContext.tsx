@@ -20,7 +20,7 @@ type AuthContentProviderProps = {
   children: React.ReactNode;
 };
 
-export const AuthContext = createContext<AuthSchema | null>(null);
+export const AuthContext = createContext<AuthSchema>({} as AuthSchema);
 
 export const AuthState = ({ children }: AuthContentProviderProps) => {
   const [state, dispatch] = useReducer(reducer, authState);
