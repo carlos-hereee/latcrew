@@ -14,10 +14,15 @@ import { updateLanguage } from "../app/helpers/updateLanguage";
 import { forgotPassword } from "./helpers/forgotPassword";
 import { fetchUser } from "./helpers/fetchUser";
 import { buildApp } from "./helpers/buildApp";
+import { AuthSchema } from "../../types/auth/";
 
-export const AuthContext = createContext();
+type AuthContentProviderProps = {
+  children: React.ReactNode;
+};
 
-export const AuthState = ({ children }) => {
+export const AuthContext = createContext<AuthSchema | null>(null);
+
+export const AuthState = ({ children }: AuthContentProviderProps) => {
   const [state, dispatch] = useReducer(reducer, authState);
   useEffect(() => {
     getAccessToken(dispatch);
@@ -27,42 +32,33 @@ export const AuthState = ({ children }) => {
     <AuthContext.Provider
       value={{
         isLoading: state.isLoading,
-        error: state.error,
         isOffline: state.isOffline,
+        isAdmin: state.isAdmin,
+        authErrors: state.authErrors,
+        accessToken: state.accessToken,
         user: state.user,
         dummyData: state.dummyData,
-        userValues: state.userValues,
-        userLabels: state.userLabels,
-        userPlaceholders: state.userPlaceholders,
-        loginValues: state.loginValues,
-        signUpValues: state.signUpValues,
-        accessToken: state.accessToken,
-        signInError: state.signInError,
-        signUpError: state.signUpError,
-        passChangeValues: state.passChangeValues,
-        passChangeLabels: state.passChangeLabels,
-        passChangePlaceholders: state.passChangePlaceholders,
-        forgotPassValues: state.forgotPassValues,
-        forgotPassLabels: state.forgotPassLabels,
-        forgotPassPlaceholders: state.forgotPassPlaceholders,
+        userForm: state.userForm,
+        loginForm: state.loginForm,
+        signUpForm: state.signUpForm,
+        passwordChangeForm: state.passwordChangeForm,
+        forgotPasswordForm: state.forgotPasswordForm,
         emergencyPasswordChangeIsRequired: state.emergencyPasswordChangeIsRequired,
-        changePasswordError: state.changePasswordError,
-        forgotPasswordError: state.forgotPasswordError,
-        language: state.language,
-        menu: state.menu,
-        permissions: state.permissions,
-        ownedApps: state.ownedApps,
-        isAdmin: state.isAdmin,
+        // language: state.language,
+        // menu: state.menu,
+        // permissions: state.permissions,
+        // ownedApps: state.ownedApps,
+        // isAdmin: state.isAdmin,
         signIn: (e) => signIn(dispatch, e),
         register: (e) => register(dispatch, e),
         logout: () => logOut(dispatch),
         updateUser: (e) => updateUserData(dispatch, e),
-        setShipping: (e) => setShipping(dispatch, e),
-        getUserData: (e) => getUserData(dispatch, e),
+        // setShipping: (e) => setShipping(dispatch, e),
+        // getUserData: () => getUserData(dispatch),
         fetchUser: (a) => fetchUser(dispatch, a),
-        changePassword: (e) => changePassword(dispatch, e),
-        updateLanguage: (a) => updateLanguage(dispatch, a),
-        forgotPassword: (a) => forgotPassword(dispatch, a),
+        // changePassword: (e) => changePassword(dispatch, e),
+        // updateLanguage: (a) => updateLanguage(dispatch, a),
+        // forgotPassword: (a) => forgotPassword(dispatch, a),
         buildApp: (a) => buildApp(dispatch, a),
       }}>
       {children}

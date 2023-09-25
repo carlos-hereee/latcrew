@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { PageNotFound, ComingSoon } from "nexious-library/@nxs-molecules";
+import { PageNotFound } from "nexious-library/@nxs-molecules";
 import Landing from "./pages/Landing";
 import Services from "./pages/Services";
 import Booking from "./pages/Booking";
@@ -15,15 +15,14 @@ import PrivateRoute from "./utils/router/PrivateRoute";
 import { useContext } from "react";
 import { AuthContext } from "./utils/context/auth/AuthContext";
 import AdminDashboard from "./pages/AdminDashboard";
-import { AppContext } from "./utils/context/app/AppContext";
 import AddPage from "./pages/AddPages";
-import AppInProgress from "./components/app/AppInProgress ";
 import UserPlayground from "./pages/UserPlayground";
 import ChangePassword from "./components/form/ChangePassword";
 import Offline from "./pages/Offline";
-const AppRouter = () => {
-  const { accessToken, user, app } = useContext(AuthContext);
-  const { emergencyPasswordChangeIsRequired, isOffline } = useContext(AuthContext);
+
+const AppRouter: React.FC = () => {
+  const { accessToken, user, app, isOffline } = useContext(AuthContext);
+  // const { emergencyPasswordChangeIsRequired, } = useContext(AuthContext);
 
   // const { isComingSoon } = useContext(AppContext);
 
@@ -34,11 +33,11 @@ const AppRouter = () => {
   // if login in but no app is been created
   if (!app && accessToken) return <UserPlayground />;
   // emergency password change
-  if (emergencyPasswordChangeIsRequired) return <ChangePassword />;
+  // if (emergencyPasswordChangeIsRequired) return <ChangePassword />;
 
   return (
     <Routes>
-      <Route exact path="/" element={<Landing />} />
+      <Route path="/" element={<Landing />} />
       <Route path="/services" element={<Services />} />
       <Route path="/testimonials" element={<Testimonials />} />
       <Route path="/booking" element={<Booking />} />
