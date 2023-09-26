@@ -8,7 +8,9 @@
     "airbnb-typescript",
     "airbnb/hooks",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    // adding prettier as last to avoid rules that might conflict
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -16,6 +18,11 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint", "react"],
-  "rules": {}
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "rules": {
+    // Note: you must disable the base rule as it can report incorrect errors
+    "quotes": "off",
+    "@typescript-eslint/quotes": "off",
+    "prettier/prettier": ["error", { "semi": "off" }]
+  }
 }
