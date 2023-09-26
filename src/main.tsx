@@ -2,7 +2,6 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./AppRouter";
-import "nexious-library/@index.css";
 import "./index.css";
 import { ServicesState } from "./utils/context/services/ServicesContext";
 import { AppState } from "./utils/context/app/AppContext";
@@ -11,6 +10,7 @@ import { LogState } from "./utils/context/log/LogContext";
 import { CalendarState } from "./utils/context/calendar/CalendarContext";
 import { AdminState } from "./utils/context/admin/AdminContext";
 import { isDev } from "config";
+// import "nexious-library/@index.css";
 
 const elementRoot: Element | DocumentFragment | null = document.getElementById("root");
 
