@@ -9,7 +9,7 @@ import { AuthState } from "./utils/context/auth/AuthContext";
 import { LogState } from "./utils/context/log/LogContext";
 import { CalendarState } from "./utils/context/calendar/CalendarContext";
 import { AdminState } from "./utils/context/admin/AdminContext";
-import { isDev } from "config";
+import { isDev } from "@app/config";
 // import "nexious-library/@index.css";
 
 const elementRoot: Element | DocumentFragment | null = document.getElementById("root");
