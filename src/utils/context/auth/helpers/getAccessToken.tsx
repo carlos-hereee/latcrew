@@ -1,6 +1,6 @@
 import { axiosAuth } from "../../../axios/axiosAuth";
 import { filterUserValues } from "../../../app/filterUserValues";
-import { isDev } from "../../../configs/isDev";
+import { isDev } from "@app/config";
 
 export const getAccessToken = async (dispatch) => {
   try {

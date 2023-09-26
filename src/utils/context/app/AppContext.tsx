@@ -16,7 +16,7 @@ import { getLatestAppData } from "./helpers/getLatestAppData";
 import appState from "../../../data/appState.json";
 import { uploadImage } from "./helpers/uploadImage";
 import { getFiles } from "./helpers/getFiles";
-import { isDev } from "../../configs/isDev";
+import { isDev } from "@app/config";
 import { updateApp } from "./helpers/updateApp";
 import { deleteApp } from "./helpers/deleteApp";
 import { addPage } from "./helpers/addPage";
@@ -118,7 +118,8 @@ export const AppState = ({ children }) => {
         setEditApp: (a) => setEditApp(dispatch, a),
         updateEditAppState: (a) => dispatch({ type: "SET_EDIT_APP", payload: a }),
         addPage: (a) => addPage(dispatch, a, appId, getLatestAppData),
-      }}>
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

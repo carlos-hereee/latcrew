@@ -1,5 +1,5 @@
 import { axiosAuth } from "../../../axios/axiosAuth";
-import { isDev } from "../../../configs/isDev";
+import { isDev } from "@app/config";
 
 export const uploadImage = async (dispatch, file, onUploadProgress) => {
   // console.log("asset", asset);

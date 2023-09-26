@@ -1,4 +1,4 @@
-import { isDev } from "../../../configs/isDev";
+import { isDev } from "@app/config";
 
 export const deleteApp = async (dispatch, data) => {
   try {
