@@ -3,7 +3,7 @@ import { AuthContext } from "./utils/context/auth/AuthContext";
 import { AppContext } from "./utils/context/app/AppContext";
 import { Footer, Header } from "nexious-library/@nxs-template";
 import { Loading } from "nexious-library/@nxs-molecules";
-import AppInProgress from "./components/app/AppInProgress ";
+import AppInProgress from "@components/app/AppInProgress";
 
 function App({ children }) {
   const { isLoading, language, updateLanguage, isOffline } = useContext(AuthContext);

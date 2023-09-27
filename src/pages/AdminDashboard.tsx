@@ -4,7 +4,7 @@ import { Loading } from "nexious-library/@nxs-molecules";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 import { CalendarContext } from "../utils/context/calendar/CalendarContext";
 import { AppContext } from "../utils/context/app/AppContext";
-import BuildApp from "../components/app/BuildApp";
+import BuildApp from "@components/app/BuildApp";
 import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
@@ -36,9 +36,7 @@ const AdminDashboard = () => {
   // const heading = "No open meetings this day, try a different day";
   return (
     <div className="container">
-      <h1 className="heading">
-        Welcome back {user?.nickname ? user.nickname : user.username}
-      </h1>
+      <h1 className="heading">Welcome back {user?.nickname ? user.nickname : user.username}</h1>
       <h2>App Pages</h2>
       {menu?.length > 0 &&
         menu.map(
@@ -48,7 +46,8 @@ const AdminDashboard = () => {
                 key={m.menuId}
                 className="btn-main"
                 onClick={() => console.log("edit page ', ", m, "")}
-                type="button">
+                type="button"
+              >
                 {m.active.name}
               </button>
             )

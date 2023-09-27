@@ -17,7 +17,7 @@ import { AuthContext } from "./utils/context/auth/AuthContext";
 import AdminDashboard from "./pages/AdminDashboard";
 import AddPage from "./pages/AddPages";
 import UserPlayground from "./pages/UserPlayground";
-import ChangePassword from "./components/form/ChangePassword";
+import ChangePassword from "@components/form/ChangePassword";
 import Offline from "./pages/Offline";
 import { AuthSchema } from "utils/types/auth";
 

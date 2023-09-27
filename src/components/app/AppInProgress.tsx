@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Login from "../../pages/Login";
 import SignUp from "../../pages/Signup";
-import ForgotPassword from "../form/ForgotPassword ";
+import ForgotPassword from "../form/ForgotPassword";
 
 const AppInProgress = () => {
   const [page, setPage] = useState("");
