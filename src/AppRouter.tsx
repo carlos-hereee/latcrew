@@ -20,6 +20,7 @@ import UserPlayground from "./pages/UserPlayground";
 import ChangePassword from "@components/form/ChangePassword";
 import Offline from "./pages/Offline";
 import { AuthSchema } from "utils/types/auth";
+import SignUp from "./pages/Signup";
 
 const AppRouter: React.FC = () => {
   const { accessToken, user, isOffline } = useContext<AuthSchema>(AuthContext);
@@ -46,8 +47,8 @@ const AppRouter: React.FC = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/FAQ" element={<FAQ />} />
       <Route path="/checkout" element={<Checkout />} />
-      {/* <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} /> */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/sign-up" element={<SignUp />} />
       <Route element={<PrivateRoute />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />

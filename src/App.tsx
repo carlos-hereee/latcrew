@@ -22,7 +22,7 @@ function App({ children }) {
   // waiting server response
   if (isLoading) return <Loading message="Loading app assets.." />;
   // no app no login - everything's okay tho, app is under construction
-  if (!app) return <AppInProgress />;
+  // if (!app) return <AppInProgress />;
   return (
     <div className="app-container">
       <Header menu={menu} logo={logo} updateMenu={handleUpdateMenu} language={language} />

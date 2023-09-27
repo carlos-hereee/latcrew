@@ -1,26 +1,28 @@
 import { useContext } from "react";
 import { Form } from "nexious-library/@nxs-organism";
 import { AuthContext } from "../utils/context/auth/AuthContext";
+import { AuthSchema } from "@app/utils/types/auth";
+import { Link } from "react-router-dom";
 
-const Login = ({ handleClick }) => {
-  const { signIn, signInError, loginValues } = useContext(AuthContext);
+const Login = () => {
+  const { signIn, authErrors, loginForm } = useContext<AuthSchema>(AuthContext);
 
   return (
     <div className="container">
       <h2 className="heading">Login</h2>
-      {signInError && <p className="error-message">{signInError}</p>}
-      <Form initialValues={loginValues} onSubmit={signIn} />
+      {authErrors.signInError && <p className="error-message">{authErrors.signInError}</p>}
+      <Form initialValues={loginForm.initialValues} onSubmit={signIn} />
       <div className="flex-d-column flex-center">
-        <button className="btn-link" type="button" onClick={() => handleClick("signUp")}>
+        {/* <button className="btn-link" type="button" onClick={() => handleClick("signUp")}> */}
+        <Link to="sign-up">
           Dont have an account?
           <br /> Create an account
-        </button>
-        <button
-          className="btn-link"
-          type="button"
-          onClick={() => handleClick("forgotPassword")}>
-          Forgot password?
-        </button>
+        </Link>
+        <Link to="forgot-password">Forgot password?</Link>
+        {/* </button> */}
+        {/* <button className="btn-link" type="button" onClick={() => handleClick("forgotPassword")}>
+          
+        </button> */}
       </div>
     </div>
   );

@@ -24,6 +24,9 @@ if (elementRoot) {
             <ServicesState>
               <CalendarState>
                 <AdminState>
+                  {/* <AppRouter>
+                    <App />
+                  </AppRouter> */}
                   <App>
                     <AppRouter />
                   </App>

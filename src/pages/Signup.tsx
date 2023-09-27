@@ -1,20 +1,24 @@
 import { useContext } from "react";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 import { Form } from "nexious-library/@nxs-organism";
+import { Link } from "react-router-dom";
 
-const SignUp = ({ handleClick }) => {
-  const { register, signUpError, signUpValues } = useContext(AuthContext);
+const SignUp = () => {
+  const { register, authErrors, signUpForm } = useContext(AuthContext);
 
   return (
     <div>
       <h2 className="heading">Sign up</h2>
-      {signUpError && <p className="error-message">{signUpError}</p>}
-      <Form initialValues={signUpValues} onSubmit={(values) => register(values)} />
+      {authErrors.signUpError && <p className="error-message">{authErrors.signUpError}</p>}
+      <Form initialValues={signUpForm.initialValues} onSubmit={(values: any) => register(values)} />
       <div className="flex-center">
-        <button type="button" onClick={() => handleClick("login")} className="btn-link">
+        <Link to="login">
           Already have an account?
           <br /> Go to Login
-        </button>
+        </Link>
+        {/* <button type="button" onClick={() => handleClick("login")} className="btn-link">
+   
+        </button> */}
       </div>
     </div>
   );
