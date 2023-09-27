@@ -1,4 +1,4 @@
-import { axiosAuth } from "../../../axios/axiosAuth";
+import { axiosAuth } from "@axios/axiosAuth";
 import { isDev } from "@app/config";
 
 export const updateApp = async (dispatch, values) => {

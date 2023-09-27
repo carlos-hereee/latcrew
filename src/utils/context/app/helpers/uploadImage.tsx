@@ -1,4 +1,4 @@
-import { axiosAuth } from "../../../axios/axiosAuth";
+import { axiosMedia } from "@axios/axiosMedia";
 import { isDev } from "@app/config";
 
 export const uploadImage = async (dispatch, file, onUploadProgress) => {
@@ -6,7 +6,7 @@ export const uploadImage = async (dispatch, file, onUploadProgress) => {
   try {
     let formData = new FormData();
     formData.append("file", file);
-    const data = await axiosAuth.post("/app/file-upload", formData, {
+    const data = await axiosMedia.post("/app/file-upload", formData, {
       headers: { "Content-Type": "multipart/form-data" },
       onUploadProgress,
     });

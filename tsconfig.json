@@ -13,7 +13,8 @@
       "@context/*": ["utils/context/*"],
       "@axios/*": ["utils/axios/*"],
       "@components/*": ["components/*"],
-      "@pages/*": ["pages/*"]
+      "@pages/*": ["pages/*"],
+      "@type/*": ["utils/types/*"]
       // "@configs/*": ["config.tsx"]
     } /* Specify a set of entries that re-map imports to additional lookup locations. */,
     "forceConsistentCasingInFileNames": true,

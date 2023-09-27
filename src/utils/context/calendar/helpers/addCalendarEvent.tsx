@@ -1,5 +1,5 @@
 import { isDev } from "../../../../config";
-import { axiosAuth } from "../../../axios/axiosAuth";
+import { axiosAuth } from "@axios/axiosAuth";
 
 export const addCalendarEvent = async (dispatch, day) => {
   try {

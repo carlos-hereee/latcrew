@@ -11,14 +11,3 @@ export const instance = axios.create({
     Accept: "application/json",
   },
 });
-// export const mediaInstance = axios.create({
-//   baseURL: serverUrl,
-//   withCredentials: true,
-//   timeout: 2500,
-//   headers: {
-//     "Access-Control-Allow-Origin": clientUrl,
-//     "Content-Type": "multipart/form-data",
-//     Accept: "application/json",
-//   },
-// });
-// export const axiosAuth

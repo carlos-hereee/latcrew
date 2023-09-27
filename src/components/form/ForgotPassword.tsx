@@ -1,9 +1,10 @@
-import { GoBackButton } from "nexious-library/@nxs-molecules";
-import { Form } from "nexious-library/@nxs-organism";
 import { useContext } from "react";
 import { AuthContext } from "../../utils/context/auth/AuthContext";
+import { PageClickProps } from "@type/app/PageClickProps";
+import { GoBackButton } from "nexious-library/@nxs-molecules";
+import { Form } from "nexious-library/@nxs-organism";
 
-const ForgotPassword = ({ handleClick }) => {
+const ForgotPassword: React.FC<PageClickProps> = ({ handleClick }) => {
   const { forgotPassValues, forgotPassLabels, fetchUser } = useContext(AuthContext);
   const { forgotPassword, forgotPassPlaceholders, dummyData } = useContext(AuthContext);
   const { forgotPasswordError } = useContext(AuthContext);
@@ -21,10 +22,7 @@ const ForgotPassword = ({ handleClick }) => {
           onSubmit={(values) => forgotPassword(values)}
         />
       ) : (
-        <Form
-          initialValues={{ username: "qwerty" }}
-          onSubmit={(values) => fetchUser(values)}
-        />
+        <Form initialValues={{ username: "qwerty" }} onSubmit={(values) => fetchUser(values)} />
       )}
     </div>
   );
