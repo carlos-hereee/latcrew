@@ -1,11 +1,30 @@
-import axios from "axios";
+// import axios from "axios";
+import { instance } from "./instance";
 
-export const axiosMedia = axios.create({
-  baseURL: import.meta.env.VITE_DB_BASE_URL,
-  withCredentials: true,
-  headers: {
-    "Access-Control-Allow-Origin": import.meta.env.VITE_CLIENT_BASE_URL,
-    "Content-Type": "multipart/form-data",
-    "Accept": "application/json",
+// Add a request interceptor
+instance.interceptors.request.use(
+  (config) => {
+    // Do something before request is sent
+    // update content type to form submit assets
+    config.headers["Content-Type"] = "multipart/form-data";
+    return config;
   },
-});
+  (error) => {
+    console.log("error occured with configuration is sent", error);
+    // Do something with request error
+  }
+);
+// Add a response interceptor
+instance.interceptors.response.use(
+  (response) => {
+    // Any status code that lie within the range of 2xx cause this function to trigger
+    // Do something with response data
+    return response;
+  },
+  (error) => {
+    // Any status codes that falls outside the range of 2xx cause this function to trigger
+    // Do something with response error
+    return Promise.reject(error);
+  }
+);
+export const axiosMedia = instance;

@@ -2,7 +2,7 @@ import { isDev } from "@app/config";
 
 export const deleteApp = async (dispatch, data) => {
   try {
-    const response = await axiosWithMedia.delete("/app/delete-app", data);
+    const response = await axiosMedia.delete("/app/delete-app", data);
     // console.log("response", response);
     dispatch({ type: "UPDATE_APP_ASSETS", payload: response.data });
     // dispatch({ type: "UPDATE_APP_ASSETS", payload: response.data });
