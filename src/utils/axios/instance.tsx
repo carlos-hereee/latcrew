@@ -4,7 +4,7 @@ import { clientUrl, serverUrl } from "@app/config";
 export const instance = axios.create({
   baseURL: serverUrl,
   withCredentials: true,
-  timeout: 2500,
+  // timeout: 2500,
   headers: {
     "Access-Control-Allow-Origin": clientUrl,
     "Content-Type": "application/json; charset=utf-8",

@@ -24,7 +24,7 @@ export const reducer = (state, action) => {
     case "SET_OWNED_APPS":
       return { ...state, ownedApps: action.payload };
     case "SIGN_IN_ERROR":
-      return { ...state, signInError: action.payload };
+      return { ...state, authErrors: { ...state.authErrors, signInError: action.payload } };
     case "FORGOT_PASSWORD_ERROR":
       return { ...state, forgotPasswordError: action.payload };
     case "SET_DUMMY_DATA":

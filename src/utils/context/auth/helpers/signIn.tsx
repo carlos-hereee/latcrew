@@ -1,7 +1,8 @@
 import { axiosAuth } from "@axios/axiosAuth";
 import { isDev } from "@app/config";
+import { LoginFormProps } from "app-forms";
 
-export const signIn = async (dispatch, credentials) => {
+export const signIn = async (dispatch: React.Dispatch<any>, credentials: LoginFormProps) => {
   try {
     dispatch({ type: "IS_LOADING", payload: true });
     const { data } = await axiosAuth.post("/auth/login", credentials);
@@ -13,8 +14,7 @@ export const signIn = async (dispatch, credentials) => {
     if (status === 401 && data.includes("security is low")) {
       dispatch({ type: "SET_CHANGE_PASSWORD", payload: data });
     }
-    if (status === 403 || status === 404) {
-      console.log("data", data);
+    if (status === 403 || status === 404 || status === 400) {
       dispatch({ type: "SIGN_IN_ERROR", payload: data });
     }
     dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
