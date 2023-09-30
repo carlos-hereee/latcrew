@@ -3,13 +3,17 @@ import { AppContext } from "../utils/context/app/AppContext";
 import { HeroCard, Card } from "nexious-library";
 import { Socials } from "nexious-library";
 import { AuthContext } from "../utils/context/auth/AuthContext";
+import AppInProgress from "@app/components/app/AppInProgress";
+import UserPlayground from "./UserPlayground";
 
 const Landing = () => {
-  const { landing, media } = useContext(AppContext);
-  const { user } = useContext(AuthContext);
-  // console.log("app, landing, media", app);
-  // console.log("user, landing, media", user);
+  const { landing, media, app } = useContext(AppContext);
+  const { user, accessToken } = useContext(AuthContext);
 
+  // no app no login - everything's okay tho, app is under construction
+  if (!app) return <AppInProgress />;
+  // if login in but no app is been created
+  if (!app && accessToken) return <UserPlayground />;
   return (
     <div className="container">
       {landing && (

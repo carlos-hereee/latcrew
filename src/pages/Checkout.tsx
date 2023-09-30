@@ -21,9 +21,7 @@ const Checkout = () => {
         return accumulator + currentValue.service.cost;
       }, 0);
       setTotal(cost);
-    } else {
-      setTotal(0);
-    }
+    } else setTotal(0);
   }, [JSON.stringify(cart)]);
   const handleSubmit = (e) => console.log("submit", e, "success");
   const handlePaypal = (e) => console.log("e", e);

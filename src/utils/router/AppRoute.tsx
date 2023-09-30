@@ -4,6 +4,8 @@ import { AuthContext } from "../context/auth/AuthContext";
 
 const AppRoute = () => {
   const { isOffline } = useContext(AuthContext);
-  return isOffline ? <Navigate to="/offline" /> : <Outlet />;
+  if (isOffline) {
+    return <Outlet />;
+  } else return <Navigate to="/offline" />;
 };
 export default AppRoute;

@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-// import { PageNotFound } from "nexious-library/@nxs-molecules";
 import Landing from "./pages/Landing";
 import Services from "./pages/Services";
 import Booking from "./pages/Booking";
@@ -32,8 +31,6 @@ const AppRouter: React.FC = () => {
 
   // if (isComingSoon && user.role !== "admin") return <ComingSoon />;
 
-  // if login in but no app is been created
-  // if (!app && accessToken) return <UserPlayground />;
   // emergency password change
   if (emergencyPasswordChangeIsRequired) return <ChangePassword handleClick={changePassword} />;
 
@@ -44,9 +41,9 @@ const AppRouter: React.FC = () => {
       <Route path="/offline" element={<Offline />} />
       <Route path="/login" element={<Login />} />
       <Route path="/sign-up" element={<SignUp />} />
-      {/* routes that requires internet or app data to work */}
+      <Route path="/" element={<Landing />} />
+      {/* App routes that requires internet or app data to work */}
       <Route element={<AppRoute />}>
-        <Route path="/" element={<Landing />} />
         <Route path="/services" element={<Services />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/booking" element={<Booking />} />
@@ -55,12 +52,13 @@ const AppRouter: React.FC = () => {
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="/checkout" element={<Checkout />} />
       </Route>
-      {/* routes for account holders and authorized user */}
+      {/* Private routes for account holders and authorized user */}
       <Route element={<PrivateRoute />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/add-page" element={<AddPage />} />
       </Route>
+      {/* All other routes */}
       <Route path="/*" element={<PageNotFound to={accessToken ? "/dashboard" : "/"} />} />
     </Routes>
   );
