@@ -15,14 +15,11 @@ import { forgotPassword } from "./helpers/forgotPassword";
 import { fetchUser } from "./helpers/fetchUser";
 import { buildApp } from "./helpers/buildApp";
 import { AuthSchema } from "../../types/auth/";
-
-type AuthContentProviderProps = {
-  children: React.ReactNode;
-};
+import { AppProps } from "app-types";
 
 export const AuthContext = createContext<AuthSchema>({} as AuthSchema);
 
-export const AuthState = ({ children }: AuthContentProviderProps) => {
+export const AuthState = ({ children }: AppProps) => {
   const [state, dispatch] = useReducer(reducer, authState);
   useEffect(() => {
     getAccessToken(dispatch);
@@ -60,7 +57,8 @@ export const AuthState = ({ children }: AuthContentProviderProps) => {
         // updateLanguage: (a) => updateLanguage(dispatch, a),
         // forgotPassword: (a) => forgotPassword(dispatch, a),
         buildApp: (a) => buildApp(dispatch, a),
-      }}>
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

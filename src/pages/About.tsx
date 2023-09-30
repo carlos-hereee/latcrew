@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AppContext } from "../utils/context/app/AppContext";
-import { HeroCard, UserCard } from "nexious-library/@nxs-organism";
+import { HeroCard, UserCard } from "nexious-library";
 
 const About = () => {
   const { about } = useContext(AppContext);

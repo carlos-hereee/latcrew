@@ -21,6 +21,7 @@ import ChangePassword from "@components/form/ChangePassword";
 import Offline from "./pages/Offline";
 import { AuthSchema } from "utils/types/auth";
 import SignUp from "./pages/Signup";
+import AppRoute from "./utils/router/AppRoute";
 
 const AppRouter: React.FC = () => {
   const { accessToken, user, isOffline } = useContext<AuthSchema>(AuthContext);
@@ -39,22 +40,27 @@ const AppRouter: React.FC = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<Landing />} />
-      <Route path="/services" element={<Services />} />
-      <Route path="/testimonials" element={<Testimonials />} />
-      <Route path="/booking" element={<Booking />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/FAQ" element={<FAQ />} />
-      <Route path="/checkout" element={<Checkout />} />
+      {/* Public Routes */}
       <Route path="/login" element={<Login />} />
       <Route path="/sign-up" element={<SignUp />} />
+      {/* routes that requires internet or app data to work */}
+      <Route element={<AppRoute />}>
+        <Route path="/" element={<Landing />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/testimonials" element={<Testimonials />} />
+        <Route path="/booking" element={<Booking />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/FAQ" element={<FAQ />} />
+        <Route path="/checkout" element={<Checkout />} />
+      </Route>
+      {/* routes for account holders and authorized user */}
       <Route element={<PrivateRoute />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/add-page" element={<AddPage />} />
       </Route>
-      {/* <Route path="/*" element={<PageNotFound to={accessToken ? "/dashboard" : "/"} />} /> */}
+      <Route path="/*" element={<PageNotFound to={accessToken ? "/dashboard" : "/"} />} />
     </Routes>
   );
 };

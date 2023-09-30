@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AppContext } from "../utils/context/app/AppContext";
-import { Form } from "nexious-library/@nxs-organism";
+import { Form } from "nexious-library";
 
 const AddPage = () => {
   const { pageValues, pageLabels, pagePlaceholders } = useContext(AppContext);

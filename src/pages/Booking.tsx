@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { CalendarContext } from "../utils/context/calendar/CalendarContext";
 import { ServicesContext } from "../utils/context/services/ServicesContext";
 import { useNavigate } from "react-router-dom";
-import { Calendar } from "nexious-library/@nxs-template";
+import { Calendar } from "nexious-library";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 import CalendarEvents from "@components/app/CalendarEvents";
 import { AppContext } from "../utils/context/app/AppContext";

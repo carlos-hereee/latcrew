@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../utils/context/app/AppContext";
 import { Rating } from "nexious-library/@nxs-molecules";
-import { UserCard, Form, CardTextBubble } from "nexious-library/@nxs-organism";
+import { UserCard, Form, CardTextBubble } from "nexious-library";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 
 const Testimonials = () => {

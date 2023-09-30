@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { AppContext } from "../utils/context/app/AppContext";
-import { HeroCardAlt } from "nexious-library/@nxs-organism";
+import { HeroCard } from "nexious-library";
 
 const FAQ = () => {
   const { faq } = useContext(AppContext);
   return (
     <div>
-      <HeroCardAlt data={faq} />
+      <HeroCard data={faq} />
       <div className="flex-d-column">
         {faq.faq.map((f) => (
           <div className="faq" key={f.uid}>

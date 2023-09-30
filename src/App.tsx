@@ -1,23 +1,22 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AuthContext } from "./utils/context/auth/AuthContext";
+import { Loading, Header, Footer } from "nexious-library";
+import { AppProps } from "app-types";
 import { AppContext } from "./utils/context/app/AppContext";
-import { Footer, Header } from "nexious-library/@nxs-template";
-import { Loading } from "nexious-library/@nxs-molecules";
-import AppInProgress from "@components/app/AppInProgress";
 
-function App({ children }) {
+const App: React.FC<AppProps> = ({ children }) => {
   const { isLoading, language, updateLanguage, isOffline } = useContext(AuthContext);
   const { app, menu, updateMenu, logo } = useContext(AppContext);
 
-  useEffect(() => {
-    if (app?.appName) document.title = app.appName;
-  }, [app]);
+  // useEffect(() => {
+  //   if (app?.appName) document.title = app.appName;
+  // }, [app]);
 
   const handleUpdateMenu = (e) => {
     if (!language || language.uid !== e[0].active.uid) {
       updateLanguage(e[0].active);
     }
-    updateMenu(e);
+    // updateMenu(e);
   };
   // waiting server response
   if (isLoading) return <Loading message="Loading app assets.." />;
@@ -30,6 +29,6 @@ function App({ children }) {
       <Footer appName={app && app.name ? app.name : "sparkle shine"} />
     </div>
   );
-}
+};
 
 export default App;

@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { AppContext } from "../../utils/context/app/AppContext";
 import { Loading } from "nexious-library/@nxs-molecules";
 import EditAppName from "./editApp/EditAppNam";
-import { Form } from "nexious-library/@nxs-organism";
+import { Form } from "nexious-library";
 import { Button } from "nexious-library/@nxs-atoms";
 
 const EditApp = ({ onClick }) => {

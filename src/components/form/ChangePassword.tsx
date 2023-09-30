@@ -1,5 +1,5 @@
 import { GoBackButton } from "nexious-library/@nxs-molecules";
-import { Form } from "nexious-library/@nxs-organism";
+import { Form } from "nexious-library";
 import { useContext } from "react";
 import { AuthContext } from "../../utils/context/auth/AuthContext";
 

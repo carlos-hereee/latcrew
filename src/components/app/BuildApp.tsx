@@ -1,10 +1,15 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../../utils/context/app/AppContext";
-import { PaginateForm } from "nexious-library/@nxs-template";
+import { PaginateForm } from "nexious-library";
 import { AuthContext } from "../../utils/context/auth/AuthContext";
-// import { UploadFile } from "nexious-library/@nxs-molecules";
 
-const BuildApp = ({ heading, cancelBtn, onClick }) => {
+type BuildAppProps = {
+  heading: string;
+  onClick: (key: any) => void;
+  cancelBtn: (key: any) => void;
+};
+
+const BuildApp: React.FC<BuildAppProps> = ({ heading, cancelBtn, onClick }) => {
   const { landingPageValues, landingPageLabels, sectionValues } = useContext(AppContext);
   const { landingPageTypes } = useContext(AppContext);
   const { buildApp } = useContext(AuthContext);

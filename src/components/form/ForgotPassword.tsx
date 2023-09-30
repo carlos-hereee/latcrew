@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../utils/context/auth/AuthContext";
 import { PageClickProps } from "@type/app/PageClickProps";
 import { GoBackButton } from "nexious-library/@nxs-molecules";
-import { Form } from "nexious-library/@nxs-organism";
+import { Form } from "nexious-library";
 
 const ForgotPassword: React.FC<PageClickProps> = ({ handleClick }) => {
   const { forgotPassValues, forgotPassLabels, fetchUser } = useContext(AuthContext);

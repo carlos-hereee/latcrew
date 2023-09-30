@@ -1,4 +1,4 @@
-import { Card, Navigation } from "nexious-library/@nxs-organism";
+import { Card, Navigation } from "nexious-library";
 import { Heading } from "nexious-library/@nxs-atoms";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";

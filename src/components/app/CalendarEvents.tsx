@@ -1,7 +1,7 @@
 // import { MeetingDetails } from "@nxs-atoms";
 // import { CalendarEventList, IconButton } from "@nxs-molecules";
-import { CardSection } from "nexious-library/@nxs-organism";
-import { Icon } from "nexious-library/@nxs-atoms";
+import { CardSection } from "nexious-library";
+import { IconButton } from "nexious-library";
 // import { setActive } from "../utils/context/services/helpers/setActive";
 import { useContext, useState } from "react";
 import { ServicesContext } from "../../utils/context/services/ServicesContext";
@@ -10,13 +10,12 @@ import { AppContext } from "../../utils/context/app/AppContext";
 import { findNextOpenApp } from "../../utils/app/findNextOpenApp";
 import { AuthContext } from "../../utils/context/auth/AuthContext";
 import { Link } from "react-router-dom";
-import { CartRow } from "nexious-library/@nxs-molecules";
+import { CartRow } from "nexious-library";
 
 const CalendarEvents = () => {
-  const { handleCheckout, user } = useContext(AuthContext);
+  const { handleCheckout, user, isAdmin } = useContext(AuthContext);
   const { active, services, setActive } = useContext(ServicesContext);
-  const { selectedDay, meeting, events, setMeeting, error, setError } =
-    useContext(CalendarContext);
+  const { selectedDay, meeting, events, setMeeting, error, setError } = useContext(CalendarContext);
 
   const findNextOpen = (e) => {
     const { error, event } = findNextOpenApp(events);
@@ -42,17 +41,18 @@ const CalendarEvents = () => {
         )}
         {selectedDay && selectedDay.list.length > 0 ? (
           selectedDay.list.map((day) => (
-            <button key={day.uid}>
-              <Icon icon={meeting.uid === day.uid ? "check" : "uncheck"} />
-              {day.time.startTime} - {day.time.endTime}
-            </button>
+            <IconButton
+              icon={meeting.uid === day.uid ? "check" : "uncheck"}
+              key={day.uid}
+              label={`${day.startTime} - ${day.endTime}`}
+            />
           ))
         ) : (
           <div className="container">
             <strong>No open meetings this day, try a different day</strong>
             {error ? (
               <p className="error-message">{error}</p>
-            ) : user.role === "admin" ? (
+            ) : isAdmin ? (
               <Link to="/admin-dashboard" className="btn btn-main">
                 Add more meetings on dashboard
               </Link>

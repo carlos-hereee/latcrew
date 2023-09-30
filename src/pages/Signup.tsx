@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../utils/context/auth/AuthContext";
-import { Form } from "nexious-library/@nxs-organism";
+import { Form } from "nexious-library";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
@@ -16,9 +16,6 @@ const SignUp = () => {
           Already have an account?
           <br /> Go to Login
         </Link>
-        {/* <button type="button" onClick={() => handleClick("login")} className="btn-link">
-   
-        </button> */}
       </div>
     </div>
   );

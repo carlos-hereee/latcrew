@@ -10,7 +10,7 @@ import { LogState } from "./utils/context/log/LogContext";
 import { CalendarState } from "./utils/context/calendar/CalendarContext";
 import { AdminState } from "./utils/context/admin/AdminContext";
 import { isDev } from "@app/config";
-// import "nexious-library/@index.css";
+import "nexious-library/@index.css";
 
 const elementRoot: Element | DocumentFragment | null = document.getElementById("root");
 

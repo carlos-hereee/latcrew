@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Form } from "nexious-library/@nxs-organism";
+import { Form } from "nexious-library";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 import { AuthSchema } from "@app/utils/types/auth";
 import { Link } from "react-router-dom";

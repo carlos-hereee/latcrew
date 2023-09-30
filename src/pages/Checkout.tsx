@@ -1,9 +1,12 @@
 import { useContext, useEffect } from "react";
 import { AppContext } from "../utils/context/app/AppContext";
 import { AuthContext } from "../utils/context/auth/AuthContext";
-import { Cart, UserCard, PaymentMethods } from "nexious-library/@nxs-organism";
+import { Cart, UserCard, PaymentMethods } from "nexious-library";
 import { useNavigate } from "react-router-dom";
-import { EmptySection, Total } from "nexious-library/@nxs-molecules";
+import {
+  EmptySection,
+  // Total
+} from "nexious-library";
 import { ServicesContext } from "../utils/context/services/ServicesContext";
 
 const Checkout = () => {
@@ -36,7 +39,7 @@ const Checkout = () => {
           click={() => navigate("/services")}
         />
       )}
-      {total > 0 && <Total total={total} />}
+      {/* {total > 0 && <Total total={total} />} */}
       {user.uid ? (
         <div className="flex-d-column">
           <h2 className="heading">Your details</h2>
