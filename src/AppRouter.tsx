@@ -22,25 +22,26 @@ import Offline from "./pages/Offline";
 import { AuthSchema } from "utils/types/auth";
 import SignUp from "./pages/Signup";
 import AppRoute from "./utils/router/AppRoute";
+import { PageNotFound } from "nexious-library";
 
 const AppRouter: React.FC = () => {
-  const { accessToken, user, isOffline } = useContext<AuthSchema>(AuthContext);
-  // const { emergencyPasswordChangeIsRequired, } = useContext(AuthContext);
+  const { accessToken, user, changePassword } = useContext<AuthSchema>(AuthContext);
+  const { emergencyPasswordChangeIsRequired } = useContext(AuthContext);
 
   // const { isComingSoon } = useContext(AppContext);
 
   // if (isComingSoon && user.role !== "admin") return <ComingSoon />;
-  // if server not coaperating use offline data
-  if (isOffline) return <Offline />;
 
   // if login in but no app is been created
   // if (!app && accessToken) return <UserPlayground />;
   // emergency password change
-  // if (emergencyPasswordChangeIsRequired) return <ChangePassword />;
+  if (emergencyPasswordChangeIsRequired) return <ChangePassword handleClick={changePassword} />;
 
   return (
     <Routes>
       {/* Public Routes */}
+      {/* // if server not coaperating use offline data */}
+      <Route path="/offline" element={<Offline />} />
       <Route path="/login" element={<Login />} />
       <Route path="/sign-up" element={<SignUp />} />
       {/* routes that requires internet or app data to work */}
