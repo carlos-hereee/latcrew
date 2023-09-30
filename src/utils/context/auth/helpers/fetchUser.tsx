@@ -1,4 +1,4 @@
-import { axiosAuth } from "@axios/axiosAuth";
+import { axiosAuth } from "@app/utils/axios/useAxiosAuth";
 
 export const fetchUser = async (dispatch, user) => {
   try {

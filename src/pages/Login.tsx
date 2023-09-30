@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   const { signIn, authErrors, loginForm } = useContext<AuthSchema>(AuthContext);
-  // console.log("authErrors", authErrors);
 
   return (
     <div className="container">

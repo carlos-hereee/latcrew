@@ -55,8 +55,8 @@ export const AuthState = ({ children }: AppProps) => {
         fetchUser: (a) => fetchUser(dispatch, a),
         changePassword: (e) => changePassword(dispatch, e),
         // updateLanguage: (a) => updateLanguage(dispatch, a),
-        // forgotPassword: (a) => forgotPassword(dispatch, a),
         buildApp: (a) => buildApp(dispatch, a),
+        forgotPassword: (a) => forgotPassword(dispatch, a),
       }}
     >
       {children}

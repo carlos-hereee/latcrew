@@ -1,4 +1,4 @@
-import { axiosMedia } from "@axios/axiosMedia";
+import { axiosMedia } from "@app/utils/axios/useAxiosMedia";
 
 export const addPage = async (dispatch, a, appId, fetchLatest) => {
   try {

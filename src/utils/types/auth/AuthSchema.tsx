@@ -24,6 +24,7 @@ export type AuthSchema = {
   updateUser: (values: UserSchema) => void;
   fetchUser: (values: UserSchema) => void;
   buildApp: (values: any) => void;
+  forgotPassword: (values: FormProps) => void;
   changePassword: (values: UserSchema) => void;
   // updateLanguage
 };

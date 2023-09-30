@@ -1,4 +1,4 @@
-import { axiosAuth } from "@axios/axiosAuth";
+import { axiosAuth } from "@app/utils/axios/useAxiosAuth";
 import { isDev } from "@app/config";
 import { LoginFormProps } from "app-forms";
 
