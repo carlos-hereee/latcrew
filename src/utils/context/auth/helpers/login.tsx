@@ -1,8 +1,8 @@
-import { axiosAuth } from "@app/utils/axios/useAxiosAuth";
 import { isDev } from "@app/config";
 import { LoginFormProps } from "app-forms";
+import { axiosAuth } from "@app/utils/axios/axiosAuth";
 
-export const signIn = async (dispatch: React.Dispatch<any>, credentials: LoginFormProps) => {
+export const login = async (dispatch: React.Dispatch<any>, credentials: LoginFormProps) => {
   try {
     console.log("credentials", credentials);
     dispatch({ type: "IS_LOADING", payload: true });

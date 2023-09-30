@@ -1,8 +1,8 @@
 // eslint-disable-next-line no-unused-vars
-import { createContext, useReducer, useEffect } from "react";
+import { createContext, useReducer, useEffect, useContext } from "react";
 import { reducer } from "./AuthReducer";
 import authState from "../../../data/authState.json";
-import { signIn } from "./helpers/signIn";
+import { login } from "./helpers/login";
 import { register } from "./helpers/register";
 import { logOut } from "./helpers/logout";
 import { updateUserData } from "./helpers/updateUserData";
@@ -14,15 +14,18 @@ import { updateLanguage } from "../app/helpers/updateLanguage";
 import { forgotPassword } from "./helpers/forgotPassword";
 import { fetchUser } from "./helpers/fetchUser";
 import { buildApp } from "./helpers/buildApp";
-import { AuthSchema } from "../../types/auth/";
 import { AppProps } from "app-types";
+import { axiosAuth } from "@app/utils/axios/axiosAuth";
+import { isDev } from "@app/config";
+import { AuthSchema } from "app-context";
 
 export const AuthContext = createContext<AuthSchema>({} as AuthSchema);
 
 export const AuthState = ({ children }: AppProps) => {
   const [state, dispatch] = useReducer(reducer, authState);
+
   useEffect(() => {
-    getAccessToken(dispatch);
+    getAccessToken({ dispatch });
   }, []);
 
   return (
@@ -46,7 +49,10 @@ export const AuthState = ({ children }: AppProps) => {
         // permissions: state.permissions,
         // ownedApps: state.ownedApps,
         // isAdmin: state.isAdmin,
-        signIn: (e) => signIn(dispatch, e),
+        setStranded: (e) => dispatch({ type: "SET_STRANDED", payload: e }),
+        setIsLoading: (e) => dispatch({ type: "IS_LOADING", payload: e }),
+        setAccessToken: (e) => dispatch({ type: "SET_ACCESS_TOKEN", payload: e }),
+        login: (e) => login(dispatch, e),
         register: (e) => register(dispatch, e),
         logout: () => logOut(dispatch),
         updateUser: (e) => updateUserData(dispatch, e),
@@ -62,4 +68,11 @@ export const AuthState = ({ children }: AppProps) => {
       {children}
     </AuthContext.Provider>
   );
+};
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an auth provider");
+  }
+  return context;
 };

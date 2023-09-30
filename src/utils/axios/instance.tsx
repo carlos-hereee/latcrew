@@ -1,7 +1,7 @@
 import axios from "axios";
 import { clientUrl, serverUrl } from "@app/config";
 
-export const instance = axios.create({
+export const api = axios.create({
   baseURL: serverUrl,
   withCredentials: true,
   // timeout: 2500,

@@ -1,4 +1,4 @@
-import { axiosAuth } from "../../../axios";
+import { useAxiosAuth } from "../../../axios";
 
 export const getCalendar = async (dispatch) => {
   try {

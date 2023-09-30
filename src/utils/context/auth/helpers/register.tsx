@@ -1,4 +1,5 @@
-import { axiosAuth } from "@app/utils/axios/useAxiosAuth";
+import { isDev } from "@app/config";
+import { axiosAuth } from "@app/utils/axios/axiosAuth";
 
 export const register = async (dispatch, credentials) => {
   try {

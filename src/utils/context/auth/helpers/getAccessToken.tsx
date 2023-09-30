@@ -1,11 +1,13 @@
-import { axiosAuth } from "@app/utils/axios/useAxiosAuth";
+import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { filterUserValues } from "../../../app/filterUserValues";
 import { isDev } from "@app/config";
+import { ReducerMethodProps } from "app-context";
 
-export const getAccessToken = async (dispatch) => {
+export const getAccessToken = async (props: ReducerMethodProps) => {
+  const { dispatch } = props;
   try {
     console.log("fetching accessTOken");
-    dispatch({ type: "IS_LOADING", payload: true });
+    dispatch({ type: "IS_LOADING", payload: false });
     const { data } = await axiosAuth.post("/auth/refresh-token");
     dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
     if (data.user) {
@@ -13,22 +15,17 @@ export const getAccessToken = async (dispatch) => {
       // store key varaibles
       const userData = filterUserValues(user);
       dispatch({ type: "SET_USER_DATA", payload: userData });
-      const filterPermission = user.permissions.filter((app) => app.role === "admin");
+      const filterPermission = user.permissions.filter(
+        (app: { [key: string]: string }) => app.role === "admin"
+      );
       filterPermission.length > 0 && dispatch({ type: "SET_IS_ADMIN", payload: true });
       user.permissions && dispatch({ type: "SET_PERMSSIONS", payload: user.permissions });
       user.ownedApps && dispatch({ type: "SET_OWNED_APPS", payload: user.ownedApps });
       // dispatch({ type: "UPDATE_LANGUAGE", payload: data.language });
     }
     dispatch({ type: "IS_LOADING", payload: false });
-  } catch (error) {
+  } catch (error: any) {
     if (isDev) console.log("error fetching token", error);
-    // in case server gives no response
-    if (!error.response) {
-      console.log("server is offline -- gave no response");
-      dispatch({ type: "SET_STRANDED", payload: true });
-      dispatch({ type: "SET_ACCESS_TOKEN", payload: "" });
-      dispatch({ type: "SET_USER_DATA", payload: {} });
-    }
     const status = error.response?.status;
     // server is offline, rejected, or not found
     if (status === 403 || status === 404 || status === 403) {

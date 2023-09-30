@@ -1,8 +1,8 @@
 // import axios from "axios";
-import { instance } from "./instance";
+import { api } from "./instance";
 
 // Add a request interceptor
-instance.interceptors.request.use(
+api.interceptors.request.use(
   (config) => {
     // Do something before request is sent
     // update content type to form submit assets
@@ -15,7 +15,7 @@ instance.interceptors.request.use(
   }
 );
 // Add a response interceptor
-instance.interceptors.response.use(
+api.interceptors.response.use(
   (response) => {
     // Any status code that lie within the range of 2xx cause this function to trigger
     // Do something with response data
@@ -27,4 +27,4 @@ instance.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-export const axiosMedia = instance;
+export const axiosMedia = api;
