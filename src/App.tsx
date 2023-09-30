@@ -5,7 +5,7 @@ import { AppProps } from "app-types";
 import { AppContext } from "./utils/context/app/AppContext";
 
 const App: React.FC<AppProps> = ({ children }) => {
-  const { isLoading, isOffline } = useContext(AuthContext);
+  const { isLoading } = useContext(AuthContext);
   const { app, menu, updateMenu, logo, language } = useContext(AppContext);
 
   useEffect(() => {

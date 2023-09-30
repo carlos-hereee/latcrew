@@ -22,6 +22,7 @@ import { AuthSchema } from "utils/types/auth";
 import SignUp from "./pages/Signup";
 import AppRoute from "./utils/router/AppRoute";
 import { PageNotFound } from "nexious-library";
+import ForgotPassword from "./components/form/ForgotPassword";
 
 const AppRouter: React.FC = () => {
   const { accessToken, user, changePassword } = useContext<AuthSchema>(AuthContext);
@@ -39,6 +40,7 @@ const AppRouter: React.FC = () => {
       {/* Public Routes */}
       {/* // if server not coaperating use offline data */}
       <Route path="/offline" element={<Offline />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/login" element={<Login />} />
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/" element={<Landing />} />

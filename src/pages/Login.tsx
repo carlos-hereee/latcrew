@@ -14,16 +14,11 @@ const Login = () => {
       {authErrors.signInError && <p className="error-message">{authErrors.signInError}</p>}
       <Form initialValues={loginForm.initialValues} onSubmit={signIn} />
       <div className="flex-d-column flex-center">
-        {/* <button className="btn-link" type="button" onClick={() => handleClick("signUp")}> */}
-        <Link to="sign-up">
+        <Link to="/sign-up">
           Dont have an account?
           <br /> Create an account
         </Link>
-        <Link to="forgot-password">Forgot password?</Link>
-        {/* </button> */}
-        {/* <button className="btn-link" type="button" onClick={() => handleClick("forgotPassword")}>
-          
-        </button> */}
+        <Link to="/forgot-password">Forgot password?</Link>
       </div>
     </div>
   );

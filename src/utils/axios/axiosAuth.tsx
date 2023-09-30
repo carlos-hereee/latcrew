@@ -4,8 +4,7 @@ import { instance } from "./instance";
 instance.interceptors.request.use(
   (config) => {
     // Do something before request is sent
-    console.log("config before request is sent", config);
-    // config.headers["Content-Type"] = "application/json; charset=utf-8";
+    // console.log("config before request is sent", config);
     return config;
   },
   (error) => {

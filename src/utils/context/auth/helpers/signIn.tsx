@@ -4,6 +4,7 @@ import { LoginFormProps } from "app-forms";
 
 export const signIn = async (dispatch: React.Dispatch<any>, credentials: LoginFormProps) => {
   try {
+    console.log("credentials", credentials);
     dispatch({ type: "IS_LOADING", payload: true });
     const { data } = await axiosAuth.post("/auth/login", credentials);
     dispatch({ type: "SET_ACCESS_TOKEN", payload: data });

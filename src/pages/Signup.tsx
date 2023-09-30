@@ -12,7 +12,7 @@ const SignUp = () => {
       {authErrors.signUpError && <p className="error-message">{authErrors.signUpError}</p>}
       <Form initialValues={signUpForm.initialValues} onSubmit={(values: any) => register(values)} />
       <div className="flex-center">
-        <Link to="login">
+        <Link to="/">
           Already have an account?
           <br /> Go to Login
         </Link>
