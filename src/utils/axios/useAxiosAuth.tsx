@@ -1,7 +1,19 @@
 import { useContext } from "react";
-import { api } from "./instance";
 import { useAuth } from "@context/auth/AuthContext";
 import jwtDecode from "jwt-decode";
+import axios from "axios";
+import { clientUrl, serverUrl } from "@app/config";
+
+const api = axios.create({
+  baseURL: serverUrl,
+  withCredentials: true,
+  // timeout: 2500,
+  headers: {
+    "Access-Control-Allow-Origin": clientUrl,
+    "Content-Type": "application/json; charset=utf-8",
+    Accept: "application/json",
+  },
+});
 
 export const useAxiosAuth = () => {
   const { accessToken, updateUser, setStranded, setAccessToken, setIsLoading } = useAuth();

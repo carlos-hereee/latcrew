@@ -4,12 +4,11 @@ import { axiosAuth } from "@app/utils/axios/axiosAuth";
 
 export const login = async (dispatch: React.Dispatch<any>, credentials: LoginFormProps) => {
   try {
-    console.log("credentials", credentials);
     dispatch({ type: "IS_LOADING", payload: true });
     const { data } = await axiosAuth.post("/auth/login", credentials);
     dispatch({ type: "SET_ACCESS_TOKEN", payload: data });
     dispatch({ type: "IS_LOADING", payload: false });
-  } catch (error) {
+  } catch (error: any) {
     if (isDev) console.log("sign in error", error);
     const { status, data } = error.response;
     if (status === 401 && data.includes("security is low")) {

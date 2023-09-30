@@ -10,10 +10,10 @@ const Landing = () => {
   const { landing, media, app } = useContext(AppContext);
   const { user, accessToken } = useContext(AuthContext);
 
-  // no app no login - everything's okay tho, app is under construction
-  if (!app) return <AppInProgress />;
   // if login in but no app is been created
   if (!app && accessToken) return <UserPlayground />;
+  // no app no login - everything's okay tho, app is under construction
+  if (!app) return <AppInProgress />;
   return (
     <div className="container">
       {landing && (

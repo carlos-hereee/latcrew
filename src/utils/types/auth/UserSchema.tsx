@@ -5,4 +5,5 @@ export type UserSchema = {
   uid?: string;
   phone?: string;
   nickname?: string;
+  role?: string;
 };

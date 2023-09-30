@@ -1,5 +1,16 @@
-// import axios from "axios";
-import { api } from "./instance";
+import { clientUrl, serverUrl } from "@app/config";
+import axios from "axios";
+// import { api } from "./instance";
+const api = axios.create({
+  baseURL: serverUrl,
+  withCredentials: true,
+  // timeout: 2500,
+  headers: {
+    "Access-Control-Allow-Origin": clientUrl,
+    "Content-Type": "application/json; charset=utf-8",
+    Accept: "application/json",
+  },
+});
 
 // Add a request interceptor
 api.interceptors.request.use(

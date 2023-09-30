@@ -24,18 +24,19 @@ import { uploadFile } from "./helpers/uploadFile";
 import { setTheme } from "./helpers/setTheme";
 import { getAppWithAppId } from "./helpers/getAppWithAppId";
 import { setEditApp } from "./helpers/setEditApp";
+import { AppSchema } from "app-context";
+import { AppProps } from "app-types";
 
-export const AppContext = createContext();
+export const AppContext = createContext<AppSchema>({} as AppSchema);
 
-export const AppState = ({ children }) => {
+export const AppState = ({ children }: AppProps) => {
   const [state, dispatch] = useReducer(reducer, appState);
-  const { accessToken, user, appId } = useContext(AuthContext);
+  const { accessToken, user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
     // user is login
     if (accessToken) {
-      isDev && console.log("token aquired");
       // navigate admin and regular users
       if (user && user.role === "admin") navigate("/admin-dashboard");
       // if (user.role === "admin") navigate("/add-page");
@@ -52,7 +53,6 @@ export const AppState = ({ children }) => {
     <AppContext.Provider
       value={{
         isLoading: state.isLoading,
-        isOffline: state.isOffline,
         isComingSoon: state.isComingSoon,
         app: state.app,
         theme: state.theme,
