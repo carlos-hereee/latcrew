@@ -17,7 +17,7 @@ import { buildApp } from "./helpers/buildApp";
 import { AppProps } from "app-types";
 import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { isDev } from "@app/config";
-import { AuthSchema } from "app-context";
+import { AuthSchema } from "auth-context";
 
 export const AuthContext = createContext<AuthSchema>({} as AuthSchema);
 
@@ -47,7 +47,7 @@ export const AuthState = ({ children }: AppProps) => {
         // language: state.language,
         // menu: state.menu,
         // permissions: state.permissions,
-        // ownedApps: state.ownedApps,
+        ownedApps: state.ownedApps,
         // isAdmin: state.isAdmin,
         setStranded: (e) => dispatch({ type: "SET_STRANDED", payload: e }),
         setIsLoading: (e) => dispatch({ type: "IS_LOADING", payload: e }),

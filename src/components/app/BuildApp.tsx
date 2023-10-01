@@ -4,9 +4,9 @@ import { PaginateForm } from "nexious-library";
 import { AuthContext } from "../../utils/context/auth/AuthContext";
 
 type BuildAppProps = {
-  heading: string;
+  heading?: string;
+  cancelBtn?: boolean;
   onClick: (key: any) => void;
-  cancelBtn: (key: any) => void;
 };
 
 const BuildApp: React.FC<BuildAppProps> = ({ heading, cancelBtn, onClick }) => {
@@ -77,11 +77,11 @@ const BuildApp: React.FC<BuildAppProps> = ({ heading, cancelBtn, onClick }) => {
         paginate={paginate}
         onFormSubmit={handleFormSubmit}
       />
-      {/* {cancelBtn && (
+      {cancelBtn && (
         <button type="button" className="btn-cancel" onClick={onClick}>
           Cancel
         </button>
-      )} */}
+      )}
     </div>
   );
 };

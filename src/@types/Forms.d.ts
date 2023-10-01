@@ -5,8 +5,9 @@ declare module "app-forms" {
   }
   export type FormProps = {
     initialValues: { [key: string]: any };
-    labels: { [key: string]: string };
-    placeholders: { [key: string]: string };
+    labels?: { [key: string]: string };
+    placeholders?: { [key: string]: string };
+    types?: { [key: string]: string };
   };
 
   export type RegisterFormProps = {

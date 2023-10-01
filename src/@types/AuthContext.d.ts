@@ -1,4 +1,4 @@
-declare module "app-context" {
+declare module "auth-context" {
   // imports allowed here
   import { FormProps, LoginFormProps, RegisterFormProps } from "app-forms";
   import { AuthErrorProps, UserSchema } from "@app/utils/types/auth";
@@ -12,6 +12,7 @@ declare module "app-context" {
     isAdmin: boolean;
     emergencyPasswordChangeIsRequired: boolean;
     accessToken: string;
+    ownedApps: { appId: string; logo?: {}; appName: string }[];
     authErrors: AuthErrorProps;
     user: UserSchema;
     dummyData: UserSchema;

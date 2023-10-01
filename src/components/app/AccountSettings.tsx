@@ -2,12 +2,15 @@ import { useContext } from "react";
 import { AuthContext } from "../../utils/context/auth/AuthContext";
 import { Form } from "nexious-library";
 
-const AccountSettings = ({ onClick }) => {
+type AccountSettingProps = {
+  onClick: (key: string) => void;
+};
+const AccountSettings: React.FC<AccountSettingProps> = ({ onClick }) => {
   const { user, updateUser } = useContext(AuthContext);
-  const { userValues, userLabels, userPlaceholders } = useContext(AuthContext);
+  const { userForm } = useContext(AuthContext);
 
   const initialValues = {
-    ...userValues,
+    ...userForm.initialValues,
     username: user.username ? user.username : "",
     email: user.email ? user.email : "",
     nickname: user.nickname ? user.nickname : "",
@@ -18,9 +21,9 @@ const AccountSettings = ({ onClick }) => {
       <h2 className="heading">Update account settings</h2>
       <Form
         initialValues={initialValues}
-        labels={userLabels}
-        placeholders={userPlaceholders}
-        onSubmit={(values) => updateUser(values)}
+        labels={userForm.labels}
+        placeholders={userForm.placeholders}
+        onSubmit={updateUser}
         submitLabel="Save and continue"
       />
       <h2 className="heading">More options:</h2>

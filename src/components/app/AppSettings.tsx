@@ -1,10 +1,13 @@
 import { useContext } from "react";
 import BuildApp from "./BuildApp";
 import { AuthContext } from "../../utils/context/auth/AuthContext";
-import { Hero } from "nexious-library/@nxs-molecules";
+import { Hero } from "nexious-library";
 import { AppContext } from "../../utils/context/app/AppContext";
 
-const AppSettings = ({ onClick }) => {
+type AppSettingProps = {
+  onClick: (key: string) => void;
+};
+const AppSettings: React.FC<AppSettingProps> = ({ onClick }) => {
   const { isAdmin, ownedApps } = useContext(AuthContext);
   const { theme, getAppWithAppId, setEditApp } = useContext(AppContext);
   const editApp = (app) => {
@@ -17,10 +20,10 @@ const AppSettings = ({ onClick }) => {
   return (
     <div className="container">
       <h2 className="heading">All your apps: </h2>
-      {ownedApps.length < 0 ? (
+      {ownedApps?.length < 0 ? (
         ownedApps.map((app) => (
           <div key={app.appId} className="card-row pad-t">
-            <Hero hero={app.logo ? app.log : {}} onImageClick={() => editLogo(app)} />
+            <Hero hero={app.logo ? app.logo : {}} onImageClick={() => editLogo(app)} />
             <div className="flex-column elbow-space mb-2">
               <h2 className="heading">{app.appName}</h2>
               <div className="flex-center flex-row flex-wrap">
@@ -36,7 +39,8 @@ const AppSettings = ({ onClick }) => {
                 <button
                   className="btn-main"
                   type="button"
-                  onClick={() => getAppWithAppId(app.appId)}>
+                  onClick={() => getAppWithAppId(app.appId)}
+                >
                   See live
                 </button>
                 {/* <button
@@ -56,7 +60,8 @@ const AppSettings = ({ onClick }) => {
           <button
             type="button"
             className={`btn-main w-max ${theme ? "btn-" + theme : ""}`}
-            onClick={() => onClick("newApp")}>
+            onClick={() => onClick("newApp")}
+          >
             + Create a new app
           </button>
         </>
