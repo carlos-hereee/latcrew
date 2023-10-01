@@ -1,6 +1,6 @@
 declare module "auth-context" {
   // imports allowed here
-  import { FormProps, LoginFormProps, RegisterFormProps } from "app-forms";
+  import { FormProps, FormValueProps, LoginFormProps, RegisterFormProps } from "app-forms";
   import { AuthErrorProps, UserSchema } from "@app/utils/types/auth";
   export interface ReducerMethodProps {
     dispatch: React.Dispatch<any>;
@@ -30,7 +30,7 @@ declare module "auth-context" {
     logout: () => void;
     updateUser: (values: UserSchema) => void;
     fetchUser: (values: UserSchema) => void;
-    buildApp: (values: any) => void;
+    buildApp: (values: FormValueProps) => void;
     forgotPassword: (values: FormProps) => void;
     changePassword: (values: UserSchema) => void;
   }

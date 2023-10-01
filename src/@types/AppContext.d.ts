@@ -1,5 +1,6 @@
 declare module "app-context" {
-  import { FormProps } from "app-forms";
+  import { FormValueProps, FormProps } from "app-forms";
+
   export interface AppSchema {
     // auth schema
     isLoading: boolean;

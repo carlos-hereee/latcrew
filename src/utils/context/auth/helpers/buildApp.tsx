@@ -1,8 +1,10 @@
 import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { isDev } from "@app/config";
+import { FormValueProps } from "app-forms";
 
-export const buildApp = async (dispatch, data) => {
+export const buildApp = async (dispatch: React.Dispatch<any>, data: FormValueProps) => {
   try {
+    console.log("data", data);
     dispatch({ type: "IS_LOADING", payload: true });
     const response = await axiosAuth.post("/app/build-app", data);
     dispatch({ type: "SET_OWNED_APPS", payload: response.data });

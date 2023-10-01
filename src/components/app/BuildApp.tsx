@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../utils/context/app/AppContext";
 import { PaginateForm } from "nexious-library";
 import { AuthContext } from "../../utils/context/auth/AuthContext";
@@ -13,6 +13,8 @@ const BuildApp: React.FC<BuildAppProps> = ({ heading, cancelBtn, onClick }) => {
   const { landingPageForm, buildAppForm, sectionForm } = useContext(AppContext);
   const { buildApp } = useContext(AuthContext);
   const [formPage, setFormPage] = useState(0);
+  const [isBuild, setBuild] = useState(false);
+
   // const entryValues = sectionValues;
   const [paginate, setPaginate] = useState<{ [key: string]: any }>([
     {
@@ -41,6 +43,7 @@ const BuildApp: React.FC<BuildAppProps> = ({ heading, cancelBtn, onClick }) => {
         heading: "Key app features",
         submitLabel: hasCTA ? "Save and continue" : "Publish app",
         initialValues: sectionForm.initialValues,
+        types: sectionForm.types,
         addEntry: { initialValues: sectionForm.initialValues, label: "Add another" },
       },
     ]);
@@ -57,7 +60,13 @@ const BuildApp: React.FC<BuildAppProps> = ({ heading, cancelBtn, onClick }) => {
       },
     ]);
   };
-  const handleFormSubmit = (event) => {
+
+  useEffect(() => {
+    if (isBuild) {
+      buildApp(values);
+    }
+  }, [isBuild]);
+  const handleFormSubmit = (event: { [key: string]: any }) => {
     setValues({ ...values, ...event });
     if (!values.landingPage) {
       // search for sub forms
@@ -67,8 +76,8 @@ const BuildApp: React.FC<BuildAppProps> = ({ heading, cancelBtn, onClick }) => {
         if (hasCTA) initCta(hasSubSection);
         if (hasSubSection) initSubSection(hasCTA);
         setFormPage((prev) => prev + 1);
-      } else buildApp(values);
-    } else buildApp(values);
+      } else setBuild(true);
+    } else setBuild(true);
   };
   return (
     <div className="container">

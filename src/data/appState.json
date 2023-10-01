@@ -50,8 +50,8 @@
       "title": "Sharkle and Shine: Professional House Cleaning Services",
       "tagline": "Transforming your home into a clean haven",
       "body": "Welcome to Sparkle and Shine, your go-to solution for top-quality house cleaning services. We believe that a clean home is a happy home, and our dedicated team is here  help you achieve just that. With our exceptional cleaning expertise and attention to detail, we are committed to providing a pristine living environment that you can truly relax in",
-      "cta": true,
-      "sections": true
+      "cta": false,
+      "sections": false
     },
     "types": {
       "title": "text",

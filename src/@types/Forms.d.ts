@@ -14,4 +14,7 @@ declare module "app-forms" {
     username: string;
     password: string;
   };
+  export type FormValueProps = {
+    [key: string]: any;
+  };
 }
