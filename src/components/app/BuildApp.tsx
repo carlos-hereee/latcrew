@@ -10,42 +10,42 @@ type BuildAppProps = {
 };
 
 const BuildApp: React.FC<BuildAppProps> = ({ heading, cancelBtn, onClick }) => {
-  const { landingPageValues, landingPageLabels, sectionValues } = useContext(AppContext);
-  const { landingPageTypes } = useContext(AppContext);
+  const { landingPageForm, buildAppForm, sectionForm } = useContext(AppContext);
   const { buildApp } = useContext(AuthContext);
   const [formPage, setFormPage] = useState(0);
   // const entryValues = sectionValues;
-  const [paginate, setPaginate] = useState([
+  const [paginate, setPaginate] = useState<{ [key: string]: any }>([
     {
       formName: "appName",
       heading: "Initialize your app",
-      initialValues: { appName: "Sharkle and Shine" },
+      initialValues: buildAppForm.initialValues,
       submitLabel: "Save and continue",
       schema: { required: ["appName"] },
     },
     {
       formName: "landingPage",
       heading: "Build landing page",
-      initialValues: landingPageValues,
+      initialValues: landingPageForm.initialValues,
       submitLabel: "Save and continue",
-      labels: landingPageLabels,
-      types: landingPageTypes,
+      labels: landingPageForm.labels,
+      types: landingPageForm.types,
     },
   ]);
+  const [values, setValues] = useState<{ [key: string]: any }>({});
 
-  const initSubSection = (hasCTA) => {
+  const initSubSection = (hasCTA: boolean) => {
     setPaginate((prev) => [
       ...prev,
       {
         formName: "section",
         heading: "Key app features",
         submitLabel: hasCTA ? "Save and continue" : "Publish app",
-        initialValues: sectionValues,
-        addEntry: { initialValues: sectionValues, label: "Add another" },
+        initialValues: sectionForm.initialValues,
+        addEntry: { initialValues: sectionForm.initialValues, label: "Add another" },
       },
     ]);
   };
-  const initCta = (hasSubSection) => {
+  const initCta = (hasSubSection: boolean) => {
     setPaginate((prev) => [
       ...prev,
       {
@@ -58,20 +58,22 @@ const BuildApp: React.FC<BuildAppProps> = ({ heading, cancelBtn, onClick }) => {
     ]);
   };
   const handleFormSubmit = (event) => {
-    // search for sub forms
-    const hasCTA = event.landingPage.cta;
-    const hasSubSection = event.landingPage.sections;
-    if (hasCTA || hasSubSection) {
-      if (hasCTA) initCta(hasSubSection);
-      if (hasSubSection) initSubSection(hasCTA);
-      setFormPage((prev) => prev + 1);
-    } else buildApp(event);
+    setValues({ ...values, ...event });
+    if (!values.landingPage) {
+      // search for sub forms
+      const hasCTA = event.landingPage.cta;
+      const hasSubSection = event.landingPage.sections;
+      if (hasCTA || hasSubSection) {
+        if (hasCTA) initCta(hasSubSection);
+        if (hasSubSection) initSubSection(hasCTA);
+        setFormPage((prev) => prev + 1);
+      } else buildApp(values);
+    } else buildApp(values);
   };
   return (
     <div className="container">
       {heading && <h2 className="heading">{heading}</h2>}
       <PaginateForm
-        // order={["landingPage", "appName"]}
         page={formPage}
         setNewPage={setFormPage}
         paginate={paginate}
