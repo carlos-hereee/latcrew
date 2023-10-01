@@ -1,39 +1,82 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../utils/context/app/AppContext";
-import { Loading } from "nexious-library/@nxs-molecules";
-import EditAppName from "./editApp/EditAppNam";
+import { Loading } from "nexious-library";
 import { Form } from "nexious-library";
-import { Button } from "nexious-library/@nxs-atoms";
+import { Button } from "nexious-library";
+import { useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "@app/utils/context/auth/AuthContext";
+import { axiosAuth } from "@app/utils/axios/axiosAuth";
 
-const EditApp = ({ onClick }) => {
-  const { editApp, isLoading, updateEditAppState } = useContext(AppContext);
-  // const [values, setValues] = useState(editApp);
-  // console.log("values", values);
+type EditAppProps = {
+  cancelBtn?: boolean;
+};
+const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
+  const { editApp } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const queryParams = useLocation();
+  const [app, setApp] = useState<{ [key: string]: any }>({});
+  const [appValues, setAppValues] = useState<{ [key: string]: any }>({});
 
-  if (!editApp || isLoading) return <Loading message="Loading app assets .." />;
-  console.log("editApp?", editApp);
-  // const values = { appName: editApp.appName };
-  const handleChange = (event) => {
-    const key = event.target.name;
-    const value = event.currentTarget.value;
-    updateEditAppState({ ...editApp, [key]: value });
+  // const appName = queryParams
+  useEffect(() => {
+    const getAppWithName = async (appName: string) => {
+      const { data } = await axiosAuth.get(`/app/${appName}`);
+      setApp(data);
+      includeEditValues(data);
+    };
+    if (queryParams.search) {
+      const appName = queryParams.search.split("=")[1];
+      getAppWithName(appName);
+    }
+  }, [queryParams.search]);
+
+  const includeEditValues = (data: { [key: string]: any }) => {
+    const pagesPayload: { [key: string]: any } = {};
+    const mediaPayload: { [key: string]: any } = {};
+    const subSectionPayload: { [key: string]: any } = {};
+    // console.log("data", data);
+    // include app pages
+    const pages =
+      data.menu && data.menu.length > 0 && data.menu.filter((item: any) => !item.isPrivate);
+    // include social media
+
+    data.media.socials?.length > 0 &&
+      data.media.socials.forEach((social: any) => {
+        mediaPayload[social.name] = social;
+      });
+    pages.forEach((p: any) => (pagesPayload[p.active.name] = p.active));
+
+    setAppValues({
+      appName: { appName: data.appName },
+      landing: data.landing,
+      ...pagesPayload,
+      media: mediaPayload,
+      newsletter: data.newsletter,
+      themeList: data.themeList,
+    });
   };
+
+  console.log("app", appValues);
+  if (!app) return <p>no app found</p>;
   return (
     <div>
-      <Button label="Go-back" handleClick={() => onClick("app")} />
-      <h2 className="heading">Editing app: </h2>
-      <EditAppName appName={editApp.appName} onChange={handleChange} />
-      <h2 className="heading">Pages:</h2>
-      {editApp.menu.map((item) => (
-        <div className="pages" key={item.menuId}>
-          {item.active.label}
-        </div>
-      ))}
+      {/* {cancelBtn && <Button label="Go-back" onClick={() => navigate("/")} />} */}
+      <h2 className="heading">Editing app: {app.appName}</h2>
+      {/* <EditAppName appName={app.appName} onChange={handleChange} /> */}
+      {/* {app.menu &&
+        app.menu.map(
+          (item) =>
+            !item.isPrivate && (
+              <div className="pages" key={item.menuId}>
+                {item.active.label}
+              </div>
+            )
+        )} */}
 
-      <p>themeList</p>
+      {/* <p>themeList</p>
       <p>language</p>
       <p>newsletter</p>
-      <p>calendar</p>
+      <p>calendar</p> */}
       {/* <Form initialValues={values} /> */}
     </div>
   );

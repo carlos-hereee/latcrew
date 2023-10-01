@@ -13,6 +13,7 @@ const AppData = () => {
   // const { user, accessToken } = useContext(AuthContext);
   const queryParams = useLocation();
   const [app, setApp] = useState<{ [key: string]: any }>({});
+
   // const appName = queryParams
   useEffect(() => {
     const getAppWithName = async (appName: string) => {
@@ -24,14 +25,15 @@ const AppData = () => {
       getAppWithName(appName);
     }
   }, [queryParams.search]);
-  console.log("app", app);
-  const toggleMenu = (e) => {
+  // console.log("app", app);
+
+  const toggleMenu = (e: any) => {
     console.log("toggleMenu", e);
   };
   return (
     <div className="container">
       {app.menu && (
-        <Header menu={app.menu} logo={app.logo} updateMenu={toggleMenu} language={app.languageId} />
+        <Header menu={app.menu} logo={app.logo} updateMenu={toggleMenu} heading={app.appName} />
       )}
       {app.landing && (
         <div className="flex-d-column">
@@ -44,7 +46,7 @@ const AppData = () => {
       )}
       {app.landing?.features && (
         <div className="feature-card-container m-tb">
-          {app.landing.features.map((af) => (
+          {app.landing.features.map((af: { uid: string }) => (
             <Card key={af.uid} data={af} />
           ))}
         </div>

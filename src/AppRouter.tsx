@@ -25,6 +25,7 @@ import ForgotPassword from "./components/form/ForgotPassword";
 import AdminRoute from "./utils/router/AdminRoute";
 import BuildApp from "./components/app/BuildApp";
 import AppData from "./pages/AppData";
+import EditApp from "./components/app/EditApp";
 
 const AppRouter: React.FC = () => {
   const { accessToken, user, changePassword } = useContext(AuthContext);
@@ -65,7 +66,8 @@ const AppRouter: React.FC = () => {
       </Route>
       {/* Admin routes for editing pages */}
       <Route element={<AdminRoute />}>
-        <Route path="build-app" element={<BuildApp cancelBtn />} />
+        <Route path="/build-app" element={<BuildApp cancelBtn />} />
+        <Route path="/edit-app/" element={<EditApp cancelBtn />} />
       </Route>
       {/* All other routes */}
       <Route path="/*" element={<PageNotFound to={accessToken ? "/dashboard" : "/"} />} />

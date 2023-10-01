@@ -27,8 +27,18 @@ const UserPlayground = () => {
       });
     } else {
       let name = app.appName.split(" ").join("+");
-      console.log("name", name);
       navigate({ pathname: "/app", search: `?appName=${name}` });
+    }
+  };
+  const handleEdit = (app: { appName?: string; appId: string }) => {
+    if (!app.appName) {
+      setError({
+        ...error,
+        [app.appId]: "Could not see live app because app name has not been set",
+      });
+    } else {
+      let name = app.appName.split(" ").join("+");
+      navigate({ pathname: "/edit-app", search: `?appName=${name}` });
     }
   };
   return (
@@ -61,7 +71,7 @@ const UserPlayground = () => {
         {ownedApps?.length > 0 ? (
           ownedApps.map((app) => (
             <div key={app.appId} className="card-row pad-t">
-              <Hero hero={app.logo ? app.logo : {}} onImageClick={() => editApp(app)} />
+              <Hero hero={app.logo ? app.logo : {}} onImageClick={() => handleEdit(app)} />
               <div className="flex-column elbow-space mb-2">
                 {app.appName ? (
                   <h2 className="heading">{app.appName}</h2>
@@ -72,7 +82,7 @@ const UserPlayground = () => {
                   {error && error[app.appId] && <p className="error-message">{error[app.appId]}</p>}
                 </div>
                 <div className="flex-row flex-wrap">
-                  <button className="btn-main" type="button" onClick={() => editApp(app)}>
+                  <button className="btn-main" type="button" onClick={() => handleEdit(app)}>
                     Edit app
                   </button>
                   <button className="btn-main" type="button" onClick={() => handleSeeLive(app)}>
