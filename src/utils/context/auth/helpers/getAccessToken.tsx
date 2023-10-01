@@ -1,7 +1,7 @@
 import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { filterUserValues } from "../../../app/filterUserValues";
 import { isDev } from "@app/config";
-import { ReducerMethodProps } from "app-context";
+import { ReducerMethodProps } from "auth-context";
 
 export const getAccessToken = async (props: ReducerMethodProps) => {
   const { dispatch } = props;

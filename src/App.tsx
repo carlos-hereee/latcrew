@@ -22,7 +22,7 @@ const App: React.FC<AppProps> = ({ children }) => {
   // waiting server response
   if (isLoading) return <Loading message="Loading app assets.." />;
   return (
-    <div className={theme ? `${theme} app-container"` : "app-container"}>
+    <div className={theme ? `${theme} app-container` : "app-container"}>
       {menu && <Header menu={menu} logo={logo} updateMenu={updateMenu} language={language} />}
       <div className="elbow-space">{children}</div>
       {app && <Footer appName={app && app.appName ? app.appName : "sparkle shine"} />}

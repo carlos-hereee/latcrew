@@ -22,7 +22,9 @@ const Landing = () => {
           <p className="text-max">{landing.body}</p>
         </div>
       )}
-      {media && media.socials && <Socials socials={media.socials} heading={media.title} />}
+      {media && media.socials?.length > 0 && (
+        <Socials socials={media.socials} heading={media.title} />
+      )}
       {landing?.features && (
         <div className="feature-card-container m-tb">
           {landing.features.map((af) => (

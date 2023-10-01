@@ -18,14 +18,16 @@ import AddPage from "./pages/AddPages";
 import UserPlayground from "./pages/UserPlayground";
 import ChangePassword from "@components/form/ChangePassword";
 import Offline from "./pages/Offline";
-import { AuthSchema } from "utils/types/auth";
 import SignUp from "./pages/Signup";
 import AppRoute from "./utils/router/AppRoute";
 import { PageNotFound } from "nexious-library";
 import ForgotPassword from "./components/form/ForgotPassword";
+import AdminRoute from "./utils/router/AdminRoute";
+import BuildApp from "./components/app/BuildApp";
+import AppData from "./pages/AppData";
 
 const AppRouter: React.FC = () => {
-  const { accessToken, user, changePassword } = useContext<AuthSchema>(AuthContext);
+  const { accessToken, user, changePassword } = useContext(AuthContext);
   const { emergencyPasswordChangeIsRequired } = useContext(AuthContext);
 
   // const { isComingSoon } = useContext(AppContext);
@@ -39,6 +41,7 @@ const AppRouter: React.FC = () => {
     <Routes>
       {/* Public Routes */}
       {/* // if server not coaperating use offline data */}
+      <Route path="/app/" element={<AppData />} />
       <Route path="/offline" element={<Offline />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/login" element={<Login />} />
@@ -59,6 +62,10 @@ const AppRouter: React.FC = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/add-page" element={<AddPage />} />
+      </Route>
+      {/* Admin routes for editing pages */}
+      <Route element={<AdminRoute />}>
+        <Route path="build-app" element={<BuildApp cancelBtn />} />
       </Route>
       {/* All other routes */}
       <Route path="/*" element={<PageNotFound to={accessToken ? "/dashboard" : "/"} />} />

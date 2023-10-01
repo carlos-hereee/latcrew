@@ -2,18 +2,19 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../utils/context/app/AppContext";
 import { PaginateForm } from "nexious-library";
 import { AuthContext } from "../../utils/context/auth/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 type BuildAppProps = {
   heading?: string;
   cancelBtn?: boolean;
-  onClick: (key: any) => void;
 };
 
-const BuildApp: React.FC<BuildAppProps> = ({ heading, cancelBtn, onClick }) => {
+const BuildApp: React.FC<BuildAppProps> = ({ heading, cancelBtn }) => {
   const { landingPageForm, buildAppForm, sectionForm } = useContext(AppContext);
   const { buildApp } = useContext(AuthContext);
   const [formPage, setFormPage] = useState(0);
   const [isBuild, setBuild] = useState(false);
+  const navigate = useNavigate();
 
   // const entryValues = sectionValues;
   const [paginate, setPaginate] = useState<{ [key: string]: any }>([
@@ -89,7 +90,7 @@ const BuildApp: React.FC<BuildAppProps> = ({ heading, cancelBtn, onClick }) => {
         onFormSubmit={handleFormSubmit}
       />
       {cancelBtn && (
-        <button type="button" className="btn-cancel" onClick={onClick}>
+        <button type="button" className="btn-cancel" onClick={() => navigate("/")}>
           Cancel
         </button>
       )}
