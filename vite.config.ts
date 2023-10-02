@@ -11,6 +11,7 @@ export default defineConfig({
       "@axios": path.resolve(__dirname, "./src/utils/axios"),
       "@components": path.resolve(__dirname, "./src/components"),
       "@pages": path.resolve(__dirname, "./src/pages"),
+      "@data": path.resolve(__dirname, "./src/data"),
       "@types": path.resolve(__dirname, "./src/types"),
     },
   },

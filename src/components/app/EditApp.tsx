@@ -6,12 +6,13 @@ import { Button } from "nexious-library";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "@app/utils/context/auth/AuthContext";
 import { axiosAuth } from "@app/utils/axios/axiosAuth";
+import { AdminContext } from "@app/utils/context/admin/AdminContext";
 
 type EditAppProps = {
   cancelBtn?: boolean;
 };
 const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
-  const { editApp } = useContext(AuthContext);
+  const { appNameForm, pageForm, sectionForm, landingPageForm, editApp } = useContext(AdminContext);
   const navigate = useNavigate();
   const queryParams = useLocation();
   const [app, setApp] = useState<{ [key: string]: any }>({});
@@ -47,12 +48,12 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
     pages.forEach((p: any) => (pagesPayload[p.active.name] = p.active));
 
     setAppValues({
-      appName: { appName: data.appName },
-      landing: data.landing,
-      ...pagesPayload,
-      media: mediaPayload,
-      newsletter: data.newsletter,
-      themeList: data.themeList,
+      appName: { initialValues: { appName: data.appName }, labels: appNameForm.labels },
+      landing: { initalValues: data.landing },
+      pages: { initalValues: pagesPayload },
+      media: { initalValues: mediaPayload },
+      newsletter: { initalValues: data.newsletter },
+      themeList: { initalValues: data.themeList },
     });
   };
 

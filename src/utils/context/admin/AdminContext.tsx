@@ -2,10 +2,15 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 import { reducer } from "./AdminReducer";
 import { AuthContext } from "../auth/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { AdminContextProps } from "app-admin";
+import { ChildProps } from "app-types";
+import { buildApp } from "./helpers/buildApp";
+import { editApp } from "./helpers/editApp";
+import adminState from "@data/adminState.json";
 
-export const AdminContext = createContext();
-export const AdminState = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, { isLoading: true, menu: [] });
+export const AdminContext = createContext<AdminContextProps>({} as AdminContextProps);
+export const AdminState = ({ children }: ChildProps) => {
+  const [state, dispatch] = useReducer(reducer, adminState);
   // const { user } = useContext(AuthContext);
   // const navigate = useNavigate();
 
@@ -19,10 +24,16 @@ export const AdminState = ({ children }) => {
   return (
     <AdminContext.Provider
       value={{
-        init: state.init,
         isLoading: state.isLoading,
-        updateLoading: (a) => dispatch({ type: "IS_LOADING", payload: a }),
-      }}>
+        appNameForm: state.appNameForm,
+        pageForm: state.pageForm,
+        sectionForm: state.sectionForm,
+        landingPageForm: state.landingPageForm,
+        buildApp: (a) => buildApp(dispatch, a),
+        editApp: (a) => editApp(dispatch, a),
+        // updateLoading: (a) => dispatch({ type: "IS_LOADING", payload: a }),
+      }}
+    >
       {children}
     </AdminContext.Provider>
   );

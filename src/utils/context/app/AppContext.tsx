@@ -25,11 +25,11 @@ import { setTheme } from "./helpers/setTheme";
 import { getAppWithAppId } from "./helpers/getAppWithAppId";
 import { setEditApp } from "./helpers/setEditApp";
 import { AppSchema } from "app-context";
-import { AppProps } from "app-types";
+import { ChildProps } from "app-types";
 
 export const AppContext = createContext<AppSchema>({} as AppSchema);
 
-export const AppState = ({ children }: AppProps) => {
+export const AppState = ({ children }: ChildProps) => {
   const [state, dispatch] = useReducer(reducer, appState);
   const { accessToken, user } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -54,10 +54,6 @@ export const AppState = ({ children }: AppProps) => {
       value={{
         isLoading: state.isLoading,
         appName: state.appName,
-        buildAppForm: state.buildAppForm,
-        pageForm: state.pageForm,
-        sectionForm: state.sectionForm,
-        landingPageForm: state.landingPageForm,
         theme: state.theme,
         themeList: state.themeList,
         // isComingSoon: state.isComingSoon,

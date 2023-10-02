@@ -10,7 +10,7 @@ type BuildAppProps = {
 };
 
 const BuildApp: React.FC<BuildAppProps> = ({ heading, cancelBtn }) => {
-  const { landingPageForm, buildAppForm, sectionForm } = useContext(AppContext);
+  const { landingPageForm, appNameForm, sectionForm } = useContext(AppContext);
   const { buildApp } = useContext(AuthContext);
   const [formPage, setFormPage] = useState(0);
   const [isBuild, setBuild] = useState(false);
@@ -21,7 +21,7 @@ const BuildApp: React.FC<BuildAppProps> = ({ heading, cancelBtn }) => {
     {
       formName: "appName",
       heading: "Initialize your app",
-      initialValues: buildAppForm.initialValues,
+      initialValues: appNameForm.initialValues,
       submitLabel: "Save and continue",
       schema: { required: ["appName"] },
     },

@@ -13,16 +13,16 @@ import { getAccessToken } from "./helpers/getAccessToken";
 import { updateLanguage } from "../app/helpers/updateLanguage";
 import { forgotPassword } from "./helpers/forgotPassword";
 import { fetchUser } from "./helpers/fetchUser";
-import { buildApp } from "./helpers/buildApp";
-import { AppProps } from "app-types";
+import { buildApp } from "../admin/helpers/buildApp";
+import { ChildProps } from "app-types";
 import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { isDev } from "@app/config";
 import { AuthSchema } from "auth-context";
-import { editApp } from "./helpers/editApp";
+import { editApp } from "../admin/helpers/editApp";
 
 export const AuthContext = createContext<AuthSchema>({} as AuthSchema);
 
-export const AuthState = ({ children }: AppProps) => {
+export const AuthState = ({ children }: ChildProps) => {
   const [state, dispatch] = useReducer(reducer, authState);
 
   useEffect(() => {
@@ -62,8 +62,7 @@ export const AuthState = ({ children }: AppProps) => {
         fetchUser: (a) => fetchUser(dispatch, a),
         changePassword: (e) => changePassword(dispatch, e),
         // updateLanguage: (a) => updateLanguage(dispatch, a),
-        buildApp: (a) => buildApp(dispatch, a),
-        editApp: (a) => editApp(dispatch, a),
+
         forgotPassword: (a) => forgotPassword(dispatch, a),
       }}
     >

@@ -1,5 +1,5 @@
 declare module "app-types" {
-  export interface AppProps {
+  export interface ChildProps {
     children: React.ReactNode;
   }
 }

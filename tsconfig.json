@@ -14,7 +14,8 @@
       "@axios/*": ["utils/axios/*"],
       "@components/*": ["components/*"],
       "@pages/*": ["pages/*"],
-      "@type/*": ["utils/types/*"]
+      "@type/*": ["utils/types/*"],
+      "@data/*": ["data/*"]
       // "@configs/*": ["config.tsx"]
     } /* Specify a set of entries that re-map imports to additional lookup locations. */,
     "forceConsistentCasingInFileNames": true,
