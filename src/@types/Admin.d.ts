@@ -3,9 +3,10 @@ declare module "app-admin" {
   export interface AdminContextProps {
     isLoading: boolean;
     appNameForm: FormProps;
-    pageForm: FormProps;
+    pagesForm: FormProps;
     sectionForm: FormProps;
     landingPageForm: FormProps;
+    heroForm: FormProps;
     buildApp: (values: FormValueProps) => void;
     editApp: (values: FormValueProps) => void;
   }

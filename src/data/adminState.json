@@ -2,31 +2,23 @@
   "appNameForm": {
     "initialValues": { "appName": "Sharkle and Shine" },
     "labels": { "appName": "Enter app name" },
-    "placeholders": { "appName": "Enter appname .." }
+    "placeholders": { "appName": "Enter appname .." },
+    "types": { "appName": "text" }
   },
-  "pageForm": {
-    "initialValues": {
-      "name": "",
-      "title": "",
-      "hero": "",
-      "body": "",
-      "hasSubsections": "",
-      "cta": ""
-    },
+  "pagesForm": {
+    "initialValues": { "name": "", "title": "", "body": "", "sections": false, "cta": false },
     "types": {
       "title": "text",
-      "hero": "file",
       "body": "textarea",
       "name": "text",
-      "hasSubsections": "checkbox",
+      "sections": "checkbox",
       "cta": "checkbox"
     },
     "labels": {
       "name": "Enter page name",
       "title": "Enter page heading",
-      "hero": "Add page image",
       "body": "Enter page body text",
-      "hasSubsections": "This part of the app has sub sections",
+      "sections": "This part of the app has sub sections",
       "cta": "This part of the app has a call to action"
     },
     "placeholders": {
@@ -34,14 +26,15 @@
       "hero": "",
       "body": "Text body",
       "name": "Page name",
-      "hasSubsections": "",
+      "sections": "",
       "cta": ""
     }
   },
   "sectionForm": {
-    "initialValues": { "title": "", "body": "" },
-    "labels": { "title": "", "body": "" },
-    "placeholders": { "title": "", "body": "" }
+    "initialValues": { "title": "", "body": "", "cta": false, "sections": false },
+    "labels": { "title": "", "body": "", "cta": false, "sections": false },
+    "placeholders": { "title": "", "body": "", "cta": false, "sections": false },
+    "types": { "title": "", "body": "", "cta": "checkbox", "sections": "checkbox" }
   },
   "landingPageForm": {
     "initialValues": {
@@ -64,6 +57,13 @@
       "body": "Enter page details",
       "cta": "This part of the app has a Call To Action",
       "sections": "This part of the app has a sub section"
-    }
+    },
+    "placeholders": { "title": "", "tagline": "", "body": "", "cta": "", "sections": "" }
+  },
+  "heroForm": {
+    "initialValues": { "name": "", "hero": "", "filename": "", "link": "", "label": "" },
+    "labels": { "name": "", "hero": "", "filename": "", "link": "", "label": "" },
+    "placeholders": { "name": "", "hero": "", "filename": "", "link": "", "label": "" },
+    "types": { "name": "", "hero": "", "filename": "", "link": "", "label": "" }
   }
 }

@@ -1,7 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { reducer } from "./AdminReducer";
-import { AuthContext } from "../auth/AuthContext";
-import { useNavigate } from "react-router-dom";
 import { AdminContextProps } from "app-admin";
 import { ChildProps } from "app-types";
 import { buildApp } from "./helpers/buildApp";
@@ -26,9 +24,10 @@ export const AdminState = ({ children }: ChildProps) => {
       value={{
         isLoading: state.isLoading,
         appNameForm: state.appNameForm,
-        pageForm: state.pageForm,
+        pagesForm: state.pagesForm,
         sectionForm: state.sectionForm,
         landingPageForm: state.landingPageForm,
+        heroForm: state.heroForm,
         buildApp: (a) => buildApp(dispatch, a),
         editApp: (a) => editApp(dispatch, a),
         // updateLoading: (a) => dispatch({ type: "IS_LOADING", payload: a }),

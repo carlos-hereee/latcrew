@@ -12,12 +12,13 @@ type EditAppProps = {
   cancelBtn?: boolean;
 };
 const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
-  const { appNameForm, pageForm, sectionForm, landingPageForm, editApp } = useContext(AdminContext);
+  const { appNameForm, pagesForm, sectionForm, landingPageForm } = useContext(AdminContext);
+  const { editApp } = useContext(AdminContext);
   const navigate = useNavigate();
   const queryParams = useLocation();
   const [app, setApp] = useState<{ [key: string]: any }>({});
   const [appValues, setAppValues] = useState<{ [key: string]: any }>({});
-
+  console.log("pagesForm", pagesForm);
   // const appName = queryParams
   useEffect(() => {
     const getAppWithName = async (appName: string) => {
@@ -48,12 +49,42 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
     pages.forEach((p: any) => (pagesPayload[p.active.name] = p.active));
 
     setAppValues({
-      appName: { initialValues: { appName: data.appName }, labels: appNameForm.labels },
-      landing: { initalValues: data.landing },
-      pages: { initalValues: pagesPayload },
-      media: { initalValues: mediaPayload },
-      newsletter: { initalValues: data.newsletter },
-      themeList: { initalValues: data.themeList },
+      appName: {
+        initialValues: { appName: data.appName },
+        labels: appNameForm.labels,
+        types: appNameForm.types,
+        placeholders: appNameForm.placeholders,
+      },
+      landing: {
+        initalValues: data.landing,
+        labels: landingPageForm.labels,
+        types: landingPageForm.types,
+        placeholders: landingPageForm.placeholders,
+      },
+      pages: {
+        initalValues: pagesPayload,
+        labels: pagesForm.labels,
+        types: pagesForm.types,
+        placeholders: pagesForm.placeholders,
+      },
+      // media: {
+      //   initalValues: mediaPayload,
+      //   labels: landingPageForm.labels,
+      //   types: appNameForm.types,
+      //   placeholders: appNameForm.placeholders,
+      // },
+      newsletter: {
+        initalValues: data.newsletter,
+        labels: sectionForm.labels,
+        types: sectionForm.types,
+        placeholders: sectionForm.placeholders,
+      },
+      // themeList: {
+      //   initalValues: data.themeList,
+      //   labels: landingPageForm.labels,
+      //   types: appNameForm.types,
+      //   placeholders: appNameForm.placeholders,
+      // },
     });
   };
 
