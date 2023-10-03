@@ -40,7 +40,7 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
     const pages =
       data.menu && data.menu.length > 0 && data.menu.filter((item: any) => !item.isPrivate);
     // include social media
-    if (!pages) pagesPayload = pagesForm.initialValues;
+    if (!pages || pages.length === 0) pagesPayload = pagesForm.initialValues;
     data.media.socials?.length > 0 &&
       data.media.socials.forEach((social: any) => {
         mediaPayload[social.name] = social;
@@ -50,6 +50,7 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
     setAppValues([
       {
         formName: "appName",
+        heading: "New app name",
         initialValues: { appName: data.appName },
         labels: appNameForm.labels,
         types: appNameForm.types,
@@ -57,6 +58,7 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
       },
       {
         formName: "landingPage",
+        heading: "Update landing page data",
         initialValues: data.landing,
         labels: landingPageForm.labels,
         types: landingPageForm.types,
@@ -67,6 +69,7 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
             labels: ctaForm.labels,
             types: ctaForm.types,
             placeholders: ctaForm.placeholders,
+            fieldHeading: "Call To Action",
             additionLabel: "Add another",
           },
           sections: {
@@ -74,6 +77,7 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
             labels: sectionForm.labels,
             types: sectionForm.types,
             placeholders: sectionForm.placeholders,
+            fieldHeading: "Subsections",
             additionLabel: "Add another",
           },
         },
@@ -90,6 +94,7 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
             labels: ctaForm.labels,
             types: ctaForm.types,
             placeholders: ctaForm.placeholders,
+            fieldHeading: "Call To Action",
             additionLabel: "Add another",
           },
           sections: {
@@ -97,6 +102,7 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
             labels: sectionForm.labels,
             types: sectionForm.types,
             placeholders: sectionForm.placeholders,
+            fieldHeading: "Subsections",
             additionLabel: "Add another",
           },
         },

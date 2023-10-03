@@ -32,7 +32,7 @@
   },
   "sectionForm": {
     "initialValues": { "title": "", "body": "" },
-    "labels": { "title": "", "body": "" },
+    "labels": { "title": "Section title", "body": "Section details" },
     "placeholders": { "title": "", "body": "" },
     "types": { "title": "", "body": "" }
   },
