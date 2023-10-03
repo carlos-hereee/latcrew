@@ -31,10 +31,16 @@
     }
   },
   "sectionForm": {
-    "initialValues": { "title": "", "body": "", "cta": false, "sections": false },
-    "labels": { "title": "", "body": "", "cta": false, "sections": false },
-    "placeholders": { "title": "", "body": "", "cta": false, "sections": false },
-    "types": { "title": "", "body": "", "cta": "checkbox", "sections": "checkbox" }
+    "initialValues": { "title": "", "body": "" },
+    "labels": { "title": "", "body": "" },
+    "placeholders": { "title": "", "body": "" },
+    "types": { "title": "", "body": "" }
+  },
+  "ctaForm": {
+    "initialValues": { "label": "", "link": "" },
+    "labels": { "label": "", "link": "" },
+    "placeholders": { "label": "", "link": "" },
+    "types": { "label": "", "link": "" }
   },
   "landingPageForm": {
     "initialValues": {

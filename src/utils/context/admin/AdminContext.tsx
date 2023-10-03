@@ -28,6 +28,7 @@ export const AdminState = ({ children }: ChildProps) => {
         sectionForm: state.sectionForm,
         landingPageForm: state.landingPageForm,
         heroForm: state.heroForm,
+        ctaForm: state.ctaForm,
         buildApp: (a) => buildApp(dispatch, a),
         editApp: (a) => editApp(dispatch, a),
         // updateLoading: (a) => dispatch({ type: "IS_LOADING", payload: a }),

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../utils/context/app/AppContext";
-import { Loading } from "nexious-library";
+import { Loading, PaginateForm } from "nexious-library";
 import { Form } from "nexious-library";
 import { Button } from "nexious-library";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -13,12 +13,12 @@ type EditAppProps = {
 };
 const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
   const { appNameForm, pagesForm, sectionForm, landingPageForm } = useContext(AdminContext);
-  const { editApp } = useContext(AdminContext);
+  const { editApp, ctaForm } = useContext(AdminContext);
   const navigate = useNavigate();
   const queryParams = useLocation();
   const [app, setApp] = useState<{ [key: string]: any }>({});
-  const [appValues, setAppValues] = useState<{ [key: string]: any }>({});
-  console.log("pagesForm", pagesForm);
+  const [isLoadingFormState, setLoadingFormState] = useState<boolean>(true);
+  const [appValues, setAppValues] = useState<{ [key: string]: any }[]>([]);
   // const appName = queryParams
   useEffect(() => {
     const getAppWithName = async (appName: string) => {
@@ -33,67 +33,112 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
   }, [queryParams.search]);
 
   const includeEditValues = (data: { [key: string]: any }) => {
-    const pagesPayload: { [key: string]: any } = {};
-    const mediaPayload: { [key: string]: any } = {};
-    const subSectionPayload: { [key: string]: any } = {};
-    // console.log("data", data);
+    let pagesPayload: { [key: string]: any } = {};
+    let mediaPayload: { [key: string]: any } = {};
+    let subSectionPayload: { [key: string]: any } = {};
     // include app pages
     const pages =
       data.menu && data.menu.length > 0 && data.menu.filter((item: any) => !item.isPrivate);
     // include social media
-
+    if (!pages) pagesPayload = pagesForm.initialValues;
     data.media.socials?.length > 0 &&
       data.media.socials.forEach((social: any) => {
         mediaPayload[social.name] = social;
       });
     pages.forEach((p: any) => (pagesPayload[p.active.name] = p.active));
 
-    setAppValues({
-      appName: {
+    setAppValues([
+      {
+        formName: "appName",
         initialValues: { appName: data.appName },
         labels: appNameForm.labels,
         types: appNameForm.types,
         placeholders: appNameForm.placeholders,
       },
-      landing: {
-        initalValues: data.landing,
+      {
+        formName: "landingPage",
+        initialValues: data.landing,
         labels: landingPageForm.labels,
         types: landingPageForm.types,
         placeholders: landingPageForm.placeholders,
+        addEntry: {
+          cta: {
+            initialValues: ctaForm.initialValues,
+            labels: ctaForm.labels,
+            types: ctaForm.types,
+            placeholders: ctaForm.placeholders,
+            additionLabel: "Add another",
+          },
+          sections: {
+            initialValues: sectionForm.initialValues,
+            labels: sectionForm.labels,
+            types: sectionForm.types,
+            placeholders: sectionForm.placeholders,
+            additionLabel: "Add another",
+          },
+        },
       },
-      pages: {
-        initalValues: pagesPayload,
+      {
+        formName: "initPage",
+        initialValues: pagesPayload,
         labels: pagesForm.labels,
         types: pagesForm.types,
         placeholders: pagesForm.placeholders,
+        addEntry: {
+          cta: {
+            initialValues: ctaForm.initialValues,
+            labels: ctaForm.labels,
+            types: ctaForm.types,
+            placeholders: ctaForm.placeholders,
+            additionLabel: "Add another",
+          },
+          sections: {
+            initialValues: sectionForm.initialValues,
+            labels: sectionForm.labels,
+            types: sectionForm.types,
+            placeholders: sectionForm.placeholders,
+            additionLabel: "Add another",
+          },
+        },
       },
+      // {
+      //   formName: "newsletter",
+      //   initialValues: data.newsletter,
+      //   labels: sectionForm.labels,
+      //   types: sectionForm.types,
+      //   placeholders: sectionForm.placeholders,
+      // },
       // media: {
       //   initalValues: mediaPayload,
       //   labels: landingPageForm.labels,
       //   types: appNameForm.types,
       //   placeholders: appNameForm.placeholders,
       // },
-      newsletter: {
-        initalValues: data.newsletter,
-        labels: sectionForm.labels,
-        types: sectionForm.types,
-        placeholders: sectionForm.placeholders,
-      },
       // themeList: {
       //   initalValues: data.themeList,
       //   labels: landingPageForm.labels,
       //   types: appNameForm.types,
       //   placeholders: appNameForm.placeholders,
       // },
-    });
+    ]);
+    setLoadingFormState(false);
   };
 
-  console.log("app", appValues);
+  // console.log("app", appValues);
   if (!app) return <p>no app found</p>;
   return (
     <div>
       {/* {cancelBtn && <Button label="Go-back" onClick={() => navigate("/")} />} */}
       <h2 className="heading">Editing app: {app.appName}</h2>
+      {isLoadingFormState ? (
+        <Loading message="Loading app data" />
+      ) : (
+        <PaginateForm
+          paginate={appValues}
+          onFormSubmit={(e: any) => console.log("e", e)}
+          page={1}
+        />
+      )}
       {/* <EditAppName appName={app.appName} onChange={handleChange} /> */}
       {/* {app.menu &&
         app.menu.map(
@@ -104,12 +149,6 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
               </div>
             )
         )} */}
-
-      {/* <p>themeList</p>
-      <p>language</p>
-      <p>newsletter</p>
-      <p>calendar</p> */}
-      {/* <Form initialValues={values} /> */}
     </div>
   );
 };

@@ -7,6 +7,7 @@ declare module "app-admin" {
     sectionForm: FormProps;
     landingPageForm: FormProps;
     heroForm: FormProps;
+    ctaForm: FormProps;
     buildApp: (values: FormValueProps) => void;
     editApp: (values: FormValueProps) => void;
   }

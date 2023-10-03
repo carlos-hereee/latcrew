@@ -1,8 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import { AppContext } from "../../utils/context/app/AppContext";
 import { PaginateForm } from "nexious-library";
-import { AuthContext } from "../../utils/context/auth/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { AdminContext } from "@app/utils/context/admin/AdminContext";
 
 type BuildAppProps = {
   heading?: string;
@@ -10,8 +9,7 @@ type BuildAppProps = {
 };
 
 const BuildApp: React.FC<BuildAppProps> = ({ heading, cancelBtn }) => {
-  const { landingPageForm, appNameForm, sectionForm } = useContext(AppContext);
-  const { buildApp } = useContext(AuthContext);
+  const { landingPageForm, appNameForm, sectionForm, buildApp } = useContext(AdminContext);
   const [formPage, setFormPage] = useState(0);
   const [isBuild, setBuild] = useState(false);
   const navigate = useNavigate();
