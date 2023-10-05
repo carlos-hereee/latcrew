@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "@app/utils/context/auth/AuthContext";
 import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { AdminContext } from "@app/utils/context/admin/AdminContext";
+import { FormValueProps } from "app-forms";
 
 type EditAppProps = {
   cancelBtn?: boolean;
@@ -35,7 +36,6 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
   const includeEditValues = (data: { [key: string]: any }) => {
     let pagesPayload: { [key: string]: any } = {};
     let mediaPayload: { [key: string]: any } = {};
-    let subSectionPayload: { [key: string]: any } = {};
     // include app pages
     const pages =
       data.menu && data.menu.length > 0 && data.menu.filter((item: any) => !item.isPrivate);
@@ -46,10 +46,18 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
         mediaPayload[social.name] = social;
       });
     pages.forEach((p: any) => (pagesPayload[p.active.name] = p.active));
-
+    const landingPageInitValuesPayload = {
+      title: data.landing.title,
+      tagline: data.landing.tagline,
+      body: data.landing.body,
+      hasCta: data.landing.hasCta ? data.landing.hasCta : landingPageForm.initialValues.hasCta,
+      hasSections: data.landing.hasSections
+        ? data.landing.hasSections
+        : landingPageForm.initialValues.hasSections,
+    };
     setAppValues([
       {
-        formName: "appName",
+        formName: "appname",
         heading: "New app name",
         initialValues: { appName: data.appName },
         labels: appNameForm.labels,
@@ -59,54 +67,60 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
       {
         formName: "landingPage",
         heading: "Update landing page data",
-        initialValues: data.landing,
+        initialValues: landingPageInitValuesPayload,
         labels: landingPageForm.labels,
         types: landingPageForm.types,
         placeholders: landingPageForm.placeholders,
+        fieldHeading: { hasCta: "Call To Action", hasSections: "Subsections" },
         addEntry: {
-          cta: {
+          hasCta: {
             initialValues: ctaForm.initialValues,
             labels: ctaForm.labels,
             types: ctaForm.types,
             placeholders: ctaForm.placeholders,
-            fieldHeading: "Call To Action",
             additionLabel: "Add another",
+            removalLabel: "Remove",
+            canMultiply: true,
           },
-          sections: {
+          hasSections: {
             initialValues: sectionForm.initialValues,
             labels: sectionForm.labels,
             types: sectionForm.types,
             placeholders: sectionForm.placeholders,
-            fieldHeading: "Subsections",
+            removalLabel: "Remove",
             additionLabel: "Add another",
+            canMultiply: true,
           },
         },
       },
-      {
-        formName: "initPage",
-        initialValues: pagesPayload,
-        labels: pagesForm.labels,
-        types: pagesForm.types,
-        placeholders: pagesForm.placeholders,
-        addEntry: {
-          cta: {
-            initialValues: ctaForm.initialValues,
-            labels: ctaForm.labels,
-            types: ctaForm.types,
-            placeholders: ctaForm.placeholders,
-            fieldHeading: "Call To Action",
-            additionLabel: "Add another",
-          },
-          sections: {
-            initialValues: sectionForm.initialValues,
-            labels: sectionForm.labels,
-            types: sectionForm.types,
-            placeholders: sectionForm.placeholders,
-            fieldHeading: "Subsections",
-            additionLabel: "Add another",
-          },
-        },
-      },
+      // {
+      //   formName: "initPage",
+      //   heading: "Add new page",
+      //   initialValues: pagesPayload,
+      //   labels: pagesForm.labels,
+      //   types: pagesForm.types,
+      //   placeholders: pagesForm.placeholders,
+      //   addEntry: {
+      //     cta: {
+      //       initialValues: ctaForm.initialValues,
+      //       labels: ctaForm.labels,
+      //       types: ctaForm.types,
+      //       placeholders: ctaForm.placeholders,
+      //       fieldHeading: "Call To Action",
+      //       additionLabel: "Add another",
+      //       removalLabel: "Remove",
+      //       canMultiply: true,
+      //     },
+      //     sections: {
+      //       initialValues: sectionForm.initialValues,
+      //       labels: sectionForm.labels,
+      //       types: sectionForm.types,
+      //       placeholders: sectionForm.placeholders,
+      //       fieldHeading: "Subsections",
+      //       removalLabel: "Remove",
+      //       additionLabel: "Add another",
+      //     },
+      // },
       // {
       //   formName: "newsletter",
       //   initialValues: data.newsletter,
@@ -129,8 +143,25 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
     ]);
     setLoadingFormState(false);
   };
-
-  // console.log("app", appValues);
+  const getValues = (page: { [key: string]: any }[]) => {
+    return page.map((p) => {
+      console.log("p", p);
+      if (p.removalBy) {
+        return { [p.name]: p.value, group: p.removalBy };
+      }
+      return { [p.name]: p.value };
+    });
+  };
+  const handleSubmit = (e: FormValueProps) => {
+    const payload = {
+      appName: e.appname[0].value,
+      landing: getValues(e.landingPage),
+      appId: app.appId,
+      id: app._id,
+    };
+    // console.log("e", e);
+    editApp(payload);
+  };
   if (!app) return <p>no app found</p>;
   return (
     <div>
@@ -139,11 +170,7 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
       {isLoadingFormState ? (
         <Loading message="Loading app data" />
       ) : (
-        <PaginateForm
-          paginate={appValues}
-          onFormSubmit={(e: any) => console.log("e", e)}
-          page={1}
-        />
+        <PaginateForm paginate={appValues} onFormSubmit={handleSubmit} />
       )}
       {/* <EditAppName appName={app.appName} onChange={handleChange} /> */}
       {/* {app.menu &&

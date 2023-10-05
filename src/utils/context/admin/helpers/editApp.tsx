@@ -4,9 +4,9 @@ import { FormValueProps } from "app-forms";
 
 export const editApp = async (dispatch: React.Dispatch<any>, data: FormValueProps) => {
   try {
-    console.log("data", data);
+    // console.log("data", data);
     dispatch({ type: "IS_LOADING", payload: true });
-    const response = await axiosAuth.post("/app/edit-app", data);
+    const response = await axiosAuth.post("/app/update-app", data);
     console.log("response", response);
     // dispatch({ type: "SET_OWNED_APPS", payload: response.data });
     // dispatch({ type: "SET_IS_ADMIN", payload: response.data });

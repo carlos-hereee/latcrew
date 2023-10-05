@@ -6,65 +6,73 @@
     "types": { "appName": "text" }
   },
   "pagesForm": {
-    "initialValues": { "name": "", "title": "", "body": "", "sections": false, "cta": false },
+    "initialValues": { "name": "", "title": "", "body": "", "hasSection": false, "hasCta": false },
     "types": {
       "title": "text",
       "body": "textarea",
       "name": "text",
-      "sections": "checkbox",
-      "cta": "checkbox"
+      "hasSection": "checkbox",
+      "hasCta": "checkbox"
     },
     "labels": {
       "name": "Enter page name",
       "title": "Enter page heading",
       "body": "Enter page body text",
-      "sections": "This part of the app has sub sections",
-      "cta": "This part of the app has a call to action"
+      "hasSection": "This part cta the app has sub sections",
+      "hasCta": "This part of the app has a call to action"
     },
     "placeholders": {
       "title": "Page headline",
       "hero": "",
       "body": "Text body",
       "name": "Page name",
-      "sections": "",
-      "cta": ""
+      "hasSection": "",
+      "hasCta": ""
     }
   },
   "sectionForm": {
-    "initialValues": { "title": "", "body": "" },
+    "initialValues": { "title": "Eco Friendly", "body": "We use eco friendly product" },
     "labels": { "title": "Section title", "body": "Section details" },
     "placeholders": { "title": "", "body": "" },
     "types": { "title": "", "body": "" }
   },
   "ctaForm": {
-    "initialValues": { "label": "", "link": "" },
+    "initialValues": { "label": "Reserve now!", "link": "services" },
     "labels": { "label": "", "link": "" },
     "placeholders": { "label": "", "link": "" },
     "types": { "label": "", "link": "" }
   },
   "landingPageForm": {
     "initialValues": {
-      "title": "Sharkle and Shine: Professional House Cleaning Services",
-      "tagline": "Transforming your home into a clean haven",
-      "body": "Welcome to Sparkle and Shine, your go-to solution for top-quality house cleaning services. We believe that a clean home is a happy home, and our dedicated team is here  help you achieve just that. With our exceptional cleaning expertise and attention to detail, we are committed to providing a pristine living environment that you can truly relax in",
-      "cta": false,
-      "sections": false
+      "title": "",
+      "tagline": "",
+      "body": "",
+      "hasCta": false,
+      "hasSections": false
     },
     "types": {
       "title": "text",
       "tagline": "text",
       "body": "textarea",
       "cta": "checkbox",
-      "sections": "checkbox"
+      "hasSections": "checkbox",
+      "hasCta": "checkbox"
     },
     "labels": {
       "title": "Page heading",
       "tagline": "What's your app's tagline?",
       "body": "Enter page details",
-      "cta": "This part of the app has a Call To Action",
-      "sections": "This part of the app has a sub section"
+      "hasCta": "This part of the app has a Call To Action",
+      "hasSections": "This part of the app has a sub section"
     },
-    "placeholders": { "title": "", "tagline": "", "body": "", "cta": "", "sections": "" }
+    "placeholders": {
+      "title": "",
+      "tagline": "",
+      "body": "",
+      "cta": "",
+      "hasSection": "",
+      "hasCta": ""
+    }
   },
   "heroForm": {
     "initialValues": { "name": "", "hero": "", "filename": "", "link": "", "label": "" },
