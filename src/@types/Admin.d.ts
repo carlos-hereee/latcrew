@@ -1,4 +1,5 @@
 declare module "app-admin" {
+  import { ReducerActions } from "app-types";
   import { FormProps, FormValueProps } from "app-forms";
   export interface AdminStateProps {
     isLoading: boolean;
@@ -21,9 +22,9 @@ declare module "app-admin" {
     editApp: (values: FormValueProps, appId: string) => void;
     editAppName: (values: FormValueProps, appId: string) => void;
   }
-  export interface AdminActions {
-    type: string;
-    payload: any;
-  }
-  export type AdminReducerProps = (state: AdminStateProps, action: AdminActions) => AdminStateProps;
+
+  export type AdminReducerProps = (
+    state: AdminStateProps,
+    action: ReducerActions
+  ) => AdminStateProps;
 }

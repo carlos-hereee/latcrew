@@ -13,7 +13,7 @@ import { AuthContext } from "../auth/AuthContext";
 import { toggleMenuItemLogin } from "../../app/toggleMenuItemLogin";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getLatestAppData } from "./helpers/getLatestAppData";
-import appState from "../../../data/appState.json";
+import appState from "@data/appState.json";
 import { uploadImage } from "./helpers/uploadImage";
 import { getFiles } from "./helpers/getFiles";
 import { isDev } from "@app/config";
@@ -24,9 +24,9 @@ import { uploadFile } from "./helpers/uploadFile";
 import { setTheme } from "./helpers/setTheme";
 import { getAppWithAppId } from "./helpers/getAppWithAppId";
 import { setEditApp } from "./helpers/setEditApp";
-import { AppSchema } from "app-context";
 import { ChildProps } from "app-types";
 import { axiosAuth } from "@app/utils/axios/axiosAuth";
+import { AppSchema } from "app-context";
 
 export const AppContext = createContext<AppSchema>({} as AppSchema);
 

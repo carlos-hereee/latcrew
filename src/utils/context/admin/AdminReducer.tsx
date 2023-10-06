@@ -1,6 +1,6 @@
-import { AdminActions, AdminStateProps } from "app-admin";
+import { AdminReducerProps } from "app-admin";
 
-export const reducer = (state: AdminStateProps, action: AdminActions): AdminStateProps => {
+export const reducer: AdminReducerProps = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
       return { ...state, isLoading: action.payload };

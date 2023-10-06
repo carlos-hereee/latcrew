@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { reducer } from "./AdminReducer";
-import { AdminActions, AdminReducerProps, AdminSchema, AdminStateProps } from "app-admin";
+import { AdminSchema } from "app-admin";
 import { ChildProps } from "app-types";
 import { buildApp } from "./helpers/buildApp";
 import { editApp } from "./helpers/editApp";
@@ -9,7 +9,7 @@ import { editAppName } from "./helpers/editAppName";
 
 export const AdminContext = createContext<AdminSchema>({} as AdminSchema);
 export const AdminState = ({ children }: ChildProps) => {
-  const [state, dispatch] = useReducer<AdminReducerProps>(reducer, adminState);
+  const [state, dispatch] = useReducer(reducer, adminState);
   // const { user } = useContext(AuthContext);
   // const navigate = useNavigate();
 

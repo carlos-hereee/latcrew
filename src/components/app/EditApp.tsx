@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { AppContext } from "../../utils/context/app/AppContext";
+import { AppContext } from "@context/app/AppContext";
 import { Loading, PaginateForm } from "nexious-library";
 import { Form } from "nexious-library";
 import { Button } from "nexious-library";

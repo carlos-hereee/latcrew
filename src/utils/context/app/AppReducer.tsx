@@ -36,7 +36,7 @@ export const reducer = (state, action) => {
       return { ...state, burger: action.payload };
     case "UPDATE_LANGUAGE":
       return { ...state, language: action.payload };
-    case "UPDATE_APP_ASSETS":
+    case "UPDATE_APP":
       return { ...state, app: action.payload };
     case "UPDATE_APP_LOGO":
       return { ...state, logo: action.payload };
