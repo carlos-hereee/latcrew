@@ -24,10 +24,10 @@ const App = ({ children }: ChildProps) => {
   // waiting server response
   if (isLoading) return <Loading message="Loading app assets.." />;
   return (
-    <div className={theme ? `${theme} app-container` : "app-container"}>
-      {menu && <Header menu={menu} logo={logo} updateMenu={updateMenu} language={language} />}
-      <div className="elbow-space">{children}</div>
-      {appName && <Footer appName={appName} />}
+    <div className={theme ? `${theme} app-container elbow-space` : "app-container elbow-space"}>
+      <Header menu={menu} logo={logo} updateMenu={updateMenu} language={language} />
+      {children}
+      <Footer appName={appName} />
     </div>
   );
 };

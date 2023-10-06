@@ -10,5 +10,6 @@ declare module "app-admin" {
     ctaForm: FormProps;
     buildApp: (values: FormValueProps) => void;
     editApp: (values: FormValueProps, appId: string) => void;
+    editAppName: (values: FormValueProps, appId: string) => void;
   }
 }

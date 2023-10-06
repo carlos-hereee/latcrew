@@ -9,13 +9,10 @@ import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { AdminContext } from "@app/utils/context/admin/AdminContext";
 import { FormValueProps } from "app-forms";
 
-type EditAppProps = {
-  cancelBtn?: boolean;
-};
-const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
+const EditApp = () => {
   const { appNameForm, pagesForm, sectionForm, landingPageForm } = useContext(AdminContext);
-  const { editApp, ctaForm } = useContext(AdminContext);
-  const navigate = useNavigate();
+  const { editApp, ctaForm, editAppName } = useContext(AdminContext);
+  // const navigate = useNavigate();
   const queryParams = useLocation();
   const [app, setApp] = useState<{ [key: string]: any }>({});
   const [isLoadingFormState, setLoadingFormState] = useState<boolean>(true);
@@ -63,6 +60,7 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
         labels: appNameForm.labels,
         types: appNameForm.types,
         placeholders: appNameForm.placeholders,
+        onSubmit: (e: FormValueProps) => editAppName(e, app.appId),
       },
       {
         formName: "landingPage",
@@ -147,7 +145,6 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
   if (!app) return <p>no app found</p>;
   return (
     <div>
-      {/* {cancelBtn && <Button label="Go-back" onClick={() => navigate("/")} />} */}
       <h2 className="heading">Editing app: {app.appName}</h2>
       {isLoadingFormState ? (
         <Loading message="Loading app data" />

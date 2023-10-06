@@ -5,6 +5,7 @@ import { ChildProps } from "app-types";
 import { buildApp } from "./helpers/buildApp";
 import { editApp } from "./helpers/editApp";
 import adminState from "@data/adminState.json";
+import { editAppName } from "./helpers/editAppName";
 
 export const AdminContext = createContext<AdminContextProps>({} as AdminContextProps);
 export const AdminState = ({ children }: ChildProps) => {
@@ -31,6 +32,7 @@ export const AdminState = ({ children }: ChildProps) => {
         ctaForm: state.ctaForm,
         buildApp: (a) => buildApp(dispatch, a),
         editApp: (a, b) => editApp({ dispatch, values: a, appId: b }),
+        editAppName: (a, b) => editAppName({ dispatch, values: a, appId: b }),
         // updateLoading: (a) => dispatch({ type: "IS_LOADING", payload: a }),
       }}
     >
