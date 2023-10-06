@@ -10,7 +10,7 @@
     "data": "",
     "theme": "",
     "details": "",
-    "sections": [{}]
+    "sections": []
   },
   "media": {
     "title": "",
@@ -18,17 +18,9 @@
     "data": "",
     "theme": "",
     "details": "",
-    "sections": [{}]
+    "sections": []
   },
-  "menu": [
-    {
-      "menuId": "",
-      "isToggle": false,
-      "isPrivate": false,
-      "active": "",
-      "alternatives": [{}]
-    }
-  ],
+  "menu": [],
   "calendar": { "name": "", "calendarId": "", "events": [{}] },
   "theme": "light-mode",
   "landing": {},
@@ -46,5 +38,5 @@
       "uid": "theme-dark-mode"
     }
   ],
-  "logo": {}
+  "logo": { "url": "", "link": "", "icon": "", "name": "" }
 }

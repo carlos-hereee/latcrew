@@ -7,7 +7,7 @@ declare module "app-types" {
     payload: any;
   }
   export interface SectionProps {
-    title: string;
+    title?: string;
     subtitle?: string;
     details?: string;
     data?: string;
@@ -27,5 +27,19 @@ declare module "app-types" {
     theme?: string;
     calendarId: string;
     events: { [key: string]: string }[];
+  }
+  export interface HeroProps {
+    url: string;
+    link: string;
+    icon: string;
+    name: string;
+    small?: string;
+    theme?: string;
+    ping?: number;
+    credit?: {
+      artistName: string;
+      artistUrl: string;
+      assetUrl: string;
+    };
   }
 }
