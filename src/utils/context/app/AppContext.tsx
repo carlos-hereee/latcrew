@@ -39,7 +39,8 @@ export const AppState = ({ children }: ChildProps) => {
   useEffect(() => {
     const getAppWithName = async (appName: string) => {
       const { data } = await axiosAuth.get(`/app/${appName}`);
-      dispatch({ type: "UPDATE_APP", payload: data });
+      console.log("data", data);
+      // dispatch({ type: "UPDATE_APP", payload: data });
     };
     if (queryParams.search) {
       const appName = queryParams.search.split("appName=")[1];

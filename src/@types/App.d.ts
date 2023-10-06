@@ -1,4 +1,5 @@
 declare module "app-types" {
+  import { FormValueProps } from "app-forms";
   export interface ChildProps {
     children: React.ReactNode;
   }
@@ -41,5 +42,9 @@ declare module "app-types" {
       artistUrl: string;
       assetUrl: string;
     };
+  }
+  export interface FilterDesiredProps {
+    values: FormValueProps;
+    desiredData: string[];
   }
 }
