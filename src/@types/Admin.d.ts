@@ -1,6 +1,15 @@
 declare module "app-admin" {
   import { FormProps, FormValueProps } from "app-forms";
-  export interface AdminContextProps {
+  export interface AdminStateProps {
+    isLoading: boolean;
+    appNameForm: FormProps;
+    pagesForm: FormProps;
+    sectionForm: FormProps;
+    landingPageForm: FormProps;
+    heroForm: FormProps;
+    ctaForm: FormProps;
+  }
+  export interface AdminSchema {
     isLoading: boolean;
     appNameForm: FormProps;
     pagesForm: FormProps;
@@ -12,4 +21,9 @@ declare module "app-admin" {
     editApp: (values: FormValueProps, appId: string) => void;
     editAppName: (values: FormValueProps, appId: string) => void;
   }
+  export interface AdminActions {
+    type: string;
+    payload: any;
+  }
+  export type AdminReducerProps = (state: AdminStateProps, action: AdminActions) => AdminStateProps;
 }

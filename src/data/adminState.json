@@ -1,4 +1,5 @@
 {
+  "isLoading": false,
   "appNameForm": {
     "initialValues": { "appName": "Sharkle and Shine" },
     "labels": { "appName": "Enter app name" },
