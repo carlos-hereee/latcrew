@@ -4,13 +4,13 @@
   "appId": "",
   "ownerId": "",
   "adminIds": [""],
-  "newletter": {
+  "newsletter": {
     "title": "",
     "subtitle": "",
     "data": "",
     "theme": "",
     "details": "",
-    "sections": []
+    "sections": [{}]
   },
   "media": {
     "title": "",
@@ -18,17 +18,18 @@
     "data": "",
     "theme": "",
     "details": "",
-    "sections": []
+    "sections": [{}]
   },
   "menu": [
     {
       "menuId": "",
-      "isToggle": "",
-      "isPrivate": "",
+      "isToggle": false,
+      "isPrivate": false,
       "active": "",
-      "alternatives": []
+      "alternatives": [{}]
     }
   ],
+  "calendar": { "name": "", "calendarId": "", "events": [{}] },
   "theme": "light-mode",
   "landing": {},
   "themeList": [

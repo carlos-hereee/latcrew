@@ -12,12 +12,12 @@ declare module "app-types" {
     details?: string;
     data?: string;
     theme?: string;
-    sections: { [key: string]: string }[];
+    sections?: { [key: string]: string }[];
   }
   export interface MenuProps {
     menuId: string;
-    isToggle: string;
-    isPrivate: string;
+    isToggle: boolean;
+    isPrivate: boolean;
     active: string;
     theme?: string;
     alternatives: { [key: string]: string }[];
