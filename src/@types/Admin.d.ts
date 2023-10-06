@@ -9,6 +9,6 @@ declare module "app-admin" {
     heroForm: FormProps;
     ctaForm: FormProps;
     buildApp: (values: FormValueProps) => void;
-    editApp: (values: FormValueProps) => void;
+    editApp: (values: FormValueProps, appId: string) => void;
   }
 }

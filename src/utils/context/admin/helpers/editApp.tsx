@@ -1,12 +1,13 @@
 import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { isDev } from "@app/config";
-import { FormValueProps } from "app-forms";
+import { EditAppProps } from "app-forms";
 
-export const editApp = async (dispatch: React.Dispatch<any>, data: FormValueProps) => {
+export const editApp = async (props: EditAppProps) => {
+  const { dispatch, values, appId } = props;
   try {
-    // console.log("data", data);
+    // console.log("values", values);
     dispatch({ type: "IS_LOADING", payload: true });
-    const response = await axiosAuth.post("/app/update-app", data);
+    const response = await axiosAuth.post("/app/update-app", { ...values, appId });
     console.log("response", response);
     // dispatch({ type: "SET_OWNED_APPS", payload: response.data });
     // dispatch({ type: "SET_IS_ADMIN", payload: response.data });

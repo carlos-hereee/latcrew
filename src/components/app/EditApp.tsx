@@ -57,7 +57,7 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
     };
     setAppValues([
       {
-        formName: "appname",
+        formName: "appName",
         heading: "New app name",
         initialValues: { appName: data.appName },
         labels: appNameForm.labels,
@@ -143,25 +143,7 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
     ]);
     setLoadingFormState(false);
   };
-  const getValues = (page: { [key: string]: any }[]) => {
-    return page.map((p) => {
-      console.log("p", p);
-      if (p.removalBy) {
-        return { [p.name]: p.value, group: p.removalBy };
-      }
-      return { [p.name]: p.value };
-    });
-  };
-  const handleSubmit = (e: FormValueProps) => {
-    const payload = {
-      appName: e.appname[0].value,
-      landing: getValues(e.landingPage),
-      appId: app.appId,
-      id: app._id,
-    };
-    // console.log("e", e);
-    editApp(payload);
-  };
+
   if (!app) return <p>no app found</p>;
   return (
     <div>
@@ -170,7 +152,10 @@ const EditApp: React.FC<EditAppProps> = ({ cancelBtn }) => {
       {isLoadingFormState ? (
         <Loading message="Loading app data" />
       ) : (
-        <PaginateForm paginate={appValues} onFormSubmit={handleSubmit} />
+        <PaginateForm
+          paginate={appValues}
+          onFormSubmit={(data: FormValueProps) => editApp(data, app?.appId)}
+        />
       )}
       {/* <EditAppName appName={app.appName} onChange={handleChange} /> */}
       {/* {app.menu &&

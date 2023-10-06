@@ -30,7 +30,7 @@ export const AdminState = ({ children }: ChildProps) => {
         heroForm: state.heroForm,
         ctaForm: state.ctaForm,
         buildApp: (a) => buildApp(dispatch, a),
-        editApp: (a) => editApp(dispatch, a),
+        editApp: (a, b) => editApp({ dispatch, values: a, appId: b }),
         // updateLoading: (a) => dispatch({ type: "IS_LOADING", payload: a }),
       }}
     >

@@ -37,7 +37,7 @@
     "types": { "title": "", "body": "" }
   },
   "ctaForm": {
-    "initialValues": { "label": "Reserve now!", "link": "services" },
+    "initialValues": { "label": "Reserve now!", "link": "" },
     "labels": { "label": "", "link": "" },
     "placeholders": { "label": "", "link": "" },
     "types": { "label": "", "link": "" }
