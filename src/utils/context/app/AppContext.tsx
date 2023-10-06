@@ -11,7 +11,7 @@ import { updateAppliedFilter } from "./helpers/updateAppliedFilter";
 import { resetFilter } from "./helpers/resetFilter";
 import { AuthContext } from "../auth/AuthContext";
 import { toggleMenuItemLogin } from "../../app/toggleMenuItemLogin";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { getLatestAppData } from "./helpers/getLatestAppData";
 import appState from "../../../data/appState.json";
 import { uploadImage } from "./helpers/uploadImage";
@@ -26,6 +26,7 @@ import { getAppWithAppId } from "./helpers/getAppWithAppId";
 import { setEditApp } from "./helpers/setEditApp";
 import { AppSchema } from "app-context";
 import { ChildProps } from "app-types";
+import { axiosAuth } from "@app/utils/axios/axiosAuth";
 
 export const AppContext = createContext<AppSchema>({} as AppSchema);
 
@@ -33,7 +34,18 @@ export const AppState = ({ children }: ChildProps) => {
   const [state, dispatch] = useReducer(reducer, appState);
   const { accessToken, user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const queryParams = useLocation();
 
+  useEffect(() => {
+    const getAppWithName = async (appName: string) => {
+      const { data } = await axiosAuth.get(`/app/${appName}`);
+      dispatch({ type: "UPDATE_APP", payload: data });
+    };
+    if (queryParams.search) {
+      const appName = queryParams.search.split("=")[1];
+      appName && getAppWithName(appName);
+    }
+  }, [queryParams.search]);
   useEffect(() => {
     // user is login
     if (accessToken) {

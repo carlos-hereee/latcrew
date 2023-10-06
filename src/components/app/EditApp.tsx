@@ -12,24 +12,16 @@ import { FormValueProps } from "app-forms";
 const EditApp = () => {
   const { appNameForm, pagesForm, sectionForm, landingPageForm } = useContext(AdminContext);
   const { editApp, ctaForm, editAppName } = useContext(AdminContext);
+  const { app } = useContext(AppContext);
   // const navigate = useNavigate();
-  const queryParams = useLocation();
-  const [app, setApp] = useState<{ [key: string]: any }>({});
+
+  // const [app, setApp] = useState<{ [key: string]: any }>({});
   const [isLoadingFormState, setLoadingFormState] = useState<boolean>(true);
   const [appValues, setAppValues] = useState<{ [key: string]: any }[]>([]);
-  // const appName = queryParams
-  useEffect(() => {
-    const getAppWithName = async (appName: string) => {
-      const { data } = await axiosAuth.get(`/app/${appName}`);
-      setApp(data);
-      includeEditValues(data);
-    };
-    if (queryParams.search) {
-      const appName = queryParams.search.split("=")[1];
-      getAppWithName(appName);
-    }
-  }, [queryParams.search]);
 
+  useEffect(() => {
+    if (app) includeEditValues(app);
+  }, [app]);
   const includeEditValues = (data: { [key: string]: any }) => {
     let pagesPayload: { [key: string]: any } = {};
     let mediaPayload: { [key: string]: any } = {};
@@ -154,16 +146,6 @@ const EditApp = () => {
           onFormSubmit={(data: FormValueProps) => editApp(data, app?.appId)}
         />
       )}
-      {/* <EditAppName appName={app.appName} onChange={handleChange} /> */}
-      {/* {app.menu &&
-        app.menu.map(
-          (item) =>
-            !item.isPrivate && (
-              <div className="pages" key={item.menuId}>
-                {item.active.label}
-              </div>
-            )
-        )} */}
     </div>
   );
 };
