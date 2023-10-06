@@ -1,7 +1,36 @@
 {
   "isLoading": true,
   "appName": "",
+  "appId": "",
+  "ownerId": "",
+  "adminIds": [""],
+  "newletter": {
+    "title": "",
+    "subtitle": "",
+    "data": "",
+    "theme": "",
+    "details": "",
+    "sections": []
+  },
+  "media": {
+    "title": "",
+    "subtitle": "",
+    "data": "",
+    "theme": "",
+    "details": "",
+    "sections": []
+  },
+  "menu": [
+    {
+      "menuId": "",
+      "isToggle": "",
+      "isPrivate": "",
+      "active": "",
+      "alternatives": []
+    }
+  ],
   "theme": "light-mode",
+  "landing": {},
   "themeList": [
     {
       "name": "light-mode",

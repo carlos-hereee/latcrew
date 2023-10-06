@@ -12,16 +12,16 @@ import { FormValueProps } from "app-forms";
 const EditApp = () => {
   const { appNameForm, pagesForm, sectionForm, landingPageForm } = useContext(AdminContext);
   const { editApp, ctaForm, editAppName } = useContext(AdminContext);
-  const { app } = useContext(AppContext);
+  const { appName, landing, appId } = useContext(AppContext);
   // const navigate = useNavigate();
 
-  // const [app, setApp] = useState<{ [key: string]: any }>({});
   const [isLoadingFormState, setLoadingFormState] = useState<boolean>(true);
   const [appValues, setAppValues] = useState<{ [key: string]: any }[]>([]);
 
   useEffect(() => {
-    if (app) includeEditValues(app);
-  }, [app]);
+    if (appName) includeEditValues({ appName, landing });
+  }, [appName]);
+
   const includeEditValues = (data: { [key: string]: any }) => {
     let pagesPayload: { [key: string]: any } = {};
     let mediaPayload: { [key: string]: any } = {};
@@ -52,7 +52,7 @@ const EditApp = () => {
         labels: appNameForm.labels,
         types: appNameForm.types,
         placeholders: appNameForm.placeholders,
-        onSubmit: (e: FormValueProps) => editAppName(e, app.appId),
+        onSubmit: (e: FormValueProps) => editAppName(e, appId),
       },
       {
         formName: "landingPage",
@@ -134,16 +134,16 @@ const EditApp = () => {
     setLoadingFormState(false);
   };
 
-  if (!app) return <p>no app found</p>;
+  if (!appId) return <p>no app found</p>;
   return (
     <div>
-      <h2 className="heading">Editing app: {app.appName}</h2>
+      <h2 className="heading">Editing app: {appName}</h2>
       {isLoadingFormState ? (
         <Loading message="Loading app data" />
       ) : (
         <PaginateForm
           paginate={appValues}
-          onFormSubmit={(data: FormValueProps) => editApp(data, app?.appId)}
+          onFormSubmit={(data: FormValueProps) => editApp(data, appId)}
         />
       )}
     </div>

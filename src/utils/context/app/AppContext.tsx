@@ -42,7 +42,7 @@ export const AppState = ({ children }: ChildProps) => {
       dispatch({ type: "UPDATE_APP", payload: data });
     };
     if (queryParams.search) {
-      const appName = queryParams.search.split("=")[1];
+      const appName = queryParams.search.split("appName=")[1];
       appName && getAppWithName(appName);
     }
   }, [queryParams.search]);
@@ -53,11 +53,11 @@ export const AppState = ({ children }: ChildProps) => {
       if (user && user.role === "admin") navigate("/admin-dashboard");
       // if (user.role === "admin") navigate("/add-page");
       // else navigate("/dashboard");
-      if (state.menu) {
-        const { altMenu, idx } = toggleMenuItemLogin(state.menu, accessToken);
-        dispatch({ type: "UPDATE_MENU", payload: altMenu });
-        // altMenu[idx].active.link && navigate(`/${altMenu[idx].active.link}`);
-      }
+      // if (state.menu) {
+      //   const { altMenu, idx } = toggleMenuItemLogin(state.menu, accessToken);
+      //   dispatch({ type: "UPDATE_MENU", payload: altMenu });
+      //   // altMenu[idx].active.link && navigate(`/${altMenu[idx].active.link}`);
+      // }
     }
   }, [accessToken]);
 
@@ -66,8 +66,16 @@ export const AppState = ({ children }: ChildProps) => {
       value={{
         isLoading: state.isLoading,
         appName: state.appName,
+        appId: state.appId,
+        landing: state.landing,
         theme: state.theme,
         themeList: state.themeList,
+        adminIds: state.adminIds,
+        calendar: state.calendar,
+        media: state.media,
+        menu: state.menu,
+        newsletter: state.newsletter,
+        ownerId: state.ownerId,
         // isComingSoon: state.isComingSoon,
         // app: state.app,
         // pages: state.pages,

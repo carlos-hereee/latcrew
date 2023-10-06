@@ -1,22 +1,24 @@
-const loadFilters = (state, action) => {
+import { AppReducerProps } from "app-context";
+
+const loadFilters: AppReducerProps = (state, action) => {
   return { ...state, isLoading: false, filters: action.payload, isFiltered: false };
 };
-const updateFilter = (state, action) => {
+const updateFilter: AppReducerProps = (state, action) => {
   return { ...state, isLoading: false, isFiltered: true, filtered: action.payload };
 };
-const updateAppliedFilter = (state, action) => {
+const updateAppliedFilter: AppReducerProps = (state, action) => {
   return {
     ...state,
     isLoading: false,
     isFiltered: true,
     appliedFilters: action.payload,
-    filterToggle: !state.filterToggle,
+    // filterToggle: !state.filterToggle,
   };
 };
-const resetFilter = (state, action) => {
+const resetFilter: AppReducerProps = (state, action) => {
   return { ...state, isLoading: false, isFiltered: false, filtered: action.payload };
 };
-export const reducer = (state, action) => {
+export const reducer: AppReducerProps = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
       return { ...state, isLoading: action.payload };
