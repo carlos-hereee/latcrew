@@ -1,45 +1,70 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "@context/app/AppContext";
 import { Loading, PaginateForm } from "nexious-library";
-import { Form } from "nexious-library";
-import { Button } from "nexious-library";
-import { useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "@app/utils/context/auth/AuthContext";
-import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { AdminContext } from "@app/utils/context/admin/AdminContext";
 import { AddEntryProps, FormValueProps, InitPaginateFormProps } from "app-forms";
+import { ReorderFormValueProps } from "app-forms";
 
 const EditApp = () => {
   const { appNameForm, pagesForm, sectionForm, landingPageForm } = useContext(AdminContext);
   const { editApp, ctaForm, editAppName } = useContext(AdminContext);
   const { appName, landingPage, appId } = useContext(AppContext);
-  // const navigate = useNavigate();
 
   const [isLoadingFormState, setLoadingFormState] = useState<boolean>(true);
   const [appValues, setAppValues] = useState<FormValueProps[]>([]);
 
-  const organizeValues = (values: FormValueProps, desiredOrder: string[]) => {
+  const organizeValues = (props: ReorderFormValueProps): FormValueProps => {
+    const { desiredOrder, withEntry } = props;
     const reorderedObject: FormValueProps = {};
-    desiredOrder.forEach((key) => {
-      if (values.hasOwnProperty(key)) reorderedObject[key] = values[key];
-    });
+    let { values } = props;
+    let canSkip: string[] = [];
+    for (let i = 0; i < desiredOrder.length; i++) {
+      const key = desiredOrder[i];
+      // continue to next iteration if key is skippable
+      if (!canSkip.includes(key)) {
+        if (withEntry) {
+          // if entry value found; get the index of the appropriate entry
+          const entryIdx = withEntry.findIndex((entry) => entry.name === key);
+          const skipable = withEntry[entryIdx]?.skipIfFalse;
+          if (entryIdx >= 0) {
+            // double check progenitor value if false skip next appropriate iteration
+            if (!values[key]) {
+              // skip appropriate value
+              skipable && canSkip.push(skipable);
+              // otherwise include the entries in list
+              reorderedObject[key] = values[key];
+            }
+            // else {
+            // }
+            //  otherwise theres no match ;
+          } else if (values.hasOwnProperty(key)) reorderedObject[key] = values[key];
+          // otherwise reorder to desired Order
+        } else if (values.hasOwnProperty(key)) reorderedObject[key] = values[key];
+      }
+    }
     return reorderedObject;
   };
   useEffect(() => {
     if (appName) {
-      // reset values; avoid redundant data
       const landingOrder = ["title", "tagline", "body", "hasCta", "cta", "hasSections", "sections"];
+      const landingEntry = [
+        { name: "hasCta", form: ctaForm, canMultiply: true, skipIfFalse: "cta" },
+        { name: "hasSections", form: sectionForm, canMultiply: true, skipIfFalse: "sections" },
+      ];
+      const landingValues = organizeValues({
+        values: landingPage,
+        desiredOrder: landingOrder,
+        withEntry: landingEntry,
+      });
+      // reset values; avoid redundant data
       setAppValues([]);
       includeEditValues([
         { values: { appName }, form: appNameForm, formName: "appName" },
         {
-          values: organizeValues(landingPage, landingOrder),
+          values: landingValues,
           form: landingPageForm,
           formName: "landingPage",
-          addEntries: [
-            { name: "hasCta", form: ctaForm, canMultiply: true },
-            { name: "hasSections", form: sectionForm, canMultiply: true },
-          ],
+          addEntries: landingEntry,
         },
       ]);
     }
@@ -83,7 +108,7 @@ const EditApp = () => {
     });
     setLoadingFormState(false);
   };
-  console.log("appValues", appValues);
+  // console.log("appValues", appValues);
 
   if (!appId) return <p>no app found</p>;
   return (

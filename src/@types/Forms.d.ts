@@ -26,6 +26,7 @@ declare module "app-forms" {
     name: string;
     form: FormProps;
     canMultiply?: boolean;
+    skipIfFalse?: string;
   }
   export interface InitPaginateFormProps {
     values: FormValueProps;
@@ -38,4 +39,9 @@ declare module "app-forms" {
     values: FormValueProps;
     appId: string;
   };
+  export interface ReorderFormValueProps {
+    values: FormValueProps;
+    desiredOrder: string[];
+    withEntry?: AddEntryProps[];
+  }
 }
