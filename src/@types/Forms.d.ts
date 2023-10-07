@@ -33,6 +33,7 @@ declare module "app-forms" {
     form: FormProps;
     formName: string;
     addEntries?: AddEntryProps[];
+    onSubmit?: (key: FormValueProps) => void;
   }
   export type EditAppProps = {
     dispatch: React.Dispatch<any>;

@@ -46,6 +46,8 @@
     "removalLabel": "Remove"
   },
   "ctaForm": {
+    "heading": "",
+    "fieldHeading": {},
     "initialValues": { "label": "Reserve now!", "link": "" },
     "labels": { "label": "", "link": "" },
     "placeholders": { "label": "", "link": "" },

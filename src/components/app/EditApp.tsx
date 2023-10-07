@@ -7,16 +7,15 @@ import { ReorderFormValueProps } from "app-forms";
 
 const EditApp = () => {
   const { appNameForm, pagesForm, sectionForm, landingPageForm } = useContext(AdminContext);
-  const { editApp, ctaForm, editAppName } = useContext(AdminContext);
+  const { editApp, ctaForm, editAppName, editLandingPage } = useContext(AdminContext);
   const { appName, landingPage, appId } = useContext(AppContext);
 
   const [isLoadingFormState, setLoadingFormState] = useState<boolean>(true);
   const [appValues, setAppValues] = useState<FormValueProps[]>([]);
 
   const organizeValues = (props: ReorderFormValueProps): FormValueProps => {
-    const { desiredOrder, withEntry } = props;
+    const { desiredOrder, withEntry, values } = props;
     const reorderedObject: FormValueProps = {};
-    let { values } = props;
     let canSkip: string[] = [];
     for (let i = 0; i < desiredOrder.length; i++) {
       const key = desiredOrder[i];
@@ -59,12 +58,18 @@ const EditApp = () => {
       // reset values; avoid redundant data
       setAppValues([]);
       includeEditValues([
-        { values: { appName }, form: appNameForm, formName: "appName" },
+        {
+          values: { appName },
+          form: appNameForm,
+          formName: "appName",
+          onSubmit: (e: FormValueProps) => editAppName(e, appId),
+        },
         {
           values: landingValues,
           form: landingPageForm,
           formName: "landingPage",
           addEntries: landingEntry,
+          onSubmit: (e: FormValueProps) => editLandingPage(e, appId),
         },
       ]);
     }
@@ -73,8 +78,8 @@ const EditApp = () => {
   const includeEntries = (entries: AddEntryProps[]) => {
     let payload: { [key: string]: any } = {};
     entries.forEach((entry) => {
-      const { form, name } = entry;
-      const { initialValues, labels, placeholders, types, canMultiply } = form;
+      const { form, name, canMultiply } = entry;
+      const { initialValues, labels, placeholders, types } = form;
       const { removalLabel, additionLabel } = form;
       payload[name] = {
         initialValues,
@@ -104,11 +109,12 @@ const EditApp = () => {
         types,
         addEntry,
       };
+      console.log("payload", payload);
       setAppValues((prev) => [...prev, payload]);
     });
     setLoadingFormState(false);
   };
-  // console.log("appValues", appValues);
+  console.log("appValues", appValues);
 
   if (!appId) return <p>no app found</p>;
   return (

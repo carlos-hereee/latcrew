@@ -6,6 +6,7 @@ import { buildApp } from "./helpers/buildApp";
 import { editApp } from "./helpers/editApp";
 import adminState from "@data/adminState.json";
 import { editAppName } from "./helpers/editAppName";
+import { editLandingPage } from "./helpers/editLandingPage";
 
 export const AdminContext = createContext<AdminSchema>({} as AdminSchema);
 export const AdminState = ({ children }: ChildProps) => {
@@ -33,6 +34,7 @@ export const AdminState = ({ children }: ChildProps) => {
         buildApp: (a) => buildApp(dispatch, a),
         editApp: (a, b) => editApp({ dispatch, values: a, appId: b }),
         editAppName: (a, b) => editAppName({ dispatch, values: a, appId: b }),
+        editLandingPage: (a, b) => editLandingPage({ dispatch, values: a, appId: b }),
         // updateLoading: (a) => dispatch({ type: "IS_LOADING", payload: a }),
       }}
     >
