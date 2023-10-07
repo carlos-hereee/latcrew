@@ -78,7 +78,7 @@ const EditApp = () => {
   const includeEntries = (entries: AddEntryProps[]) => {
     let payload: { [key: string]: any } = {};
     entries.forEach((entry) => {
-      const { form, name, canMultiply } = entry;
+      const { form, name, canMultiply, skipIfFalse } = entry;
       const { initialValues, labels, placeholders, types } = form;
       const { removalLabel, additionLabel } = form;
       payload[name] = {
@@ -89,13 +89,14 @@ const EditApp = () => {
         canMultiply,
         removalLabel,
         additionLabel,
+        skipIfFalse,
       };
     });
     return payload;
   };
   const includeEditValues = (data: InitPaginateFormProps[]) => {
     data.forEach((formData) => {
-      const { values, formName, addEntries } = formData;
+      const { values, formName, addEntries, onSubmit } = formData;
       const { heading, labels, placeholders, types, fieldHeading } = formData.form;
       const addEntry = addEntries ? includeEntries(addEntries) : undefined;
       // const initialValues = reOrderValues(values)
@@ -108,13 +109,12 @@ const EditApp = () => {
         labels,
         types,
         addEntry,
+        onSubmit,
       };
-      console.log("payload", payload);
       setAppValues((prev) => [...prev, payload]);
     });
     setLoadingFormState(false);
   };
-  console.log("appValues", appValues);
 
   if (!appId) return <p>no app found</p>;
   return (
