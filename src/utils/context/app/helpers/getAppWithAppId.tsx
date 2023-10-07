@@ -7,7 +7,7 @@ export const getAppWithAppId = async (dispatch, appId) => {
     if (data.app) {
       const { app } = data;
       dispatch({ type: "UPDATE_APP_ASSETS", payload: app });
-      app.menu && dispatch({ type: "UPDATE_MENU", payload: app.menu });
+      app.menu && dispatch({ type: "SET_MENU", payload: app.menu });
       app.logo && dispatch({ type: "UPDATE_LOGO", payload: app.logo });
     }
     if (data.pages) {

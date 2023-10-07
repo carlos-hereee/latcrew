@@ -7,130 +7,70 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "@app/utils/context/auth/AuthContext";
 import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { AdminContext } from "@app/utils/context/admin/AdminContext";
-import { FormValueProps } from "app-forms";
+import { AddEntryProps, FormValueProps, InitPaginateFormProps } from "app-forms";
 
 const EditApp = () => {
   const { appNameForm, pagesForm, sectionForm, landingPageForm } = useContext(AdminContext);
   const { editApp, ctaForm, editAppName } = useContext(AdminContext);
-  const { appName, landing, appId } = useContext(AppContext);
+  const { appName, landingPage, appId } = useContext(AppContext);
   // const navigate = useNavigate();
 
   const [isLoadingFormState, setLoadingFormState] = useState<boolean>(true);
   const [appValues, setAppValues] = useState<{ [key: string]: any }[]>([]);
 
   useEffect(() => {
-    if (appName) includeEditValues({ appName, landing });
+    if (appName)
+      includeEditValues([
+        { values: { appName }, form: appNameForm, formName: "appName" },
+        {
+          values: landingPage,
+          form: landingPageForm,
+          formName: "landingPage",
+          addEntries: [
+            { name: "hasCta", form: ctaForm, canMultiply: true },
+            { name: "hasSections", form: sectionForm, canMultiply: true },
+          ],
+        },
+      ]);
   }, [appName]);
 
-  const includeEditValues = (data: { [key: string]: any }) => {
-    let pagesPayload: { [key: string]: any } = {};
-    let mediaPayload: { [key: string]: any } = {};
-    // include app pages
-    const pages =
-      data.menu && data.menu.length > 0 && data.menu.filter((item: any) => !item.isPrivate);
-    // include social media
-    if (!pages || pages.length === 0) pagesPayload = pagesForm.initialValues;
-    data.media.socials?.length > 0 &&
-      data.media.socials.forEach((social: any) => {
-        mediaPayload[social.name] = social;
-      });
-    pages.forEach((p: any) => (pagesPayload[p.active.name] = p.active));
-    const landingPageInitValuesPayload = {
-      title: data.landing.title,
-      tagline: data.landing.tagline,
-      body: data.landing.body,
-      hasCta: data.landing.hasCta ? data.landing.hasCta : landingPageForm.initialValues.hasCta,
-      hasSections: data.landing.hasSections
-        ? data.landing.hasSections
-        : landingPageForm.initialValues.hasSections,
-    };
-    setAppValues([
-      {
-        formName: "appName",
-        heading: "New app name",
-        initialValues: { appName: data.appName },
-        labels: appNameForm.labels,
-        types: appNameForm.types,
-        placeholders: appNameForm.placeholders,
-        onSubmit: (e: FormValueProps) => editAppName(e, appId),
-      },
-      {
-        formName: "landingPage",
-        heading: "Update landing page data",
-        initialValues: landingPageInitValuesPayload,
-        labels: landingPageForm.labels,
-        types: landingPageForm.types,
-        placeholders: landingPageForm.placeholders,
-        fieldHeading: { hasCta: "Call To Action", hasSections: "Subsections" },
-        addEntry: {
-          hasCta: {
-            initialValues: ctaForm.initialValues,
-            labels: ctaForm.labels,
-            types: ctaForm.types,
-            placeholders: ctaForm.placeholders,
-            additionLabel: "Add another",
-            removalLabel: "Remove",
-            canMultiply: true,
-          },
-          hasSections: {
-            initialValues: sectionForm.initialValues,
-            labels: sectionForm.labels,
-            types: sectionForm.types,
-            placeholders: sectionForm.placeholders,
-            removalLabel: "Remove",
-            additionLabel: "Add another",
-            canMultiply: true,
-          },
+  const includeEntries = (entries: AddEntryProps[]) => {
+    let payload: { [key: string]: any } = {};
+    entries.forEach((entry) => {
+      const { form, name } = entry;
+      const { initialValues, labels, placeholders, types, canMultiply } = form;
+      const { removalLabel, additionLabel } = form;
+      payload[name] = {
+        initialValues,
+        labels,
+        placeholders,
+        types,
+        canMultiply,
+        removalLabel,
+        additionLabel,
+      };
+    });
+    return payload;
+  };
+  const includeEditValues = (data: InitPaginateFormProps[]) => {
+    data.forEach((formData) => {
+      const { values, formName, addEntries } = formData;
+      const { heading, labels, placeholders, types, fieldHeading } = formData.form;
+      const addEntry = addEntries ? includeEntries(addEntries) : undefined;
+      setAppValues((prev) => [
+        ...prev,
+        {
+          initialValues: values,
+          placeholders,
+          fieldHeading,
+          formName,
+          heading,
+          labels,
+          types,
+          addEntry,
         },
-      },
-      // {
-      //   formName: "initPage",
-      //   heading: "Add new page",
-      //   initialValues: pagesPayload,
-      //   labels: pagesForm.labels,
-      //   types: pagesForm.types,
-      //   placeholders: pagesForm.placeholders,
-      //   addEntry: {
-      //     cta: {
-      //       initialValues: ctaForm.initialValues,
-      //       labels: ctaForm.labels,
-      //       types: ctaForm.types,
-      //       placeholders: ctaForm.placeholders,
-      //       fieldHeading: "Call To Action",
-      //       additionLabel: "Add another",
-      //       removalLabel: "Remove",
-      //       canMultiply: true,
-      //     },
-      //     sections: {
-      //       initialValues: sectionForm.initialValues,
-      //       labels: sectionForm.labels,
-      //       types: sectionForm.types,
-      //       placeholders: sectionForm.placeholders,
-      //       fieldHeading: "Subsections",
-      //       removalLabel: "Remove",
-      //       additionLabel: "Add another",
-      //     },
-      // },
-      // {
-      //   formName: "newsletter",
-      //   initialValues: data.newsletter,
-      //   labels: sectionForm.labels,
-      //   types: sectionForm.types,
-      //   placeholders: sectionForm.placeholders,
-      // },
-      // media: {
-      //   initalValues: mediaPayload,
-      //   labels: landingPageForm.labels,
-      //   types: appNameForm.types,
-      //   placeholders: appNameForm.placeholders,
-      // },
-      // themeList: {
-      //   initalValues: data.themeList,
-      //   labels: landingPageForm.labels,
-      //   types: appNameForm.types,
-      //   placeholders: appNameForm.placeholders,
-      // },
-    ]);
+      ]);
+    });
     setLoadingFormState(false);
   };
 

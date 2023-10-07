@@ -6,13 +6,14 @@ declare module "app-context" {
     appName: string;
     theme: string;
     themeList: { name: string; value: string; themeId: string; uid?: string }[];
-    landing: any;
+    landingPage: any;
     appId: string;
     ownerId: string;
     adminIds: string[];
     newsletter?: SectionProps;
     media?: SectionProps;
     menu?: MenuProps[];
+    logo?: HeroProps;
     calendar?: CalendarProps;
     setTheme: (key: string) => void;
   }
@@ -21,7 +22,7 @@ declare module "app-context" {
     appName: string;
     theme: string;
     themeList: { name: string; value: string; themeId: string; uid?: string }[];
-    landing: any;
+    landingPage: any;
     appId: string;
     ownerId: string;
     adminIds: string[];

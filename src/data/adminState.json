@@ -4,9 +4,13 @@
     "initialValues": { "appName": "Sharkle and Shine" },
     "labels": { "appName": "Enter app name" },
     "placeholders": { "appName": "Enter appname .." },
-    "types": { "appName": "text" }
+    "types": { "appName": "text" },
+    "heading": "",
+    "fieldHeading": {}
   },
   "pagesForm": {
+    "heading": "",
+    "fieldHeading": {},
     "initialValues": { "name": "", "title": "", "body": "", "hasSection": false, "hasCta": false },
     "types": {
       "title": "text",
@@ -32,16 +36,22 @@
     }
   },
   "sectionForm": {
+    "heading": "",
+    "fieldHeading": {},
     "initialValues": { "title": "Eco Friendly", "body": "We use eco friendly product" },
     "labels": { "title": "Section title", "body": "Section details" },
     "placeholders": { "title": "", "body": "" },
-    "types": { "title": "", "body": "" }
+    "types": { "title": "", "body": "" },
+    "additionLabel": "Add another",
+    "removalLabel": "Remove"
   },
   "ctaForm": {
     "initialValues": { "label": "Reserve now!", "link": "" },
     "labels": { "label": "", "link": "" },
     "placeholders": { "label": "", "link": "" },
-    "types": { "label": "", "link": "" }
+    "types": { "label": "", "link": "" },
+    "additionLabel": "Add another",
+    "removalLabel": "Remove"
   },
   "landingPageForm": {
     "initialValues": {
@@ -73,9 +83,13 @@
       "cta": "",
       "hasSection": "",
       "hasCta": ""
-    }
+    },
+    "heading": "Update landing page data",
+    "fieldHeading": { "hasCta": "Call To Action", "hasSections": "Subsections" }
   },
   "heroForm": {
+    "heading": "",
+    "fieldHeading": {},
     "initialValues": { "name": "", "hero": "", "filename": "", "link": "", "label": "" },
     "labels": { "name": "", "hero": "", "filename": "", "link": "", "label": "" },
     "placeholders": { "name": "", "hero": "", "filename": "", "link": "", "label": "" },

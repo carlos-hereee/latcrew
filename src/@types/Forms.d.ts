@@ -4,10 +4,15 @@ declare module "app-forms" {
     password: string;
   }
   export type FormProps = {
+    heading: string;
     initialValues: { [key: string]: any };
     labels: { [key: string]: string };
     placeholders: { [key: string]: string };
     types: { [key: string]: string };
+    fieldHeading: { [key: string]: string };
+    additionLabel?: string;
+    removalLabel?: string;
+    canMultiply?: boolean;
   };
 
   export type RegisterFormProps = {
@@ -17,6 +22,17 @@ declare module "app-forms" {
   export type FormValueProps = {
     [key: string]: any;
   };
+  export interface AddEntryProps {
+    name: string;
+    form: FormProps;
+    canMultiply?: boolean;
+  }
+  export interface InitPaginateFormProps {
+    values: FormValueProps;
+    form: FormProps;
+    formName: string;
+    addEntries?: AddEntryProps[];
+  }
   export type EditAppProps = {
     dispatch: React.Dispatch<any>;
     values: FormValueProps;

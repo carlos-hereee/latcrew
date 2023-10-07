@@ -39,8 +39,18 @@ export const AppState = ({ children }: ChildProps) => {
   useEffect(() => {
     const getAppWithName = async (appName: string) => {
       const { data } = await axiosAuth.get(`/app/${appName}`);
-      console.log("data", data);
-      // dispatch({ type: "UPDATE_APP", payload: data });
+      data.logo && dispatch({ type: "SET_APP_LOGO", payload: data.logo });
+      data.adminIds && dispatch({ type: "SET_ADMIN_IDS", payload: data.adminIds });
+      data.appId && dispatch({ type: "SET_APP_ID", payload: data.appId });
+      data.appName && dispatch({ type: "SET_APP_NAME", payload: data.appName });
+      data.calendar && dispatch({ type: "SET_CALENDAR", payload: data.calendar });
+      data.landing && dispatch({ type: "SET_LANDING", payload: data.landing });
+      data.newsletter && dispatch({ type: "SET_NEWSLETTER", payload: data.newsletter });
+      data.menu && dispatch({ type: "SET_MENU", payload: data.menu });
+      data.media && dispatch({ type: "SET_MEDIA", payload: data.media });
+      data.ownerId && dispatch({ type: "SET_OWNER_ID", payload: data.ownerId });
+      data.themeList && dispatch({ type: "SET_THEME_LIST", payload: data.themeList });
+      dispatch({ type: "IS_LOADING", payload: false });
     };
     if (queryParams.search) {
       const appName = queryParams.search.split("appName=")[1];
@@ -56,7 +66,7 @@ export const AppState = ({ children }: ChildProps) => {
       // else navigate("/dashboard");
       // if (state.menu) {
       //   const { altMenu, idx } = toggleMenuItemLogin(state.menu, accessToken);
-      //   dispatch({ type: "UPDATE_MENU", payload: altMenu });
+      //   dispatch({ type: "SET_MENU", payload: altMenu });
       //   // altMenu[idx].active.link && navigate(`/${altMenu[idx].active.link}`);
       // }
     }
@@ -68,15 +78,18 @@ export const AppState = ({ children }: ChildProps) => {
         isLoading: state.isLoading,
         appName: state.appName,
         appId: state.appId,
-        landing: state.landing,
+        landingPage: state.landingPage,
         theme: state.theme,
         themeList: state.themeList,
         adminIds: state.adminIds,
         calendar: state.calendar,
         media: state.media,
         menu: state.menu,
-        newsletter: state.newsletter,
         ownerId: state.ownerId,
+        logo: state.logo,
+        newsletter: state.newsletter,
+        setTheme: (a) => dispatch({ type: "SET_THEME", payload: a }),
+
         // isComingSoon: state.isComingSoon,
         // app: state.app,
         // pages: state.pages,
@@ -135,7 +148,6 @@ export const AppState = ({ children }: ChildProps) => {
         // uploadFile: (a) => uploadFile(dispatch, a),
         // updateApp: (a) => updateApp(dispatch, a),
         // deleteApp: (a) => deleteApp(dispatch, a),
-        setTheme: (a) => dispatch({ type: "SET_THEME", payload: a }),
         // getAppWithAppId: (a) => getAppWithAppId(dispatch, a),
         // setEditApp: (a) => setEditApp(dispatch, a),
         // updateEditAppState: (a) => dispatch({ type: "SET_EDIT_APP", payload: a }),

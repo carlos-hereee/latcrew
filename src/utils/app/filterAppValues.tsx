@@ -1,7 +1,6 @@
-import { FilterDesiredProps } from "app-types";
+import { FormValueProps } from "app-forms";
 
-export const filterAppValues = (props: FilterDesiredProps) => {
-  const { values, desiredData } = props;
+export const filterAppValues = (values: FormValueProps, desiredData: string[]) => {
   const payload: { [key: string]: string } = {};
   Object.keys(values).forEach((key) => {
     if (desiredData.includes(key)) payload[key] = values[key];

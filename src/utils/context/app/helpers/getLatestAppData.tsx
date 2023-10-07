@@ -1,8 +1,8 @@
 import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { isDev } from "@app/config";
-import offline from "../../../../data/offlineAppState.json";
+import offline from "@data/offlineAppState.json";
 
-export const getLatestAppData = async (dispatch, appId) => {
+export const getLatestAppData = async (dispatch: React.Dispatch<any>, appId: string) => {
   try {
     dispatch({ type: "IS_LOADING", payload: false });
     const { data } = await axiosAuth.get(`/app/latest/${appId}`);
@@ -10,14 +10,14 @@ export const getLatestAppData = async (dispatch, appId) => {
     if (data.app) {
       const { app } = data;
       // dispatch({ type: "UPDATE_APP_ASSETS", payload: app });
-      app.menu && dispatch({ type: "UPDATE_MENU", payload: app.menu });
+      app.menu && dispatch({ type: "SET_MENU", payload: app.menu });
       app.logo && dispatch({ type: "UPDATE_LOGO", payload: app.logo });
     }
     if (data.pages) {
       dispatch({ type: "UPDATE_PAGES", payload: data.pages });
     }
     dispatch({ type: "IS_LOADING", payload: false });
-  } catch (error) {
+  } catch (error: any) {
     if (isDev) console.log("error fetching latest app data: ", error);
     // server is offline
     if (!error.response) {

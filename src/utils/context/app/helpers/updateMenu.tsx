@@ -1,3 +1,3 @@
 export const updateMenu = (dispatch, payload) => {
-  dispatch({ type: "UPDATE_MENU", payload });
+  dispatch({ type: "SET_MENU", payload });
 };

@@ -23,7 +23,7 @@
   "menu": [],
   "calendar": { "name": "", "calendarId": "", "events": [{}] },
   "theme": "light-mode",
-  "landing": {},
+  "landingPage": {},
   "themeList": [
     {
       "name": "light-mode",
