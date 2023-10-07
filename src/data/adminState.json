@@ -65,9 +65,10 @@
       "title": "text",
       "tagline": "text",
       "body": "textarea",
-      "cta": "checkbox",
+      "cta": "text",
       "hasSections": "checkbox",
-      "hasCta": "checkbox"
+      "hasCta": "checkbox",
+      "sections": "text"
     },
     "labels": {
       "title": "Page heading",

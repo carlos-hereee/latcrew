@@ -16,14 +16,24 @@ const EditApp = () => {
   // const navigate = useNavigate();
 
   const [isLoadingFormState, setLoadingFormState] = useState<boolean>(true);
-  const [appValues, setAppValues] = useState<{ [key: string]: any }[]>([]);
+  const [appValues, setAppValues] = useState<FormValueProps[]>([]);
 
+  const organizeValues = (values: FormValueProps, desiredOrder: string[]) => {
+    const reorderedObject: FormValueProps = {};
+    desiredOrder.forEach((key) => {
+      if (values.hasOwnProperty(key)) reorderedObject[key] = values[key];
+    });
+    return reorderedObject;
+  };
   useEffect(() => {
-    if (appName)
+    if (appName) {
+      // reset values; avoid redundant data
+      const landingOrder = ["title", "tagline", "body", "hasCta", "cta", "hasSections", "sections"];
+      setAppValues([]);
       includeEditValues([
         { values: { appName }, form: appNameForm, formName: "appName" },
         {
-          values: landingPage,
+          values: organizeValues(landingPage, landingOrder),
           form: landingPageForm,
           formName: "landingPage",
           addEntries: [
@@ -32,6 +42,7 @@ const EditApp = () => {
           ],
         },
       ]);
+    }
   }, [appName]);
 
   const includeEntries = (entries: AddEntryProps[]) => {
@@ -57,22 +68,22 @@ const EditApp = () => {
       const { values, formName, addEntries } = formData;
       const { heading, labels, placeholders, types, fieldHeading } = formData.form;
       const addEntry = addEntries ? includeEntries(addEntries) : undefined;
-      setAppValues((prev) => [
-        ...prev,
-        {
-          initialValues: values,
-          placeholders,
-          fieldHeading,
-          formName,
-          heading,
-          labels,
-          types,
-          addEntry,
-        },
-      ]);
+      // const initialValues = reOrderValues(values)
+      const payload = {
+        initialValues: values,
+        placeholders,
+        fieldHeading,
+        formName,
+        heading,
+        labels,
+        types,
+        addEntry,
+      };
+      setAppValues((prev) => [...prev, payload]);
     });
     setLoadingFormState(false);
   };
+  console.log("appValues", appValues);
 
   if (!appId) return <p>no app found</p>;
   return (
