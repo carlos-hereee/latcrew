@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useReducer } from "react";
 import { reducer } from "./AdminReducer";
 import { AdminSchema } from "app-admin";
 import { ChildProps } from "app-types";
@@ -32,7 +32,7 @@ export const AdminState = ({ children }: ChildProps) => {
         landingPageForm: state.landingPageForm,
         heroForm: state.heroForm,
         ctaForm: state.ctaForm,
-        buildApp: (a) => buildApp(dispatch, a),
+        buildApp: (a, b) => buildApp({ dispatch, values: a, appId: b, updateAppData }),
         editApp: (a, b) =>
           editApp({
             dispatch,

@@ -1,14 +1,13 @@
 import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { isDev } from "@app/config";
-import { FormValueProps } from "app-forms";
+import { EditAppProps } from "app-forms";
 
-export const buildApp = async (dispatch: React.Dispatch<any>, data: FormValueProps) => {
+export const buildApp = async (props: EditAppProps) => {
+  const { dispatch, appId, updateAppData, values } = props;
   try {
-    console.log("data", data);
     dispatch({ type: "IS_LOADING", payload: true });
-    const response = await axiosAuth.post("/app/build-app", data);
-    dispatch({ type: "SET_OWNED_APPS", payload: response.data });
-    // dispatch({ type: "SET_IS_ADMIN", payload: response.data });
+    const { data } = await axiosAuth.post("/app/build-app/" + appId, values);
+    data.app && updateAppData(data.app);
     dispatch({ type: "IS_LOADING", payload: false });
   } catch (error) {
     isDev && console.log("error building app ", error);

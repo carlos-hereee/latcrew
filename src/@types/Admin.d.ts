@@ -18,7 +18,7 @@ declare module "app-admin" {
     landingPageForm: FormProps;
     heroForm: FormProps;
     ctaForm: FormProps;
-    buildApp: (values: FormValueProps) => void;
+    buildApp: (values: FormValueProps, appId: string) => void;
     editApp: (values: FormValueProps, appId: string) => void;
     editAppName: (values: FormValueProps, appId: string) => void;
     editLandingPage: (values: FormValueProps, appId: string) => void;

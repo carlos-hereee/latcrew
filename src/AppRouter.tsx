@@ -24,7 +24,6 @@ import { PageNotFound } from "nexious-library";
 import ForgotPassword from "./components/form/ForgotPassword";
 import AdminRoute from "./utils/router/AdminRoute";
 import BuildApp from "./components/app/BuildApp";
-import AppData from "./pages/AppData";
 import EditApp from "./components/app/EditApp";
 
 const AppRouter: React.FC = () => {
@@ -42,7 +41,7 @@ const AppRouter: React.FC = () => {
     <Routes>
       {/* Public Routes */}
       {/* // if server not coaperating use offline data */}
-      <Route path="/app/" element={<AppData />} />
+      <Route path="/app/" element={<Landing />} />
       <Route path="/offline" element={<Offline />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/login" element={<Login />} />
@@ -67,7 +66,7 @@ const AppRouter: React.FC = () => {
       {/* Admin routes for editing pages */}
       <Route element={<AdminRoute />}>
         <Route path="/build-app" element={<BuildApp cancelBtn />} />
-        <Route path="/edit-app/" element={<EditApp cancelBtn />} />
+        <Route path="/edit-app/" element={<EditApp />} />
       </Route>
       {/* All other routes */}
       <Route path="/*" element={<PageNotFound to={accessToken ? "/dashboard" : "/"} />} />

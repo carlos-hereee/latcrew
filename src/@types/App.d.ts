@@ -13,6 +13,7 @@ declare module "app-types" {
     details?: string;
     data?: string;
     theme?: string;
+    uid?: string;
     sections?: { [key: string]: string }[];
   }
   export interface MenuProps {

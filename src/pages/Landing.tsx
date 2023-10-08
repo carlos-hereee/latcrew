@@ -1,34 +1,27 @@
 import { useContext } from "react";
-import { AppContext } from "../utils/context/app/AppContext";
+import { AppContext } from "@context/app/AppContext";
 import { HeroCard, Card } from "nexious-library";
 import { Socials } from "nexious-library";
-import { AuthContext } from "../utils/context/auth/AuthContext";
-import AppInProgress from "@app/components/app/AppInProgress";
-import UserPlayground from "./UserPlayground";
+import { SectionProps } from "app-types";
 
 const Landing = () => {
-  const { landing, media, app } = useContext(AppContext);
-  const { user, accessToken } = useContext(AuthContext);
+  const { landingPage, media } = useContext(AppContext);
 
-  // if login in but no app is been created
-  if (!app && accessToken) return <UserPlayground />;
-  // no app no login - everything's okay tho, app is under construction
-  if (!app) return <AppInProgress />;
   return (
     <div className="container">
-      {landing && (
+      {landingPage && (
         <div className="flex-d-column">
-          <HeroCard data={landing} />
-          <p className="text-max">{landing.body}</p>
+          <HeroCard data={landingPage} />
+          <p className="text-max">{landingPage.body}</p>
         </div>
       )}
-      {media && media.socials?.length > 0 && (
-        <Socials socials={media.socials} heading={media.title} />
+      {media && media.sections && media.sections.length > 0 && (
+        <Socials socials={media.sections} heading={media.title} />
       )}
-      {landing?.features && (
+      {landingPage?.sections && (
         <div className="feature-card-container m-tb">
-          {landing.features.map((af) => (
-            <Card key={af.uid} data={af} />
+          {landingPage.sections.map((af: SectionProps, idx: number) => (
+            <Card key={af.uid || idx} data={af} />
           ))}
         </div>
       )}
