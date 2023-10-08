@@ -116,6 +116,7 @@ const EditApp = () => {
     setLoadingFormState(false);
   };
 
+  console.log("name", name);
   if (!appId) return <p>no app found</p>;
   return (
     <div>

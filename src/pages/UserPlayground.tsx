@@ -1,16 +1,13 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../utils/context/auth/AuthContext";
-import DangerZone from "@components/app/DangerZone";
-import WelcomeMessage from "@components/app/WelcomeMessage";
-import message from "../data/messages.json";
 import { AppContext } from "../utils/context/app/AppContext";
-import { Hero, Select } from "nexious-library";
+import { Hero } from "nexious-library";
 import { useNavigate } from "react-router-dom";
 import WelcomeBanner from "@app/components/app/WelcomeBanner";
 
 const UserPlayground = () => {
-  const { user, ownedApps } = useContext(AuthContext);
-  const { theme, themeList, setTheme } = useContext(AppContext);
+  const { ownedApps } = useContext(AuthContext);
+  const { theme } = useContext(AppContext);
   const [error, setError] = useState<{ [key: string]: any }>({});
 
   const navigate = useNavigate();

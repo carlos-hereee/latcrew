@@ -40,18 +40,7 @@ export const AppState = ({ children }: ChildProps) => {
   useEffect(() => {
     const getAppWithName = async (appName: string) => {
       const { data } = await axiosAuth.get(`/app/${appName}`);
-      data.logo && dispatch({ type: "SET_APP_LOGO", payload: data.logo });
-      data.adminIds && dispatch({ type: "SET_ADMIN_IDS", payload: data.adminIds });
-      data.appId && dispatch({ type: "SET_APP_ID", payload: data.appId });
-      data.appName && dispatch({ type: "SET_APP_NAME", payload: data.appName });
-      data.calendar && dispatch({ type: "SET_CALENDAR", payload: data.calendar });
-      data.landing && dispatch({ type: "SET_LANDING", payload: data.landing });
-      data.newsletter && dispatch({ type: "SET_NEWSLETTER", payload: data.newsletter });
-      data.menu && dispatch({ type: "SET_MENU", payload: data.menu });
-      data.media && dispatch({ type: "SET_MEDIA", payload: data.media });
-      data.ownerId && dispatch({ type: "SET_OWNER_ID", payload: data.ownerId });
-      data.themeList && dispatch({ type: "SET_THEME_LIST", payload: data.themeList });
-      dispatch({ type: "IS_LOADING", payload: false });
+      updateAppData({ dispatch, values: data });
     };
     if (queryParams.search) {
       const appName = queryParams.search.split("appName=")[1];
