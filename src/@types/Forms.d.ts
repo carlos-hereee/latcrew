@@ -35,10 +35,15 @@ declare module "app-forms" {
     addEntries?: AddEntryProps[];
     onSubmit?: (key: FormValueProps) => void;
   }
+  export type UpdateAppProps = {
+    dispatch: React.Dispatch<any>;
+    values: FormValueProps;
+  };
   export type EditAppProps = {
     dispatch: React.Dispatch<any>;
     values: FormValueProps;
     appId: string;
+    updateAppData: (key: FormValueProps) => void;
   };
   export interface ReorderFormValueProps {
     values: FormValueProps;

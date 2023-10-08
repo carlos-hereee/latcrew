@@ -3,18 +3,13 @@ import { isDev } from "@app/config";
 import { EditAppProps } from "app-forms";
 
 export const editLandingPage = async (props: EditAppProps) => {
-  const { dispatch, values, appId } = props;
+  const { dispatch, values, appId, updateAppData } = props;
   try {
-    // console.log("values", values);
     dispatch({ type: "IS_LOADING", payload: true });
-    const response = await axiosAuth.post(`/app/update-landing-page/${appId}`, values);
-    console.log("response", response);
-    // dispatch({ type: "SET_OWNED_APPS", payload: response.data });
-    // dispatch({ type: "SET_IS_ADMIN", payload: response.data });
+    const { data } = await axiosAuth.post(`/app/update-landing-page/${appId}`, values);
+    data.app && updateAppData(data.app);
     dispatch({ type: "IS_LOADING", payload: false });
   } catch (error) {
     isDev && console.log("error building app ", error);
-    // dispatch({ type: "SET_APP_ID", payload: "" });
-    // dispatch({ type: "IS_LOADING", payload: false });
   }
 };

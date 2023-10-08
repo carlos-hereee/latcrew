@@ -7,15 +7,9 @@ export const getLatestAppData = async (dispatch: React.Dispatch<any>, appId: str
     dispatch({ type: "IS_LOADING", payload: false });
     const { data } = await axiosAuth.get(`/app/latest/${appId}`);
     console.log("data", data);
-    if (data.app) {
-      const { app } = data;
-      // dispatch({ type: "UPDATE_APP_ASSETS", payload: app });
-      app.menu && dispatch({ type: "SET_MENU", payload: app.menu });
-      app.logo && dispatch({ type: "UPDATE_LOGO", payload: app.logo });
-    }
-    if (data.pages) {
-      dispatch({ type: "UPDATE_PAGES", payload: data.pages });
-    }
+    const { app } = data;
+    app.menu && dispatch({ type: "SET_MENU", payload: app.menu });
+    app.logo && dispatch({ type: "UPDATE_LOGO", payload: app.logo });
     dispatch({ type: "IS_LOADING", payload: false });
   } catch (error: any) {
     if (isDev) console.log("error fetching latest app data: ", error);

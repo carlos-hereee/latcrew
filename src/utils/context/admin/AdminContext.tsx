@@ -7,11 +7,12 @@ import { editApp } from "./helpers/editApp";
 import adminState from "@data/adminState.json";
 import { editAppName } from "./helpers/editAppName";
 import { editLandingPage } from "./helpers/editLandingPage";
+import { AppContext } from "../app/AppContext";
 
 export const AdminContext = createContext<AdminSchema>({} as AdminSchema);
 export const AdminState = ({ children }: ChildProps) => {
   const [state, dispatch] = useReducer(reducer, adminState);
-  // const { user } = useContext(AuthContext);
+  const { updateAppData } = useContext(AppContext);
   // const navigate = useNavigate();
 
   // useEffect(() => {
@@ -32,9 +33,27 @@ export const AdminState = ({ children }: ChildProps) => {
         heroForm: state.heroForm,
         ctaForm: state.ctaForm,
         buildApp: (a) => buildApp(dispatch, a),
-        editApp: (a, b) => editApp({ dispatch, values: a, appId: b }),
-        editAppName: (a, b) => editAppName({ dispatch, values: a, appId: b }),
-        editLandingPage: (a, b) => editLandingPage({ dispatch, values: a, appId: b }),
+        editApp: (a, b) =>
+          editApp({
+            dispatch,
+            values: a,
+            appId: b,
+            updateAppData,
+          }),
+        editAppName: (a, b) =>
+          editAppName({
+            dispatch,
+            values: a,
+            appId: b,
+            updateAppData,
+          }),
+        editLandingPage: (a, b) =>
+          editLandingPage({
+            dispatch,
+            values: a,
+            appId: b,
+            updateAppData,
+          }),
         // updateLoading: (a) => dispatch({ type: "IS_LOADING", payload: a }),
       }}
     >

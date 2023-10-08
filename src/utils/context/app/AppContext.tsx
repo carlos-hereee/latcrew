@@ -27,6 +27,7 @@ import { setEditApp } from "./helpers/setEditApp";
 import { ChildProps } from "app-types";
 import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { AppSchema } from "app-context";
+import { updateAppData } from "./helpers/updateAppData";
 
 export const AppContext = createContext<AppSchema>({} as AppSchema);
 
@@ -89,6 +90,7 @@ export const AppState = ({ children }: ChildProps) => {
         logo: state.logo,
         newsletter: state.newsletter,
         setTheme: (a) => dispatch({ type: "SET_THEME", payload: a }),
+        updateAppData: (a) => updateAppData({ dispatch, values: a }),
 
         // isComingSoon: state.isComingSoon,
         // app: state.app,
