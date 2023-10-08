@@ -6,6 +6,7 @@ import { SectionProps } from "app-types";
 
 const Landing = () => {
   const { landingPage, media } = useContext(AppContext);
+  console.log("landingPage", landingPage);
 
   return (
     <div className="container">

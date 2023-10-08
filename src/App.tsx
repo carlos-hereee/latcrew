@@ -6,7 +6,13 @@ import { ChildProps } from "app-types";
 
 const App = ({ children }: ChildProps) => {
   const { isLoading } = useContext(AuthContext);
-  const { appName, theme, menu, logo, language, updateMenu } = useContext(AppContext);
+  const {
+    appName,
+    theme,
+    menu,
+    logo,
+    // language, updateMenu
+  } = useContext(AppContext);
 
   useEffect(() => {
     if (appName) document.title = appName;
@@ -25,7 +31,11 @@ const App = ({ children }: ChildProps) => {
   if (isLoading) return <Loading message="Loading app assets.." />;
   return (
     <div className={theme ? `${theme} app-container elbow-space` : "app-container elbow-space"}>
-      <Header menu={menu} logo={logo} updateMenu={updateMenu} language={language} />
+      <Header
+        menu={menu}
+        logo={logo}
+        // updateMenu={updateMenu} language={language}
+      />
       {children}
       <Footer appName={appName} />
     </div>

@@ -25,6 +25,7 @@ import ForgotPassword from "./components/form/ForgotPassword";
 import AdminRoute from "./utils/router/AdminRoute";
 import BuildApp from "./components/app/BuildApp";
 import EditApp from "./components/app/EditApp";
+import Homepage from "./pages/Homepage";
 
 const AppRouter: React.FC = () => {
   const { accessToken, user, changePassword } = useContext(AuthContext);
@@ -46,7 +47,7 @@ const AppRouter: React.FC = () => {
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/login" element={<Login />} />
       <Route path="/sign-up" element={<SignUp />} />
-      <Route path="/" element={<Landing />} />
+      <Route path="/" element={<Homepage />} />
       {/* App routes that requires internet or app data to work */}
       <Route element={<AppRoute />}>
         <Route path="/services" element={<Services />} />

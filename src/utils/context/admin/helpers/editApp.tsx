@@ -7,7 +7,7 @@ export const editApp = async (props: EditAppProps) => {
   try {
     dispatch({ type: "IS_LOADING", payload: true });
     const { data } = await axiosAuth.post(`/app/update-app/${appId}`, values);
-    data.app && updateAppData(data.app);
+    data && updateAppData(data);
     dispatch({ type: "IS_LOADING", payload: false });
   } catch (error) {
     isDev && console.log("error building app ", error);

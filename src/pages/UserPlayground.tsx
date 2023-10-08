@@ -13,7 +13,7 @@ import EditApp from "@app/components/app/EditApp";
 import { useNavigate } from "react-router-dom";
 
 const UserPlayground = () => {
-  const { user, ownedApps, editApp } = useContext(AuthContext);
+  const { user, ownedApps } = useContext(AuthContext);
   const { theme, themeList, setTheme } = useContext(AppContext);
   const [error, setError] = useState<{ [key: string]: any }>({});
 
