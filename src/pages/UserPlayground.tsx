@@ -3,14 +3,10 @@ import { AuthContext } from "../utils/context/auth/AuthContext";
 import DangerZone from "@components/app/DangerZone";
 import WelcomeMessage from "@components/app/WelcomeMessage";
 import message from "../data/messages.json";
-import ChangePassword from "@components/form/ChangePassword";
 import { AppContext } from "../utils/context/app/AppContext";
-import { Button, Hero, Select } from "nexious-library";
-import AccountSettings from "@app/components/app/AccountSettings";
-// import AppSettings from "@app/components/app/AppSettings";
-import BuildApp from "@app/components/app/BuildApp";
-import EditApp from "@app/components/app/EditApp";
+import { Hero, Select } from "nexious-library";
 import { useNavigate } from "react-router-dom";
+import WelcomeBanner from "@app/components/app/WelcomeBanner";
 
 const UserPlayground = () => {
   const { user, ownedApps } = useContext(AuthContext);
@@ -43,22 +39,7 @@ const UserPlayground = () => {
   };
   return (
     <div className="container">
-      <div className="banner">
-        <WelcomeMessage user={user} message={message.welcomeMessage} />
-        <div className="flex-center">
-          <div className="select-field">
-            <Select
-              name={theme}
-              list={themeList}
-              onChange={(event: any) => setTheme(event.target.value)}
-              active={theme}
-              label={"Theme: "}
-              theme={theme}
-            />
-          </div>
-          <DangerZone />
-        </div>
-      </div>
+      <WelcomeBanner />
       <div className="container">
         <h2 className="heading">All your apps: </h2>
         <button
@@ -68,7 +49,7 @@ const UserPlayground = () => {
         >
           + Create a new app
         </button>
-        {ownedApps?.length > 0 ? (
+        {ownedApps ? (
           ownedApps.map((app) => (
             <div key={app.appId} className="card-row pad-t">
               <Hero hero={app.logo ? app.logo : {}} onImageClick={() => handleEdit(app)} />

@@ -3,6 +3,7 @@
   "appName": "",
   "appId": "",
   "ownerId": "",
+  "welcomeMessage": "Welcome back!",
   "adminIds": [""],
   "newsletter": {
     "title": "",

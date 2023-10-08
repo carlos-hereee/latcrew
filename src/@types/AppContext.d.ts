@@ -19,6 +19,7 @@ declare module "app-context" {
     // auth schema
     isLoading: boolean;
     appName: string;
+    welcomeMessage: string;
     theme: string;
     themeList: { name: string; value: string; themeId: string; uid?: string }[];
     landingPage: any;
@@ -36,6 +37,7 @@ declare module "app-context" {
   export interface AppStateProps {
     isLoading: boolean;
     appName: string;
+    welcomeMessage: string;
     theme: string;
     themeList: { name: string; value: string; themeId: string; uid?: string }[];
     landingPage: any;

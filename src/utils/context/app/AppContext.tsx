@@ -88,6 +88,7 @@ export const AppState = ({ children }: ChildProps) => {
         menu: state.menu,
         ownerId: state.ownerId,
         logo: state.logo,
+        welcomeMessage: state.welcomeMessage,
         newsletter: state.newsletter,
         setTheme: (a) => dispatch({ type: "SET_THEME", payload: a }),
         updateAppData: (a) => updateAppData({ dispatch, values: a }),
