@@ -24,17 +24,25 @@ const EditApp = () => {
         if (withEntry) {
           // if entry value found; get the index of the appropriate entry
           const entryIdx = withEntry.findIndex((entry) => entry.name === key);
-          const skipable = withEntry[entryIdx]?.skipIfFalse;
-          if (entryIdx >= 0) {
-            // double check progenitor value if false skip next appropriate iteration
-            if (!values[key]) {
-              // skip appropriate value
-              skipable && canSkip.push(skipable);
-              // otherwise include the entries in list
+          const target = withEntry[entryIdx]?.skipIfFalse;
+          if (entryIdx >= 0 && target) {
+            // skip appropriate value
+            target && canSkip.push(target);
+            if (!values[key]) reorderedObject[key] = values[key];
+            else {
+              // app proves entries to include
+              const { form } = withEntry[entryIdx];
+              const entryValues = Object.keys(form.initialValues);
+              let payload: FormValueProps = {};
+              entryValues.forEach((val) => {
+                const valIdx = values[target].findIndex((data: FormValueProps) => data[val]);
+                const data = values[target][valIdx][val];
+                payload[val] = data;
+              });
+              if (!reorderedObject[target]) reorderedObject[target] = [payload];
+              else reorderedObject[target] = [...reorderedObject[target], payload];
               reorderedObject[key] = values[key];
             }
-            // else {
-            // }
             //  otherwise theres no match ;
           } else if (values.hasOwnProperty(key)) reorderedObject[key] = values[key];
           // otherwise reorder to desired Order
@@ -116,7 +124,6 @@ const EditApp = () => {
     setLoadingFormState(false);
   };
 
-  console.log("name", name);
   if (!appId) return <p>no app found</p>;
   return (
     <div>

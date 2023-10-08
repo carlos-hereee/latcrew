@@ -1,4 +1,7 @@
 import { Route, Routes } from "react-router-dom";
+import { useContext } from "react";
+import { PageNotFound } from "nexious-library";
+import { AuthContext } from "./utils/context/auth/AuthContext";
 import Landing from "./pages/Landing";
 import Services from "./pages/Services";
 import Booking from "./pages/Booking";
@@ -7,20 +10,14 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Checkout from "./pages/Checkout";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./utils/router/PrivateRoute";
-import { useContext } from "react";
-import { AuthContext } from "./utils/context/auth/AuthContext";
 import AdminDashboard from "./pages/AdminDashboard";
 import AddPage from "./pages/AddPages";
-import UserPlayground from "./pages/UserPlayground";
 import ChangePassword from "@components/form/ChangePassword";
 import Offline from "./pages/Offline";
 import SignUp from "./pages/Signup";
 import AppRoute from "./utils/router/AppRoute";
-import { PageNotFound } from "nexious-library";
 import ForgotPassword from "./components/form/ForgotPassword";
 import AdminRoute from "./utils/router/AdminRoute";
 import BuildApp from "./components/app/BuildApp";
@@ -28,12 +25,8 @@ import EditApp from "./components/app/EditApp";
 import Homepage from "./pages/Homepage";
 
 const AppRouter: React.FC = () => {
-  const { accessToken, user, changePassword } = useContext(AuthContext);
+  const { accessToken, changePassword } = useContext(AuthContext);
   const { emergencyPasswordChangeIsRequired } = useContext(AuthContext);
-
-  // const { isComingSoon } = useContext(AppContext);
-
-  // if (isComingSoon && user.role !== "admin") return <ComingSoon />;
 
   // emergency password change
   if (emergencyPasswordChangeIsRequired) return <ChangePassword handleClick={changePassword} />;
@@ -45,7 +38,6 @@ const AppRouter: React.FC = () => {
       <Route path="/app/" element={<Landing />} />
       <Route path="/offline" element={<Offline />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/login" element={<Login />} />
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/" element={<Homepage />} />
       {/* App routes that requires internet or app data to work */}

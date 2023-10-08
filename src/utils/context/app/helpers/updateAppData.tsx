@@ -2,7 +2,6 @@ import { UpdateAppProps } from "app-forms";
 
 export const updateAppData = (props: UpdateAppProps) => {
   const { dispatch, values } = props;
-  console.log("values", values);
   dispatch({ type: "IS_LOADING", payload: true });
   values.logo && dispatch({ type: "SET_APP_LOGO", payload: values.logo });
   values.adminIds && dispatch({ type: "SET_ADMIN_IDS", payload: values.adminIds });

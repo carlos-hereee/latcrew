@@ -1,11 +1,10 @@
 import { useContext } from "react";
 import { Form } from "nexious-library";
 import { AuthContext } from "../utils/context/auth/AuthContext";
-import { AuthSchema } from "@app/utils/types/auth";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  const { login, authErrors, loginForm } = useContext<AuthSchema>(AuthContext);
+  const { login, authErrors, loginForm } = useContext(AuthContext);
 
   return (
     <div className="container">
