@@ -1,11 +1,12 @@
-import { APP_ACTIONS } from "@app/utils/app/types";
+import { AUTH_ACTIONS } from "@app/utils/types/AuthTypes";
 import { UpdateUserReducerProps } from "auth-context";
 
 export const updateUser = (props: UpdateUserReducerProps) => {
   //  key varaibles
   const { dispatch, user } = props;
   console.log("user", user);
-  dispatch({ type: APP_ACTIONS.SET_USER_DATA, payload: user });
+  const userData = { email: user.email };
+  dispatch({ type: AUTH_ACTIONS.SET_USER_DATA, payload: user });
   // const filterPermission = user.permissions.filter(
   //   (app: { [key: string]: string }) => app.role === "admin"
   // );

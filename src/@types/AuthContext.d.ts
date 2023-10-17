@@ -4,6 +4,7 @@ declare module "auth-context" {
   export interface UserSchema {
     userId: string;
     username: string;
+    email?: string;
     nickname?: string;
     languageId?: string;
     phone?: string;
@@ -24,6 +25,24 @@ declare module "auth-context" {
     dispatch: React.Dispatch<any>;
     user: UserSchema;
   }
+  export interface AuthStateProps {
+    // auth schema
+    isLoading: boolean;
+    isOffline: boolean;
+    isAdmin: boolean;
+    emergencyPasswordChangeIsRequired: boolean;
+    accessToken: string;
+    ownedApps: { appId: string; logo?: { [key: string]: string }; appName: string }[];
+    authErrors: AuthErrorProps;
+    user: UserSchema;
+    dummyData: UserSchema;
+    userForm: FormProps;
+    loginForm: FormProps;
+    signUpForm: FormProps;
+    passwordChangeForm: FormProps;
+    forgotPasswordForm: FormProps;
+  }
+  // export interface
   export interface AuthSchema {
     // auth schema
     isLoading: boolean;

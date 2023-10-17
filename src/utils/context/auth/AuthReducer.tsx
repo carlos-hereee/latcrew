@@ -1,46 +1,48 @@
-const setChangePassword = (state, action) => {
-  return {
-    ...state,
-    signInError: action.payload,
-    emergencyPasswordChangeIsRequired: action.payload ? true : false,
-  };
-};
-export const reducer = (state, action) => {
+import { AUTH_ACTIONS } from "@app/utils/types/AuthTypes";
+import { AuthStateProps } from "auth-context";
+
+type ReducerAction = { type: AUTH_ACTIONS; payload?: any };
+type AuthReducerProps = (state: AuthStateProps, action: ReducerAction) => AuthStateProps;
+export const reducer: AuthReducerProps = (state, action) => {
   switch (action.type) {
-    case "IS_LOADING":
+    case AUTH_ACTIONS.IS_LOADING:
       return { ...state, isLoading: action.payload };
-    case "SET_ERROR":
+    case AUTH_ACTIONS.SET_ERROR:
       return { ...state, error: action.payload };
-    case "SET_STRANDED":
+    case AUTH_ACTIONS.SET_STRANDED:
       return { ...state, isOffline: action.payload };
-    case "UPDATE_LANGUAGE":
+    case AUTH_ACTIONS.UPDATE_LANGUAGE:
       return { ...state, language: action.payload };
-    case "SET_APP_ID":
+    case AUTH_ACTIONS.SET_APP_ID:
       return { ...state, appId: action.payload };
-    case "SET_IS_ADMIN":
+    case AUTH_ACTIONS.SET_IS_ADMIN:
       return { ...state, isAdmin: action.payload };
-    case "SET_PERMSSIONS":
+    case AUTH_ACTIONS.SET_PERMSSIONS:
       return { ...state, permissions: action.payload };
-    case "SET_OWNED_APPS":
+    case AUTH_ACTIONS.SET_OWNED_APPS:
       return { ...state, ownedApps: action.payload };
-    case "SIGN_IN_ERROR":
+    case AUTH_ACTIONS.SIGN_IN_ERROR:
       return { ...state, authErrors: { ...state.authErrors, signInError: action.payload } };
-    case "FORGOT_PASSWORD_ERROR":
+    case AUTH_ACTIONS.FORGOT_PASSWORD_ERROR:
       return { ...state, forgotPasswordError: action.payload };
-    case "SET_DUMMY_DATA":
+    case AUTH_ACTIONS.SET_DUMMY_DATA:
       return { ...state, dummyData: action.payload };
-    case "CHANGE_PASSWORD_ERROR":
+    case AUTH_ACTIONS.CHANGE_PASSWORD_ERROR:
       return { ...state, changePasswordError: action.payload };
-    case "SIGN_UP_ERROR":
+    case AUTH_ACTIONS.SIGN_UP_ERROR:
       return { ...state, signUpError: action.payload };
-    case "SET_ACCESS_TOKEN":
+    case AUTH_ACTIONS.SET_ACCESS_TOKEN:
       return { ...state, accessToken: action.payload };
-    case "SET_USER_DATA":
+    case AUTH_ACTIONS.SET_USER_DATA:
       return { ...state, user: action.payload };
-    case "UPDATE_SHIPPING_DETAILS":
+    case AUTH_ACTIONS.UPDATE_SHIPPING_DETAILS:
       return { ...state, shippingDetails: action.payload };
-    case "SET_CHANGE_PASSWORD":
-      return setChangePassword(state, action);
+    case AUTH_ACTIONS.SET_CHANGE_PASSWORD:
+      return {
+        ...state,
+        signInError: action.payload,
+        emergencyPasswordChangeIsRequired: action.payload ? true : false,
+      };
     default:
       return state;
   }

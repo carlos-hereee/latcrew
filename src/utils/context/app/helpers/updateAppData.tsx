@@ -1,5 +1,5 @@
 import { UpdateAppProps } from "app-forms";
-import { APP_ACTIONS } from "@app/utils/app/types";
+import { APP_ACTIONS } from "@app/utils/types/AppTypes";
 
 export const updateAppData = (props: UpdateAppProps) => {
   const { dispatch, values } = props;

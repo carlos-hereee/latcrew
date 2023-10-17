@@ -19,6 +19,7 @@ import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { isDev } from "@app/config";
 import { AuthSchema } from "auth-context";
 import { editApp } from "../admin/helpers/editApp";
+import { AUTH_ACTIONS } from "@app/utils/types/AuthTypes";
 
 export const AuthContext = createContext<AuthSchema>({} as AuthSchema);
 
@@ -45,24 +46,24 @@ export const AuthState = ({ children }: ChildProps) => {
         passwordChangeForm: state.passwordChangeForm,
         forgotPasswordForm: state.forgotPasswordForm,
         emergencyPasswordChangeIsRequired: state.emergencyPasswordChangeIsRequired,
+        ownedApps: state.ownedApps,
         // language: state.language,
         // menu: state.menu,
         // permissions: state.permissions,
-        ownedApps: state.ownedApps,
         // isAdmin: state.isAdmin,
-        setStranded: (e) => dispatch({ type: "SET_STRANDED", payload: e }),
-        setIsLoading: (e) => dispatch({ type: "IS_LOADING", payload: e }),
-        setAccessToken: (e) => dispatch({ type: "SET_ACCESS_TOKEN", payload: e }),
+        setStranded: (e) => dispatch({ type: AUTH_ACTIONS.SET_STRANDED, payload: e }),
+        setIsLoading: (e) => dispatch({ type: AUTH_ACTIONS.IS_LOADING, payload: e }),
+        setAccessToken: (e) => dispatch({ type: AUTH_ACTIONS.SET_ACCESS_TOKEN, payload: e }),
         login: (e) => login(dispatch, e),
         register: (e) => register(dispatch, e),
         logout: () => logOut(dispatch),
         updateUser: (e) => updateUser({ dispatch, user: e }),
-        // setShipping: (e) => setShipping(dispatch, e),
-        // getUserData: () => getUserData(dispatch),
         fetchUser: (a) => fetchUser(dispatch, a),
         changePassword: (e) => changePassword(dispatch, e),
-        // updateLanguage: (a) => updateLanguage(dispatch, a),
         forgotPassword: (a) => forgotPassword(dispatch, a),
+        // setShipping: (e) => setShipping(dispatch, e),
+        // getUserData: () => getUserData(dispatch),
+        // updateLanguage: (a) => updateLanguage(dispatch, a),
       }}
     >
       {children}
