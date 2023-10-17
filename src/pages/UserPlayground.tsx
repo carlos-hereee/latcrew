@@ -51,23 +51,13 @@ const UserPlayground = () => {
             <div key={app.appId} className="card-row pad-t">
               <Hero hero={app.logo ? app.logo : {}} onImageClick={() => handleEdit(app)} />
               <div className="flex-column elbow-space mb-2">
-                {app.appName ? (
-                  <h2 className="heading">{app.appName}</h2>
-                ) : (
-                  <h2 className="heading">No name</h2>
-                )}
+                <h2 className="heading">{app?.appName || "No name"}</h2>
                 <div>
                   {error && error[app.appId] && <p className="error-message">{error[app.appId]}</p>}
                 </div>
                 <div className="flex-row flex-wrap">
                   <Button label="Edit App" onClick={() => handleEdit(app)} />
-                  <Button label="Edit App" onClick={() => handleSeeLive(app)} />
-                  {/* <button className="btn-main" type="button" onClick={() => handleEdit(app)}>
-                    Edit app
-                  </button> */}
-                  <button className="btn-main" type="button" onClick={() => handleSeeLive(app)}>
-                    See live
-                  </button>
+                  <Button label="See live" onClick={() => handleSeeLive(app)} />
                 </div>
               </div>
             </div>

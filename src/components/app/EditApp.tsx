@@ -4,15 +4,17 @@ import { Loading, PaginateForm } from "nexious-library";
 import { AdminContext } from "@app/utils/context/admin/AdminContext";
 import { AddEntryProps, FormValueProps, InitPaginateFormProps } from "app-forms";
 import { ReorderFormValueProps } from "app-forms";
+import { useNavigate } from "react-router-dom";
 
 const EditApp = () => {
   const { appNameForm, pagesForm, sectionForm, landingPageForm } = useContext(AdminContext);
   const { editApp, ctaForm, editAppName, editLandingPage } = useContext(AdminContext);
-  const { landingPageFormOrder } = useContext(AdminContext);
+  const { landingPageFormOrder, sectionEntryOrganizer } = useContext(AdminContext);
   const { appName, landingPage, appId } = useContext(AppContext);
 
   const [isLoadingFormState, setLoadingFormState] = useState<boolean>(true);
   const [appValues, setAppValues] = useState<FormValueProps[]>([]);
+  const navigate = useNavigate();
 
   const organizeValues = (props: ReorderFormValueProps): FormValueProps => {
     const { desiredOrder, withEntry, values } = props;
@@ -54,14 +56,10 @@ const EditApp = () => {
   };
   useEffect(() => {
     if (appName) {
-      const landingEntry = [
-        { name: "hasCta", form: ctaForm, canMultiply: true, skipIfFalse: "cta" },
-        { name: "hasSections", form: sectionForm, canMultiply: true, skipIfFalse: "sections" },
-      ];
       const landingValues = organizeValues({
         values: landingPage,
         desiredOrder: landingPageFormOrder,
-        withEntry: landingEntry,
+        withEntry: sectionEntryOrganizer,
       });
       // reset values; avoid redundant data
       setAppValues([]);
@@ -76,7 +74,7 @@ const EditApp = () => {
           values: landingValues,
           form: landingPageForm,
           formName: "landingPage",
-          addEntries: landingEntry,
+          addEntries: sectionEntryOrganizer,
           onSubmit: (e: FormValueProps) => editLandingPage(e, appId),
         },
       ]);
@@ -131,7 +129,9 @@ const EditApp = () => {
       <PaginateForm
         paginate={appValues}
         onFormSubmit={(data: FormValueProps) => editApp(data, appId)}
+        onCancel={() => navigate("/")}
       />
+      {/* <ButtonCancel label="Cancel" theme="mt-1" /> */}
     </div>
   );
 };
