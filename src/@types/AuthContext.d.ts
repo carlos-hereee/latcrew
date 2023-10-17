@@ -23,7 +23,7 @@ declare module "auth-context" {
   }
   export interface UpdateUserReducerProps {
     dispatch: React.Dispatch<any>;
-    user: UserSchema;
+    user: { [key: string]: any };
   }
   export interface AuthStateProps {
     // auth schema

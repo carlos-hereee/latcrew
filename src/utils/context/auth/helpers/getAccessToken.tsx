@@ -1,5 +1,4 @@
 import { axiosAuth } from "@app/utils/axios/axiosAuth";
-import { filterUserValues } from "../../../app/filterUserValues";
 import { isDev } from "@app/config";
 import { RefreshTokenReducerProps } from "auth-context";
 
@@ -7,7 +6,7 @@ export const getAccessToken = async (props: RefreshTokenReducerProps) => {
   const { dispatch, updateUser } = props;
   try {
     console.log("fetching accessTOken");
-    dispatch({ type: "IS_LOADING", payload: false });
+    dispatch({ type: "IS_LOADING", payload: true });
     const { data } = await axiosAuth.post("/auth/refresh-token");
     dispatch({ type: "SET_ACCESS_TOKEN", payload: data.accessToken });
     if (data.user) updateUser(data.user);
