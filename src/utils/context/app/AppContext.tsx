@@ -28,7 +28,7 @@ import { ChildProps } from "app-types";
 import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { updateAppData } from "./helpers/updateAppData";
 import { AppSchema } from "app-context";
-import { APP_ACTIONS } from "@app/utils/types/AppTypes";
+import { APP_ACTIONS } from "@app/utils/types/AppActions";
 
 export const AppContext = createContext<AppSchema>({} as AppSchema);
 

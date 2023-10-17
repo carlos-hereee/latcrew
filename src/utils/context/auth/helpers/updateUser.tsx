@@ -1,4 +1,4 @@
-import { AUTH_ACTIONS } from "@app/utils/types/AuthTypes";
+import { AUTH_ACTIONS } from "@app/utils/types/AuthActions";
 import { UpdateUserReducerProps } from "auth-context";
 
 export const updateUser = (props: UpdateUserReducerProps) => {

@@ -19,7 +19,7 @@ import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { isDev } from "@app/config";
 import { AuthSchema } from "auth-context";
 import { editApp } from "../admin/helpers/editApp";
-import { AUTH_ACTIONS } from "@app/utils/types/AuthTypes";
+import { AUTH_ACTIONS } from "@app/utils/types/AuthActions";
 
 export const AuthContext = createContext<AuthSchema>({} as AuthSchema);
 

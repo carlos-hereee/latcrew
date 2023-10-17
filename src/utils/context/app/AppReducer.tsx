@@ -1,5 +1,5 @@
 import { AppStateProps } from "app-context";
-import { APP_ACTIONS } from "@app/utils/types/AppTypes";
+import { APP_ACTIONS } from "@app/utils/types/AppActions";
 
 type ReducerAction = { type: APP_ACTIONS; payload?: any };
 type AppReducerProps = (state: AppStateProps, action: ReducerAction) => AppStateProps;

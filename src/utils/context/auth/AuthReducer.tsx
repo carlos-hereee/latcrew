@@ -1,4 +1,4 @@
-import { AUTH_ACTIONS } from "@app/utils/types/AuthTypes";
+import { AUTH_ACTIONS } from "@app/utils/types/AuthActions";
 import { AuthStateProps } from "auth-context";
 
 type ReducerAction = { type: AUTH_ACTIONS; payload?: any };
