@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../utils/context/auth/AuthContext";
 import { AppContext } from "../utils/context/app/AppContext";
-import { Hero } from "nexious-library";
+import { Button, Hero } from "nexious-library";
 import { useNavigate } from "react-router-dom";
 import WelcomeBanner from "@app/components/app/WelcomeBanner";
 
@@ -60,9 +60,11 @@ const UserPlayground = () => {
                   {error && error[app.appId] && <p className="error-message">{error[app.appId]}</p>}
                 </div>
                 <div className="flex-row flex-wrap">
-                  <button className="btn-main" type="button" onClick={() => handleEdit(app)}>
+                  <Button label="Edit App" onClick={() => handleEdit(app)} />
+                  <Button label="Edit App" onClick={() => handleSeeLive(app)} />
+                  {/* <button className="btn-main" type="button" onClick={() => handleEdit(app)}>
                     Edit app
-                  </button>
+                  </button> */}
                   <button className="btn-main" type="button" onClick={() => handleSeeLive(app)}>
                     See live
                   </button>

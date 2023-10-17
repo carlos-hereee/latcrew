@@ -32,6 +32,8 @@ export const AdminState = ({ children }: ChildProps) => {
         landingPageForm: state.landingPageForm,
         heroForm: state.heroForm,
         ctaForm: state.ctaForm,
+        landingPageFormOrder: state.landingPageFormOrder,
+        sectionEntryOrganizer: state.sectionEntryOrganizer,
         buildApp: (a, b) => buildApp({ dispatch, values: a, appId: b, updateAppData }),
         editApp: (a, b) =>
           editApp({

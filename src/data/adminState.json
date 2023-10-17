@@ -1,7 +1,7 @@
 {
   "isLoading": false,
   "appNameForm": {
-    "initialValues": { "appName": "Sharkle and Shine" },
+    "initialValues": { "appName": "" },
     "labels": { "appName": "Enter app name" },
     "placeholders": { "appName": "Enter appname .." },
     "types": { "appName": "text" },
@@ -38,7 +38,7 @@
   "sectionForm": {
     "heading": "",
     "fieldHeading": {},
-    "initialValues": { "title": "Eco Friendly", "body": "We use eco friendly product" },
+    "initialValues": { "title": "", "body": "" },
     "labels": { "title": "Section title", "body": "Section details" },
     "placeholders": { "title": "", "body": "" },
     "types": { "title": "", "body": "" },
@@ -48,8 +48,8 @@
   "ctaForm": {
     "heading": "",
     "fieldHeading": {},
-    "initialValues": { "label": "Reserve now!", "link": "" },
-    "labels": { "label": "", "link": "" },
+    "initialValues": { "label": "", "link": "" },
+    "labels": { "label": "Enter display data", "link": "What page or url does it point to" },
     "placeholders": { "label": "", "link": "" },
     "types": { "label": "", "link": "" },
     "additionLabel": "Add another",
@@ -77,7 +77,9 @@
       "tagline": "What's your app's tagline?",
       "body": "Enter page details",
       "hasCta": "This part of the app has a Call To Action",
-      "hasSections": "This part of the app has a sub section"
+      "hasSections": "This part of the app has a sub section",
+      "label": "Enter display data",
+      "link": "What page or url does it point to"
     },
     "placeholders": {
       "title": "",
@@ -97,5 +99,38 @@
     "labels": { "name": "", "hero": "", "filename": "", "link": "", "label": "" },
     "placeholders": { "name": "", "hero": "", "filename": "", "link": "", "label": "" },
     "types": { "name": "", "hero": "", "filename": "", "link": "", "label": "" }
-  }
+  },
+  "landingPageFormOrder": ["title", "tagline", "body", "hasCta", "cta", "hasSections", "sections"],
+  "sectionEntryOrganizer": [
+    {
+      "name": "hasCta",
+      "form": {
+        "heading": "",
+        "fieldHeading": {},
+        "initialValues": { "label": "", "link": "" },
+        "labels": { "label": "Enter display data", "link": "What page or url does it point to" },
+        "placeholders": { "label": "", "link": "" },
+        "types": { "label": "", "link": "" },
+        "additionLabel": "Add another",
+        "removalLabel": "Remove"
+      },
+      "canMultiply": true,
+      "skipIfFalse": "cta"
+    },
+    {
+      "name": "hasSections",
+      "form": {
+        "heading": "",
+        "fieldHeading": {},
+        "initialValues": { "title": "", "body": "" },
+        "labels": { "title": "Section title", "body": "Section details" },
+        "placeholders": { "title": "", "body": "" },
+        "types": { "title": "", "body": "" },
+        "additionLabel": "Add another",
+        "removalLabel": "Remove"
+      },
+      "canMultiply": true,
+      "skipIfFalse": "sections"
+    }
+  ]
 }

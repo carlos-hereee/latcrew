@@ -8,6 +8,7 @@ import { ReorderFormValueProps } from "app-forms";
 const EditApp = () => {
   const { appNameForm, pagesForm, sectionForm, landingPageForm } = useContext(AdminContext);
   const { editApp, ctaForm, editAppName, editLandingPage } = useContext(AdminContext);
+  const { landingPageFormOrder } = useContext(AdminContext);
   const { appName, landingPage, appId } = useContext(AppContext);
 
   const [isLoadingFormState, setLoadingFormState] = useState<boolean>(true);
@@ -53,14 +54,13 @@ const EditApp = () => {
   };
   useEffect(() => {
     if (appName) {
-      const landingOrder = ["title", "tagline", "body", "hasCta", "cta", "hasSections", "sections"];
       const landingEntry = [
         { name: "hasCta", form: ctaForm, canMultiply: true, skipIfFalse: "cta" },
         { name: "hasSections", form: sectionForm, canMultiply: true, skipIfFalse: "sections" },
       ];
       const landingValues = organizeValues({
         values: landingPage,
-        desiredOrder: landingOrder,
+        desiredOrder: landingPageFormOrder,
         withEntry: landingEntry,
       });
       // reset values; avoid redundant data
@@ -124,18 +124,14 @@ const EditApp = () => {
     setLoadingFormState(false);
   };
 
-  if (!appId) return <p>no app found</p>;
+  if (!appId || isLoadingFormState) return <Loading message="Loading app data" />;
   return (
     <div>
       <h2 className="heading">Editing app: {appName}</h2>
-      {isLoadingFormState ? (
-        <Loading message="Loading app data" />
-      ) : (
-        <PaginateForm
-          paginate={appValues}
-          onFormSubmit={(data: FormValueProps) => editApp(data, appId)}
-        />
-      )}
+      <PaginateForm
+        paginate={appValues}
+        onFormSubmit={(data: FormValueProps) => editApp(data, appId)}
+      />
     </div>
   );
 };

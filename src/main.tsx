@@ -1,8 +1,5 @@
-import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import App from "./App";
-import AppRouter from "./AppRouter";
-import "./index.css";
+import ReactDOM from "react-dom/client";
 import { ServicesState } from "./utils/context/services/ServicesContext";
 import { AppState } from "./utils/context/app/AppContext";
 import { AuthState } from "./utils/context/auth/AuthContext";
@@ -10,6 +7,9 @@ import { LogState } from "./utils/context/log/LogContext";
 import { CalendarState } from "./utils/context/calendar/CalendarContext";
 import { AdminState } from "./utils/context/admin/AdminContext";
 import { isDev } from "@app/config";
+import App from "./App";
+import AppRouter from "./AppRouter";
+import "./index.css";
 import "nexious-library/@index.css";
 
 const elementRoot: Element | DocumentFragment | null = document.getElementById("root");
@@ -24,9 +24,6 @@ if (elementRoot) {
             <ServicesState>
               <CalendarState>
                 <AdminState>
-                  {/* <AppRouter>
-                    <App />
-                  </AppRouter> */}
                   <App>
                     <AppRouter />
                   </App>
