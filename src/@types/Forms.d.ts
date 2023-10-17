@@ -50,6 +50,6 @@ declare module "app-forms" {
   export interface ReorderFormValueProps {
     values: FormValueProps;
     desiredOrder: string[];
-    withEntry?: AddEntryProps[];
+    hasEntry?: AddEntryProps[];
   }
 }

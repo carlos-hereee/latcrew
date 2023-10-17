@@ -7,8 +7,7 @@ import { ReorderFormValueProps } from "app-forms";
 import { useNavigate } from "react-router-dom";
 
 const EditApp = () => {
-  const { appNameForm, pagesForm, sectionForm, landingPageForm } = useContext(AdminContext);
-  const { editApp, ctaForm, editAppName, editLandingPage } = useContext(AdminContext);
+  const { appNameForm, landingPageForm, editAppName, editLandingPage } = useContext(AdminContext);
   const { landingPageFormOrder, sectionEntryOrganizer } = useContext(AdminContext);
   const { appName, landing, appId } = useContext(AppContext);
 
@@ -16,53 +15,57 @@ const EditApp = () => {
   const [appValues, setAppValues] = useState<FormValueProps[]>([]);
   const navigate = useNavigate();
 
+  console.log("landing", landing);
   const organizeValues = (props: ReorderFormValueProps): FormValueProps => {
-    const { desiredOrder, withEntry, values } = props;
+    const { desiredOrder, hasEntry, values } = props;
     const reorderedObject: FormValueProps = {};
     let canSkip: string[] = [];
-    console.log("include edit values", values);
     for (let i = 0; i < desiredOrder.length; i++) {
       const key = desiredOrder[i];
       // continue to next iteration if key is skippable
-      if (!canSkip.includes(key)) {
-        if (withEntry) {
-          // if entry value found; get the index of the appropriate entry
-          const entryIdx = withEntry.findIndex((entry) => entry.name === key);
-          const target = withEntry[entryIdx]?.skipIfFalse;
-          if (entryIdx >= 0 && target) {
-            // skip appropriate value
-            target && canSkip.push(target);
-            if (!values[key]) reorderedObject[key] = values[key];
-            else {
-              // app proves entries to include
-              const { form } = withEntry[entryIdx];
-              const entryValues = Object.keys(form.initialValues);
-              let payload: FormValueProps = {};
-              entryValues.forEach((val) => {
-                const valIdx = values[target].findIndex((data: FormValueProps) => data[val]);
-                const data = values[target][valIdx][val];
-                payload[val] = data;
-              });
-              if (!reorderedObject[target]) reorderedObject[target] = [payload];
-              else reorderedObject[target] = [...reorderedObject[target], payload];
-              reorderedObject[key] = values[key];
-            }
-            //  otherwise theres no match ;
-          } else if (values.hasOwnProperty(key)) reorderedObject[key] = values[key];
-          // otherwise reorder to desired Order
+      if (!canSkip.includes(key) && hasEntry) {
+        // if entry value found; get the index of the appropriate entry
+        const entryIdx = hasEntry.findIndex((entry) => entry.name === key);
+        const target = hasEntry[entryIdx]?.skipIfFalse;
+        if (entryIdx >= 0 && target) {
+          // init target with empty array
+          reorderedObject[target] = [];
+          // skip appropriate value
+          target && canSkip.push(target);
+          if (!values[key]) reorderedObject[key] = values[key];
+          else {
+            console.log("hasEntry", hasEntry[entryIdx]);
+            // app proves entries to include
+            const form = hasEntry[entryIdx].form;
+            let entryValues = Object.keys(form.initialValues).map((val) => {
+              if (values[val]) {
+                // add shared key
+                return { [val]: values[val] };
+              } else {
+                return { [val]: "" };
+                // console.log("val", val);
+                // console.log("values", values);
+                // console.log("values", values[target]);
+              }
+            });
+            console.log("entryValues", entryValues);
+            reorderedObject[target].push(...entryValues);
+            reorderedObject[key] = values[key];
+          }
+          // otherwise theres no match;
         } else if (values.hasOwnProperty(key)) reorderedObject[key] = values[key];
       }
     }
     return reorderedObject;
   };
-  console.log("appName", appName);
   useEffect(() => {
     if (appName) {
       const landingValues = organizeValues({
         values: landing,
         desiredOrder: landingPageFormOrder,
-        withEntry: sectionEntryOrganizer,
+        hasEntry: sectionEntryOrganizer,
       });
+      console.log("landingValues", landingValues);
       // reset values; avoid redundant data
       setAppValues([]);
       includeEditValues([
@@ -125,6 +128,7 @@ const EditApp = () => {
     });
     setLoadingFormState(false);
   };
+  console.log("landing", landing);
   if (isLoadingFormState) return <Loading message="Loading app data" />;
   return (
     <div>

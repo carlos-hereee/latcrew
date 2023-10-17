@@ -105,12 +105,12 @@
     {
       "name": "hasCta",
       "form": {
-        "heading": "",
-        "fieldHeading": {},
         "initialValues": { "label": "", "link": "" },
         "labels": { "label": "Enter display data", "link": "What page or url does it point to" },
         "placeholders": { "label": "", "link": "" },
         "types": { "label": "", "link": "" },
+        "fieldHeading": {},
+        "heading": "",
         "additionLabel": "Add another",
         "removalLabel": "Remove"
       },
@@ -120,13 +120,13 @@
     {
       "name": "hasSections",
       "form": {
-        "heading": "",
-        "fieldHeading": {},
         "initialValues": { "title": "", "body": "" },
         "labels": { "title": "Section title", "body": "Section details" },
         "placeholders": { "title": "", "body": "" },
         "types": { "title": "", "body": "" },
+        "fieldHeading": {},
         "additionLabel": "Add another",
+        "heading": "",
         "removalLabel": "Remove"
       },
       "canMultiply": true,
