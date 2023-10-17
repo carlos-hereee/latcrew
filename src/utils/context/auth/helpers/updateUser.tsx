@@ -5,6 +5,7 @@ export const updateUser = (props: UpdateUserReducerProps) => {
   //  key varaibles
   const { dispatch, user } = props;
   const userData = {
+    id: user._id,
     userId: user.userId,
     username: user.username,
     email: user.email || "",

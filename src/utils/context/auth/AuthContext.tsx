@@ -35,7 +35,6 @@ export const AuthState = ({ children }: ChildProps) => {
       value={{
         isLoading: state.isLoading,
         isOffline: state.isOffline,
-        isAdmin: state.isAdmin,
         authErrors: state.authErrors,
         accessToken: state.accessToken,
         user: state.user,
@@ -50,7 +49,6 @@ export const AuthState = ({ children }: ChildProps) => {
         // language: state.language,
         // menu: state.menu,
         // permissions: state.permissions,
-        // isAdmin: state.isAdmin,
         setStranded: (e) => dispatch({ type: AUTH_ACTIONS.SET_STRANDED, payload: e }),
         setIsLoading: (e) => dispatch({ type: AUTH_ACTIONS.IS_LOADING, payload: e }),
         setAccessToken: (e) => dispatch({ type: AUTH_ACTIONS.SET_ACCESS_TOKEN, payload: e }),

@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import { CartRow } from "nexious-library";
 
 const CalendarEvents = () => {
-  const { handleCheckout, user, isAdmin } = useContext(AuthContext);
+  const { handleCheckout, user } = useContext(AuthContext);
   const { active, services, setActive } = useContext(ServicesContext);
   const { selectedDay, meeting, events, setMeeting, error, setError } = useContext(CalendarContext);
 
@@ -52,10 +52,6 @@ const CalendarEvents = () => {
             <strong>No open meetings this day, try a different day</strong>
             {error ? (
               <p className="error-message">{error}</p>
-            ) : isAdmin ? (
-              <Link to="/admin-dashboard" className="btn btn-main">
-                Add more meetings on dashboard
-              </Link>
             ) : (
               <button className="btn-main" type="button" onClick={findNextOpen}>
                 Find next availible

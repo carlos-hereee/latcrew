@@ -55,6 +55,7 @@ const EditApp = () => {
     }
     return reorderedObject;
   };
+  console.log("appName", appName);
   useEffect(() => {
     if (appName) {
       const landingValues = organizeValues({
@@ -124,7 +125,7 @@ const EditApp = () => {
     });
     setLoadingFormState(false);
   };
-  if (!appId || isLoadingFormState) return <Loading message="Loading app data" />;
+  if (isLoadingFormState) return <Loading message="Loading app data" />;
   return (
     <div>
       <h2 className="heading">Editing app: {appName}</h2>

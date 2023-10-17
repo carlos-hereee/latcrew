@@ -8,8 +8,8 @@
     "signInError": "",
     "signUpError": ""
   },
-  "user": { "username": "", "email": "", "phone": "", "userId": "" },
-  "dummyData": { "username": "", "email": "", "phone": "", "userId": "" },
+  "user": { "id": "", "username": "", "email": "", "phone": "", "userId": "" },
+  "dummyData": { "username": "", "email": "", "phone": "", "userId": "", "id": "" },
   "userForm": {
     "initialValues": { "username": "", "email": "", "phone": "", "nickname": "" },
     "labels": {
@@ -113,6 +113,5 @@
     "fieldHeading": {},
     "heading": ""
   },
-  "ownedApps": [],
-  "isAdmin": false
+  "ownedApps": []
 }

@@ -2,6 +2,7 @@ declare module "auth-context" {
   // imports allowed here
   import { FormProps, LoginFormProps, RegisterFormProps } from "app-forms";
   export interface UserSchema {
+    id: string;
     userId: string;
     username: string;
     email?: string;
@@ -29,7 +30,6 @@ declare module "auth-context" {
     // auth schema
     isLoading: boolean;
     isOffline: boolean;
-    isAdmin: boolean;
     emergencyPasswordChangeIsRequired: boolean;
     accessToken: string;
     ownedApps: { appId: string; logo?: { [key: string]: string }; appName: string }[];
@@ -47,7 +47,6 @@ declare module "auth-context" {
     // auth schema
     isLoading: boolean;
     isOffline: boolean;
-    isAdmin: boolean;
     emergencyPasswordChangeIsRequired: boolean;
     accessToken: string;
     ownedApps: { appId: string; logo?: {}; appName: string }[];

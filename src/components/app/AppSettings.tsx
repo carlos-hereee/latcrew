@@ -6,7 +6,7 @@
 // import { useNavigate } from "react-router-dom";
 
 // const AppSettings: React.FC<AppSettingProps> = () => {
-//   const { isAdmin, ownedApps } = useContext(AuthContext);
+//   const { ownedApps } = useContext(AuthContext);
 //   const { theme, getAppWithAppId, setEditApp } = useContext(AppContext);
 //   const navigate = useNavigate();
 

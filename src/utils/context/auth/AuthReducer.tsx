@@ -15,8 +15,6 @@ export const reducer: AuthReducerProps = (state, action) => {
       return { ...state, language: action.payload };
     case AUTH_ACTIONS.SET_APP_ID:
       return { ...state, appId: action.payload };
-    case AUTH_ACTIONS.SET_IS_ADMIN:
-      return { ...state, isAdmin: action.payload };
     case AUTH_ACTIONS.SET_PERMSSIONS:
       return { ...state, permissions: action.payload };
     case AUTH_ACTIONS.SET_OWNED_APPS:
