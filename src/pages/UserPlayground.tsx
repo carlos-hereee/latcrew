@@ -31,10 +31,20 @@ const UserPlayground = () => {
       });
     } else {
       let name = app.appName.split(" ").join("+");
-      navigate({ pathname: "/edit-app", search: `?appName=${name}` });
+      navigate({ pathname: "/edit-app/", search: `?appName=${name}` });
     }
   };
-  console.log("ownedApps", ownedApps);
+  const handleAdvancedSetting = (app: { appName?: string; appId: string }) => {
+    if (!app.appName) {
+      setError({
+        ...error,
+        [app.appId]: "Could not see live app because app name has not been set",
+      });
+    } else {
+      let name = app.appName.split(" ").join("+");
+      navigate({ pathname: "/settings/app/", search: `?appName=${name}` });
+    }
+  };
   return (
     <div className="container">
       <WelcomeBanner />
@@ -57,7 +67,8 @@ const UserPlayground = () => {
                   {error && error[app.appId] && <p className="error-message">{error[app.appId]}</p>}
                 </div>
                 <div className="flex-row flex-wrap">
-                  <Button label="Edit App" onClick={() => handleEdit(app)} />
+                  <Button label="Edit ppp" onClick={() => handleEdit(app)} />
+                  <Button label="Advanced settings" onClick={() => handleAdvancedSetting(app)} />
                   <Button label="See live" onClick={() => handleSeeLive(app)} />
                 </div>
               </div>

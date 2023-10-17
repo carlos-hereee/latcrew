@@ -83,6 +83,7 @@ export const AppState = ({ children }: ChildProps) => {
         newsletter: state.newsletter,
         updateAppData: (a) => updateAppData({ dispatch, values: a }),
         setTheme: (a) => dispatch({ type: APP_ACTIONS.SET_THEME, payload: a }),
+        deleteApp: (a) => deleteApp({ dispatch, appId: a }),
 
         // isComingSoon: state.isComingSoon,
         // app: state.app,

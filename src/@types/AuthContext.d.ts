@@ -68,6 +68,7 @@ declare module "auth-context" {
     updateUser: (values: UserSchema) => void;
     fetchUser: (values: UserSchema) => void;
     forgotPassword: (values: FormProps) => void;
+
     changePassword: (values: UserSchema) => void;
   }
 }

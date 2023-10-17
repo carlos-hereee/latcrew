@@ -23,6 +23,7 @@ import AdminRoute from "./utils/router/AdminRoute";
 import BuildApp from "./components/app/BuildApp";
 import EditApp from "./components/app/EditApp";
 import Homepage from "./pages/Homepage";
+import AppSettings from "./components/app/AppSettings";
 
 const AppRouter: React.FC = () => {
   const { accessToken, changePassword } = useContext(AuthContext);
@@ -60,6 +61,7 @@ const AppRouter: React.FC = () => {
       <Route element={<AdminRoute />}>
         <Route path="/build-app" element={<BuildApp cancelBtn />} />
         <Route path="/edit-app/" element={<EditApp />} />
+        <Route path="/settings/app/" element={<AppSettings />} />
       </Route>
       {/* All other routes */}
       <Route path="/*" element={<PageNotFound to={accessToken ? "/dashboard" : "/"} />} />

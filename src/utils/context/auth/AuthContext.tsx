@@ -20,6 +20,7 @@ import { isDev } from "@app/config";
 import { AuthSchema } from "auth-context";
 import { editApp } from "../admin/helpers/editApp";
 import { AUTH_ACTIONS } from "@app/utils/types/AuthActions";
+import { deleteApp } from "../app/helpers/deleteApp";
 
 export const AuthContext = createContext<AuthSchema>({} as AuthSchema);
 
