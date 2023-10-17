@@ -1,6 +1,5 @@
 import { clientUrl, serverUrl } from "@app/config";
 import axios from "axios";
-// import { api } from "./instance";
 const api = axios.create({
   baseURL: serverUrl,
   withCredentials: true,

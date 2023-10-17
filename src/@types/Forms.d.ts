@@ -32,6 +32,7 @@ declare module "app-forms" {
     values: FormValueProps;
     form: FormProps;
     formName: string;
+    withFileUpload?: boolean;
     addEntries?: AddEntryProps[];
     onSubmit?: (key: FormValueProps) => void;
   }

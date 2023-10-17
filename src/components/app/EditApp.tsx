@@ -65,10 +65,11 @@ const EditApp = () => {
       setAppValues([]);
       includeEditValues([
         {
-          values: { appName },
+          values: { appName, logo: "" },
           form: appNameForm,
           formName: "appName",
           onSubmit: (e: FormValueProps) => editAppName(e, appId),
+          withFileUpload: true,
         },
         {
           values: landingValues,
@@ -102,7 +103,7 @@ const EditApp = () => {
   };
   const includeEditValues = (data: InitPaginateFormProps[]) => {
     data.forEach((formData) => {
-      const { values, formName, addEntries, onSubmit } = formData;
+      const { values, formName, addEntries, onSubmit, withFileUpload } = formData;
       const { heading, labels, placeholders, types, fieldHeading } = formData.form;
       const addEntry = addEntries ? includeEntries(addEntries) : undefined;
       // const initialValues = reOrderValues(values)
@@ -116,19 +117,19 @@ const EditApp = () => {
         types,
         addEntry,
         onSubmit,
+        withFileUpload,
       };
       setAppValues((prev) => [...prev, payload]);
     });
     setLoadingFormState(false);
   };
-
   if (!appId || isLoadingFormState) return <Loading message="Loading app data" />;
   return (
     <div>
       <h2 className="heading">Editing app: {appName}</h2>
       <PaginateForm
         paginate={appValues}
-        onFormSubmit={(data: FormValueProps) => editApp(data, appId)}
+        // onFormSubmit={(data: FormValueProps) => editApp(data, appId)}
         onCancel={() => navigate("/")}
       />
       {/* <ButtonCancel label="Cancel" theme="mt-1" /> */}

@@ -1,10 +1,10 @@
 {
   "isLoading": false,
   "appNameForm": {
-    "initialValues": { "appName": "" },
-    "labels": { "appName": "Enter app name" },
-    "placeholders": { "appName": "Enter appname .." },
-    "types": { "appName": "text" },
+    "initialValues": { "appName": "", "logo": "" },
+    "labels": { "appName": "Enter app name", "logo": "Add new app logo" },
+    "placeholders": { "appName": "Enter appname ..", "logo": "Choose file" },
+    "types": { "appName": "text", "logo": "file" },
     "heading": "",
     "fieldHeading": {}
   },
