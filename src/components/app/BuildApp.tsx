@@ -24,7 +24,7 @@ const BuildApp: React.FC<BuildAppProps> = ({ heading, cancelBtn }) => {
       schema: { required: ["appName"] },
     },
     {
-      formName: "landingPage",
+      formName: "landing",
       heading: "Build landing page",
       initialValues: landingPageForm.initialValues,
       submitLabel: "Save and continue",
@@ -67,10 +67,10 @@ const BuildApp: React.FC<BuildAppProps> = ({ heading, cancelBtn }) => {
   }, [isBuild]);
   const handleFormSubmit = (event: { [key: string]: any }) => {
     setValues({ ...values, ...event });
-    if (!values.landingPage) {
+    if (!values.landing) {
       // search for sub forms
-      const hasCTA = event.landingPage.cta;
-      const hasSubSection = event.landingPage.sections;
+      const hasCTA = event.landing.cta;
+      const hasSubSection = event.landing.sections;
       if (hasCTA || hasSubSection) {
         if (hasCTA) initCta(hasSubSection);
         if (hasSubSection) initSubSection(hasCTA);

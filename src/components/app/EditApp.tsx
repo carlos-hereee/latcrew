@@ -10,7 +10,7 @@ const EditApp = () => {
   const { appNameForm, pagesForm, sectionForm, landingPageForm } = useContext(AdminContext);
   const { editApp, ctaForm, editAppName, editLandingPage } = useContext(AdminContext);
   const { landingPageFormOrder, sectionEntryOrganizer } = useContext(AdminContext);
-  const { appName, landingPage, appId } = useContext(AppContext);
+  const { appName, landing, appId } = useContext(AppContext);
 
   const [isLoadingFormState, setLoadingFormState] = useState<boolean>(true);
   const [appValues, setAppValues] = useState<FormValueProps[]>([]);
@@ -57,7 +57,7 @@ const EditApp = () => {
   useEffect(() => {
     if (appName) {
       const landingValues = organizeValues({
-        values: landingPage,
+        values: landing,
         desiredOrder: landingPageFormOrder,
         withEntry: sectionEntryOrganizer,
       });
@@ -74,7 +74,7 @@ const EditApp = () => {
         {
           values: landingValues,
           form: landingPageForm,
-          formName: "landingPage",
+          formName: "landing",
           addEntries: sectionEntryOrganizer,
           onSubmit: (e: FormValueProps) => editLandingPage(e, appId),
         },

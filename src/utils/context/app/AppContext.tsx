@@ -26,8 +26,9 @@ import { getAppWithAppId } from "./helpers/getAppWithAppId";
 import { setEditApp } from "./helpers/setEditApp";
 import { ChildProps } from "app-types";
 import { axiosAuth } from "@app/utils/axios/axiosAuth";
-import { AppSchema } from "app-context";
 import { updateAppData } from "./helpers/updateAppData";
+import { AppSchema } from "app-context";
+import { APP_ACTIONS } from "@app/utils/app/types";
 
 export const AppContext = createContext<AppSchema>({} as AppSchema);
 
@@ -68,7 +69,7 @@ export const AppState = ({ children }: ChildProps) => {
         isLoading: state.isLoading,
         appName: state.appName,
         appId: state.appId,
-        landingPage: state.landingPage,
+        landing: state.landing,
         theme: state.theme,
         themeList: state.themeList,
         adminIds: state.adminIds,
@@ -79,8 +80,8 @@ export const AppState = ({ children }: ChildProps) => {
         logo: state.logo,
         welcomeMessage: state.welcomeMessage,
         newsletter: state.newsletter,
-        setTheme: (a) => dispatch({ type: "SET_THEME", payload: a }),
         updateAppData: (a) => updateAppData({ dispatch, values: a }),
+        setTheme: (a) => dispatch({ type: APP_ACTIONS.SET_THEME, payload: a }),
 
         // isComingSoon: state.isComingSoon,
         // app: state.app,

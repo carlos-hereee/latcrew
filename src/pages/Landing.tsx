@@ -5,23 +5,23 @@ import { Socials } from "nexious-library";
 import { SectionProps } from "app-types";
 
 const Landing = () => {
-  const { landingPage, media } = useContext(AppContext);
-  console.log("landingPage", landingPage);
+  const { landing, media } = useContext(AppContext);
+  console.log("landing", landing);
 
   return (
     <div className="container">
-      {landingPage && (
+      {landing && (
         <div className="flex-d-column">
-          <HeroCard data={landingPage} />
-          <p className="text-max">{landingPage.body}</p>
+          <HeroCard data={landing} />
+          <p className="text-max">{landing.body}</p>
         </div>
       )}
       {media && media.sections && media.sections.length > 0 && (
         <Socials socials={media.sections} heading={media.title} />
       )}
-      {landingPage?.sections && (
+      {landing?.sections && (
         <div className="feature-card-container m-tb">
-          {landingPage.sections.map((af: SectionProps, idx: number) => (
+          {landing.sections.map((af: SectionProps, idx: number) => (
             <Card key={af.uid || idx} data={af} />
           ))}
         </div>

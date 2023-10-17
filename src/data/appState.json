@@ -24,7 +24,7 @@
   "menu": [],
   "calendar": { "name": "", "calendarId": "", "events": [{}] },
   "theme": "light-mode",
-  "landingPage": {},
+  "landing": {},
   "themeList": [
     {
       "name": "light-mode",
@@ -39,5 +39,5 @@
       "uid": "theme-dark-mode"
     }
   ],
-  "logo": { "url": "", "link": "", "icon": "", "name": "" }
+  "logo": {}
 }
