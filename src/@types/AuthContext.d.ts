@@ -1,9 +1,28 @@
 declare module "auth-context" {
   // imports allowed here
-  import { FormProps, FormValueProps, LoginFormProps, RegisterFormProps } from "app-forms";
-  import { AuthErrorProps, UserSchema } from "@app/utils/types/auth";
+  import { FormProps, LoginFormProps, RegisterFormProps } from "app-forms";
+  export interface UserSchema {
+    userId: string;
+    username: string;
+    nickname?: string;
+    languageId?: string;
+    phone?: string;
+  }
+  export interface AuthErrorProps {
+    emergencyPasswordChangeIsRequired: boolean;
+    signInError: string;
+    signUpError: string;
+  }
   export interface ReducerMethodProps {
     dispatch: React.Dispatch<any>;
+  }
+  export interface RefreshTokenReducerProps {
+    dispatch: React.Dispatch<any>;
+    updateUser: (user: UserSchema) => void;
+  }
+  export interface UpdateUserReducerProps {
+    dispatch: React.Dispatch<any>;
+    user: UserSchema;
   }
   export interface AuthSchema {
     // auth schema

@@ -34,6 +34,7 @@ const UserPlayground = () => {
       navigate({ pathname: "/edit-app", search: `?appName=${name}` });
     }
   };
+  console.log("ownedApps", ownedApps);
   return (
     <div className="container">
       <WelcomeBanner />

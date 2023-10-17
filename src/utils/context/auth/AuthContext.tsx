@@ -5,7 +5,7 @@ import authState from "../../../data/authState.json";
 import { login } from "./helpers/login";
 import { register } from "./helpers/register";
 import { logOut } from "./helpers/logout";
-import { updateUserData } from "./helpers/updateUserData";
+import { updateUser } from "./helpers/updateUser";
 import { setShipping } from "./helpers/setShipping";
 import { getUserData } from "./helpers/getUserData";
 import { changePassword } from "./helpers/changePassword";
@@ -26,7 +26,7 @@ export const AuthState = ({ children }: ChildProps) => {
   const [state, dispatch] = useReducer(reducer, authState);
 
   useEffect(() => {
-    getAccessToken({ dispatch });
+    getAccessToken({ dispatch, updateUser: (e) => updateUser({ dispatch, user: e }) });
   }, []);
 
   return (
@@ -56,13 +56,12 @@ export const AuthState = ({ children }: ChildProps) => {
         login: (e) => login(dispatch, e),
         register: (e) => register(dispatch, e),
         logout: () => logOut(dispatch),
-        updateUser: (e) => updateUserData(dispatch, e),
+        updateUser: (e) => updateUser({ dispatch, user: e }),
         // setShipping: (e) => setShipping(dispatch, e),
         // getUserData: () => getUserData(dispatch),
         fetchUser: (a) => fetchUser(dispatch, a),
         changePassword: (e) => changePassword(dispatch, e),
         // updateLanguage: (a) => updateLanguage(dispatch, a),
-
         forgotPassword: (a) => forgotPassword(dispatch, a),
       }}
     >

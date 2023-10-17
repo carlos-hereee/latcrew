@@ -20,6 +20,7 @@ const EditApp = () => {
     const { desiredOrder, withEntry, values } = props;
     const reorderedObject: FormValueProps = {};
     let canSkip: string[] = [];
+    console.log("include edit values", values);
     for (let i = 0; i < desiredOrder.length; i++) {
       const key = desiredOrder[i];
       // continue to next iteration if key is skippable

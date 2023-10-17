@@ -6,10 +6,10 @@ declare module "app-forms" {
   export type FormProps = {
     heading: string;
     initialValues: { [key: string]: any };
-    labels: { [key: string]: string | undefined };
-    placeholders: { [key: string]: string | undefined };
-    types: { [key: string]: string | undefined };
-    fieldHeading: { [key: string]: string | undefined };
+    labels: { [key: string]: string };
+    placeholders: { [key: string]: string };
+    types: { [key: string]: string };
+    fieldHeading: { [key: string]: string };
     additionLabel?: string;
     removalLabel?: string;
     canMultiply?: boolean;

@@ -41,6 +41,7 @@ export const AppState = ({ children }: ChildProps) => {
   useEffect(() => {
     const getAppWithName = async (appName: string) => {
       const { data } = await axiosAuth.get(`/app/${appName}`);
+      // console.log("data", data);
       updateAppData({ dispatch, values: data });
     };
     if (queryParams.search) {
@@ -48,20 +49,21 @@ export const AppState = ({ children }: ChildProps) => {
       appName && getAppWithName(appName);
     }
   }, [queryParams.search]);
-  useEffect(() => {
-    // user is login
-    if (accessToken) {
-      // navigate admin and regular users
-      if (user && user.role === "admin") navigate("/admin-dashboard");
-      // if (user.role === "admin") navigate("/add-page");
-      // else navigate("/dashboard");
-      // if (state.menu) {
-      //   const { altMenu, idx } = toggleMenuItemLogin(state.menu, accessToken);
-      //   dispatch({ type: "SET_MENU", payload: altMenu });
-      //   // altMenu[idx].active.link && navigate(`/${altMenu[idx].active.link}`);
-      // }
-    }
-  }, [accessToken]);
+  // useEffect(() => {
+  //   // user is login
+  //   if (accessToken) {
+
+  //     // navigate admin and regular users
+  //     // if (user && user.role === "admin") navigate("/admin-dashboard");
+  //     // if (user.role === "admin") navigate("/add-page");
+  //     // else navigate("/dashboard");
+  //     // if (state.menu) {
+  //     //   const { altMenu, idx } = toggleMenuItemLogin(state.menu, accessToken);
+  //     //   dispatch({ type: "SET_MENU", payload: altMenu });
+  //     //   // altMenu[idx].active.link && navigate(`/${altMenu[idx].active.link}`);
+  //     // }
+  //   }
+  // }, [accessToken]);
 
   return (
     <AppContext.Provider
