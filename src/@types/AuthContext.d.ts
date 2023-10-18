@@ -40,7 +40,6 @@ declare module "auth-context" {
     ownedApps: { appId: string; logo?: { [key: string]: string }; appName: string }[];
     authErrors: AuthErrorProps;
     user: UserSchema;
-    dummyData: UserSchema;
     userForm: FormProps;
     loginForm: FormProps;
     signUpForm: FormProps;
@@ -57,7 +56,6 @@ declare module "auth-context" {
     ownedApps: { appId: string; logo?: {}; appName: string }[];
     authErrors: AuthErrorProps;
     user: UserSchema;
-    dummyData: UserSchema;
     userForm: FormProps;
     loginForm: FormProps;
     signUpForm: FormProps;
@@ -73,7 +71,6 @@ declare module "auth-context" {
     updateUser: (values: UserSchema) => void;
     fetchUser: (values: UserSchema) => void;
     forgotPassword: (values: FormProps) => void;
-
     changePassword: (values: UserSchema) => void;
   }
 }

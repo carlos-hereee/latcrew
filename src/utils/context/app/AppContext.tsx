@@ -1,34 +1,34 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { reducer } from "./AppReducer";
-import { updateMenu } from "./helpers/updateMenu";
-import { newsletter } from "./helpers/newsletter";
-import { selectPaymentType } from "./helpers/selectPaymentType";
-import { readyCheckout } from "./helpers/readyCheckout";
-import { seeDetails } from "./helpers/seeDetails";
-import { resetSelect } from "./helpers/resetSelect";
-import { updateFilter } from "./helpers/updateFilter";
-import { updateAppliedFilter } from "./helpers/updateAppliedFilter";
-import { resetFilter } from "./helpers/resetFilter";
 import { AuthContext } from "../auth/AuthContext";
-import { toggleMenuItemLogin } from "../../app/toggleMenuItemLogin";
 import { useLocation, useNavigate } from "react-router-dom";
-import { getLatestAppData } from "./helpers/getLatestAppData";
 import appState from "@data/appState.json";
-import { uploadImage } from "./helpers/uploadImage";
-import { getFiles } from "./helpers/getFiles";
-import { isDev } from "@app/config";
-import { updateApp } from "./helpers/updateApp";
 import { deleteApp } from "./helpers/deleteApp";
-import { addPage } from "./helpers/addPage";
-import { uploadFile } from "./helpers/uploadFile";
-import { setTheme } from "./helpers/setTheme";
-import { getAppWithAppId } from "./helpers/getAppWithAppId";
-import { setEditApp } from "./helpers/setEditApp";
 import { ChildProps } from "app-types";
 import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { updateAppData } from "./helpers/updateAppData";
 import { AppSchema } from "app-context";
 import { APP_ACTIONS } from "@app/utils/types/AppActions";
+// import { uploadImage } from "./helpers/uploadImage";
+// import { getLatestAppData } from "./helpers/getLatestAppData";
+// import { getFiles } from "./helpers/getFiles";
+// import { toggleMenuItemLogin } from "../../app/toggleMenuItemLogin";
+// import { isDev } from "@app/config";
+// import { updateApp } from "./helpers/updateApp";
+// import { updateMenu } from "./helpers/updateMenu";
+// import { newsletter } from "./helpers/newsletter";
+// import { selectPaymentType } from "./helpers/selectPaymentType";
+// import { readyCheckout } from "./helpers/readyCheckout";
+// import { seeDetails } from "./helpers/seeDetails";
+// import { resetSelect } from "./helpers/resetSelect";
+// import { updateFilter } from "./helpers/updateFilter";
+// import { updateAppliedFilter } from "./helpers/updateAppliedFilter";
+// import { resetFilter } from "./helpers/resetFilter";
+// import { addPage } from "./helpers/addPage";
+// import { uploadFile } from "./helpers/uploadFile";
+// import { setTheme } from "./helpers/setTheme";
+// import { getAppWithAppId } from "./helpers/getAppWithAppId";
+// import { setEditApp } from "./helpers/setEditApp";
 
 export const AppContext = createContext<AppSchema>({} as AppSchema);
 
@@ -85,6 +85,10 @@ export const AppState = ({ children }: ChildProps) => {
         setTheme: (a) => dispatch({ type: APP_ACTIONS.SET_THEME, payload: a }),
         deleteApp: (appId) =>
           deleteApp({ appId, updateApp: (values) => updateAppData({ dispatch, values }) }),
+
+        // language: state.language,
+        // menu: state.menu,
+        // permissions: state.permissions,
 
         // isComingSoon: state.isComingSoon,
         // app: state.app,

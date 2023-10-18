@@ -9,7 +9,6 @@
     "signUpError": ""
   },
   "user": { "id": "", "username": "", "email": "", "phone": "", "userId": "" },
-  "dummyData": { "username": "", "email": "", "phone": "", "userId": "", "id": "" },
   "userForm": {
     "initialValues": { "username": "", "email": "", "phone": "", "nickname": "" },
     "labels": {

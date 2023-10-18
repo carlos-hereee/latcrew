@@ -6,21 +6,13 @@ import { login } from "./helpers/login";
 import { register } from "./helpers/register";
 import { logOut } from "./helpers/logout";
 import { updateUser } from "./helpers/updateUser";
-import { setShipping } from "./helpers/setShipping";
-import { getUserData } from "./helpers/getUserData";
 import { changePassword } from "./helpers/changePassword";
 import { getAccessToken } from "./helpers/getAccessToken";
-import { updateLanguage } from "../app/helpers/updateLanguage";
 import { forgotPassword } from "./helpers/forgotPassword";
 import { fetchUser } from "./helpers/fetchUser";
-import { buildApp } from "../admin/helpers/buildApp";
 import { ChildProps } from "app-types";
-import { axiosAuth } from "@app/utils/axios/axiosAuth";
-import { isDev } from "@app/config";
 import { AuthSchema } from "auth-context";
-import { editApp } from "../admin/helpers/editApp";
 import { AUTH_ACTIONS } from "@app/utils/types/AuthActions";
-import { deleteApp } from "../app/helpers/deleteApp";
 
 export const AuthContext = createContext<AuthSchema>({} as AuthSchema);
 
@@ -39,7 +31,6 @@ export const AuthState = ({ children }: ChildProps) => {
         authErrors: state.authErrors,
         accessToken: state.accessToken,
         user: state.user,
-        dummyData: state.dummyData,
         userForm: state.userForm,
         loginForm: state.loginForm,
         signUpForm: state.signUpForm,
@@ -47,23 +38,26 @@ export const AuthState = ({ children }: ChildProps) => {
         forgotPasswordForm: state.forgotPasswordForm,
         emergencyPasswordChangeIsRequired: state.emergencyPasswordChangeIsRequired,
         ownedApps: state.ownedApps,
-        // language: state.language,
-        // menu: state.menu,
-        // permissions: state.permissions,
         setStranded: (e) => dispatch({ type: AUTH_ACTIONS.SET_STRANDED, payload: e }),
         setIsLoading: (e) => dispatch({ type: AUTH_ACTIONS.IS_LOADING, payload: e }),
         setAccessToken: (e) => dispatch({ type: AUTH_ACTIONS.SET_ACCESS_TOKEN, payload: e }),
-        login: (e) => login(dispatch, e),
-        register: (credentials) =>
-          register({ dispatch, credentials, updateUser: (user) => updateUser({ dispatch, user }) }),
         logout: () => logOut(dispatch),
         updateUser: (e) => updateUser({ dispatch, user: e }),
         fetchUser: (a) => fetchUser(dispatch, a),
         changePassword: (e) => changePassword(dispatch, e),
         forgotPassword: (a) => forgotPassword(dispatch, a),
-        // setShipping: (e) => setShipping(dispatch, e),
-        // getUserData: () => getUserData(dispatch),
-        // updateLanguage: (a) => updateLanguage(dispatch, a),
+        login: (e) =>
+          login({
+            dispatch,
+            credentials: e,
+            updateUser: (user) => updateUser({ dispatch, user }),
+          }),
+        register: (e) =>
+          register({
+            dispatch,
+            credentials: e,
+            updateUser: (user) => updateUser({ dispatch, user }),
+          }),
       }}
     >
       {children}

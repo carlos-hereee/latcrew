@@ -1,13 +1,15 @@
 import { isDev } from "@app/config";
-import { LoginFormProps } from "app-forms";
 import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { AUTH_ACTIONS } from "@app/utils/types/AuthActions";
+import { AuthReducerProps } from "auth-context";
 
-export const login = async (dispatch: React.Dispatch<any>, credentials: LoginFormProps) => {
+export const login = async (props: AuthReducerProps) => {
+  const { dispatch, credentials, updateUser } = props;
   try {
     dispatch({ type: AUTH_ACTIONS.IS_LOADING, payload: true });
     const { data } = await axiosAuth.post("/auth/login", credentials);
-    dispatch({ type: AUTH_ACTIONS.SET_ACCESS_TOKEN, payload: data });
+    data.user && updateUser(data.user);
+    dispatch({ type: AUTH_ACTIONS.SET_ACCESS_TOKEN, payload: data?.accessToken || "" });
     dispatch({ type: AUTH_ACTIONS.IS_LOADING, payload: false });
   } catch (error: any) {
     if (isDev) console.log("sign in error", error);
