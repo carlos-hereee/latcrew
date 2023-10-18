@@ -15,7 +15,6 @@ const EditApp = () => {
   const [appValues, setAppValues] = useState<FormValueProps[]>([]);
   const navigate = useNavigate();
 
-  console.log("landing", landing);
   const organizeValues = (props: ReorderFormValueProps): FormValueProps => {
     const { desiredOrder, hasEntry, values } = props;
     const reorderedObject: FormValueProps = {};

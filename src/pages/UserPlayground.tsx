@@ -57,7 +57,7 @@ const UserPlayground = () => {
         >
           + Create a new app
         </button>
-        {ownedApps ? (
+        {ownedApps.length > 0 ? (
           ownedApps.map((app) => (
             <div key={app.appId} className="card-row pad-t">
               <Hero hero={app.logo ? app.logo : {}} onImageClick={() => handleEdit(app)} />
@@ -67,7 +67,7 @@ const UserPlayground = () => {
                   {error && error[app.appId] && <p className="error-message">{error[app.appId]}</p>}
                 </div>
                 <div className="flex-row flex-wrap">
-                  <Button label="Edit ppp" onClick={() => handleEdit(app)} />
+                  <Button label="Edit app" onClick={() => handleEdit(app)} />
                   <Button label="Advanced settings" onClick={() => handleAdvancedSetting(app)} />
                   <Button label="See live" onClick={() => handleSeeLive(app)} />
                 </div>

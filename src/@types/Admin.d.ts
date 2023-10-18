@@ -31,7 +31,7 @@ declare module "app-admin" {
       canMultiply: boolean;
       skipIfFalse: string;
     }[];
-    buildApp: (values: FormValueProps, appId: string) => void;
+    buildApp: (values: FormValueProps) => void;
     editApp: (values: FormValueProps, appId: string) => void;
     editAppName: (values: FormValueProps, appId: string) => void;
     editLandingPage: (values: FormValueProps, appId: string) => void;

@@ -56,10 +56,10 @@ const AppRouter: React.FC = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/add-page" element={<AddPage />} />
+        <Route path="/build-app" element={<BuildApp />} />
       </Route>
       {/* Admin routes for editing pages */}
       <Route element={<AdminRoute />}>
-        <Route path="/build-app" element={<BuildApp cancelBtn />} />
         <Route path="/edit-app/" element={<EditApp />} />
         <Route path="/settings/app/" element={<AppSettings />} />
       </Route>

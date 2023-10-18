@@ -3,8 +3,7 @@ import WelcomeMessage from "./WelcomeMessage";
 import { AuthContext } from "@app/utils/context/auth/AuthContext";
 import { AppContext } from "@app/utils/context/app/AppContext";
 import { Select } from "nexious-library";
-import DangerZone from "./DangerZone";
-// import
+
 const WelcomeBanner = () => {
   const { user } = useContext(AuthContext);
   const { welcomeMessage, theme, themeList, setTheme } = useContext(AppContext);
@@ -22,7 +21,6 @@ const WelcomeBanner = () => {
             theme={theme}
           />
         </div>
-        <DangerZone />
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ const App = ({ children }: ChildProps) => {
     logo,
     // language, updateMenu
   } = useContext(AppContext);
-  console.log("logo", logo);
+  // console.log("logo", logo);
   useEffect(() => {
     if (appName) document.title = appName;
   }, [appName]);
