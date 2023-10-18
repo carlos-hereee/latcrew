@@ -15,7 +15,7 @@ import PrivateRoute from "./utils/router/PrivateRoute";
 import AdminDashboard from "./pages/AdminDashboard";
 import AddPage from "./pages/AddPages";
 import ChangePassword from "@components/form/ChangePassword";
-import Offline from "./pages/Offline";
+import Offline from "./components/app/Offline";
 import SignUp from "./pages/Signup";
 import AppRoute from "./utils/router/AppRoute";
 import ForgotPassword from "./components/form/ForgotPassword";

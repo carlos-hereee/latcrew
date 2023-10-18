@@ -127,17 +127,12 @@ const EditApp = () => {
     });
     setLoadingFormState(false);
   };
-  console.log("landing", landing);
+  // console.log("landing", landing);
   if (isLoadingFormState) return <Loading message="Loading app data" />;
   return (
     <div>
       <h2 className="heading">Editing app: {appName}</h2>
-      <PaginateForm
-        paginate={appValues}
-        // onFormSubmit={(data: FormValueProps) => editApp(data, appId)}
-        onCancel={() => navigate("/")}
-      />
-      {/* <ButtonCancel label="Cancel" theme="mt-1" /> */}
+      <PaginateForm paginate={appValues} onCancel={() => navigate("/")} />
     </div>
   );
 };

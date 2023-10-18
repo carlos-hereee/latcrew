@@ -14,8 +14,12 @@ const BuildApp = () => {
       formName: "appName",
       heading: "Initialize your app",
       initialValues: appNameForm.initialValues,
+      types: appNameForm.types,
+      labels: appNameForm.labels,
+      placeholders: appNameForm.placeholders,
       submitLabel: "Save and continue",
-      schema: { required: ["appName"] },
+      schema: { required: ["appName", "logo"] },
+      onSubmit: buildApp,
     },
     {
       formName: "landing",
