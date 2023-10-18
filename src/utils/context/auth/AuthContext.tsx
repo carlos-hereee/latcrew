@@ -54,7 +54,8 @@ export const AuthState = ({ children }: ChildProps) => {
         setIsLoading: (e) => dispatch({ type: AUTH_ACTIONS.IS_LOADING, payload: e }),
         setAccessToken: (e) => dispatch({ type: AUTH_ACTIONS.SET_ACCESS_TOKEN, payload: e }),
         login: (e) => login(dispatch, e),
-        register: (e) => register(dispatch, e),
+        register: (credentials) =>
+          register({ dispatch, credentials, updateUser: (user) => updateUser({ dispatch, user }) }),
         logout: () => logOut(dispatch),
         updateUser: (e) => updateUser({ dispatch, user: e }),
         fetchUser: (a) => fetchUser(dispatch, a),

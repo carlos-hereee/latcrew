@@ -1,6 +1,6 @@
 declare module "auth-context" {
   // imports allowed here
-  import { FormProps, LoginFormProps, RegisterFormProps } from "app-forms";
+  import { FormProps, FormValueProps, LoginFormProps, RegisterFormProps } from "app-forms";
   export interface UserSchema {
     id: string;
     userId: string;
@@ -20,6 +20,11 @@ declare module "auth-context" {
   }
   export interface RefreshTokenReducerProps {
     dispatch: React.Dispatch<any>;
+    updateUser: (user: UserSchema) => void;
+  }
+  export interface AuthReducerProps {
+    dispatch: React.Dispatch<any>;
+    credentials: FormValueProps;
     updateUser: (user: UserSchema) => void;
   }
   export interface UpdateUserReducerProps {
