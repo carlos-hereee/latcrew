@@ -1,11 +1,11 @@
 import { AuthContext } from "@app/utils/context/auth/AuthContext";
 import { useContext } from "react";
 import UserPlayground from "./UserPlayground";
-import Auth from "./Auth";
+import Login from "./Login";
 
 const Homepage: React.FC = () => {
   const { accessToken } = useContext(AuthContext);
   if (accessToken) return <UserPlayground />;
-  return <Auth />;
+  return <Login />;
 };
 export default Homepage;
