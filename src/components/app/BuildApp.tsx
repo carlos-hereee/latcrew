@@ -5,10 +5,9 @@ import { AdminContext } from "@app/utils/context/admin/AdminContext";
 import { FormValueProps } from "app-forms";
 
 const BuildApp = () => {
-  const { landingPageForm, appNameForm, sectionForm, buildApp } = useContext(AdminContext);
+  const { landingPageForm, appNameForm, buildApp } = useContext(AdminContext);
   const navigate = useNavigate();
 
-  // const entryValues = sectionValues;
   const [paginate, setPaginate] = useState<FormValueProps[]>([
     {
       formName: "appName",
