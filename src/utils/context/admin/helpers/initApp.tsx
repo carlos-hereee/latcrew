@@ -7,7 +7,7 @@ export const initApp = async (props: BuildAppProps) => {
   const { dispatch, updateUser, updateAppData, values } = props;
   try {
     dispatch({ type: ADMIN_ACTIONS.IS_LOADING, payload: true });
-    const { data } = await axiosMedia.post("/app/init-app/", values);
+    const { data } = await axiosMedia.post("/app/init-app/" + values.appName, values);
     data.user && updateUser(data.user);
     data.app && updateAppData(data.app);
     dispatch({ type: ADMIN_ACTIONS.IS_LOADING, payload: false });

@@ -34,8 +34,8 @@ export const AppContext = createContext<AppSchema>({} as AppSchema);
 
 export const AppState = ({ children }: ChildProps) => {
   const [state, dispatch] = useReducer(reducer, appState);
-  const { accessToken, user } = useContext(AuthContext);
-  const navigate = useNavigate();
+  // const { accessToken, user } = useContext(AuthContext);
+  // const navigate = useNavigate();
   const queryParams = useLocation();
 
   useEffect(() => {
@@ -44,8 +44,13 @@ export const AppState = ({ children }: ChildProps) => {
       updateAppData({ dispatch, values: data });
     };
     if (queryParams.search) {
-      const appName = queryParams.search.split("appName=")[1];
-      appName && getAppWithName(appName);
+      const pathname = queryParams.pathname;
+      // avoid route clashes with settings
+      if (!pathname[0].includes("setting")) {
+        const appName = queryParams.search.split("appName=")[1];
+        // const appName = search[0];
+        appName && getAppWithName(appName);
+      }
     }
   }, [queryParams.search]);
 
