@@ -1,15 +1,24 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { PaginateForm } from "nexious-library";
 import { useNavigate } from "react-router-dom";
 import { AdminContext } from "@app/utils/context/admin/AdminContext";
 import { FormValueProps } from "app-forms";
 import { AppContext } from "@app/utils/context/app/AppContext";
+import { AuthContext } from "@app/utils/context/auth/AuthContext";
 
 const BuildApp = () => {
   const { landingPageForm, appNameForm, initApp, formErrors } = useContext(AdminContext);
   const { apps } = useContext(AppContext);
+  const { ownedApps } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  // useEffect(() => {
+  //   // if()
+  //   console.log("====================================");
+  //   console.log("render");
+  //   console.log("====================================");
+  //   // () => navigate("/");
+  // }, [ownedApps.length]);
   const paginate: FormValueProps[] = [
     {
       formName: "appName",

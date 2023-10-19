@@ -38,8 +38,8 @@ export const AdminState = ({ children }: ChildProps) => {
         landingPageFormOrder: state.landingPageFormOrder,
         sectionEntryOrganizer: state.sectionEntryOrganizer,
         formErrors: state.formErrors,
-        initApp: (values) => initApp({ dispatch, values, updateUser }),
-        deleteApp: (appId) => deleteApp({ dispatch, appId, updateUser }),
+        initApp: (values) => initApp({ dispatch, values, updateUser, updateAppData }),
+        deleteApp: (appId) => deleteApp({ dispatch, appId, updateUser, updateAppData }),
         editApp: (values, appId) => editApp({ dispatch, values, appId, updateAppData }),
         editAppName: (values, appId) => editAppName({ dispatch, values, appId, updateAppData }),
         editLandingPage: (values, appId) =>

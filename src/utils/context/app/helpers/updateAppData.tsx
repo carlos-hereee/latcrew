@@ -4,6 +4,7 @@ import { APP_ACTIONS } from "@app/utils/types/AppActions";
 export const updateAppData = (props: UpdateAppProps) => {
   const { dispatch, values } = props;
   dispatch({ type: APP_ACTIONS.IS_LOADING, payload: true });
+  // if values exists other wise use default type
   dispatch({ type: APP_ACTIONS.SET_APP_LOGO, payload: values?.logo || {} });
   dispatch({ type: APP_ACTIONS.SET_ADMIN_IDS, payload: values?.adminIds || [] });
   dispatch({ type: APP_ACTIONS.SET_APP_ID, payload: values?.appId || "" });

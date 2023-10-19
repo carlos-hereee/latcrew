@@ -17,6 +17,7 @@ declare module "app-admin" {
       skipIfFalse: string;
     }[];
   }
+
   export interface AdminSchema {
     isLoading: boolean;
     formErrors: { initAppFormError: string };
