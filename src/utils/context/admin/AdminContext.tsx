@@ -9,11 +9,13 @@ import { editAppName } from "./helpers/editAppName";
 import { editLandingPage } from "./helpers/editLandingPage";
 import { AppContext } from "../app/AppContext";
 import { deleteApp } from "./helpers/deleteApp";
+import { AuthContext } from "../auth/AuthContext";
 
 export const AdminContext = createContext<AdminSchema>({} as AdminSchema);
 export const AdminState = ({ children }: ChildProps) => {
   const [state, dispatch] = useReducer(reducer, adminState);
   const { updateAppData } = useContext(AppContext);
+  const { updateUser } = useContext(AuthContext);
   // const navigate = useNavigate();
 
   // useEffect(() => {
@@ -36,8 +38,8 @@ export const AdminState = ({ children }: ChildProps) => {
         landingPageFormOrder: state.landingPageFormOrder,
         sectionEntryOrganizer: state.sectionEntryOrganizer,
         formErrors: state.formErrors,
-        initApp: (values) => initApp({ dispatch, values, updateAppData }),
-        deleteApp: (appId) => deleteApp({ dispatch, appId, updateAppData }),
+        initApp: (values) => initApp({ dispatch, values, updateUser }),
+        deleteApp: (appId) => deleteApp({ dispatch, appId, updateUser }),
         editApp: (values, appId) => editApp({ dispatch, values, appId, updateAppData }),
         editAppName: (values, appId) => editAppName({ dispatch, values, appId, updateAppData }),
         editLandingPage: (values, appId) =>
