@@ -34,7 +34,8 @@ const UserPlayground = () => {
       navigate({ pathname: "/edit-app/", search: `?appName=${name}` });
     }
   };
-  const handleAdvancedSetting = (app: { appName?: string; appId: string }) => {
+  const handleAdvancedSetting = (app: { appName: string; appId: string }) => {
+    console.log("app", app);
     if (!app.appName) {
       setError({
         ...error,
@@ -60,7 +61,7 @@ const UserPlayground = () => {
         {ownedApps.length > 0 ? (
           ownedApps.map((app) => (
             <div key={app.appId} className="card-row pad-t">
-              <Hero hero={app.logo ? app.logo : {}} onImageClick={() => handleEdit(app)} />
+              <Hero hero={app.logo} onImageClick={() => handleEdit(app)} />
               <div className="flex-column elbow-space mb-2">
                 <h2 className="heading">{app?.appName || "No name"}</h2>
                 <div>

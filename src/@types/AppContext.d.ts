@@ -35,7 +35,6 @@ declare module "app-context" {
     logo: { [key: string]: string };
     calendar: CalendarProps;
     setTheme: (key: string) => void;
-    deleteApp: (appId: string) => void;
     getAppList: () => void;
     updateAppData: (key: FormValueProps) => void;
   }

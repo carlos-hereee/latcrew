@@ -3,7 +3,6 @@ import { reducer } from "./AppReducer";
 import { AuthContext } from "../auth/AuthContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import appState from "@data/appState.json";
-import { deleteApp } from "./helpers/deleteApp";
 import { ChildProps } from "app-types";
 import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { updateAppData } from "./helpers/updateAppData";
@@ -89,9 +88,7 @@ export const AppState = ({ children }: ChildProps) => {
         newsletter: state.newsletter,
         updateAppData: (a) => updateAppData({ dispatch, values: a }),
         setTheme: (a) => dispatch({ type: APP_ACTIONS.SET_THEME, payload: a }),
-        getAppList: () => getAppList,
-        deleteApp: (appId) =>
-          deleteApp({ appId, updateApp: (values) => updateAppData({ dispatch, values }) }),
+        getAppList: () => getAppList({ dispatch }),
 
         // language: state.language,
         // menu: state.menu,

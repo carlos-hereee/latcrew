@@ -8,6 +8,7 @@ import adminState from "@data/adminState.json";
 import { editAppName } from "./helpers/editAppName";
 import { editLandingPage } from "./helpers/editLandingPage";
 import { AppContext } from "../app/AppContext";
+import { deleteApp } from "./helpers/deleteApp";
 
 export const AdminContext = createContext<AdminSchema>({} as AdminSchema);
 export const AdminState = ({ children }: ChildProps) => {
@@ -35,29 +36,12 @@ export const AdminState = ({ children }: ChildProps) => {
         landingPageFormOrder: state.landingPageFormOrder,
         sectionEntryOrganizer: state.sectionEntryOrganizer,
         formErrors: state.formErrors,
-        initApp: (a) => initApp({ dispatch, values: a, updateAppData }),
-        editApp: (a, b) =>
-          editApp({
-            dispatch,
-            values: a,
-            appId: b,
-            updateAppData,
-          }),
-        editAppName: (a, b) =>
-          editAppName({
-            dispatch,
-            values: a,
-            appId: b,
-            updateAppData,
-          }),
-        editLandingPage: (a, b) =>
-          editLandingPage({
-            dispatch,
-            values: a,
-            appId: b,
-            updateAppData,
-          }),
-        // updateLoading: (a) => dispatch({ type: "IS_LOADING", payload: a }),
+        initApp: (values) => initApp({ dispatch, values, updateAppData }),
+        deleteApp: (appId) => deleteApp({ dispatch, appId, updateAppData }),
+        editApp: (values, appId) => editApp({ dispatch, values, appId, updateAppData }),
+        editAppName: (values, appId) => editAppName({ dispatch, values, appId, updateAppData }),
+        editLandingPage: (values, appId) =>
+          editLandingPage({ dispatch, values, appId, updateAppData }),
       }}
     >
       {children}
