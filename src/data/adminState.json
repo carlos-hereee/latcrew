@@ -1,5 +1,6 @@
 {
   "isLoading": false,
+  "formErrors": { "initAppFormError": "" },
   "appNameForm": {
     "initialValues": { "appName": "", "logo": "" },
     "labels": { "appName": "Enter app name", "logo": "Add new app logo" },

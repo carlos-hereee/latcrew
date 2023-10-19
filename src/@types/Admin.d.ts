@@ -9,6 +9,7 @@ declare module "app-admin" {
     heroForm: FormProps;
     ctaForm: FormProps;
     landingPageFormOrder: string[];
+    formErrors: { initAppFormError: string };
     sectionEntryOrganizer: {
       name: string;
       form: FormProps;
@@ -18,6 +19,7 @@ declare module "app-admin" {
   }
   export interface AdminSchema {
     isLoading: boolean;
+    formErrors: { initAppFormError: string };
     appNameForm: FormProps;
     pagesForm: FormProps;
     sectionForm: FormProps;
@@ -31,7 +33,7 @@ declare module "app-admin" {
       canMultiply: boolean;
       skipIfFalse: string;
     }[];
-    buildApp: (values: FormValueProps) => void;
+    initApp: (values: FormValueProps) => void;
     editApp: (values: FormValueProps, appId: string) => void;
     editAppName: (values: FormValueProps, appId: string) => void;
     editLandingPage: (values: FormValueProps, appId: string) => void;

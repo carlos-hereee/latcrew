@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 import { reducer } from "./AdminReducer";
 import { AdminSchema } from "app-admin";
 import { ChildProps } from "app-types";
-import { buildApp } from "./helpers/buildApp";
+import { initApp } from "./helpers/initApp";
 import { editApp } from "./helpers/editApp";
 import adminState from "@data/adminState.json";
 import { editAppName } from "./helpers/editAppName";
@@ -34,7 +34,8 @@ export const AdminState = ({ children }: ChildProps) => {
         ctaForm: state.ctaForm,
         landingPageFormOrder: state.landingPageFormOrder,
         sectionEntryOrganizer: state.sectionEntryOrganizer,
-        buildApp: (a) => buildApp({ dispatch, values: a, updateAppData }),
+        formErrors: state.formErrors,
+        initApp: (a) => initApp({ dispatch, values: a, updateAppData }),
         editApp: (a, b) =>
           editApp({
             dispatch,

@@ -5,10 +5,9 @@ import { AdminContext } from "@app/utils/context/admin/AdminContext";
 import { FormValueProps } from "app-forms";
 
 const BuildApp = () => {
-  const { landingPageForm, appNameForm, buildApp } = useContext(AdminContext);
+  const { landingPageForm, appNameForm, initApp, formErrors } = useContext(AdminContext);
   const navigate = useNavigate();
-
-  const [paginate, setPaginate] = useState<FormValueProps[]>([
+  const paginate: FormValueProps[] = [
     {
       formName: "appName",
       heading: "Initialize your app",
@@ -18,7 +17,7 @@ const BuildApp = () => {
       placeholders: appNameForm.placeholders,
       submitLabel: "Save and continue",
       schema: { required: ["appName", "logo"] },
-      onSubmit: buildApp,
+      onSubmit: initApp,
     },
     {
       formName: "landing",
@@ -27,12 +26,17 @@ const BuildApp = () => {
       submitLabel: "Save and continue",
       labels: landingPageForm.labels,
       types: landingPageForm.types,
+      placeholders: landingPageForm.placeholders,
     },
-  ]);
-
+  ];
+  console.log("formErrors", formErrors);
   return (
     <div className="container">
-      <PaginateForm paginate={paginate} onCancel={() => navigate("/")} />
+      <PaginateForm
+        paginate={paginate}
+        onCancel={() => navigate("/")}
+        responseError={formErrors.initAppFormError}
+      />
     </div>
   );
 };
