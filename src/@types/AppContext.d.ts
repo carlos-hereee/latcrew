@@ -20,6 +20,7 @@ declare module "app-context" {
   export interface AppSchema {
     // auth schema
     isLoading: boolean;
+    apps: { [key: string]: any }[];
     appName: string;
     welcomeMessage: string;
     theme: string;
@@ -35,9 +36,11 @@ declare module "app-context" {
     calendar: CalendarProps;
     setTheme: (key: string) => void;
     deleteApp: (appId: string) => void;
+    getAppList: () => void;
     updateAppData: (key: FormValueProps) => void;
   }
   export interface AppStateProps {
+    apps: { [key: string]: any }[];
     isLoading: boolean;
     appName: string;
     welcomeMessage: string;

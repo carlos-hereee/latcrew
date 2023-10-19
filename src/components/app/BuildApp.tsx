@@ -1,12 +1,15 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { PaginateForm } from "nexious-library";
 import { useNavigate } from "react-router-dom";
 import { AdminContext } from "@app/utils/context/admin/AdminContext";
 import { FormValueProps } from "app-forms";
+import { AppContext } from "@app/utils/context/app/AppContext";
 
 const BuildApp = () => {
   const { landingPageForm, appNameForm, initApp, formErrors } = useContext(AdminContext);
+  const { apps } = useContext(AppContext);
   const navigate = useNavigate();
+
   const paginate: FormValueProps[] = [
     {
       formName: "appName",
@@ -16,7 +19,10 @@ const BuildApp = () => {
       labels: appNameForm.labels,
       placeholders: appNameForm.placeholders,
       submitLabel: "Save and continue",
-      schema: { required: ["appName", "logo"] },
+      schema: {
+        required: ["appName", "logo"],
+        unique: [{ name: "appName", list: apps.map((app) => app.appName) }],
+      },
       onSubmit: initApp,
     },
     {
@@ -29,7 +35,8 @@ const BuildApp = () => {
       placeholders: landingPageForm.placeholders,
     },
   ];
-  console.log("formErrors", formErrors);
+  // console.log("formErrors", formErrors);
+  // console.log("apps", apps);
   return (
     <div className="container">
       <PaginateForm

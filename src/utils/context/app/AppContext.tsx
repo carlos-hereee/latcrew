@@ -9,6 +9,7 @@ import { axiosAuth } from "@app/utils/axios/axiosAuth";
 import { updateAppData } from "./helpers/updateAppData";
 import { AppSchema } from "app-context";
 import { APP_ACTIONS } from "@app/utils/types/AppActions";
+import { getAppList } from "./helpers/getAppList";
 // import { uploadImage } from "./helpers/uploadImage";
 // import { getLatestAppData } from "./helpers/getLatestAppData";
 // import { getFiles } from "./helpers/getFiles";
@@ -48,6 +49,10 @@ export const AppState = ({ children }: ChildProps) => {
       appName && getAppWithName(appName);
     }
   }, [queryParams.search]);
+
+  useEffect(() => {
+    getAppList({ dispatch });
+  }, []);
   // useEffect(() => {
   //   // user is login
   //   if (accessToken) {
@@ -68,6 +73,7 @@ export const AppState = ({ children }: ChildProps) => {
     <AppContext.Provider
       value={{
         isLoading: state.isLoading,
+        apps: state.apps,
         appName: state.appName,
         appId: state.appId,
         landing: state.landing,
@@ -83,6 +89,7 @@ export const AppState = ({ children }: ChildProps) => {
         newsletter: state.newsletter,
         updateAppData: (a) => updateAppData({ dispatch, values: a }),
         setTheme: (a) => dispatch({ type: APP_ACTIONS.SET_THEME, payload: a }),
+        getAppList: () => getAppList,
         deleteApp: (appId) =>
           deleteApp({ appId, updateApp: (values) => updateAppData({ dispatch, values }) }),
 

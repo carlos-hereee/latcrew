@@ -16,6 +16,8 @@ export const reducer: AppReducerProps = (state, action) => {
       return { ...state, adminIds: action.payload };
     case APP_ACTIONS.SET_NEWSLETTER:
       return { ...state, newsletter: action.payload };
+    case APP_ACTIONS.SET_APP_LIST:
+      return { ...state, apps: action.payload };
     case APP_ACTIONS.SET_APP_ID:
       return { ...state, appId: action.payload };
     case APP_ACTIONS.SET_MEDIA:
