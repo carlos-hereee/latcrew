@@ -37,6 +37,7 @@ declare module "app-context" {
     setTheme: (key: string) => void;
     getAppList: () => void;
     updateAppData: (key: FormValueProps) => void;
+    getAppWithName: (appName: string) => void;
   }
   export interface AppStateProps {
     apps: { [key: string]: any }[];

@@ -7,7 +7,7 @@ import WelcomeBanner from "@app/components/app/WelcomeBanner";
 
 const UserPlayground = () => {
   const { ownedApps } = useContext(AuthContext);
-  const { theme } = useContext(AppContext);
+  const { theme, getAppWithName } = useContext(AppContext);
   const [error, setError] = useState<{ [key: string]: any }>({});
 
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ const UserPlayground = () => {
     }
   };
   const handleAdvancedSetting = (app: { appName: string; appId: string }) => {
-    console.log("app", app);
+    // console.log("app", app);
     if (!app.appName) {
       setError({
         ...error,
@@ -43,9 +43,11 @@ const UserPlayground = () => {
       });
     } else {
       let name = app.appName.split(" ").join("+");
+      getAppWithName(name);
       navigate({ pathname: "/settings/app/", search: `?appName=${name}` });
     }
   };
+  console.log("ownedApps", ownedApps);
   return (
     <div className="container">
       <WelcomeBanner />

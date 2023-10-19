@@ -59,6 +59,11 @@ declare module "app-forms" {
     appId: string;
     updateAppData: (key: FormValueProps) => void;
   };
+  export type GetAppNameReducerProps = {
+    dispatch?: React.Dispatch<any>;
+    appName: string;
+    updateApp: (key: FormValueProps) => void;
+  };
   export interface ReorderFormValueProps {
     values: FormValueProps;
     desiredOrder: string[];

@@ -9,6 +9,7 @@ import { updateAppData } from "./helpers/updateAppData";
 import { AppSchema } from "app-context";
 import { APP_ACTIONS } from "@app/utils/types/AppActions";
 import { getAppList } from "./helpers/getAppList";
+import { getAppWithName } from "./helpers/getWithAppName";
 // import { uploadImage } from "./helpers/uploadImage";
 // import { getLatestAppData } from "./helpers/getLatestAppData";
 // import { getFiles } from "./helpers/getFiles";
@@ -36,23 +37,20 @@ export const AppState = ({ children }: ChildProps) => {
   const [state, dispatch] = useReducer(reducer, appState);
   // const { accessToken, user } = useContext(AuthContext);
   // const navigate = useNavigate();
-  const queryParams = useLocation();
+  // const queryParams = useLocation();
 
-  useEffect(() => {
-    const getAppWithName = async (appName: string) => {
-      const { data } = await axiosAuth.get(`/app/${appName}`);
-      updateAppData({ dispatch, values: data });
-    };
-    if (queryParams.search) {
-      const pathname = queryParams.pathname;
-      // avoid route clashes with settings
-      if (!pathname[0].includes("setting")) {
-        const appName = queryParams.search.split("appName=")[1];
-        // const appName = search[0];
-        appName && getAppWithName(appName);
-      }
-    }
-  }, [queryParams.search]);
+  // useEffect(() => {
+  //   if (queryParams.search) {
+  //     const appName = queryParams.search.split("appName=")[1];
+  //     if (appName) {
+  //       getAppWithName({
+  //         dispatch,
+  //         appName,
+  //         updateApp: (values) => updateAppData({ dispatch, values }),
+  //       });
+  //     }
+  //   }
+  // }, [queryParams.search]);
 
   useEffect(() => {
     getAppList({ dispatch });
@@ -92,6 +90,8 @@ export const AppState = ({ children }: ChildProps) => {
         welcomeMessage: state.welcomeMessage,
         newsletter: state.newsletter,
         updateAppData: (a) => updateAppData({ dispatch, values: a }),
+        getAppWithName: (appName) =>
+          getAppWithName({ appName, updateApp: (e) => updateAppData({ dispatch, values: e }) }),
         setTheme: (a) => dispatch({ type: APP_ACTIONS.SET_THEME, payload: a }),
         getAppList: () => getAppList({ dispatch }),
 
